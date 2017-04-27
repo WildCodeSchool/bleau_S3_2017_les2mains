@@ -1,3 +1,3 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+les2_mains:
+    resource: "@les2MainsBundle/Resources/config/routing.yml"
+    prefix:   /
