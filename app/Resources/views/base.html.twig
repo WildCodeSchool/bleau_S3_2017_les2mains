@@ -2,10 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <!-- Call Css -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/les2mains/css/style.css') }}"/>
+	    
     </head>
     <body>
         {% block body %}{% endblock %}
