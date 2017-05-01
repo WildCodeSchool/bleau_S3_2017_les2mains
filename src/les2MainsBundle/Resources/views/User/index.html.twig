@@ -5,14 +5,45 @@
 {% block body %}
 	<header>
 		<h2> Les Jardin de la Vallée </h2>
-		
-		<ul>
-			<li>Nous</li>
-			<li>Stages</li>
-			<li>Nos Activités</li>
-			<li>Nos Produits</li>
-			<li>Nous Trouver</li>
-		</ul>
+
+		<div class="overlay-navigation">
+			<nav role="navigation">
+				<ul>
+					<li><a href="#">Nous
+							<div class="onglet">
+							<a href="#">Nos activités</a>
+							</div>
+						</a>
+					</li>
+					<li><a href="#">Nos actualités
+					<div class="onglet">
+						<a href="#"></a>
+						<a href="#"></a>
+					</div>
+						</a>
+
+					<li><a href="#" >Nos stages
+					<div class="onglet">
+						<a href="#">Le corps</a>
+						<a href="#">La bouche</a>
+						<a href="#">La Terre</a>
+					</div>
+						</a>
+					<li><a href="#">Nos produits></a>
+
+					<li><a href="#" data-content="Don't hesitate">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<section class="home">
+			<a href="http://codepen.io/fluxus/pen/gPWxXJ" target="_blank">Click for CSS version</a>
+			<div class="open-overlay">
+				<span class="bar-top"></span>
+				<span class="bar-middle"></span>
+				<span class="bar-bottom"></span>
+			</div>
+		</section>
 	</header>
 	
 {% endblock %}
