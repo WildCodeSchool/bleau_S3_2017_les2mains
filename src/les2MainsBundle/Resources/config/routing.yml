@@ -1,3 +1,8 @@
 les2_mains_homepage:
     path:     /
     defaults: { _controller: les2MainsBundle:Default:index }
+
+les2_mains_nous:
+    path:     /nous
+    defaults: { _controller: les2MainsBundle:Default:nous }
+

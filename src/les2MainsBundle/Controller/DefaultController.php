@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('@les2Mains/User/index.html.twig');
     }
+
+    public function nousAction()
+    {
+        return $this->render('@les2Mains/User/nous.html.twig');
+    }
 }
