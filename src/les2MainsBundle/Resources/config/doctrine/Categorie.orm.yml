@@ -1,0 +1,16 @@
+les2MainsBundle\Entity\Categorie:
+    type: entity
+    table: null
+    repositoryClass: les2MainsBundle\Repository\CategorieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+            column: Nom
+    lifecycleCallbacks: {  }

@@ -1,0 +1,17 @@
+les2MainsBundle\Entity\Mail:
+    type: entity
+    table: null
+    repositoryClass: les2MainsBundle\Repository\MailRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        mail:
+            type: string
+            length: 255
+            nullable: true
+            unique: true
+    lifecycleCallbacks: {  }

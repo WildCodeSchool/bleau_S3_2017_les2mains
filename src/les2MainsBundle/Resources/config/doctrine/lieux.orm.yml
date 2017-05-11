@@ -1,0 +1,20 @@
+les2MainsBundle\Entity\lieux:
+    type: entity
+    table: null
+    repositoryClass: les2MainsBundle\Repository\lieuxRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+            column: Nom
+        adresse:
+            type: string
+            length: 255
+            column: Adresse
+    lifecycleCallbacks: {  }

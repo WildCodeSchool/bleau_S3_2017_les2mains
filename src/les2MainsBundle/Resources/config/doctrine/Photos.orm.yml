@@ -1,0 +1,19 @@
+les2MainsBundle\Entity\Photos:
+    type: entity
+    table: null
+    repositoryClass: les2MainsBundle\Repository\PhotosRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        alt:
+            type: string
+            length: 255
+            column: Alt
+        url:
+            type: text
+            column: Url
+    lifecycleCallbacks: {  }

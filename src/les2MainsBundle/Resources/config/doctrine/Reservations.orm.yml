@@ -1,0 +1,27 @@
+les2MainsBundle\Entity\Reservations:
+    type: entity
+    table: null
+    repositoryClass: les2MainsBundle\Repository\ReservationsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        quantitéInitiale:
+            type: integer
+            column: Quantité_initiale
+        quantitéReservé:
+            type: integer
+            column: Quantité_reservé
+        prix:
+            type: integer
+            column: Prix
+        dateReservation:
+            type: datetime
+            column: Date_reservation
+        dateVente:
+            type: datetime
+            column: Date_vente
+    lifecycleCallbacks: {  }

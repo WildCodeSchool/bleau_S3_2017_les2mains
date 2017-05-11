@@ -1,0 +1,17 @@
+les2MainsBundle\Entity\Newsletter:
+    type: entity
+    table: null
+    repositoryClass: les2MainsBundle\Repository\NewsletterRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        contenu:
+            type: text
+    lifecycleCallbacks: {  }
