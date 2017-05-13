@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Call Css -->
         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/les2mains/css/global.css') }}"/>
 	    
@@ -19,7 +20,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
 
 
-    <script src="{{ asset ('bundles/les2mains/js/les2mains.js') }}"
+        <script src="{{ asset ('bundles/les2mains/js/les2mains.js') }}"></script>
 
 
 
