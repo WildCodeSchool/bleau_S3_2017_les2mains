@@ -1,6 +1,6 @@
 /*----------------------------------------*\
     1.NOUS PAGE
-     /******************* CODE MATERIALIZED *************************************/
+/******************* CODE MATERIALIZE *************************************/
 /***************************************************************************/
 nav ul a,
 nav .brand-logo {
@@ -16,7 +16,7 @@ p {
 }
 
 .parallax-container {
-    min-height: 380px;
+    min-height: 600px;
     line-height: 0;
     height: auto;
     color: rgba(255, 255, 255, .9);
@@ -35,6 +35,7 @@ p {
     #index-banner .section {
         top: 10%;
     }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -54,6 +55,15 @@ p {
 footer.page-footer {
     margin: 0;
 }
+
+.img_box img {
+    width:300px;
+    height:200px;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+
 
 
 /*----------------------------------------*\
@@ -81,16 +91,16 @@ footer.page-footer {
 
 .homepage img{
     position: relative;
-    z-index:1;
+
     width: 100%;
     height: 100vh;
 }
 
 .home {
     width: 100%;
-    height: 15vh;
+    height: 0vh;
     position: relative;
-    z-index: 2;
+
     background-image: none;
     background-color: orangered;
 
@@ -113,6 +123,9 @@ Navigation
     background-color: hsla(0, 0%, 100%, 0.2);
     display: none;
     opacity: 0;
+
+
+
 }
 
 nav,
@@ -121,6 +134,7 @@ nav ul {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: transparent;  /* Arrière Plan Menu Burger*/
 }
 
 nav ul {
@@ -255,6 +269,7 @@ Burger king
     width: 34px;
     display: block;
     cursor: pointer;
+    background-color: orangered;
 }
 
 .open-overlay span {

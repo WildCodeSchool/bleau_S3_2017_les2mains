@@ -60,6 +60,8 @@ Navigation
     background-color: hsla(0, 0%, 100%, 0.2);
     display: none;
     opacity: 0;
+
+
 }
 
 nav,
@@ -68,6 +70,7 @@ nav ul {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: transparent;  /* Arrière Plan Menu Burger*/
 }
 
 nav ul {
@@ -76,6 +79,7 @@ nav ul {
     display: -ms-flexbox;
     display: flex;
     list-style: none;
+
 }
 
 nav ul li {
@@ -94,6 +98,7 @@ nav ul li {
     overflow: hidden;
     opacity: 0;
     display: none;
+
 }
 
 nav li a {
@@ -109,6 +114,7 @@ nav li a {
     text-align: center;
     font-size: 0.9rem;
     opacity: 0;
+
 }
 
 nav li a:before {
@@ -126,6 +132,7 @@ nav li a:before {
     opacity: 0;
     -webkit-transition: all .2s linear;
     transition: all .2s linear;
+
 }
 
 nav li a:after {
@@ -148,6 +155,7 @@ nav li a:after {
     font-weight: 300;
     font-style: italic;
     letter-spacing: 0;
+
 }
 
 
@@ -157,6 +165,7 @@ nav li a:after {
     -ms-transform: translateX(0);
     transform: translateX(0);
     opacity: 1;
+
 }
 
 .onglet:hover:after {
@@ -164,6 +173,7 @@ nav li a:after {
     -ms-transform: translateY(15px);
     transform: translateY(15px);
     opacity: 1;
+
 }
 
 
@@ -210,6 +220,7 @@ Burger king
     background-color: #fff;
     cursor: pointer;
     margin-top: 8px;
+
 }
 
 .animate-top-bar {
