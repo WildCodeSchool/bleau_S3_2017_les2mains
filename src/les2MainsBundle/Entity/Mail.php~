@@ -3,9 +3,9 @@
 namespace les2MainsBundle\Entity;
 
 /**
- * Categorie
+ * Mail
  */
-class Categorie
+class Mail
 {
     /**
      * @var int
@@ -15,7 +15,7 @@ class Categorie
     /**
      * @var string
      */
-    private $nom;
+    private $mail;
 
 
     /**
@@ -29,26 +29,27 @@ class Categorie
     }
 
     /**
-     * Set nom
+     * Set mail
      *
-     * @param string $nom
+     * @param string $mail
      *
-     * @return Categorie
+     * @return Mail
      */
-    public function setNom($nom)
+    public function setMail($mail)
     {
-        $this->nom = $nom;
+        $this->mail = $mail;
 
         return $this;
     }
 
     /**
-     * Get nom
+     * Get mail
      *
      * @return string
      */
-    public function getNom()
+    public function getMail()
     {
-        return $this->nom;
+        return $this->mail;
     }
 }
+

@@ -52,4 +52,3 @@ class Mail
         return $this->mail;
     }
 }
-

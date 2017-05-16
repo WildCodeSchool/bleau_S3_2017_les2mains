@@ -3,10 +3,25 @@
 namespace les2MainsBundle\Entity;
 
 /**
- * Blog
+ * Nous
  */
-class Blog
+class Nous
 {
+    /**
+     * @param int $id
+     */
+    public function __toString()
+    {
+        $str =
+            'Titre: ' . $this->titre .
+            '<br/>Contenu: ' . $this->contenu . "</ul>";
+        return $str;
+
+    }
+
+    // Generated
+
+
     /**
      * @var int
      */
@@ -16,11 +31,6 @@ class Blog
      * @var string
      */
     private $titre;
-
-    /**
-     * @var \DateTime
-     */
-    private $dates;
 
     /**
      * @var string
@@ -43,7 +53,7 @@ class Blog
      *
      * @param string $titre
      *
-     * @return Blog
+     * @return Nous
      */
     public function setTitre($titre)
     {
@@ -63,35 +73,11 @@ class Blog
     }
 
     /**
-     * Set dates
-     *
-     * @param \DateTime $dates
-     *
-     * @return Blog
-     */
-    public function setDates($dates)
-    {
-        $this->dates = $dates;
-
-        return $this;
-    }
-
-    /**
-     * Get dates
-     *
-     * @return \DateTime
-     */
-    public function getDates()
-    {
-        return $this->dates;
-    }
-
-    /**
      * Set contenu
      *
      * @param string $contenu
      *
-     * @return Blog
+     * @return Nous
      */
     public function setContenu($contenu)
     {
@@ -110,3 +96,4 @@ class Blog
         return $this->contenu;
     }
 }
+
