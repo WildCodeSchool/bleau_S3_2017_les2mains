@@ -4,5 +4,9 @@ les2_mains_homepage:
 
 les2_mains_nous:
     path:     /nous
-    defaults: { _controller: les2MainsBundle:Default:nous }
+    defaults: { _controller: les2MainsBundle:Our:nous }
+
+les2_mains_add:
+    path:     /add
+    defaults: { _controller: les2MainsBundle:Our:add }
 

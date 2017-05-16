@@ -52,4 +52,3 @@ class Articles
         return $this->nom;
     }
 }
-

@@ -3,9 +3,9 @@
 namespace les2MainsBundle\Entity;
 
 /**
- * Categorie
+ * lieux
  */
-class Categorie
+class lieux
 {
     /**
      * @var int
@@ -16,6 +16,11 @@ class Categorie
      * @var string
      */
     private $nom;
+
+    /**
+     * @var string
+     */
+    private $adresse;
 
 
     /**
@@ -33,7 +38,7 @@ class Categorie
      *
      * @param string $nom
      *
-     * @return Categorie
+     * @return lieux
      */
     public function setNom($nom)
     {
@@ -51,4 +56,29 @@ class Categorie
     {
         return $this->nom;
     }
+
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return lieux
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
 }
+

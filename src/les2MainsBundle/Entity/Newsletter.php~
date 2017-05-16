@@ -3,9 +3,9 @@
 namespace les2MainsBundle\Entity;
 
 /**
- * lieux
+ * Newsletter
  */
-class lieux
+class Newsletter
 {
     /**
      * @var int
@@ -15,12 +15,12 @@ class lieux
     /**
      * @var string
      */
-    private $nom;
+    private $titre;
 
     /**
      * @var string
      */
-    private $adresse;
+    private $contenu;
 
 
     /**
@@ -34,50 +34,51 @@ class lieux
     }
 
     /**
-     * Set nom
+     * Set titre
      *
-     * @param string $nom
+     * @param string $titre
      *
-     * @return lieux
+     * @return Newsletter
      */
-    public function setNom($nom)
+    public function setTitre($titre)
     {
-        $this->nom = $nom;
+        $this->titre = $titre;
 
         return $this;
     }
 
     /**
-     * Get nom
+     * Get titre
      *
      * @return string
      */
-    public function getNom()
+    public function getTitre()
     {
-        return $this->nom;
+        return $this->titre;
     }
 
     /**
-     * Set adresse
+     * Set contenu
      *
-     * @param string $adresse
+     * @param string $contenu
      *
-     * @return lieux
+     * @return Newsletter
      */
-    public function setAdresse($adresse)
+    public function setContenu($contenu)
     {
-        $this->adresse = $adresse;
+        $this->contenu = $contenu;
 
         return $this;
     }
 
     /**
-     * Get adresse
+     * Get contenu
      *
      * @return string
      */
-    public function getAdresse()
+    public function getContenu()
     {
-        return $this->adresse;
+        return $this->contenu;
     }
 }
+
