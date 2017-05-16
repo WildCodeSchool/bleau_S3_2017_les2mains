@@ -22,16 +22,14 @@ class OurController extends Controller
             ->add('save',         SubmitType::class)
         ;
 
-
         $form = $formBuilder->getForm();
-
 
         return $this->render('@les2Mains/User/nous.html.twig', array(
             'form' => $form->createView(),
         ));
     }
 
-    public function addAction()
+   public function addAction()
     {
         $ajout = new Nous();
 

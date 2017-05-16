@@ -1,8 +1,6 @@
 {% extends 'les2MainsBundle:User:layout.html.twig'%}
 {% block stylesheets %}
-	
 	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/les2mains/css/Nous.css') }}"/>
-	
 {% endblock %}
 
 {% block title %}Nous!{% endblock %}
@@ -37,18 +35,42 @@
 							Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum.
 							Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat,
 							aut ne plus aequo quid in amicitiam congeratur.</p>
-					</div>
-							<div class="row">
-								<div class="col s1 img_box">
-									<img src="{{ asset('bundles/les2mains/img/pictures/1.jpg') }}" >
+						
+						<!-- Template Admin -->
+						{% if is_granted('ROLE_ADMIN') %}
+							<!-- Modal Trigger -->
+							<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Edition</a>
+							
+							<!-- Modal Structure -->
+							<div id="modal1" class="modal modal-fixed-footer">
+								<div class="modal-content">
+									{{ form_start(form) }}
+									<div class="row col l12">
+										{{ form_row(form.titre) }}
+									</div>
+									<div class="row col l12">
+										{{ form_row(form.contenu) }}
+									</div>
+									{{ form_end(form) }}
 								</div>
-								<div class="col s1 offset-s3 img_box">
-									<img src="{{ asset('bundles/les2mains/img/pictures/2.JPG') }}" >
-								</div>
-								<div class="col s1 offset-s3 img_box">
-									<img src="{{ asset('bundles/les2mains/img/pictures/3.JPG') }}" >
+								<div class="modal-footer">
+									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
+									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
 								</div>
 							</div>
+						{% endif %}
+					</div>
+					<div class="row">
+						<div class="col s1 img_box">
+							<img src="{{ asset('bundles/les2mains/img/pictures/1.jpg') }}" >
+						</div>
+						<div class="col s1 offset-s3 img_box">
+							<img src="{{ asset('bundles/les2mains/img/pictures/2.JPG') }}" >
+						</div>
+						<div class="col s1 offset-s3 img_box">
+							<img src="{{ asset('bundles/les2mains/img/pictures/3.JPG') }}" >
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -61,7 +83,7 @@
 		</div>
 		<div class="parallax"><img src="{{ asset('bundles/les2mains/img/pic2.jpg') }}" alt="Unsplashed background img 2"></div>
 	</div>
-	
+	<!--   Section "Notre Histoire"   -->
 	<div class="container">
 		<div class="section">
 			<div class="row">
@@ -76,12 +98,38 @@
 						Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum.
 						Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat,
 						aut ne plus aequo quid in amicitiam congeratur.</p>
-				</div>
-				<div class="col s2 img_box">
-					<img src="{{ asset('bundles/les2mains/img/pictures/1.jpg') }}" >
-				</div>
-				<div class="col s2 img_box">
-					<img src="{{ asset('bundles/les2mains/img/pictures/4.jpg') }}" >
+					
+					<!-- Template Admin -->
+					{% if is_granted('ROLE_ADMIN') %}
+						<!-- Modal Trigger -->
+						<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Edition</a>
+						
+						<!-- Modal Structure -->
+						<div id="modal1" class="modal modal-fixed-footer">
+							<div class="modal-content">
+								{{ form_start(form) }}
+								<div class="row col l12">
+									{{ form_row(form.titre) }}
+								</div>
+								<div class="row col l12">
+									{{ form_row(form.contenu) }}
+								</div>
+								<p>test</p>
+								{{ form_end(form) }}
+							</div>
+							<div class="modal-footer">
+								<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
+								<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
+							</div>
+						</div>
+					{% endif %}
+					
+						</div>
+						<div class="col s2 img_box">
+							<img src="{{ asset('bundles/les2mains/img/pictures/1.jpg') }}" >
+						</div>
+						<div class="col s2 img_box">
+							<img src="{{ asset('bundles/les2mains/img/pictures/4.jpg') }}" >
 				</div>
 			</div>
 		</div>
@@ -98,10 +146,9 @@
 		<div class="parallax"><img src="{{ asset('bundles/les2mains/img/pic3.jpg') }}" alt="Unsplashed background img 3"></div>
 	</div>
 	
-	
+	<!--   Section "L'association"   -->
 	<div class="container">
 		<div class="section">
-			
 			<div class="row">
 				<div class="col s12 center">
 					<h2 class="header center teal-text text-lighten-2">L'association "Les 2 Mains"</h2>
@@ -114,6 +161,30 @@
 						Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum.
 						Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat,
 						aut ne plus aequo quid in amicitiam congeratur.</p>
+					
+					<!-- Template Admin -->
+					{% if is_granted('ROLE_ADMIN') %}
+					<!-- Modal Trigger -->
+						<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Edition</a>
+					
+					<!-- Modal Structure -->
+						<div id="modal1" class="modal modal-fixed-footer">
+							<div class="modal-content">
+								{{ form_start(form) }}
+								<div class="row col l12">
+									{{ form_row(form.titre) }}
+								</div>
+								<div class="row col l12">
+									{{ form_row(form.contenu) }}
+								</div>
+								{{ form_end(form) }}
+							</div>
+							<div class="modal-footer">
+								<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
+								<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
+							</div>
+						</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -131,21 +202,6 @@
 	</div>
 	
 	
-	{% form_theme form 'bootstrap_3_layout.html.twig' %}
-	{# {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %} #}
-	<div class="add_page">
-		<div class="container">
-			{{ form_start(form) }}
-			<div class="row col-sm-12">
-				{{ form_row(form.titre) }}
-			</div>
-			<div class="row col-sm-12">
-				{{ form_row(form.contenu) }}
-			</div>
-			{{ form_end(form) }}
-		</div>
-	</div>
-	
 	<footer class="page-footer teal">
 		<div class="container">
 			<div class="row">
@@ -161,7 +217,4 @@
 			</div>
 		</div>
 	</footer>
-	
-
-
 {% endblock %}
