@@ -1,3 +1,7 @@
 les2_mains_homepage:
     path:     /
     defaults: { _controller: les2MainsBundle:Default:index }
+
+les2_mains_actu:
+    path:     /actu
+    defaults: {_controller: les2MainsBundle:Actu:index }

@@ -2,13 +2,13 @@
     1.HOMEPAGE
 \*----------------------------------------*/
 /*----------------------------------------*\
-    2.
+    2.nav
 \*----------------------------------------*/
 /*----------------------------------------*\
     3.
 \*----------------------------------------*/
 /*----------------------------------------*\
-    4.
+    4.blog
 \*----------------------------------------*/
 /*----------------------------------------*\
     5.
@@ -400,4 +400,48 @@ Animation keyframes
     nav li a:before {
         width: 25px;
     }
+}
+
+
+/*----------------------------------------*\
+    4.blog
+\*----------------------------------------*/
+
+/*----------------------------------------*\
+.seb_title{
+    color: darkgreen;
+    margin-top: 25px;
+    border-top: darkgreen solid 1px;
+    border-bottom: darkgreen solid 1px;
+}
+
+.seb_content{
+    color: darkgreen;
+    border-top: darkgreen solid 1px;
+    border-bottom: darkgreen solid 1px;
+
+}
+
+.seb_image{
+
+    margin-top: 25px;
+    border-left: darkgreen solid 1px;
+}
+
+\*----------------------------------------*/
+
+.seb_container_custom{
+    border-top: darkgreen solid 1px;
+    border-bottom: darkgreen solid 1px;
+    margin-top: 150px;
+}
+
+
+.card-image{
+    height: 350px;
+    padding: 10px;
+}
+
+body{
+    background-image: url(../../public/img/monkey.jpg);
 }
