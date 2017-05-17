@@ -2,7 +2,17 @@ les2_mains_homepage:
     path:     /
     defaults: { _controller: les2MainsBundle:Default:index }
 
+
 les2_mains_nos_events:
     path:     /events
     defaults: { _controller: les2MainsBundle:Events:add }
+
+les2_mains_nous:
+    path:     /nous
+    defaults: { _controller: les2MainsBundle:Our:nous }
+
+les2_mains_add:
+    path:     /add
+    defaults: { _controller: les2MainsBundle:Our:add }
+
 

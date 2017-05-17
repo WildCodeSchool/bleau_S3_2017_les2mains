@@ -69,3 +69,7 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+twig:
+    form_themes:
+        - 'bootstrap_3_layout.html.twig'

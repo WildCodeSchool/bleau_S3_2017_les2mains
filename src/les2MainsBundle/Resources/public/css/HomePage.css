@@ -1,6 +1,7 @@
 /*----------------------------------------*\
-    1.HOMEPAGE
-\*----------------------------------------*/
+    1.NOUS PAGE
+
+
 /*----------------------------------------*\
     2.
 \*----------------------------------------*/
@@ -16,37 +17,27 @@
 
 
 
-
-
-
-
-
-
 /*----------------------------------------*\
     1.HOMEPAGE
 \*----------------------------------------*/
 
+/******************* CODE MENU BURGER *************************************/
+/***************************************************************************/
 
-/*----------------------------------------*\
-    2.nav
-\*----------------------------------------*/
-.homepage img{
-    position: relative;
 
-    width: 100%;
-    height: 100vh;
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
+body {
+    background-color: #fff
 }
 
 .home {
     width: 100%;
-    height: 0vh;
+    height: 100vh;
     position: relative;
-
-    background-image: none;
-    background-color: orangered;
-
+    background-image: url(https://images.unsplash.com/photo-1444927714506-8492d94b4e3d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=067f0b097deff88a789e125210406ffe);
     background-size: cover;
     background-position: center center;
+
 }
 
 
@@ -66,7 +57,6 @@ Navigation
     opacity: 0;
 
 
-
 }
 
 nav,
@@ -84,6 +74,7 @@ nav ul {
     display: -ms-flexbox;
     display: flex;
     list-style: none;
+
 }
 
 nav ul li {
@@ -102,6 +93,7 @@ nav ul li {
     overflow: hidden;
     opacity: 0;
     display: none;
+
 }
 
 nav li a {
@@ -117,6 +109,7 @@ nav li a {
     text-align: center;
     font-size: 0.9rem;
     opacity: 0;
+
 }
 
 nav li a:before {
@@ -134,6 +127,7 @@ nav li a:before {
     opacity: 0;
     -webkit-transition: all .2s linear;
     transition: all .2s linear;
+
 }
 
 nav li a:after {
@@ -156,6 +150,7 @@ nav li a:after {
     font-weight: 300;
     font-style: italic;
     letter-spacing: 0;
+
 }
 
 
@@ -165,6 +160,7 @@ nav li a:after {
     -ms-transform: translateX(0);
     transform: translateX(0);
     opacity: 1;
+
 }
 
 .onglet:hover:after {
@@ -172,6 +168,7 @@ nav li a:after {
     -ms-transform: translateY(15px);
     transform: translateY(15px);
     opacity: 1;
+
 }
 
 
@@ -210,7 +207,6 @@ Burger king
     width: 34px;
     display: block;
     cursor: pointer;
-    background-color: orangered;
 }
 
 .open-overlay span {
@@ -219,6 +215,7 @@ Burger king
     background-color: #fff;
     cursor: pointer;
     margin-top: 8px;
+
 }
 
 .animate-top-bar {
@@ -383,30 +380,26 @@ Animation keyframes
         -ms-flex-direction: column;
         flex-direction: column;
     }
-
     nav ul li {
         height: 20%;
     }
-
     nav ul li a {
         font-size: 11px;
     }
-
     nav li a:after {
         font-size: 0.6rem;
         bottom: -25px;
     }
-
     nav li a:hover:after {
         transform: translateY(0);
     }
 
+
+
     .open-overlay {
         right: 1rem;
     }
-
     nav li a:before {
         width: 25px;
     }
-
 }

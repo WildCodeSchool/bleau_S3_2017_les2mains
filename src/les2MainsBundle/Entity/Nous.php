@@ -8,6 +8,21 @@ namespace les2MainsBundle\Entity;
 class Nous
 {
     /**
+     * @param int $id
+     */
+    public function __toString()
+    {
+        $str =
+            'Titre: ' . $this->titre .
+            '<br/>Contenu: ' . $this->contenu . "</ul>";
+        return $str;
+
+    }
+
+    // Generated
+
+
+    /**
      * @var int
      */
     private $id;
@@ -81,4 +96,3 @@ class Nous
         return $this->contenu;
     }
 }
-

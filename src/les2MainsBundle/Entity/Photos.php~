@@ -3,9 +3,9 @@
 namespace les2MainsBundle\Entity;
 
 /**
- * TVA
+ * Photos
  */
-class TVA
+class Photos
 {
     /**
      * @var int
@@ -13,14 +13,14 @@ class TVA
     private $id;
 
     /**
-     * @var int
+     * @var string
      */
-    private $taux;
+    private $alt;
 
     /**
      * @var string
      */
-    private $nom;
+    private $url;
 
 
     /**
@@ -34,50 +34,51 @@ class TVA
     }
 
     /**
-     * Set taux
+     * Set alt
      *
-     * @param integer $taux
+     * @param string $alt
      *
-     * @return TVA
+     * @return Photos
      */
-    public function setTaux($taux)
+    public function setAlt($alt)
     {
-        $this->taux = $taux;
+        $this->alt = $alt;
 
         return $this;
     }
 
     /**
-     * Get taux
-     *
-     * @return int
-     */
-    public function getTaux()
-    {
-        return $this->taux;
-    }
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return TVA
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
+     * Get alt
      *
      * @return string
      */
-    public function getNom()
+    public function getAlt()
     {
-        return $this->nom;
+        return $this->alt;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Photos
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }
+

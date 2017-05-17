@@ -3,19 +3,14 @@
 namespace les2MainsBundle\Entity;
 
 /**
- * TVA
+ * Articles
  */
-class TVA
+class Articles
 {
     /**
      * @var int
      */
     private $id;
-
-    /**
-     * @var int
-     */
-    private $taux;
 
     /**
      * @var string
@@ -34,35 +29,11 @@ class TVA
     }
 
     /**
-     * Set taux
-     *
-     * @param integer $taux
-     *
-     * @return TVA
-     */
-    public function setTaux($taux)
-    {
-        $this->taux = $taux;
-
-        return $this;
-    }
-
-    /**
-     * Get taux
-     *
-     * @return int
-     */
-    public function getTaux()
-    {
-        return $this->taux;
-    }
-
-    /**
      * Set nom
      *
      * @param string $nom
      *
-     * @return TVA
+     * @return Articles
      */
     public function setNom($nom)
     {
@@ -81,3 +52,4 @@ class TVA
         return $this->nom;
     }
 }
+

@@ -81,4 +81,3 @@ class Photos
         return $this->url;
     }
 }
-
