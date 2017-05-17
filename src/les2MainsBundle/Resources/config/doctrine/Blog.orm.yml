@@ -17,3 +17,4 @@ les2MainsBundle\Entity\Blog:
         contenu:
             type: text
     lifecycleCallbacks: {  }
+

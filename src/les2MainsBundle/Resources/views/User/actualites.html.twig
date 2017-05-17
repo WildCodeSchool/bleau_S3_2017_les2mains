@@ -5,15 +5,14 @@
 
             <div class="parallax-container">
                 <div class="row">
-                    <h1 class="col s12 center seb_title">Fil d'actualité</h1>
+                    <h1 class="col s12 center seb_title">Fil d'actu</h1>
                     <!-- Modal Trigger -->
-                    <a class="col s2 offset-s5 waves-effect waves-light btn" href="#modal1">Ajouter une Actu</a>
+                    <a class="col s2 offset-s5 waves-effect waves-light btn" href="#modal2">Ajouter une Actu</a>
 
                     <!-- Modal Structure -->
-                    <div id="modal1" class="modal">
+                    <div id="modal2" class="modal">
                         <div class="modal-content">
-                            <h4>Modal Header</h4>
-                            <p>A bunch of text</p>
+                            {{ form(form) }}
                         </div>
                         <div class="modal-footer">
                             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>

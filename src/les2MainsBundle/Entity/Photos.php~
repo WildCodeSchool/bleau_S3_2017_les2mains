@@ -1,0 +1,11 @@
+<?php
+
+namespace les2MainsBundle\Entity;
+
+/**
+ * Photos
+ */
+class Photos
+{
+   
+}

@@ -1,0 +1,10 @@
+<?php
+
+namespace les2MainsBundle\Entity;
+
+/**
+ * Blog
+ */
+class Blog
+{
+}

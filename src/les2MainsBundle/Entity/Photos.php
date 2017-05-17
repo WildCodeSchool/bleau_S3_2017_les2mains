@@ -7,8 +7,9 @@ namespace les2MainsBundle\Entity;
  */
 class Photos
 {
+   
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -26,7 +27,7 @@ class Photos
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -81,4 +82,3 @@ class Photos
         return $this->url;
     }
 }
-

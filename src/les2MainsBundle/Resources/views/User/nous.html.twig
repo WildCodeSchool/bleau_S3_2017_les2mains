@@ -27,7 +27,7 @@
 			<div class="row">
 				<div class="col s12 m12 offset-s2">
 					<div class="icon-block">
-						<h2 class="center brown-text"><i class="material-icons">Notre Vision de la Permaculture</i></h2>
+						<h2 class="header center teal-text text-lighten-2">Notre Vision de la Permaculture</h2>
 						<p class="light">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
 							et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.
 							
@@ -40,13 +40,13 @@
 					</div>
 							<div class="row">
 								<div class="col s1 img_box">
-									<img src="{{ asset('bundles/les2mains/img/pic3.jpg') }}" >
+									<img src="{{ asset('bundles/les2mains/img/pictures/1.jpg') }}" >
 								</div>
 								<div class="col s1 offset-s3 img_box">
-									<img src="{{ asset('bundles/les2mains/img/pic3.jpg') }}" >
+									<img src="{{ asset('bundles/les2mains/img/pictures/2.JPG') }}" >
 								</div>
 								<div class="col s1 offset-s3 img_box">
-									<img src="{{ asset('bundles/les2mains/img/pic3.jpg') }}" >
+									<img src="{{ asset('bundles/les2mains/img/pictures/3.JPG') }}" >
 								</div>
 							</div>
 				</div>
@@ -57,9 +57,6 @@
 	<div class="parallax-container valign-wrapper">
 		<div class="section no-pad-bot">
 			<div class="container">
-				<div class="row center">
-					<h5 class="header col s12 light">#</h5>
-				</div>
 			</div>
 		</div>
 		<div class="parallax"><img src="{{ asset('bundles/les2mains/img/pic2.jpg') }}" alt="Unsplashed background img 2"></div>
@@ -69,8 +66,7 @@
 		<div class="section">
 			<div class="row">
 				<div class="col s10 center">
-					<h3><i class="mdi-content-send brown-text"></i></h3>
-					<h4>Notre Histoire</h4>
+					<h2 class="header center teal-text text-lighten-2">Notre Histoire</h2>
 					<p class="light">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
 						et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.
 						
@@ -82,10 +78,10 @@
 						aut ne plus aequo quid in amicitiam congeratur.</p>
 				</div>
 				<div class="col s2 img_box">
-					<img src="{{ asset('bundles/les2mains/img/pic3.jpg') }}" >
+					<img src="{{ asset('bundles/les2mains/img/pictures/1.jpg') }}" >
 				</div>
 				<div class="col s2 img_box">
-					<img src="{{ asset('bundles/les2mains/img/pic3.jpg') }}" >
+					<img src="{{ asset('bundles/les2mains/img/pictures/4.jpg') }}" >
 				</div>
 			</div>
 		</div>
@@ -108,8 +104,7 @@
 			
 			<div class="row">
 				<div class="col s12 center">
-					<h3><i class="mdi-content-send brown-text"></i></h3>
-					<h4>L'association "Les 2 Mains"</h4>
+					<h2 class="header center teal-text text-lighten-2">L'association "Les 2 Mains"</h2>
 					<p class="light">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
 						et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.
 						
@@ -136,6 +131,20 @@
 	</div>
 	
 	
+	{% form_theme form 'bootstrap_3_layout.html.twig' %}
+	{# {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %} #}
+	<div class="add_page">
+		<div class="container">
+			{{ form_start(form) }}
+			<div class="row col-sm-12">
+				{{ form_row(form.titre) }}
+			</div>
+			<div class="row col-sm-12">
+				{{ form_row(form.contenu) }}
+			</div>
+			{{ form_end(form) }}
+		</div>
+	</div>
 	
 	<footer class="page-footer teal">
 		<div class="container">
