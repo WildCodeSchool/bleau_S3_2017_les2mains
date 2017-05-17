@@ -3,10 +3,15 @@ les2_mains_homepage:
     defaults: { _controller: les2MainsBundle:Default:index }
 
 
+
 les2_mains_actu:
     path:     /actu
     defaults: {_controller: les2MainsBundle:Actu:index }
 
+
+les2_mains_nos_events:
+    path:     /events
+    defaults: { _controller: les2MainsBundle:Events:add }
 
 les2_mains_nous:
     path:     /nous
