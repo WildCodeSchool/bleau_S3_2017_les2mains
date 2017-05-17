@@ -2,3 +2,5 @@ les2_mains:
     resource: "@les2MainsBundle/Resources/config/routing.yml"
     prefix:   /
 
+logout:
+    path: /logout

@@ -102,10 +102,10 @@
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
 						<!-- Modal Trigger -->
-						<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Edition</a>
+						<a class="modal-trigger waves-effect waves-light btn" href="#modal2">Edition</a>
 						
 						<!-- Modal Structure -->
-						<div id="modal1" class="modal modal-fixed-footer">
+						<div id="modal2" class="modal modal-fixed-footer">
 							<div class="modal-content">
 								{{ form_start(form) }}
 								<div class="row col l12">
@@ -134,7 +134,6 @@
 			</div>
 		</div>
 	</div>
-	
 	<div class="parallax-container valign-wrapper">
 		<div class="section no-pad-bot">
 			<div class="container">
@@ -165,12 +164,12 @@
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
 					<!-- Modal Trigger -->
-						<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Edition</a>
+						<a class="modal-trigger waves-effect waves-light btn" href="#modal3">Edition</a>
 					
 					<!-- Modal Structure -->
-						<div id="modal1" class="modal modal-fixed-footer">
-							<div class="modal-content">
-								{{ form_start(form) }}
+						<div id="modal3" class="modal modal-fixed-footer">
+							<div class="modal-content-3">
+								{{ form(form) }}
 								<div class="row col l12">
 									{{ form_row(form.titre) }}
 								</div>
