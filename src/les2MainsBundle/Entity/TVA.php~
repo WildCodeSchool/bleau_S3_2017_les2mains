@@ -81,4 +81,3 @@ class TVA
         return $this->nom;
     }
 }
-

@@ -168,4 +168,3 @@ class Reservations
         return $this->dateVente;
     }
 }
-

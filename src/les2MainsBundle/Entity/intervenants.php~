@@ -52,4 +52,3 @@ class intervenants
         return $this->nom;
     }
 }
-

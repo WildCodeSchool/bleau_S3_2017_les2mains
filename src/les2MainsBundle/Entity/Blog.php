@@ -8,7 +8,7 @@ namespace les2MainsBundle\Entity;
 class Blog
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -31,7 +31,7 @@ class Blog
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
