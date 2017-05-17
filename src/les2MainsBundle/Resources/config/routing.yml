@@ -21,4 +21,8 @@ les2_mains_add:
     path:     /add
     defaults: { _controller: les2MainsBundle:Our:add }
 
+les2_mains_admin:
+    path:     /admin
+    defaults: { _controller: les2MainsBundle:Default:admin }
+
 
