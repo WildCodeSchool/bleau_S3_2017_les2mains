@@ -81,4 +81,3 @@ class lieux
         return $this->adresse;
     }
 }
-

@@ -1,0 +1,142 @@
+{% extends 'les2MainsBundle:User:layout.html.twig' %}
+
+{% block body %}
+
+
+            <div class="parallax-container">
+                <div class="row">
+                    <h1 class="col s12 center seb_title">Fil d'actu</h1>
+                    <!-- Modal Trigger -->
+                    <a class="col s2 offset-s5 waves-effect waves-light btn" href="#modal2">Ajouter une Actu</a>
+
+                    <!-- Modal Structure -->
+                    <div id="modal2" class="modal">
+                        <div class="modal-content">
+                            {{ form(form) }}
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="parallax"><img src="{{ asset('bundles/les2mains/img/pic1.jpg') }}"></div>
+            </div>
+
+            <div class="container seb_container_custom">
+                <div class="row">
+                    <div class="col s12 seb_card">
+                        <div class="card horizontal">
+                            <div class="card-image seb_card_image">
+                                <img width="400" height="330" src="{{ asset('bundles/les2mains/img/monkey.jpg') }}">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <h2>Lorem ipsum dolor sit amet, consectetur.</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
+                                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
+                                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
+                                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
+                                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
+                                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
+                                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
+                                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
+                                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
+                                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
+                                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
+                                    </p>
+
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">This is a link</a>
+                                </div>
+
+                                <!--Div uniquement en admin -->
+                                <div class="card-action">
+
+                                    <!-- Modal Trigger -->
+                                    <a class="col s2 offset-s2 waves-effect waves-light btn" href="#modal1">Modifier</a>
+
+                                    <!-- Modal Structure -->
+                                    <div id="modal1" class="modal">
+                                        <div class="modal-content">
+                                            <h4>Modal Header</h4>
+                                            <p>A bunch of text</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Modal Trigger -->
+                                    <a class="col s2 offset-s3 waves-effect waves-light btn" href="#modal1">Supprimer</a>
+
+                                    <!-- Modal Structure -->
+                                    <div id="modal1" class="modal">
+                                        <div class="modal-content">
+                                            <h4>Modal Header</h4>
+                                            <p>A bunch of text</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="parallax-container">
+                <div class="parallax"><img src="{{ asset('bundles/les2mains/img/pic2.jpg') }}"></div>
+            </div>
+
+
+            <div class="container seb_container_custom">
+                <div class="row">
+                    <div class="col s12 seb_card">
+                        <div class="card horizontal">
+                            <div class="card-image seb_card_image">
+                                <img width="400" height="330" src="{{ asset('bundles/les2mains/img/monkey.jpg') }}">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <h2>Lorem ipsum dolor sit amet, consectetur.</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
+                                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
+                                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
+                                        tempore voluptas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequatur delectus deserunt
+                                        distinctio ex explicabo iste odio officia officiis optio placeat possimus quaerat quisquam sit suscipit,
+                                        temporibus vel voluptates voluptatibus. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Ab aspernatur delectus excepturi fugit hic laudantium, necessitatibus perspiciatis quam, quas,
+                                        qui tempora temporibus ullam unde vitae voluptates? Consectetur nihil provident quam?
+
+                                    </p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">This is a link</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="parallax-container">
+                <div class="parallax"><img src="{{ asset('bundles/les2mains/img/pic3.jpg') }}"></div>
+            </div>
+{% endblock %}
