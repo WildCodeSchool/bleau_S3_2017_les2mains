@@ -15,16 +15,16 @@ security:
                     jim:
                         password: jim
                         roles: 'ROLE_USER'
-                    admin:
+                    adm:
                         password: jim
                         roles: 'ROLE_ADMIN'
 
     firewalls:
-        secured_area:
-            # ...
-            logout:
-                path:   /logout
-                target: /
+#        secured_area:
+#            # ...
+#            logout:
+#                path:   /logout
+#                target: /
         # disables authentication for assets and the profiler, adapt it according to your needs
         default:
             anonymous: ~
