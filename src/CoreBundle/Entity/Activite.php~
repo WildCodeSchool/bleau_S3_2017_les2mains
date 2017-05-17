@@ -81,4 +81,3 @@ class Activite
         return $this->contenu;
     }
 }
-

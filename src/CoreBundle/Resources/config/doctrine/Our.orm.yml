@@ -31,3 +31,7 @@ CoreBundle\Entity\Our:
             type: text
             column: contenu_3
     lifecycleCallbacks: {  }
+
+    manyToMany:
+        pictures:
+            targetEntity: CoreBundle\Entity\Picture

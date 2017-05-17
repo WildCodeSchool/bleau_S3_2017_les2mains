@@ -17,3 +17,8 @@ BlogBundle\Entity\Article:
         date:
             type: datetime
     lifecycleCallbacks: {  }
+    
+    oneToOne:
+        picture:
+            targetEntity: CoreBundle\Entity\Picture
+        

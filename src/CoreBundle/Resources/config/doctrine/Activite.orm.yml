@@ -15,3 +15,13 @@ CoreBundle\Entity\Activite:
         contenu:
             type: text
     lifecycleCallbacks: {  }
+
+    manyToOne :
+        activiteType:
+            targetEntity: CoreBundle\Entity\ActiviteType
+            inversedBy: activites
+
+    manyToMany:
+        pictures:
+            targetEntity: CoreBundle\Entity\Picture
+

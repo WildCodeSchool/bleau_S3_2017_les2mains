@@ -13,3 +13,11 @@ CoreBundle\Entity\ActiviteType:
             type: string
             length: 255
     lifecycleCallbacks: {  }
+
+    oneToMany :
+        activites:
+            targetEntity: CoreBundle\Entity\Activite
+            mappedBy: activiteType
+
+
+

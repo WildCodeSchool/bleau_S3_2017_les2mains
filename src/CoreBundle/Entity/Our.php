@@ -196,4 +196,50 @@ class Our
     {
         return $this->contenu3;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $pictures;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->pictures = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add picture
+     *
+     * @param \CoreBundle\Entity\Picture $picture
+     *
+     * @return Our
+     */
+    public function addPicture(\CoreBundle\Entity\Picture $picture)
+    {
+        $this->pictures[] = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Remove picture
+     *
+     * @param \CoreBundle\Entity\Picture $picture
+     */
+    public function removePicture(\CoreBundle\Entity\Picture $picture)
+    {
+        $this->pictures->removeElement($picture);
+    }
+
+    /**
+     * Get pictures
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
+    }
 }
