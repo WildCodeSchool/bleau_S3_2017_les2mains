@@ -152,15 +152,34 @@
     <div class="row">
         <div class="col m12">
             <!-- Modal Trigger -->
-            <a class="waves-effect waves-light btn btn_custom" href="#modal1">créer</a>
+            <a class="waves-effect waves-light btn btn_custom" href="#modal1">créer un stage</a>
 
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
                 <div class="modal-content">
                     <div class="row">
                         <div class="col s12">
+                            {{ form_start(form) }}
+
+                            {{ form_label (form.dates_debut) }}
+                            {{ form_widget (form.dates_debut) }}
+                            {{ form_errors (form.dates_debut) }}
+
+                            {{ form_label (form.dates_fin) }}
+                            {{ form_widget (form.dates_fin) }}
+                            {{ form_errors (form.dates_fin) }}
+
+                            {{ form_label (form.prix) }}
+                            {{ form_widget (form.prix) }}
+                            {{ form_errors (form.prix) }}
+
+                            {{ form_label (form.Descriptions) }}
+                            {{ form_widget (form.Descriptions) }}
+                            {{ form_errors (form.Descriptions) }}
+
+                            {{ form_end(form) }}
                             <input type="submit" class="modal-action modal-close waves-effect waves-green btn-flat" value="Soumettre">
-                    <h4>Modal Header</h4>
+                    <h4></h4>
                     <p>A bunch of text</p>
                         </div>
                     </div>

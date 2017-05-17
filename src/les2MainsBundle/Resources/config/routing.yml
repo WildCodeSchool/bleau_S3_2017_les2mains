@@ -2,6 +2,7 @@ les2_mains_homepage:
     path:     /
     defaults: { _controller: les2MainsBundle:Default:index }
 
-les2_mains_nos_stages:
-    path:     /stage
-    defaults: { _controller: les2MainsBundle:Stage:stage }
+les2_mains_nos_events:
+    path:     /events
+    defaults: { _controller: les2MainsBundle:Events:add }
+
