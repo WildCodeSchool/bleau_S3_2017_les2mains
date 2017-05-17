@@ -1,0 +1,11 @@
+<?php
+
+namespace CoreBundle\Entity;
+
+/**
+ * Our
+ */
+class Our
+{
+}
+

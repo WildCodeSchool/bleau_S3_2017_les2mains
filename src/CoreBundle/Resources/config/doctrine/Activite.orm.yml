@@ -1,0 +1,17 @@
+CoreBundle\Entity\Activite:
+    type: entity
+    table: null
+    repositoryClass: CoreBundle\Repository\ActiviteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        contenu:
+            type: text
+    lifecycleCallbacks: {  }

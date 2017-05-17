@@ -1,3 +1,15 @@
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+commerce:
+    resource: "@CommerceBundle/Resources/config/routing.yml"
+    prefix:   /
+
+core:
+    resource: "@CoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 les2_mains:
     resource: "@les2MainsBundle/Resources/config/routing.yml"
     prefix:   /

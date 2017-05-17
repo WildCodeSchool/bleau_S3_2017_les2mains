@@ -1,0 +1,33 @@
+CoreBundle\Entity\Our:
+    type: entity
+    table: null
+    repositoryClass: CoreBundle\Repository\OurRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre1:
+            type: string
+            length: 255
+            column: titre_1
+        contenu1:
+            type: text
+            column: contenu_1
+        titre2:
+            type: string
+            length: 255
+            column: titre_2
+        contenu2:
+            type: text
+            column: contenu_2
+        titre3:
+            type: string
+            length: 255
+            column: titre_3
+        contenu3:
+            type: text
+            column: contenu_3
+    lifecycleCallbacks: {  }
