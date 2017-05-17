@@ -1,4 +1,0 @@
-services:
-#    les2_mains.example:
-#        class: les2MainsBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]

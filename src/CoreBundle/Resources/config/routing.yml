@@ -1,3 +1,13 @@
 core_homepage:
     path:     /
     defaults: { _controller: CoreBundle:Default:index }
+
+
+core_nous:
+    path:     /nous
+    defaults: { _controller: CoreBundle:Our:nous }
+
+core_admin:
+    path:     /admin
+    defaults: { _controller: CoreBundle:Default:admin }
+

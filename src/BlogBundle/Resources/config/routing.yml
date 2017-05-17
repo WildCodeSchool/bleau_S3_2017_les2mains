@@ -1,3 +1,4 @@
-blog_homepage:
-    path:     /
-    defaults: { _controller: BlogBundle:Default:index }
+blog_actu:
+    path:     /actu
+    defaults: {_controller: BlogBundle:Actu:index }
+

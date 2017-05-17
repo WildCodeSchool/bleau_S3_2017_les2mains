@@ -1,3 +1,6 @@
-commerce_homepage:
-    path:     /
-    defaults: { _controller: CommerceBundle:Default:index }
+
+commerce_events:
+    path:     /events
+    defaults: { _controller: CommerceBundle:Event:add }
+
+

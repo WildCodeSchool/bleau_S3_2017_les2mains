@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	    {% block stylesheets %}
             <!-- Call Css -->
-            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/les2mains/css/global.css') }}"/>
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/core/css/global.css') }}"/>
 	    {% endblock %}
 	   
         
@@ -33,10 +33,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
-        <script src="{{ asset ('bundles/les2mains/js/stage.js') }}"></script>
+        <script src="{{ asset ('bundles/core/js/stage.js') }}"></script>
         {# Scrip Menu #}
-        <script src="{{ asset ('bundles/les2mains/js/les2mains.js') }}"></script>
-        <script src="{{ asset ('bundles/les2mains/js/init_parallax.js') }}"></script>
+        <script src="{{ asset ('bundles/core/js/les2mains.js') }}"></script>
+        <script src="{{ asset ('bundles/core/js/init_parallax.js') }}"></script>
         {% block javascripts %} {% endblock %}
     </body>
 </html>
