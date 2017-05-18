@@ -1,31 +1,93 @@
 {% extends '@Core/layout.html.twig'%}
-{% block stylesheets %}
-	<link rel="stylesheet" type="text/css" href="{{ asset('bundles/core/css/Nous.css') }}"/>
-{% endblock %}
 
 {% block title %}Nous!{% endblock %}
 
 {% block body %}
-	<div id="index-banner" class="parallax-container">
-		<div class="section no-pad-bot">
-			<div class="container">
-				<br><br>
-				<h2 class="header center teal-text text-lighten-2">Nous et notre Permaculture</h2>
-				<div class="row center">
-					<a href="#" id="#" class="btn-large waves-effect waves-light teal lighten-1">Découvrir</a>
+
+	<div id="nous">
+        {{ form_start(form) }}
+
+		<div id="index-banner" class="parallax-container">
+			<div class="section no-pad-bot">
+				<div class="container">
+					<br><br>
+					<h2 class="header center teal-text text-lighten-2">Nous et notre Permaculture</h2>
+					<div class="row center">
+						<a href="#" id="#" class="btn-large waves-effect waves-light teal lighten-1">Découvrir</a>
+					</div>
+				</div>
+			</div>
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}" alt="Unsplashed background img 1"></div>
+		</div>
+		<div class="container">
+			<div class="section">
+				
+				<!--   Section "La Permaculture"   -->
+				<div class="row">
+					<div class="col s12 m12 offset-s2">
+						<div class="icon-block">
+							<h2 class="header center teal-text text-lighten-2">Notre Vision de la Permaculture</h2>
+							<p class="light">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
+								et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.
+								
+								Batnae municipium in Anthemusia conditum Macedonum manu priscorum ab Euphrate flumine brevi spatio disparatur, refertum mercatoribus opulentis,
+								ubi annua sollemnitate prope Septembris initium mensis ad nundinas magna promiscuae fortunae convenit multitudo ad commercanda quae Indi mittunt et Seres aliaque plurima vehi terra marique consueta.
+								
+								Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum.
+								Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat,
+								aut ne plus aequo quid in amicitiam congeratur.</p>
+							
+							<!-- Template Admin -->
+							{% if is_granted('ROLE_ADMIN') %}
+								<!-- Modal Trigger -->
+								<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Edition</a>
+								
+								<!-- Modal Structure -->
+								<div id="modal1" class="modal modal-fixed-footer">
+									<div class="modal-content">
+										<div class="row col l12">
+											{{ form_row(form.titre1) }}
+										</div>
+										<div class="row col l12">
+											{{ form_row(form.contenu1) }}
+										</div>
+									</div>
+									<div class="modal-footer">
+										<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
+										<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
+									</div>
+								</div>
+							{% endif %}
+						</div>
+						<div class="row">
+							<div class="col s1 img_box">
+								<img src="{{ asset('bundles/core/img/pictures/1.jpg') }}" >
+							</div>
+							<div class="col s1 offset-s3 img_box">
+								<img src="{{ asset('bundles/core/img/pictures/2.JPG') }}" >
+							</div>
+							<div class="col s1 offset-s3 img_box">
+								<img src="{{ asset('bundles/core/img/pictures/3.JPG') }}" >
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}" alt="Unsplashed background img 1"></div>
-	</div>
-	<div class="container">
-		<div class="section">
-			
-			<!--   Section "La Permaculture"   -->
-			<div class="row">
-				<div class="col s12 m12 offset-s2">
-					<div class="icon-block">
-						<h2 class="header center teal-text text-lighten-2">Notre Vision de la Permaculture</h2>
+		
+		<div class="parallax-container valign-wrapper">
+			<div class="section no-pad-bot">
+				<div class="container">
+				</div>
+			</div>
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2"></div>
+		</div>
+		<!--   Section "Notre Histoire"   -->
+		<div class="container">
+			<div class="section">
+				<div class="row">
+					<div class="col s10 center">
+						<h2 class="header center teal-text text-lighten-2">Notre Histoire</h2>
 						<p class="light">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
 							et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.
 							
@@ -39,19 +101,77 @@
 						<!-- Template Admin -->
 						{% if is_granted('ROLE_ADMIN') %}
 							<!-- Modal Trigger -->
-							<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Edition</a>
+							<a class="modal-trigger waves-effect waves-light btn" href="#modal2">Edition</a>
 							
 							<!-- Modal Structure -->
-							<div id="modal1" class="modal modal-fixed-footer">
+							<div id="modal2" class="modal modal-fixed-footer">
 								<div class="modal-content">
-									{{ form_start(form) }}
 									<div class="row col l12">
-										{{ form_row(form.titre) }}
+										{{ form_row(form.titre2) }}
 									</div>
 									<div class="row col l12">
-										{{ form_row(form.contenu) }}
+										{{ form_row(form.contenu2) }}
 									</div>
-									{{ form_end(form) }}
+									<p>test</p>
+								</div>
+								<div class="modal-footer">
+									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
+									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
+								</div>
+							</div>
+						{% endif %}
+					
+					</div>
+					<div class="col s2 img_box">
+						<img src="{{ asset('bundles/core/img/pictures/1.jpg') }}" >
+					</div>
+					<div class="col s2 img_box">
+						<img src="{{ asset('bundles/core/img/pictures/4.jpg') }}" >
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="parallax-container valign-wrapper">
+			<div class="section no-pad-bot">
+				<div class="container">
+					<div class="row center">
+						<h5 class="header col s12 light">#</h5>
+					</div>
+				</div>
+			</div>
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic3.jpg') }}" alt="Unsplashed background img 3"></div>
+		</div>
+		
+		<!--   Section "L'association"   -->
+		<div class="container">
+			<div class="section">
+				<div class="row">
+					<div class="col s12 center">
+						<h2 class="header center teal-text text-lighten-2">L'association "Les 2 Mains"</h2>
+						<p class="light">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
+							et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.
+							
+							Batnae municipium in Anthemusia conditum Macedonum manu priscorum ab Euphrate flumine brevi spatio disparatur, refertum mercatoribus opulentis,
+							ubi annua sollemnitate prope Septembris initium mensis ad nundinas magna promiscuae fortunae convenit multitudo ad commercanda quae Indi mittunt et Seres aliaque plurima vehi terra marique consueta.
+							
+							Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum.
+							Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat,
+							aut ne plus aequo quid in amicitiam congeratur.</p>
+						
+						<!-- Template Admin -->
+						{% if is_granted('ROLE_ADMIN') %}
+							<!-- Modal Trigger -->
+							<a class="modal-trigger waves-effect waves-light btn" href="#modal3">Edition</a>
+							
+							<!-- Modal Structure -->
+							<div id="modal3" class="modal modal-fixed-footer">
+								<div class="modal-content-3">
+									<div class="row col l12">
+										{{ form_row(form.titre3) }}
+									</div>
+									<div class="row col l12">
+										{{ form_row(form.contenu3) }}
+									</div>
 								</div>
 								<div class="modal-footer">
 									<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
@@ -60,160 +180,39 @@
 							</div>
 						{% endif %}
 					</div>
-					<div class="row">
-						<div class="col s1 img_box">
-							<img src="{{ asset('bundles/core/img/pictures/1.jpg') }}" >
-						</div>
-						<div class="col s1 offset-s3 img_box">
-							<img src="{{ asset('bundles/core/img/pictures/2.JPG') }}" >
-						</div>
-						<div class="col s1 offset-s3 img_box">
-							<img src="{{ asset('bundles/core/img/pictures/3.JPG') }}" >
-						</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="parallax-container valign-wrapper">
+			<div class="section no-pad-bot">
+				<div class="container">
+					<div class="row center">
+						<h5 class="header col s12 light">#</h5>
 					</div>
 				</div>
 			</div>
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic4.jpg') }}" alt="Unsplashed background img 3"></div>
 		</div>
-	</div>
-	
-	<div class="parallax-container valign-wrapper">
-		<div class="section no-pad-bot">
+		
+		
+		<footer class="page-footer teal">
 			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">Company Bio</h5>
+						<p class="grey-text text-lighten-4">A définir</p>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2"></div>
-	</div>
-	<!--   Section "Notre Histoire"   -->
-	<div class="container">
-		<div class="section">
-			<div class="row">
-				<div class="col s10 center">
-					<h2 class="header center teal-text text-lighten-2">Notre Histoire</h2>
-					<p class="light">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
-						et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.
-						
-						Batnae municipium in Anthemusia conditum Macedonum manu priscorum ab Euphrate flumine brevi spatio disparatur, refertum mercatoribus opulentis,
-						ubi annua sollemnitate prope Septembris initium mensis ad nundinas magna promiscuae fortunae convenit multitudo ad commercanda quae Indi mittunt et Seres aliaque plurima vehi terra marique consueta.
+			<div class="footer-copyright">
+				<div class="container">
+					Made by <a class="brown-text text-lighten-3">Les Jardins dans la Vallée</a>
+				</div>
+			</div>
+		</footer>
+        {{ form_end(form) }}
 
-						Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum.
-						Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat,
-						aut ne plus aequo quid in amicitiam congeratur.</p>
-					
-					<!-- Template Admin -->
-					{% if is_granted('ROLE_ADMIN') %}
-						<!-- Modal Trigger -->
-						<a class="modal-trigger waves-effect waves-light btn" href="#modal2">Edition</a>
-						
-						<!-- Modal Structure -->
-						<div id="modal2" class="modal modal-fixed-footer">
-							<div class="modal-content">
-								{{ form_start(form) }}
-								<div class="row col l12">
-									{{ form_row(form.titre) }}
-								</div>
-								<div class="row col l12">
-									{{ form_row(form.contenu) }}
-								</div>
-								<p>test</p>
-								{{ form_end(form) }}
-							</div>
-							<div class="modal-footer">
-								<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
-								<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
-							</div>
-						</div>
-					{% endif %}
-					
-						</div>
-						<div class="col s2 img_box">
-							<img src="{{ asset('bundles/core/img/pictures/1.jpg') }}" >
-						</div>
-						<div class="col s2 img_box">
-							<img src="{{ asset('bundles/core/img/pictures/4.jpg') }}" >
-				</div>
-			</div>
-		</div>
 	</div>
-	<div class="parallax-container valign-wrapper">
-		<div class="section no-pad-bot">
-			<div class="container">
-				<div class="row center">
-					<h5 class="header col s12 light">#</h5>
-				</div>
-			</div>
-		</div>
-		<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic3.jpg') }}" alt="Unsplashed background img 3"></div>
-	</div>
-	
-	<!--   Section "L'association"   -->
-	<div class="container">
-		<div class="section">
-			<div class="row">
-				<div class="col s12 center">
-					<h2 class="header center teal-text text-lighten-2">L'association "Les 2 Mains"</h2>
-					<p class="light">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
-						et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.
-						
-						Batnae municipium in Anthemusia conditum Macedonum manu priscorum ab Euphrate flumine brevi spatio disparatur, refertum mercatoribus opulentis,
-						ubi annua sollemnitate prope Septembris initium mensis ad nundinas magna promiscuae fortunae convenit multitudo ad commercanda quae Indi mittunt et Seres aliaque plurima vehi terra marique consueta.
-						
-						Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum.
-						Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat,
-						aut ne plus aequo quid in amicitiam congeratur.</p>
-					
-					<!-- Template Admin -->
-					{% if is_granted('ROLE_ADMIN') %}
-					<!-- Modal Trigger -->
-						<a class="modal-trigger waves-effect waves-light btn" href="#modal3">Edition</a>
-					
-					<!-- Modal Structure -->
-						<div id="modal3" class="modal modal-fixed-footer">
-							<div class="modal-content-3">
-								{{ form(form) }}
-								<div class="row col l12">
-									{{ form_row(form.titre) }}
-								</div>
-								<div class="row col l12">
-									{{ form_row(form.contenu) }}
-								</div>
-								{{ form_end(form) }}
-							</div>
-							<div class="modal-footer">
-								<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
-								<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
-							</div>
-						</div>
-					{% endif %}
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="parallax-container valign-wrapper">
-		<div class="section no-pad-bot">
-			<div class="container">
-				<div class="row center">
-					<h5 class="header col s12 light">#</h5>
-				</div>
-			</div>
-		</div>
-		<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic4.jpg') }}" alt="Unsplashed background img 3"></div>
-	</div>
-	
-	
-	<footer class="page-footer teal">
-		<div class="container">
-			<div class="row">
-				<div class="col l6 s12">
-					<h5 class="white-text">Company Bio</h5>
-					<p class="grey-text text-lighten-4">A définir</p>
-				</div>
-			</div>
-		</div>
-		<div class="footer-copyright">
-			<div class="container">
-				Made by <a class="brown-text text-lighten-3">Les Jardins dans la Vallée</a>
-			</div>
-		</div>
-	</footer>
+
 {% endblock %}

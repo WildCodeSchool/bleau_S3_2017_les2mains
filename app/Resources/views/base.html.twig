@@ -2,22 +2,20 @@
 <html xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}{% endblock %}</title>
-       
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	    {% block stylesheets %}
-            <!-- Call Css -->
-            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/core/css/global.css') }}"/>
-	    {% endblock %}
-	   
-        
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	    
 
-	    
+        <title>{% block title %}{% endblock %}</title>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/core/css/main.css') }}"/>
+
+        {% block stylesheets %}
+
+	    {% endblock %}
+
     </head>
     
     <body>
@@ -33,10 +31,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
-        <script src="{{ asset ('bundles/core/js/stage.js') }}"></script>
-        {# Scrip Menu #}
-        <script src="{{ asset ('bundles/core/js/les2mains.js') }}"></script>
-        <script src="{{ asset ('bundles/core/js/init_parallax.js') }}"></script>
+        <script src="{{ asset ('bundles/core/js/main.js') }}"></script>
         {% block javascripts %} {% endblock %}
     </body>
 </html>

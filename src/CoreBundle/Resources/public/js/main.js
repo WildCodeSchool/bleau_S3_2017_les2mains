@@ -1,3 +1,9 @@
+$(document).ready(function(){
+    $('.modal').modal();
+    $('.button-collapse').sideNav();
+    $('.parallax').parallax();
+});
+
 $('.open-overlay').click(function() {
     $('.open-overlay').css('pointer-events', 'none');
     var overlay_navigation = $('.overlay-navigation'),
@@ -58,14 +64,4 @@ $('.open-overlay').click(function() {
             }
         })
     }
-})
-
-
-
-        //modal Materialize//
-
-$(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal').modal();
 });
-
