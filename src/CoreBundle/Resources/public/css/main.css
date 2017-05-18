@@ -1,61 +1,49 @@
 @charset "UTF-8";
 /*----------------------------------------*\
-    1.HEADER
+    1.GLOBAL
 \*----------------------------------------*/
 /*----------------------------------------*\
-    2.NOUS
+    1.GLOBAL
 \*----------------------------------------*/
 /*----------------------------------------*\
-    3.ACTUALITES
+    2.HEADER
 \*----------------------------------------*/
 /*----------------------------------------*\
-    4.EVENTS
+    3.HOMEPAGE
 \*----------------------------------------*/
 /*----------------------------------------*\
-    5.PRODUITS
+    4.NOUS
 \*----------------------------------------*/
 /*----------------------------------------*\
-    6.CONTACT
+    5.ACTUALITES
 \*----------------------------------------*/
 /*----------------------------------------*\
-    7.FOOTER
+    6.EVENTS
 \*----------------------------------------*/
 /*----------------------------------------*\
-    4.EVENTS
+    7.PRODUITS
 \*----------------------------------------*/
 /*----------------------------------------*\
-    1.HOMEPAGE
+    8.CONTACT
 \*----------------------------------------*/
 /*----------------------------------------*\
-    2.nav
+    9.FOOTER
 \*----------------------------------------*/
-/*----------------------------------------*\
-    3.
-\*----------------------------------------*/
-/*----------------------------------------*\
-    4.blog + parallax
-\*----------------------------------------*/
-/*----------------------------------------*\
-    5.
-\*----------------------------------------*/
-/*----------------------------------------*\
-    1.HOMEPAGE
-\*----------------------------------------*/
-/*----------------------------------------*\
-    2.nav
-\*----------------------------------------*/
+/* FONT */
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
-/* line 68, ../scss/_global.scss */
-.homepage img {
-  position: relative;
-  width: 100%;
-  height: 100vh;
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Marmelad");
+/* VARIABLES */
+/* MIXING */
+/* GLOBAL */
+/* line 62, ../scss/_global.scss */
+p {
+  line-height: 2rem;
 }
 
-/* line 75, ../scss/_global.scss */
-.home {
+/* line 66, ../scss/_global.scss */
+.home_all {
   width: 100%;
-  height: 0vh;
+  height: 0;
   position: relative;
   background-image: none;
   background-color: orangered;
@@ -64,87 +52,59 @@
 }
 
 /*----------------------------------------*\
-    4.blog
+    PARALLAX
 \*----------------------------------------*/
-/* line 98, ../scss/_global.scss */
-.seb_card_image {
-  height: 350px;
-  padding: 10px;
-}
-
-/* line 103, ../scss/_global.scss */
-.seb_card {
-  border-top: darkgreen solid 1px;
-  border-bottom: darkgreen solid 1px;
-  margin-top: 50px;
-  margin-bottom: 30px;
-}
-
-/******************* CODE MATERIALIZE *************************************/
-/***************************************************************************/
-/* line 115, ../scss/_global.scss */
-nav ul a,
-nav .brand-logo {
-  color: #444;
-}
-
-/* line 120, ../scss/_global.scss */
-p {
-  line-height: 2rem;
-}
-
-/* line 124, ../scss/_global.scss */
+/* line 82, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 128, ../scss/_global.scss */
+/* line 86, ../scss/_global.scss */
 .parallax-container {
-  min-height: 300px;
   line-height: 0;
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 135, ../scss/_global.scss */
+/* line 92, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 140, ../scss/_global.scss */
+  /* line 97, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 145, ../scss/_global.scss */
+  /* line 102, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 152, ../scss/_global.scss */
+  /* line 109, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 157, ../scss/_global.scss */
+/* line 114, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 161, ../scss/_global.scss */
+/* line 118, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 165, ../scss/_global.scss */
+/* line 122, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
 
-/* line 169, ../scss/_global.scss */
+/* line 126, ../scss/_global.scss */
 .img_box img {
   width: 300px;
   height: 200px;
@@ -152,10 +112,10 @@ footer.page-footer {
   margin-left: 40px;
 }
 
-/* ====================================
-Navigation
-==================================== */
-/* line 5, ../scss/_nav_style.scss */
+/*----------------------------------------*\
+    2.HEADER
+\*----------------------------------------*/
+/* line 1, ../scss/_nav_style.scss */
 .overlay-navigation {
   position: fixed;
   z-index: 99;
@@ -168,7 +128,7 @@ Navigation
   opacity: 0;
 }
 
-/* line 20, ../scss/_nav_style.scss */
+/* line 16, ../scss/_nav_style.scss */
 nav,
 nav ul {
   width: 100%;
@@ -179,7 +139,7 @@ nav ul {
   /* Arrière Plan Menu Burger*/
 }
 
-/* line 29, ../scss/_nav_style.scss */
+/* line 25, ../scss/_nav_style.scss */
 nav ul {
   display: -webkit-box;
   display: -webkit-flex;
@@ -188,7 +148,7 @@ nav ul {
   list-style: none;
 }
 
-/* line 37, ../scss/_nav_style.scss */
+/* line 33, ../scss/_nav_style.scss */
 nav ul li {
   -webkit-flex-basis: 20%;
   -ms-flex-preferred-size: 20%;
@@ -207,7 +167,7 @@ nav ul li {
   display: none;
 }
 
-/* line 55, ../scss/_nav_style.scss */
+/* line 51, ../scss/_nav_style.scss */
 nav li a {
   position: relative;
   top: 46%;
@@ -223,7 +183,7 @@ nav li a {
   opacity: 0;
 }
 
-/* line 70, ../scss/_nav_style.scss */
+/* line 66, ../scss/_nav_style.scss */
 nav li a:before {
   content: '';
   width: 70px;
@@ -241,7 +201,7 @@ nav li a:before {
   transition: all .2s linear;
 }
 
-/* line 87, ../scss/_nav_style.scss */
+/* line 83, ../scss/_nav_style.scss */
 nav li a:after {
   content: attr(data-content);
   font-size: 0.7rem;
@@ -264,7 +224,7 @@ nav li a:after {
   letter-spacing: 0;
 }
 
-/* line 111, ../scss/_nav_style.scss */
+/* line 107, ../scss/_nav_style.scss */
 .onglet:hover:before {
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -272,7 +232,7 @@ nav li a:after {
   opacity: 1;
 }
 
-/* line 118, ../scss/_nav_style.scss */
+/* line 114, ../scss/_nav_style.scss */
 .onglet:hover:after {
   -webkit-transform: translateY(15px);
   -ms-transform: translateY(15px);
@@ -280,27 +240,27 @@ nav li a:after {
   opacity: 1;
 }
 
-/* line 128, ../scss/_nav_style.scss */
+/* line 124, ../scss/_nav_style.scss */
 nav li:nth-of-type(1) {
   background-color: #29363B;
 }
 
-/* line 132, ../scss/_nav_style.scss */
+/* line 128, ../scss/_nav_style.scss */
 nav li:nth-of-type(2) {
   background-color: #EA495F;
 }
 
-/* line 136, ../scss/_nav_style.scss */
+/* line 132, ../scss/_nav_style.scss */
 nav li:nth-of-type(3) {
   background-color: #F4837D;
 }
 
-/* line 140, ../scss/_nav_style.scss */
+/* line 136, ../scss/_nav_style.scss */
 nav li:nth-of-type(4) {
   background-color: #FDCEA9;
 }
 
-/* line 144, ../scss/_nav_style.scss */
+/* line 140, ../scss/_nav_style.scss */
 nav li:nth-of-type(5) {
   background-color: #99B998;
 }
@@ -308,7 +268,7 @@ nav li:nth-of-type(5) {
 /* ====================================
 Burger king
 ==================================== */
-/* line 153, ../scss/_nav_style.scss */
+/* line 149, ../scss/_nav_style.scss */
 .open-overlay {
   position: absolute;
   right: 5rem;
@@ -320,7 +280,7 @@ Burger king
   background-color: orangered;
 }
 
-/* line 164, ../scss/_nav_style.scss */
+/* line 160, ../scss/_nav_style.scss */
 .open-overlay span {
   display: block;
   height: 1px;
@@ -329,37 +289,37 @@ Burger king
   margin-top: 8px;
 }
 
-/* line 172, ../scss/_nav_style.scss */
+/* line 168, ../scss/_nav_style.scss */
 .animate-top-bar {
   -webkit-animation: animate-top-bar .6s linear 1 both;
   animation: animate-top-bar 0.6s linear 1 both;
 }
 
-/* line 177, ../scss/_nav_style.scss */
+/* line 173, ../scss/_nav_style.scss */
 .animate-bottom-bar {
   -webkit-animation: animate-bottom-bar .6s linear 1 both;
   animation: animate-bottom-bar 0.6s linear 1 both;
 }
 
-/* line 182, ../scss/_nav_style.scss */
+/* line 178, ../scss/_nav_style.scss */
 .animate-middle-bar {
   -webkit-animation: animate-middle-bar .6s linear 1 both;
   animation: animate-middle-bar 0.6s linear 1 both;
 }
 
-/* line 187, ../scss/_nav_style.scss */
+/* line 183, ../scss/_nav_style.scss */
 .animate-out-top-bar {
   -webkit-animation: animate-out-top-bar .6s linear 1 both;
   animation: animate-out-top-bar 0.6s linear 1 both;
 }
 
-/* line 192, ../scss/_nav_style.scss */
+/* line 188, ../scss/_nav_style.scss */
 .animate-out-bottom-bar {
   -webkit-animation: animate-out-bottom-bar .6s linear 1 both;
   animation: animate-out-bottom-bar 0.6s linear 1 both;
 }
 
-/* line 197, ../scss/_nav_style.scss */
+/* line 193, ../scss/_nav_style.scss */
 .animate-out-middle-bar {
   -webkit-animation: animate-out-middle-bar .6s linear 1 both;
   animation: animate-out-middle-bar 0.6s linear 1 both;
@@ -466,7 +426,7 @@ Animation keyframes
     background-color: #fff;
   }
 }
-/* line 311, ../scss/_nav_style.scss */
+/* line 307, ../scss/_nav_style.scss */
 .home a {
   font-family: "Work Sans", sans-serif;
   color: #222;
@@ -483,7 +443,7 @@ Animation keyframes
 }
 
 @media (max-width: 640px) {
-  /* line 327, ../scss/_nav_style.scss */
+  /* line 323, ../scss/_nav_style.scss */
   nav ul {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -492,46 +452,41 @@ Animation keyframes
     flex-direction: column;
   }
 
-  /* line 335, ../scss/_nav_style.scss */
+  /* line 331, ../scss/_nav_style.scss */
   nav ul li {
     height: 20%;
   }
 
-  /* line 339, ../scss/_nav_style.scss */
+  /* line 335, ../scss/_nav_style.scss */
   nav ul li a {
     font-size: 11px;
   }
 
-  /* line 343, ../scss/_nav_style.scss */
+  /* line 339, ../scss/_nav_style.scss */
   nav li a:after {
     font-size: 0.6rem;
     bottom: -25px;
   }
 
-  /* line 348, ../scss/_nav_style.scss */
+  /* line 344, ../scss/_nav_style.scss */
   nav li a:hover:after {
     transform: translateY(0);
   }
 
-  /* line 352, ../scss/_nav_style.scss */
+  /* line 348, ../scss/_nav_style.scss */
   .open-overlay {
     right: 1rem;
   }
 
-  /* line 356, ../scss/_nav_style.scss */
+  /* line 352, ../scss/_nav_style.scss */
   nav li a:before {
     width: 25px;
   }
 }
 /*----------------------------------------*\
-    1.HOMEPAGE
+    3.HOMEPAGE
 \*----------------------------------------*/
-/* line 6, ../scss/_homepage.scss */
-body {
-  background-color: #fff;
-}
-
-/* line 10, ../scss/_homepage.scss */
+/* line 1, ../scss/_homepage.scss */
 .home_index {
   width: 100%;
   height: 100vh;
@@ -541,103 +496,58 @@ body {
   background-position: center center;
 }
 
+/*----------------------------------------*\
+    4.NOUS
+\*----------------------------------------*/
 /* line 1, ../scss/_nous.scss */
 #nous {
-   /*----------------------------------------*\
-    1.NOUS PAGE
-/******************* CODE MATERIALIZE *************************************/
-  /***************************************************************************/
-  /*----------------------------------------*\
-      2.
-  \*----------------------------------------*/
-  /*----------------------------------------*\
-      3.
-  \*----------------------------------------*/
-  /*----------------------------------------*\
-      4.
-  \*----------------------------------------*/
-  /*----------------------------------------*\
-      5.
-  \*----------------------------------------*/
-  /*----------------------------------------*\
-      1.HOMEPAGE
-  \*----------------------------------------*/
-  /******************* CODE MENU BURGER *************************************/
-  /***************************************************************************/
+  /*----------------------------------------
+   PARALAX
+  ----------------------------------------*/
 }
 /* line 6, ../scss/_nous.scss */
-#nous nav ul a,
-#nous nav .brand-logo {
-  color: #444;
-}
-/* line 11, ../scss/_nous.scss */
-#nous p {
-  line-height: 2rem;
-}
-/* line 15, ../scss/_nous.scss */
-#nous .button-collapse {
-  color: #26a69a;
-}
-/* line 19, ../scss/_nous.scss */
 #nous .parallax-container {
   min-height: 600px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255, 255, 255, 0.9);
 }
-/* line 26, ../scss/_nous.scss */
-#nous .parallax-container .section {
-  width: 100%;
+
+/*----------------------------------------*\
+    5.ACTUALITES
+\*----------------------------------------*/
+/* line 1, ../scss/_blog.scss */
+#blog {
+  /*----------------------------------------
+   PARALAX
+  ----------------------------------------*/
+  /*----------------------------------------
+   XXX
+  ----------------------------------------*/
 }
-@media only screen and (max-width: 992px) {
-  /* line 31, ../scss/_nous.scss */
-  #nous .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  /* line 36, ../scss/_nous.scss */
-  #nous #index-banner .section {
-    top: 10%;
-  }
+/* line 6, ../scss/_blog.scss */
+#blog .parallax-container {
+  min-height: 30px;
 }
-@media only screen and (max-width: 600px) {
-  /* line 43, ../scss/_nous.scss */
-  #nous #index-banner .section {
-    top: 0;
-  }
+/* line 17, ../scss/_blog.scss */
+#blog .card_image {
+  height: 350px;
+  padding: 10px;
 }
-/* line 48, ../scss/_nous.scss */
-#nous .icon-block {
-  padding: 0 15px;
+/* line 22, ../scss/_blog.scss */
+#blog .card {
+  border-top: darkgreen solid 1px;
+  border-bottom: darkgreen solid 1px;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
-/* line 52, ../scss/_nous.scss */
-#nous .icon-block .material-icons {
-  font-size: inherit;
-}
-/* line 56, ../scss/_nous.scss */
-#nous footer.page-footer {
-  margin: 0;
-}
-/* line 60, ../scss/_nous.scss */
-#nous .img_box img {
-  width: 300px;
-  height: 200px;
-  margin-top: 30px;
-  margin-left: 40px;
-}
-/* line 90, ../scss/_nous.scss */
-#nous .homepage img {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
-/* line 97, ../scss/_nous.scss */
-#nous .home {
-  width: 100%;
-  height: 0vh;
-  position: relative;
-  background-image: none;
-  background-color: orangered;
-  background-size: cover;
-  background-position: center center;
-}
+
+/*----------------------------------------*\
+    6.EVENTS
+\*----------------------------------------*/
+/*----------------------------------------*\
+    7.PRODUITS
+\*----------------------------------------*/
+/*----------------------------------------*\
+    8.CONTACT
+\*----------------------------------------*/
+/*----------------------------------------*\
+    9.FOOTER
+\*----------------------------------------*/

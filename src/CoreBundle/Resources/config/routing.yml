@@ -2,7 +2,6 @@ core_homepage:
     path:     /
     defaults: { _controller: CoreBundle:Default:index }
 
-
 core_nous:
     path:     /nous
     defaults: { _controller: CoreBundle:Our:nous }
