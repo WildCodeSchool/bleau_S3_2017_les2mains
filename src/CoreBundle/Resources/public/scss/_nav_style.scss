@@ -8,9 +8,19 @@
   background-color: hsla(0, 0%, 100%, 0.2);
   display: none;
   opacity: 0;
+}
+.menu-btn
+{
+  margin-left: -120px;
+  margin-top: -15px;
+  color:red;
 
+}
 
+.menu-btn a
+{
 
+  font-size: x-large;
 }
 
 nav,
@@ -123,6 +133,7 @@ nav li a:after {
 
 nav li:nth-of-type(1) {
   background-color: #29363B
+
 }
 
 nav li:nth-of-type(2) {
@@ -154,7 +165,6 @@ Burger king
   width: 34px;
   display: block;
   cursor: pointer;
-  background-color: orangered;
 }
 
 .open-overlay span {

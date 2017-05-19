@@ -3,18 +3,18 @@
 {% block title %}Nous!{% endblock %}
 
 {% block body %}
-
 	<div id="nous">
+	{% if is_granted('ROLE_ADMIN') %}
         {{ form_start(form) }}
-
+	{% endif %}
 		<div id="index-banner" class="parallax-container">
 			<div class="section no-pad-bot">
 				<div class="container">
 					<br><br>
 					<h2 class="header center teal-text text-lighten-2">Nous et notre Permaculture</h2>
-					<div class="row center">
+					{#<div class="row center">
 						<a href="#" id="#" class="btn-large waves-effect waves-light teal lighten-1">Découvrir</a>
-					</div>
+					</div>#}
 				</div>
 			</div>
 			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}" alt="Unsplashed background img 1"></div>
@@ -211,8 +211,9 @@
 				</div>
 			</div>
 		</footer>
-        {{ form_end(form) }}
-
+		{% if is_granted('ROLE_ADMIN') %}
+            {{ form_end(form) }}
+		{% endif %}
 	</div>
 
 {% endblock %}
