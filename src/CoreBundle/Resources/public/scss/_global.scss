@@ -63,7 +63,8 @@ p {
     line-height: 2rem;
 }
 
-.home_all {
+.home_all
+{
     width: 100%;
     height: 0;
     position: relative;
@@ -71,16 +72,29 @@ p {
     background-size: cover;
     background-position: center center;
 }
+/*----------------------------------------*\
+    BUTTON MENU
+\*----------------------------------------*/
+.row .col.s1
+{
+    font-style: italic;
+    font-weight: bold;
+    font-size: large;
+    left:inherit;
+    right:inherit;
+}
+
 .menu-btn
 {
-        position: absolute;
-        width: 20%;
-}
-    html>body .menu-btn
-    {
-        position: fixed;
-    }
+    position: absolute;
+    margin-left: auto;
+    margin-right:auto;
 
+}
+html>body .menu-btn
+{
+    position: fixed;
+}
 
 /*----------------------------------------*\
     PARALLAX

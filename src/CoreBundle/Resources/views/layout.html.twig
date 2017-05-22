@@ -12,7 +12,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#">Nos actualités
+					<a href="{{ path('blog_actu') }}">Nos actualités
 						<div class="onglet">
 							<a href="#"></a>
 							<a href="#"></a>
@@ -20,7 +20,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#" >Nos stages
+					<a href="{{ path('commerce_events') }}" >Nos stages
 						<div class="onglet">
 							<a href="#">Le corps</a>
 							<a href="#">La bouche</a>
@@ -29,7 +29,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#">Nos produits></a>
+					<a href="#">Nos produits</a>
 				</li>
 				
 				<li>
@@ -41,7 +41,7 @@
 	{% block menu %}
 		<section class="home home_all">
 			<div class="row open-overlay">
-				<a class="col s1 waves-effect waves-light btn menu-btn">MENU</a>
+				<a class="col s1 offset-s10 waves-effect waves-light btn menu-btn">MENU</a>
 			</div>
 		</section>
 	{% endblock %}
