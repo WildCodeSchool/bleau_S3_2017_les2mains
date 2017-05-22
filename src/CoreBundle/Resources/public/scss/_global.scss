@@ -71,6 +71,15 @@ p {
     background-size: cover;
     background-position: center center;
 }
+.menu-btn
+{
+        position: absolute;
+        width: 20%;
+}
+    html>body .menu-btn
+    {
+        position: fixed;
+    }
 
 
 /*----------------------------------------*\
@@ -121,9 +130,3 @@ footer.page-footer {
     margin: 0;
 }
 
-.img_box img {
-    width:300px;
-    height:200px;
-    margin-top: 30px;
-    margin-left: 40px;
-}

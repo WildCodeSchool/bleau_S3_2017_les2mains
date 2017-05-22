@@ -50,65 +50,68 @@ p {
   background-position: center center;
 }
 
+/* line 74, ../scss/_global.scss */
+.menu-btn {
+  position: absolute;
+  width: 20%;
+}
+
+/* line 79, ../scss/_global.scss */
+html > body .menu-btn {
+  position: fixed;
+}
+
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
-/* line 80, ../scss/_global.scss */
+/* line 89, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 84, ../scss/_global.scss */
+/* line 93, ../scss/_global.scss */
 .parallax-container {
   line-height: 0;
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 90, ../scss/_global.scss */
+/* line 99, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 95, ../scss/_global.scss */
+  /* line 104, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 100, ../scss/_global.scss */
+  /* line 109, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 107, ../scss/_global.scss */
+  /* line 116, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 112, ../scss/_global.scss */
+/* line 121, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 116, ../scss/_global.scss */
+/* line 125, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 120, ../scss/_global.scss */
+/* line 129, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
-}
-
-/* line 124, ../scss/_global.scss */
-.img_box img {
-  width: 300px;
-  height: 200px;
-  margin-top: 30px;
-  margin-left: 40px;
 }
 
 /*----------------------------------------*\
@@ -518,6 +521,13 @@ Animation keyframes
 /* line 5, ../scss/_nous.scss */
 #nous .parallax-container {
   min-height: 600px;
+}
+/* line 9, ../scss/_nous.scss */
+#nous .img_box img {
+  width: 300px;
+  height: 200px;
+  margin-top: 30px;
+  margin-left: 40px;
 }
 
 /*----------------------------------------*\
