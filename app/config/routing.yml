@@ -10,6 +10,5 @@ core:
     resource: "@CoreBundle/Resources/config/routing.yml"
     prefix:   /
 
-
-app_logout:
+logout:
     path: /logout
