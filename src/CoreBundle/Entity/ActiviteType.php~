@@ -51,4 +51,50 @@ class ActiviteType
     {
         return $this->nom;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $activites;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->activites = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add activite
+     *
+     * @param \CoreBundle\Entity\Activite $activite
+     *
+     * @return ActiviteType
+     */
+    public function addActivite(\CoreBundle\Entity\Activite $activite)
+    {
+        $this->activites[] = $activite;
+
+        return $this;
+    }
+
+    /**
+     * Remove activite
+     *
+     * @param \CoreBundle\Entity\Activite $activite
+     */
+    public function removeActivite(\CoreBundle\Entity\Activite $activite)
+    {
+        $this->activites->removeElement($activite);
+    }
+
+    /**
+     * Get activites
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getActivites()
+    {
+        return $this->activites;
+    }
 }

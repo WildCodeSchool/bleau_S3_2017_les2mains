@@ -12,6 +12,7 @@ parameters:
     locale: en
 
 framework:
+    translator: ~
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -75,3 +76,11 @@ swiftmailer:
 twig:
     form_themes:
         - 'bootstrap_3_layout.html.twig'
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: CoreBundle\Entity\User
+    from_email:
+        address: "phle2022@gmail.com"
+        sender_name: "Jim"
