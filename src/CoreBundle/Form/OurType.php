@@ -13,7 +13,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-
 use Symfony\Component\HttpFoundation\Request;
 
 class OurType extends AbstractType
