@@ -533,16 +533,19 @@ Animation keyframes
    Size Img
   ----------------------------------------*/
 }
-/* line 5, ../scss/_nous.scss */
+/* line 6, ../scss/_nous.scss */
 #nous .parallax-container {
   min-height: 600px;
 }
-/* line 12, ../scss/_nous.scss */
+/* line 10, ../scss/_nous.scss */
+#nous .footer {
+  min-height: 300px;
+}
+/* line 17, ../scss/_nous.scss */
 #nous .img_box img {
   width: 300px;
   height: 200px;
   margin-top: 30px;
-  margin-left: 40px;
 }
 
 /*----------------------------------------*\

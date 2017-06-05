@@ -1,9 +1,8 @@
 {% extends '@Core/layout.html.twig'%}
 	
-	{% block title %}Nous!{% endblock %}
+{% block title %}Nous!{% endblock %}
 	
-	{% block body %}
-	
+{% block body %}
 	<div id="nous">
 		{% if is_granted('ROLE_ADMIN') %}
 			{{ form_start(form) }}
@@ -18,7 +17,7 @@
 		</div>
 		<!--   Section "La Permaculture"   -->
 		<div class="section white">
-			<div class="row container">
+			<div class="row">
 				<div class="col s12 center">
 					<h2 class="title center teal-text text-lighten-2">Notre permaculture</h2>
 					<p class="grey-text text-darken-3 lighten-3">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
@@ -51,19 +50,20 @@
 							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
 						</div>
 					</div>
+					{% endif %}
 				</div>
 			</div>
-			{% endif %}
+			
 			
 			<div class="row pics">
-				<div class="col s12 m6 l4 img_box">
-					<img class="responsive-img" src="{{ asset('bundles/core/img/pictures/1.jpg') }}" >
+				<div class="center-align col s12 m6 l4 img_box">
+					<img class=" center-align responsive-img" src="{{ asset('bundles/core/img/pictures/1.jpg') }}" >
 				</div>
-				<div class="col s12 m6 l4 img_box">
-					<img class="responsive-img" src="{{ asset('bundles/core/img/pictures/2.JPG') }}" >
+				<div class="center-align col s12 m6 l4 img_box">
+					<img class="center-align responsive-img" src="{{ asset('bundles/core/img/pictures/2.JPG') }}" >
 				</div>
-				<div class="col s12 m6 l4 img_box">
-					<img class="responsive-img" src="{{ asset('bundles/core/img/pictures/3.JPG') }}" >
+				<div class="center-align col s12 m6 l4 img_box">
+					<img class="center-align responsive-img" src="{{ asset('bundles/core/img/pictures/3.JPG') }}" >
 				</div>
 			</div>
 		</div>
@@ -76,7 +76,7 @@
 		
 		<!--   Section "Notre Histoire"   -->
 		<div class="section white">
-			<div class="row container">
+			<div class="row">
 				<div class="col s12 center">
 					<h2 class="title center teal-text text-lighten-2">Notre Histoire</h2>
 					<p class="grey-text text-darken-3 lighten-3">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
@@ -109,19 +109,19 @@
 							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
 						</div>
 					</div>
+					{% endif %}
 				</div>
 			</div>
-			{% endif %}
 			
 			<div class="row pics">
-				<div class="col s12 m6 l4 img_box">
-					<img class="responsive-img" src="{{ asset('bundles/core/img/pictures/1.jpg') }}" >
+				<div class="center-align col s12 m6 l4 img_box">
+					<img class="center-align responsive-img" src="{{ asset('bundles/core/img/pictures/1.jpg') }}" >
 				</div>
-				<div class="col s12 m6 l4 img_box">
-					<img class="responsive-img" src="{{ asset('bundles/core/img/pictures/2.JPG') }}" >
+				<div class="center-align col s12 m6 l4 img_box">
+					<img class="center-align responsive-img" src="{{ asset('bundles/core/img/pictures/2.JPG') }}" >
 				</div>
-				<div class="col s12 m6 l4 img_box">
-					<img class="responsive-img" src="{{ asset('bundles/core/img/pictures/3.JPG') }}" >
+				<div class="center-align col s12 m6 l4 img_box">
+					<img class="center-align responsive-img" src="{{ asset('bundles/core/img/pictures/3.JPG') }}" >
 				</div>
 			</div>
 		</div>
@@ -133,7 +133,7 @@
 		</div>
 		<!--   Section "Association"   -->
 		<div class="section white">
-			<div class="row container">
+			<div class="row">
 				<div class="col s12 center">
 					<h2 class="title center teal-text text-lighten-2">L'association "Les 2 Mains"</h2>
 					<p class="grey-text text-darken-3 lighten-3">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
@@ -166,36 +166,40 @@
 							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
 						</div>
 					</div>
+					{% endif %}
 				</div>
 			</div>
-			{% endif %}
+			
 			
 			<div class="row pics">
-				<div class="col s12 m6 l4 img_box">
-					<img class="responsive-img" src="{{ asset('bundles/core/img/pictures/1.jpg') }}" >
+				<div class="center-align col s12 m6 l4 img_box">
+					<img class="center-align responsive-img" src="{{ asset('bundles/core/img/pictures/1.jpg') }}" >
 				</div>
-				<div class="col s12 m6 l4 img_box">
-					<img class="responsive-img" src="{{ asset('bundles/core/img/pictures/2.JPG') }}" >
+				<div class="center-align col s12 m6 l4 img_box">
+					<img class="center-align responsive-img" src="{{ asset('bundles/core/img/pictures/2.JPG') }}" >
 				</div>
-				<div class="col s12 m6 l4 img_box">
-					<img class="responsive-img" src="{{ asset('bundles/core/img/pictures/3.JPG') }}" >
+				<div class="center-align col s12 m6 l4 img_box">
+					<img class="center-align responsive-img" src="{{ asset('bundles/core/img/pictures/3.JPG') }}" >
 				</div>
 			</div>
-			{% if is_granted('ROLE_ADMIN') %}
-				{{ form_end(form) }}
-			{% endif %}
 		</div>
+		{% if is_granted('ROLE_ADMIN') %}
+			{{ form_end(form) }}
+		{% endif %}
 		
-		<div class="parallax-container valign-wrapper">
+		<div class="parallax-container valign-wrapper footer">
 			<div class="section no-pad-bot">
 				<div class="container">
-					<div class="row center">
+					{#<div class="row center">
 						<h5 class="header col s12 light">#</h5>
-					</div>
+					</div>#}
 				</div>
 			</div>
-			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic4.jpg') }}" alt="Unsplashed background img 3"></div>
+			<div class="parallax">
+				<img src="{{ asset('bundles/core/img/background/pic4.jpg') }}" alt="Unsplashed background img 3">
+			</div>
 		</div>
+		
 		<!--   Section "La Footer"   -->
 		<footer class="page-footer teal">
 			<div class="container">
@@ -214,4 +218,4 @@
 		</footer>
 	</div>
 	
-	{% endblock %}
+{% endblock %}

@@ -1,6 +1,6 @@
 <?php
 
-namespace les2MainsBundle\Form;
+namespace CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,23 +21,29 @@ class OurType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('titre', TextType::class)
-            ->add('contenu', TextType::class)
-            ->add('envoyer',   SubmitType::class);
+        $builder->add('titre1',         TextType::class)
+            ->add('titre2',         TextType::class)
+            ->add('titre3',         TextType::class)
+            ->add('contenu1',    TextareaType::class)
+            ->add('contenu2',    TextareaType::class)
+            ->add('contenu3',    TextareaType::class)
+            ->add('save',         SubmitType::class)
+        ;
+
     }
 
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'les2MainsBundle\Entity\Nous'
+            'data_class' => 'CoreBundle\Entity\Nous'
         ));
     }
 
 
     public function getBlockPrefix()
     {
-        return 'les2Mainsbundle_nous';
+        return 'Corebundle_nous';
     }
 
 }
