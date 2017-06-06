@@ -1,0 +1,82 @@
+{% extends '@Core/layout.html.twig' %}
+
+{% block body %}
+
+    <div id="activite">
+        <div class="parallax-container parallax-custom">
+            <div class="parallax">
+                <img src="https://mejorconsalud.com/wp-content/uploads/2014/07/Yoga1-500x333.jpg" alt="image_yoga">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row titre">
+                <div class="col s12 m12 l12 center">
+                    <h1>
+                        Le corps
+                    </h1>
+                </div>
+            </div>
+            <div class="row contenu">
+                <div class="col s6 m6 l6 left-align">
+                    <p>
+                        Le Yoga renforce votre corps et améliore votre souplesse. Le Yoga est associé à une recherche
+                        spirituelle et philosophique. Cependant, en pratiquant les postures, vous allez aussi renforcer
+                        vos muscles, y compris vos muscles profonds. Le Yoga va vous rendre plus forte physiquement et
+                        aussi renforcer votre souplesse.
+                    </p>
+                </div>
+                <div class ="col s6 m6 l6">
+                    <img src="https://mejorconsalud.com/wp-content/uploads/2014/07/Yoga1-500x333.jpg" height="200" alt="image_yoga"/>
+                </div>
+            </div>
+            <div class="row lien">
+                <div class="col s4 m4 l4">
+                    <a class="waves-effect teal z-depth-5 darken-4 btn">à decouvrir</a>
+                </div>
+                <div class="col s4 m4 l4">
+                  <a  {# href="{{ path('nos_events.html.twig') }}" #}class="waves-effect teal z-depth-5 darken-4 btn">Nos stages</a>
+                </div>
+                <div class="col s4 m4 l4">
+                    <!-- Modal Trigger -->
+                    <a class="waves-effect teal z-depth-5 darken-4 btn" href="#modal1">En savoir plus</a>
+
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <h4>Demande de renseignements</h4>
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="input-field col s12 m12 l12">
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email">Votre Email</label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                            <label for="textarea1">Votre message</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <button class="btn waves-effect teal z-depth-5 darken-4" type="submit" name="action">Envoyer
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">plop</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parallax-container parallax-custom">
+            <div class="parallax">
+                <img src="https://mejorconsalud.com/wp-content/uploads/2014/07/Yoga1-500x333.jpg" alt="image_yoga">
+            </div>
+        </div>
+    </div>
+{% endblock %}
