@@ -3,9 +3,9 @@
 {% block body %}
 
     <div id="activite">
-        <div class="parallax-container parallax-custom">
+        <div class="parallax-container">
             <div class="parallax">
-                <img src="https://mejorconsalud.com/wp-content/uploads/2014/07/Yoga1-500x333.jpg" alt="image_yoga">
+                <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}">
             </div>
         </div>
         <div class="container">
@@ -31,7 +31,7 @@
             </div>
             <div class="row lien">
                 <div class="col s4 m4 l4">
-                    <a class="waves-effect teal z-depth-5 darken-4 btn">à decouvrir</a>
+                    <a href="https://www.pierrerabhi.org/" class="waves-effect teal z-depth-5 darken-4 btn">à decouvrir</a>
                 </div>
                 <div class="col s4 m4 l4">
                   <a  {# href="{{ path('nos_events.html.twig') }}" #}class="waves-effect teal z-depth-5 darken-4 btn">Nos stages</a>
@@ -62,21 +62,100 @@
                                     </div>
                                 </form>
                             </div>
-                            <button class="btn waves-effect teal z-depth-5 darken-4" type="submit" name="action">Envoyer
+                            <button class="btn waves-effect teal z-depth-5 darken-4" type="submit" name="action">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Envoyer
+                                </a>
                                 <i class="material-icons right">send</i>
                             </button>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">plop</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="parallax-container parallax-custom">
+        <div class="parallax-container">
             <div class="parallax">
                 <img src="https://mejorconsalud.com/wp-content/uploads/2014/07/Yoga1-500x333.jpg" alt="image_yoga">
             </div>
         </div>
     </div>
+    <!--feck end-->
+
+
+
+    <!-- if Admin-->
+    {% if is_granted('ROLE_ADMIN') %}
+        {{ form_start(form) }}
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn align-center" href="#modal1">Admin</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>l'activité est ...</h4>
+            <div class="row">
+                <form class="col s6">
+                    <div class="row">
+                        <div class="input-field col s6 activite">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Rubrique</label>
+                        </div>
+                    </div>
+                </form>
+                <form class="col s6">
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s6 activite">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">Titre</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Contenu</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <form action="#">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>Image</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col s6">
+                    <form action="#">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>Lien</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Create</a>
+        </div>
+    </div>
+        {{ form_end(form) }}
+    {% endif %}
+    <!--if Admin end-->
 {% endblock %}
