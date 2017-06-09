@@ -3,6 +3,7 @@
 {% block body %}
 
     <div id="activite">
+        <!--demo en dur-->
         <div class="parallax-container">
             <div class="parallax">
                 <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}">
@@ -78,7 +79,97 @@
             </div>
         </div>
     </div>
-    <!--feck end-->
+    <!--demo en dur end-->
+
+
+
+        <!--Vue User-->
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}">
+            </div>
+        </div>
+        <div class="container">
+            {{ form_start(form) }}
+            <div class="row titre">
+                <div class="col s12 m12 l12 center">
+                    <h1>
+                        {{ form_label (form.rubrique) }}
+                        {{ form_widget (form.rubrique) }}
+                        {{ form_errors (form.rubrique) }}
+                    </h1>
+                </div>
+            </div>
+            <div class="row contenu">
+                <div class="col s6 m6 l6 left-align">
+                    <p>
+                        {{ form_label (form.contenu) }}
+                        {{ form_widget (form.contenu) }}
+                        {{ form_errors (form.contenu) }}
+                    </p>
+                </div>
+                <div class ="col s6 m6 l6">
+                        {{ form_label (form.picture) }}
+                        {{ form_widget (form.picture) }}
+                        {{ form_errors (form.picture) }}
+                </div>
+            </div>
+            <div class="row lien">
+                <div class="col s4 m4 l4">
+                    <a href="https://www.pierrerabhi.org/" class="waves-effect teal z-depth-5 darken-4 btn">
+                        {{ form_label (form.lien) }}
+                        {{ form_widget (form.lien) }}
+                        {{ form_errors (form.lien) }}
+                    </a>
+                </div>
+                {{ form_end(form) }}
+
+                <div class="col s4 m4 l4">
+                    <a  {# href="{{ path('event.html.twig') }}" #}class="waves-effect teal z-depth-5 darken-4 btn">Nos stages</a>
+                </div>
+                <div class="col s4 m4 l4">
+                    <!-- Modal Trigger -->
+                    <a class="waves-effect teal z-depth-5 darken-4 btn" href="#modal1">En savoir plus</a>
+
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <h4>Demande de renseignements</h4>
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="input-field col s12 m12 l12">
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email">Votre Email</label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                            <label for="textarea1">Votre message</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <button class="btn waves-effect teal z-depth-5 darken-4" type="submit" name="action">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Envoyer
+                                </a>
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="https://mejorconsalud.com/wp-content/uploads/2014/07/Yoga1-500x333.jpg" alt="image_yoga">
+            </div>
+        </div>
+    </div>
+    <!--Vue user end-->
 
 
 
@@ -94,35 +185,38 @@
         <div class="modal-content">
             <h4>l'activité est ...</h4>
             <div class="row">
-                <form class="col s6">
-                    <div class="row">
-                        <div class="input-field col s6 activite">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Rubrique</label>
-                        </div>
-                    </div>
-                </form>
-                <form class="col s6">
-                    <div class="row">
+                <form>
+                    <div class="col s6">
                         <div class="row">
                             <div class="input-field col s6 activite">
                                 <input id="last_name" type="text" class="validate">
-                                <label for="last_name">Titre</label>
+                                <label for="last_name">Rubrique</label>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Contenu</label>
+                    <div class="col s6">
+                        <div class="row">
+                            <div class="row">
+                                <div class="input-field col s6 activite">
+                                    <input id="last_name" type="text" class="validate">
+                                    <label for="last_name">Titre</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                <label for="textarea1">Contenu</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </form>
             </div>
+
             <div class="row">
                 <div class="col s6">
                     <form action="#">
