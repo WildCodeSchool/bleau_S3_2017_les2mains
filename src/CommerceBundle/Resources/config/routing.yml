@@ -1,7 +1,7 @@
 
 commerce_events:
     path:     /events
-    defaults: { _controller: CommerceBundle:Event:add }
+    defaults: { _controller: CommerceBundle:Event:Event }
 
 
 activite:

@@ -13,10 +13,10 @@ class EventController extends Controller
     // TODO: Generate entity
     public function EventAction()
     {
-        return $this->render('@Commerce/nos_events.html.twig');
+        return $this->render('@Commerce/event.html.twig');
     }
 
-    public function addAction(Request $request){
+   // public function addAction(Request $request){
 
 //        $stage = new Event();
 //        $formBuilder = $this->createFormBuilder($stage);
@@ -33,7 +33,7 @@ class EventController extends Controller
 //
 //
 
-        return $this->render('@Commerce/nos_events.html.twig');
-    }
+  //      return $this->render('@Commerce/event.html.twig');
+ //   }
 
 }
