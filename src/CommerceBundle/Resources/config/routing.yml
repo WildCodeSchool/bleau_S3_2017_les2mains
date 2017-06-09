@@ -8,6 +8,8 @@ activite:
     path:     /activite
     defaults: {  _controller: CommerceBundle:Activite:Activite }
 
-
+produit:
+    path:     /produit
+    defaults: {  _controller: CommerceBundle:Produit:Produit }
 
 

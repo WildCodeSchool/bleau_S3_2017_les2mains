@@ -85,6 +85,7 @@
     <!-- if Admin-->
     {% if is_granted('ROLE_ADMIN') %}
         {{ form_start(form) }}
+    {% endif %}
     <!-- Modal Trigger -->
     <a class="waves-effect waves-light btn align-center" href="#modal1">Admin</a>
 
@@ -155,7 +156,8 @@
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Create</a>
         </div>
     </div>
-        {{ form_end(form) }}
+    {% if is_granted('ROLE_ADMIN') %}
+    {{ form_end(form) }}
     {% endif %}
     <!--if Admin end-->
 {% endblock %}
