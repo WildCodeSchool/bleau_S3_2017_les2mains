@@ -565,16 +565,18 @@ Animation keyframes
   min-height: 30px;
 }
 /* line 17, ../scss/_blog.scss */
-#blog .card_image {
+#blog .card-image {
   height: 350px;
-  padding: 10px;
 }
-/* line 22, ../scss/_blog.scss */
+/* line 21, ../scss/_blog.scss */
 #blog .card {
-  border-top: darkgreen solid 1px;
-  border-bottom: darkgreen solid 1px;
   margin-top: 50px;
   margin-bottom: 30px;
+  height: 500px;
+}
+/* line 27, ../scss/_blog.scss */
+#blog .btn_custom_modal {
+  margin-bottom: 25px;
 }
 
 /*----------------------------------------*\
