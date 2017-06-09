@@ -1,0 +1,87 @@
+{% extends '@Core/layout.html.twig'%}
+
+{% block title %}Page_Contact!{% endblock %}
+
+{% block body %}
+<div id="contact">
+	<div class="parallax-container">
+		<div class="parallax">
+			<img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
+		</div>
+	</div>
+	
+	<div class="section white">
+	
+			<div class="row">
+				<div class="col s4 adress">
+					
+						
+				
+						<h4>Notre Adresse</h4>
+						<p>10 allée de la valée</p>
+						<p>45000 Dordive</p>
+						<p>01 01 01 01 01</p>
+				</div>
+				<div class="row google-maps">
+					<div class="col s4 offset-s3">
+						<iframe width="350" height="250" frameborder="0" src="https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJga269ovz5UcRkFqMaMOCCwQ&destination=place_id:ChIJga269ovz5UcRkFqMaMOCCwQ&key=AIzaSyCSyhHBOpw6_Ri7m5dIUgZGKQXvtYMxqHo" allowfullscreen></iframe>
+					</div>
+				</div>
+						
+			</div>
+			
+				<form class="col s12">
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">account_circle</i>
+							<input id="icon_prefix" type="text" class="validate">
+							<label for="icon_prefix">Votre Nom</label>
+						</div>
+						<div class="input-field col s12">
+							<i class="material-icons prefix">account_circle</i>
+							<input id="icon_prefix" type="text" class="validate">
+							<label for="icon_prefix">Votre Pénom</label>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">mail</i>
+								<input id="email" type="email" class="validate">
+								<label for="email" data-error="wrong" data-success="right">Email</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">mode_edit</i>
+							<textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+							<label for="icon_prefix2">Votre Message</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12 center align">
+							<button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
+								<i class="material-icons right">send</i>
+							</button>
+						</div>
+					</div>
+				</form>
+		
+	</div>
+	
+	<div class="parallax-container">
+		<div class="parallax">
+			<img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
+		</div>
+	</div>
+</div>
+	
+	
+	
+
+
+
+
+
+
+
+{% endblock %}

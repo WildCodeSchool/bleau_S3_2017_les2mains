@@ -1,0 +1,78 @@
+#contact {
+  /*----------------------------------------
+   PARALAX
+  ----------------------------------------*/
+
+  .parallax-container {
+    min-height: 300px;
+  }
+
+  /*----------------------------------------
+   Size Img
+  ----------------------------------------*/
+  .google-maps {
+    position: relative;
+    padding-bottom: 50%; // This is the aspect ratio
+    height: 0;
+    overflow: hidden;
+    margin-top: 10%;
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+  .google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  /*.adress {
+    max-width: 100%;
+    height: auto;
+  }*/
+
+
+
+
+
+
+
+
+  @media screen and (min-width: 350px) and (max-width: 500px)
+  {
+    .google-maps
+    {
+      position: relative;
+      padding-bottom: 100%; // This is the aspect ratio
+      height: 0;
+      overflow: hidden;
+      margin-top: 50%;
+      margin-right: 5%;
+      margin-left: 50%;
+    }
+    .google-maps iframe
+    {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 80%;
+      height: 80%;
+    }
+
+    }
+    @media screen and (max-width: 349px)
+    {
+      .adress
+      {
+        margin-left: auto;
+        margin-right: auto;
+
+      }
+      .google-maps iframe
+      {
+        display: none;
+      }
+
+    }
+  }
+

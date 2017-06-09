@@ -1,0 +1,66 @@
+/* line 1, ../scss/contact.scss */
+#contact {
+  /*----------------------------------------
+   PARALAX
+  ----------------------------------------*/
+  /*----------------------------------------
+   Size Img
+  ----------------------------------------*/
+  /*.adress {
+    max-width: 100%;
+    height: auto;
+  }*/
+}
+/* line 6, ../scss/contact.scss */
+#contact .parallax-container {
+  min-height: 300px;
+}
+/* line 13, ../scss/contact.scss */
+#contact .google-maps {
+  position: relative;
+  padding-bottom: 50%;
+  height: 0;
+  overflow: hidden;
+  margin-top: 10%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+/* line 22, ../scss/contact.scss */
+#contact .google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+@media screen and (min-width: 350px) and (max-width: 500px) {
+  /* line 43, ../scss/contact.scss */
+  #contact .google-maps {
+    position: relative;
+    padding-bottom: 100%;
+    height: 0;
+    overflow: hidden;
+    margin-top: 50%;
+    margin-right: 5%;
+    margin-left: 50%;
+  }
+  /* line 53, ../scss/contact.scss */
+  #contact .google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+  }
+}
+@media screen and (max-width: 349px) {
+  /* line 65, ../scss/contact.scss */
+  #contact .adress {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 71, ../scss/contact.scss */
+  #contact .google-maps iframe {
+    display: none;
+  }
+}
