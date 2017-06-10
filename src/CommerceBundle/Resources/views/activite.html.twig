@@ -94,32 +94,24 @@
             <div class="row titre">
                 <div class="col s12 m12 l12 center">
                     <h1>
-                        {{ form_label (form.rubrique) }}
-                        {{ form_widget (form.rubrique) }}
-                        {{ form_errors (form.rubrique) }}
+                        {{ activite.rubrique }}
                     </h1>
                 </div>
             </div>
             <div class="row contenu">
                 <div class="col s6 m6 l6 left-align">
                     <p>
-                        {{ form_label (form.contenu) }}
-                        {{ form_widget (form.contenu) }}
-                        {{ form_errors (form.contenu) }}
+                        {{ activite.contenu }}
                     </p>
                 </div>
                 <div class ="col s6 m6 l6">
-                        {{ form_label (form.picture) }}
-                        {{ form_widget (form.picture) }}
-                        {{ form_errors (form.picture) }}
+                       {{ activite.picture }}
                 </div>
             </div>
             <div class="row lien">
                 <div class="col s4 m4 l4">
                     <a href="https://www.pierrerabhi.org/" class="waves-effect teal z-depth-5 darken-4 btn">
-                        {{ form_label (form.lien) }}
-                        {{ form_widget (form.lien) }}
-                        {{ form_errors (form.lien) }}
+                       {{ activite.lien }}
                     </a>
                 </div>
                 {{ form_end(form) }}
@@ -183,6 +175,7 @@
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content">
+            {{ form_start(form) }}
             <h4>l'activité est ...</h4>
             <div class="row">
                 <form>
@@ -190,7 +183,11 @@
                         <div class="row">
                             <div class="input-field col s6 activite">
                                 <input id="last_name" type="text" class="validate">
-                                <label for="last_name">Rubrique</label>
+                                <label for="last_name">
+                                    {{ form_label (form.rubrique) }}
+                                    {{ form_widget (form.rubrique) }}
+                                    {{ form_errors (form.rubrique) }}
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -199,7 +196,11 @@
                             <div class="row">
                                 <div class="input-field col s6 activite">
                                     <input id="last_name" type="text" class="validate">
-                                    <label for="last_name">Titre</label>
+                                    <label for="last_name">
+                                        {{ form_label (form.titre) }}
+                                        {{ form_widget (form.titre) }}
+                                        {{ form_errors (form.titre) }}
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -209,7 +210,11 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                <label for="textarea1">Contenu</label>
+                                <label for="textarea1">
+                                    {{ form_label (form.contenu) }}
+                                    {{ form_widget (form.contenu) }}
+                                    {{ form_errors (form.contenu) }}
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -222,7 +227,11 @@
                     <form action="#">
                         <div class="file-field input-field">
                             <div class="btn">
-                                <span>Image</span>
+                                <span>
+                                    {{ form_label (form.picture) }}
+                                    {{ form_widget (form.picture) }}
+                                    {{ form_errors (form.picture) }}
+                                </span>
                                 <input type="file">
                             </div>
                             <div class="file-path-wrapper">
@@ -235,7 +244,11 @@
                     <form action="#">
                         <div class="file-field input-field">
                             <div class="btn">
-                                <span>Lien</span>
+                                <span>
+                                    {{ form_label (form.lien) }}
+                                    {{ form_widget (form.lien) }}
+                                    {{ form_errors (form.lien) }}
+                                </span>
                                 <input type="file">
                             </div>
                             <div class="file-path-wrapper">
@@ -248,6 +261,7 @@
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Create</a>
+            {{ form_end(form) }}
         </div>
     </div>
     {% if is_granted('ROLE_ADMIN') %}

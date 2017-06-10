@@ -22,7 +22,7 @@ class ActiviteController extends Controller
 
    public function ActiviteaddAction(Request $request)
   {
-      $activite = new activite();
+      $activite = new Activite();
       $form = $this->createForm('CommerceBundle\Form\ActiviteType', $activite);
       $form->handleRequest($request);
 
