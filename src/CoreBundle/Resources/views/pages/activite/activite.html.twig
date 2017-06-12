@@ -1,0 +1,31 @@
+{% extends '@Core/layout.html.twig'  %}
+
+{% block body %}
+    {% for activite in activites %}
+    <div class="container">
+        <div class="row rubrique">
+            <div class="col s12 m12 l12 center">
+                <h1>
+                    {{ activite.activiteType.id }}
+                </h1>
+            </div>
+        </div>
+        <div class="row titre">
+            <div class="col s12 m12 l12 center">
+                <h1>
+                    {{ activite.titre }}
+                </h1>
+            </div>
+        </div>
+        <div class="row contenu">
+        <div class="col s6 m6 l6 left-align">
+            <p>
+                {{ activite.contenu }}
+            </p>
+        </div>
+        </div>
+    {% endfor %}
+
+
+    <a href="{{ path('core_activite_add') }}">ajout d'une activite</a>
+{% endblock %}

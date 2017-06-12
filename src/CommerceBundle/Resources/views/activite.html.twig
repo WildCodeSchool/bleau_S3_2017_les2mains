@@ -37,40 +37,6 @@
                 <div class="col s4 m4 l4">
                   <a  {# href="{{ path('nos_events.html.twig') }}" #}class="waves-effect teal z-depth-5 darken-4 btn">Nos stages</a>
                 </div>
-                <div class="col s4 m4 l4">
-                    <!-- Modal Trigger -->
-                    <a class="waves-effect teal z-depth-5 darken-4 btn" href="#modal1">En savoir plus</a>
-
-                    <!-- Modal Structure -->
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>Demande de renseignements</h4>
-                            <div class="row">
-                                <form class="col s12">
-                                    <div class="input-field col s12 m12 l12">
-                                        <input id="email" type="email" class="validate">
-                                        <label for="email">Votre Email</label>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="row">
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                            <label for="textarea1">Votre message</label>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <button class="btn waves-effect teal z-depth-5 darken-4" type="submit" name="action">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Envoyer
-                                </a>
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="parallax-container">
@@ -89,12 +55,21 @@
                 <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}">
             </div>
         </div>
+
+
         <div class="container">
-            {{ form_start(form) }}
+    {% for activite in activites %}
+            <div class="row rubrique">
+                <div class="col s12 m12 l12 center">
+                    <h1>
+                        {{ activite.activiteType }}
+                    </h1>
+                </div>
+            </div>
             <div class="row titre">
                 <div class="col s12 m12 l12 center">
                     <h1>
-                        {{ activite.rubrique }}
+                        {{ activite.titre }}
                     </h1>
                 </div>
             </div>
@@ -114,7 +89,7 @@
                        {{ activite.lien }}
                     </a>
                 </div>
-                {{ form_end(form) }}
+                {% endfor %}
 
                 <div class="col s4 m4 l4">
                     <a  {# href="{{ path('event.html.twig') }}" #}class="waves-effect teal z-depth-5 darken-4 btn">Nos stages</a>
@@ -124,34 +99,7 @@
                     <a class="waves-effect teal z-depth-5 darken-4 btn" href="#modal1">En savoir plus</a>
 
                     <!-- Modal Structure -->
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>Demande de renseignements</h4>
-                            <div class="row">
-                                <form class="col s12">
-                                    <div class="input-field col s12 m12 l12">
-                                        <input id="email" type="email" class="validate">
-                                        <label for="email">Votre Email</label>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="row">
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                            <label for="textarea1">Votre message</label>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <button class="btn waves-effect teal z-depth-5 darken-4" type="submit" name="action">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Envoyer
-                                </a>
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -166,9 +114,9 @@
 
 
     <!-- if Admin-->
-    {% if is_granted('ROLE_ADMIN') %}
+   {# {% if is_granted('ROLE_ADMIN') %}
         {{ form_start(form) }}
-    {% endif %}
+    {% endif %}#}
     <!-- Modal Trigger -->
     <a class="waves-effect waves-light btn align-center" href="#modal1">Admin</a>
 
@@ -178,16 +126,12 @@
             {{ form_start(form) }}
             <h4>l'activité est ...</h4>
             <div class="row">
-                <form>
                     <div class="col s6">
                         <div class="row">
                             <div class="input-field col s6 activite">
-                                <input id="last_name" type="text" class="validate">
-                                <label for="last_name">
-                                    {{ form_label (form.rubrique) }}
-                                    {{ form_widget (form.rubrique) }}
-                                    {{ form_errors (form.rubrique) }}
-                                </label>
+                                    {#{{ form_label (form.activiteType) }}#}
+                                    {#{{ form_widget (form.activiteType) }}#}
+                                    {#{{ form_errors (form.activiteType) }}#}
                             </div>
                         </div>
                     </div>
@@ -195,12 +139,9 @@
                         <div class="row">
                             <div class="row">
                                 <div class="input-field col s6 activite">
-                                    <input id="last_name" type="text" class="validate">
-                                    <label for="last_name">
                                         {{ form_label (form.titre) }}
                                         {{ form_widget (form.titre) }}
                                         {{ form_errors (form.titre) }}
-                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -209,53 +150,45 @@
                     <div class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                <label for="textarea1">
                                     {{ form_label (form.contenu) }}
                                     {{ form_widget (form.contenu) }}
                                     {{ form_errors (form.contenu) }}
-                                </label>
                             </div>
                         </div>
                     </div>
                 </div>
-                </form>
             </div>
 
             <div class="row">
                 <div class="col s6">
-                    <form action="#">
                         <div class="file-field input-field">
                             <div class="btn">
-                                <span>
-                                    {{ form_label (form.picture) }}
-                                    {{ form_widget (form.picture) }}
-                                    {{ form_errors (form.picture) }}
-                                </span>
+                                {#<span>#}
+                                    {#{{ form_label (form.picture) }}#}
+                                    {#{{ form_widget (form.picture) }}#}
+                                    {#{{ form_errors (form.picture) }}#}
+                                {#</span>#}
                                 <input type="file">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div class="col s6">
-                    <form action="#">
                         <div class="file-field input-field">
                             <div class="btn">
-                                <span>
-                                    {{ form_label (form.lien) }}
-                                    {{ form_widget (form.lien) }}
-                                    {{ form_errors (form.lien) }}
-                                </span>
+                                {#<span>#}
+                                    {#{{ form_label (form.lien) }}#}
+                                    {#{{ form_widget (form.lien) }}#}
+                                    {#{{ form_errors (form.lien) }}#}
+                                {#</span>#}
                                 <input type="file">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -264,8 +197,8 @@
             {{ form_end(form) }}
         </div>
     </div>
-    {% if is_granted('ROLE_ADMIN') %}
+   {# {% if is_granted('ROLE_ADMIN') %}
     {{ form_end(form) }}
-    {% endif %}
+    {% endif %}#}
     <!--if Admin end-->
 {% endblock %}

@@ -6,4 +6,6 @@ core_nous:
     path:     /nous
     defaults: { _controller: CoreBundle:Our:nous }
 
-
+core_activite:
+    prefix: /activite
+    resource: 'routing/activite.yml'
