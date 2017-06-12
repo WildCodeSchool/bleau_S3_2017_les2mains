@@ -18,6 +18,34 @@ use Symfony\Component\HttpFoundation\Request;
 class OurType extends AbstractType
 {
 
+
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('titre1',         TextType::class)
+                ->add('contenu1',    TextareaType::class)
+                ->add('save_1',         SubmitType::class)
+        ;
+
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'CoreBundle\Entity\Nous'
+        ));
+    }
+
+
+    public function getBlockPrefix()
+    {
+        return 'Corebundle_nous';
+    }
+
+
+/*
+ // Formulaire dans le Controller OurController
+// TO DO : A delete après phase de Test
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('titre1',         TextType::class)
@@ -43,6 +71,6 @@ class OurType extends AbstractType
     public function getBlockPrefix()
     {
         return 'Corebundle_nous';
-    }
+    }*/
 
 }

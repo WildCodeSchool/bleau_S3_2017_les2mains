@@ -5,11 +5,11 @@
 {% block body %}
 	<div id="nous">
 		{% if is_granted('ROLE_ADMIN') %}
-			{{ form_start(form) }}
+			{#{{ form_start(form) }}#}
 		{% endif %}
 		<div class="parallax-container">
 			<div class="section header">
-				<h2 class="header center teal-text text-lighten-2">Nous et notre Permaculture</h2>
+				<h2 class="header center teal-text text-lighten-2">Notre Permaculture et Nous</h2>
 			</div>
 			<div class="parallax">
 				<img src="{{ asset('bundles/core/img/background/pic1.jpg') }}" alt="Unsplashed background img 1">
@@ -19,17 +19,8 @@
 		<div class="section white">
 			<div class="row">
 				<div class="col s12 center">
-					<h2 class="title center teal-text text-lighten-2">Notre permaculture</h2>
-					<p class="grey-text text-darken-3 lighten-3">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
-						et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.
-						
-						Batnae municipium in Anthemusia conditum Macedonum manu priscorum ab Euphrate flumine brevi spatio disparatur, refertum mercatoribus opulentis,
-						ubi annua sollemnitate prope Septembris initium mensis ad nundinas magna promiscuae fortunae convenit multitudo ad commercanda quae Indi mittunt et Seres aliaque plurima vehi terra marique consueta.
-						
-						Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum.
-						Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat,
-						aut ne plus aequo quid in amicitiam congeratur.
-					</p>
+					<h2 class="title center teal-text text-lighten-2">{{ our.titre1 }}</h2>
+					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu1 }}</p>
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
 					<!-- Modal Trigger -->
@@ -39,15 +30,16 @@
 					<div id="modal1" class="modal modal-fixed-footer">
 						<div class="modal-content">
 							<div class="row col l12">
-								{{ form_row(form.titre1) }}
+								{#{{ form_row(form.titre1) }}#}
 							</div>
 							<div class="row col l12">
-								{{ form_row(form.contenu1) }}
+								{#{{ form_row(form.contenu1) }}#}
 							</div>
 						</div>
 						<div class="modal-footer">
-							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
-							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
+							{#{{ form_row(form.save_1) }}#}
+							{#<a href="" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>#}
+							{#<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>#}
 						</div>
 					</div>
 					{% endif %}
@@ -78,17 +70,8 @@
 		<div class="section white">
 			<div class="row">
 				<div class="col s12 center">
-					<h2 class="title center teal-text text-lighten-2">Notre Histoire</h2>
-					<p class="grey-text text-darken-3 lighten-3">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
-						et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.
-						
-						Batnae municipium in Anthemusia conditum Macedonum manu priscorum ab Euphrate flumine brevi spatio disparatur, refertum mercatoribus opulentis,
-						ubi annua sollemnitate prope Septembris initium mensis ad nundinas magna promiscuae fortunae convenit multitudo ad commercanda quae Indi mittunt et Seres aliaque plurima vehi terra marique consueta.
-						
-						Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum.
-						Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat,
-						aut ne plus aequo quid in amicitiam congeratur.
-					</p>
+					<h2 class="title center teal-text text-lighten-2">{{ our.titre2 }}</h2>
+					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu2 }}
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
 					<!-- Modal Trigger -->
@@ -98,15 +81,16 @@
 					<div id="modal2" class="modal modal-fixed-footer">
 						<div class="modal-content">
 							<div class="row col l12">
-								{{ form_row(form.titre2) }}
+								{#{{ form_row(form.titre2) }}#}
 							</div>
 							<div class="row col l12">
-								{{ form_row(form.contenu2) }}
+							{#	{{ form_row(form.contenu2) }}#}
 							</div>
 						</div>
 						<div class="modal-footer">
-							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
-							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
+							{#{{ form_row(form.save_2) }}#}
+							{#<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
+							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>#}
 						</div>
 					</div>
 					{% endif %}
@@ -135,17 +119,8 @@
 		<div class="section white">
 			<div class="row">
 				<div class="col s12 center">
-					<h2 class="title center teal-text text-lighten-2">L'association "Les 2 Mains"</h2>
-					<p class="grey-text text-darken-3 lighten-3">Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum et Eusebium nec professionem nec dignitatem ostendens aliquotiens increpabat, qui sint hi magna quaerebatur industria,
-						et nequid intepesceret, Epigonus e Lycia philosophus ducitur et Eusebius ab Emissa Pittacas cognomento, concitatus orator, cum quaestor non hos sed tribunos fabricarum insimulasset promittentes armorum si novas res agitari conperissent.
-						
-						Batnae municipium in Anthemusia conditum Macedonum manu priscorum ab Euphrate flumine brevi spatio disparatur, refertum mercatoribus opulentis,
-						ubi annua sollemnitate prope Septembris initium mensis ad nundinas magna promiscuae fortunae convenit multitudo ad commercanda quae Indi mittunt et Seres aliaque plurima vehi terra marique consueta.
-						
-						Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum.
-						Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat,
-						aut ne plus aequo quid in amicitiam congeratur.
-					</p>
+					<h2 class="title center teal-text text-lighten-2">{{ our.titre3 }}</h2>
+					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu3 }}
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
 					<!-- Modal Trigger -->
@@ -155,15 +130,16 @@
 					<div id="modal3" class="modal modal-fixed-footer">
 						<div class="modal-content">
 							<div class="row col l12">
-								{{ form_row(form.titre3) }}
+								{#{{ form_row(form.titre3) }}#}
 							</div>
 							<div class="row col l12">
-								{{ form_row(form.contenu3) }}
+								{#{{ form_row(form.contenu3) }}#}
 							</div>
 						</div>
 						<div class="modal-footer">
-							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
-							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>
+						{#	{{ our.save_3 }}#}
+							{#<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
+							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>#}
 						</div>
 					</div>
 					{% endif %}
@@ -184,7 +160,7 @@
 			</div>
 		</div>
 		{% if is_granted('ROLE_ADMIN') %}
-			{{ form_end(form) }}
+			{#{{ form_end(form) }}#}
 		{% endif %}
 		
 		<div class="parallax-container valign-wrapper footer">

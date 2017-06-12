@@ -4,9 +4,13 @@ core_homepage:
 
 core_nous:
     path:     /nous
-    defaults: { _controller: CoreBundle:Our:nous }
+    defaults: { _controller: CoreBundle:Our:ourForm }
+    requirements:
+        method: GET|POST
 
 core_contact:
     path:   /contact
     defaults: { _controller: CoreBundle:Default:contact}
+
+
 
