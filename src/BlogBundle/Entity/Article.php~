@@ -109,4 +109,33 @@ class Article
     {
         return $this->date;
     }
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture;
+
+
+    /**
+     * Set picture
+     *
+     * @param \CoreBundle\Entity\Picture $picture
+     *
+     * @return Article
+     */
+    public function setPicture(\CoreBundle\Entity\Picture $picture = null)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return \CoreBundle\Entity\Picture
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
 }

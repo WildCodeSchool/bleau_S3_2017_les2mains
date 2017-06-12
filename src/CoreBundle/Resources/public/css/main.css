@@ -580,6 +580,25 @@ Animation keyframes
 /*----------------------------------------*\
     6.EVENTS
 \*----------------------------------------*/
+/* line 1, ../scss/_events.scss */
+#events {
+  /*----------------------------------------*\
+    6.EVENTS
+\*----------------------------------------*/
+}
+/* line 6, ../scss/_events.scss */
+#events .p_justify {
+  text-align: justify;
+}
+/* line 9, ../scss/_events.scss */
+#events .text_perso_events {
+  color: #4db6ac;
+}
+/* line 12, ../scss/_events.scss */
+#events .text_teal_events {
+  color: #009688;
+}
+
 /*----------------------------------------*\
     7.PRODUITS
 \*----------------------------------------*/
