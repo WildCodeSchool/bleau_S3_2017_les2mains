@@ -586,6 +586,109 @@ Animation keyframes
 /*----------------------------------------*\
     8.CONTACT
 \*----------------------------------------*/
+/* line 1, ../scss/contact.scss */
+#contact {
+  /*----------------------------------------
+   PARALAX
+  ----------------------------------------*/
+  /*----------------------------------------
+   Size Img
+  ----------------------------------------*/
+}
+/* line 6, ../scss/contact.scss */
+#contact .parallax-container {
+  min-height: 300px;
+}
+/* line 10, ../scss/contact.scss */
+#contact .form .mail {
+  margin-bottom: 0;
+}
+/* line 14, ../scss/contact.scss */
+#contact #div_mail #div_message {
+  padding: 0;
+}
+/* line 21, ../scss/contact.scss */
+#contact .google-maps {
+  position: relative;
+  padding-bottom: 50%;
+  height: 0;
+  overflow: hidden;
+  margin-top: 1%;
+  margin-right: 1%;
+  margin-left: 1%;
+  margin-bottom: -20%;
+}
+/* line 31, ../scss/contact.scss */
+#contact .google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 50% !important;
+}
+@media screen and (min-width: 350px) and (max-width: 500px) {
+  /* line 43, ../scss/contact.scss */
+  #contact .google-maps {
+    position: relative;
+    padding-bottom: 50%;
+    height: 0;
+    overflow: hidden;
+    margin-top: 1%;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: -20%;
+  }
+  /* line 53, ../scss/contact.scss */
+  #contact .google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  /* line 60, ../scss/contact.scss */
+  #contact .adress {
+    font-size: smaller;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 66, ../scss/contact.scss */
+  #contact .adress h4 {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 349px) {
+  /* line 74, ../scss/contact.scss */
+  #contact .google-maps {
+    position: relative;
+    padding-bottom: 50%;
+    height: 0;
+    overflow: hidden;
+    margin-top: 1%;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: -20%;
+  }
+  /* line 84, ../scss/contact.scss */
+  #contact .google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  /* line 91, ../scss/contact.scss */
+  #contact .adress {
+    font-size: x-small;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 97, ../scss/contact.scss */
+  #contact .adress h4 {
+    font-size: 20px;
+  }
+}
+
 /*----------------------------------------*\
     9.FOOTER
 \*----------------------------------------*/
