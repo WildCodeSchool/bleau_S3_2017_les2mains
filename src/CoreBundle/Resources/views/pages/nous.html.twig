@@ -4,9 +4,7 @@
 	
 {% block body %}
 	<div id="nous">
-		{% if is_granted('ROLE_ADMIN') %}
-			{#{{ form_start(form) }}#}
-		{% endif %}
+		
 		<div class="parallax-container">
 			<div class="section header">
 				<h2 class="header center teal-text text-lighten-2">Notre Permaculture et Nous</h2>
@@ -23,6 +21,7 @@
 					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu1 }}</p>
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
+						{{ form_start(form1) }}
 					<!-- Modal Trigger -->
 					<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Edition</a>
 					
@@ -30,18 +29,19 @@
 					<div id="modal1" class="modal modal-fixed-footer">
 						<div class="modal-content">
 							<div class="row col l12">
-								{#{{ form_row(form.titre1) }}#}
+								{{ form_row(form1.titre1) }}
 							</div>
 							<div class="row col l12">
-								{#{{ form_row(form.contenu1) }}#}
+								{{ form_row(form1.contenu1) }}
 							</div>
 						</div>
 						<div class="modal-footer">
-							{#{{ form_row(form.save_1) }}#}
+							{{ form_row(form1.save_1) }}
 							{#<a href="" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>#}
 							{#<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>#}
 						</div>
 					</div>
+						{{ form_end(form1) }}
 					{% endif %}
 				</div>
 			</div>
