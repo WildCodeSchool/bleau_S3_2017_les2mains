@@ -7,52 +7,61 @@
 
  {% if is_granted('ROLE_ADMIN')%}
      {{ form_start(form) }}
- {% endif %}
+
     <a class="waves-effect waves-light btn align-center" href="#modal1">Admin</a>
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h4>l'activité est ...</h4>
-
+            <div class='row'>
+                <div class="input-field col s12">
+                    <select multiple>
+                        <option value="" disabled selected>Type d'activité</option>
+                        <option value="1">
+                            {{ form_label (form.activiteType) }}
+                            {{ form_widget (form.activiteType) }}
+                            {{ form_errors (form.activiteType) }}
+                        </option>
+                        <option value="2">
+                            {{ form_label (form.activiteType) }}
+                            {{ form_widget (form.activiteType) }}
+                            {{ form_errors (form.activiteType) }}
+                        </option>
+                        <option value="3">
+                            {{ form_label (form.activiteType) }}
+                            {{ form_widget (form.activiteType) }}
+                            {{ form_errors (form.activiteType) }}
+                        </option>
+                    </select>
+                    <label>Materialize Multiple Select</label>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="input-field col s6">
+                    {{ form_label (form.titre) }}
+                    {{ form_widget (form.titre) }}
+                    {{ form_errors (form.titre) }}
+                 </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
                     <div class="row">
-                        <div class="col s12">
-                            <div class="row">
-                                 <div class="input-field col s6">
-                                        {{ form_label (form.activiteType) }}
-                                        {{ form_widget (form.activiteType) }}
-                                        {{ form_errors (form.activiteType) }}
-                                 </div>
-
-                         <div class="input-field col s6">
-                            {{ form_label (form.titre) }}
-                            {{ form_widget (form.titre) }}
-                            {{ form_errors (form.titre) }}
-                         </div>
-                    </div>
+                        <div class="input-field col s12">
+                            {{ form_label (form.contenu) }}
+                            {{ form_widget (form.contenu) }}
+                            {{ form_errors (form.contenu) }}
                         </div>
                     </div>
-
-
-                 <div class="row">
-                    <div class="col s12">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                {{ form_label (form.contenu) }}
-                                {{ form_widget (form.contenu) }}
-                                {{ form_errors (form.contenu) }}
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-                 <div class="row">
-                     <div class="col s12 m12">
-                         <input class="btn z-depth-5 teal darken-4" type="submit" value="Create" />
-                     </div>
-                 </div>
-                 </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m12">
+                   {{ form_widget(form.submit) }}
+                </div>
+            </div>
         </div>
+    </div>
 
 
- {% if is_granted('ROLE_ADMIN')%}
     {{ form_end(form) }}
     {% endif %}
 

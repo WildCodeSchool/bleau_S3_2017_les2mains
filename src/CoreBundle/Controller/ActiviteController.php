@@ -29,13 +29,12 @@ class ActiviteController extends Controller
             $em->persist($activite);
             $em->flush();
 
-            return $this->redirectToRoute('core_activite_add');
+            return $this->redirectToRoute('core_activite');
 
         }
 
         return $this->render('@Core/pages/activite/addActivite.html.twig', array(
             'activite' => $activite,
-            'activites' => array(),
             'form' => $form->createView(),
         ));
     }
