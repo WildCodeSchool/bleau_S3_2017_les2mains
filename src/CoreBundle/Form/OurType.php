@@ -17,60 +17,29 @@ use Symfony\Component\HttpFoundation\Request;
 
 class OurType extends AbstractType
 {
-
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('titre1',         TextType::class)
                 ->add('contenu1',    TextareaType::class)
                 ->add('save_1',         SubmitType::class)
-        ;
+                ->add('titre2', TextareaType::class)
+                ->add('contenu2', TextareaType::class)
+                ->add('save_2', SubmitType::class)
+                ->add('titre3', TextareaType::class)
+                ->add('contenu3', TextareaType::class)
+                ->add('save_3', SubmitType::class);
 
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'CoreBundle\Entity\Nous'
+            'data_class' => 'CoreBundle\Entity\Our'
         ));
     }
-
 
     public function getBlockPrefix()
     {
         return 'Corebundle_nous';
     }
-
-
-/*
- // Formulaire dans le Controller OurController
-// TO DO : A delete après phase de Test
-
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder->add('titre1',         TextType::class)
-            ->add('titre2',         TextType::class)
-            ->add('titre3',         TextType::class)
-            ->add('contenu1',    TextareaType::class)
-            ->add('contenu2',    TextareaType::class)
-            ->add('contenu3',    TextareaType::class)
-            ->add('save',         SubmitType::class)
-        ;
-
-    }
-
-
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'CoreBundle\Entity\Nous'
-        ));
-    }
-
-
-    public function getBlockPrefix()
-    {
-        return 'Corebundle_nous';
-    }*/
 
 }
