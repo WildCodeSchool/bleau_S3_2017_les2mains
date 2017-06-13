@@ -19,6 +19,7 @@
 				<div class="col s12 center">
 					<h2 class="title center teal-text text-lighten-2">{{ our.titre1 }}</h2>
 					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu1 }}</p>
+					
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
 						{{ form_start(form1) }}
@@ -72,8 +73,10 @@
 				<div class="col s12 center">
 					<h2 class="title center teal-text text-lighten-2">{{ our.titre2 }}</h2>
 					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu2 }}
+					
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
+						{{ form_start(form2) }}
 					<!-- Modal Trigger -->
 					<a class="modal-trigger waves-effect waves-light btn" href="#modal2">Edition</a>
 					
@@ -81,18 +84,19 @@
 					<div id="modal2" class="modal modal-fixed-footer">
 						<div class="modal-content">
 							<div class="row col l12">
-								{#{{ form_row(form.titre2) }}#}
+								{{ form_row(form2.titre2) }}
 							</div>
 							<div class="row col l12">
-							{#	{{ form_row(form.contenu2) }}#}
+							{{ form_row(form2.contenu2) }}
 							</div>
 						</div>
 						<div class="modal-footer">
-							{#{{ form_row(form.save_2) }}#}
+							{{ form_row(form2.save_2) }}
 							{#<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
 							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>#}
 						</div>
 					</div>
+					{{ form_end(form2) }}
 					{% endif %}
 				</div>
 			</div>

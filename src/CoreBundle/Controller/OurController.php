@@ -17,23 +17,36 @@ class OurController extends Controller
     public function ourFormAction(Request $request)
     {
        $em=$this->getDoctrine()->getManager();
-       $ourContent=$em->getRepository(Our::class)->myFindSingleOurPage();
+       $ourContent = $em->getRepository(Our::class)->myFindSingleOurPage();
 
+        // FORM 1
         // On crée le FormBuilder grâce à la méthode du contrôleur
-        $formbuilder = $this->createFormBuilder($ourContent);
-
+        $formbuilder_1 = $this->get('form.factory')->createNamedBuilder('form_1', 'Symfony\Component\Form\Extension\Core\Type\FormType', $ourContent);
         // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $formbuilder
+        $formbuilder_1
             ->add('titre1', TextareaType::class)
             ->add('contenu1', TextareaType::class)
             ->add('save_1', SubmitType::class);
 
         // À partir du formBuilder, on génère le formulaire
-        $form1 = $formbuilder->getForm();
+        $form1 = $formbuilder_1->getForm();
         $form1->handleRequest($request);
 
-        // On vérifie qu'elle est de type POST
-        if( $request->isMethod('post'))
+        // FORM 2
+        // On crée le FormBuilder grâce à la méthode du contrôleur
+        $formbuilder_2 = $this->get('form.factory')->createNamedBuilder('form_2', 'Symfony\Component\Form\Extension\Core\Type\FormType', $ourContent);
+
+        // On ajoute les champs de l'entité que l'on veut à notre formulaire
+        $formbuilder_2
+            ->add('titre2', TextareaType::class)
+            ->add('contenu2', TextareaType::class)
+            ->add('save_2', SubmitType::class);
+
+        // À partir du formBuilder, on génère le formulaire
+        $form2 = $formbuilder_2->getForm();
+        $form2->handleRequest($request);
+
+        if ($request->isMethod('post'))
         {
             $em->persist($ourContent);
             $em->flush();
@@ -42,7 +55,8 @@ class OurController extends Controller
 
        return $this->render('@Core/pages/nous.html.twig', array(
            'our' => $ourContent,
-           'form1' => $form1->createView()
+           'form1' => $form1->createView(),
+           'form2' => $form2->createView()
        ));
     }
 
