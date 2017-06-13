@@ -4,28 +4,37 @@ namespace BlogBundle\Controller;
 
 use BlogBundle\Entity\Article;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\HttpFoundation\Request;
+use BlogBundle\Form\ArticleType;
 
 class ActuController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        $i = 0;
+
+        $em = $this->getDoctrine()->getManager();
+        $articles = $em->getRepository('BlogBundle:Article')->findBy(array(), array('id' => 'DESC'));
+
+
         $article = new Article();
+        $form = $this->createForm(ArticleType::class, $article);
 
-        $formBuilder = $this->createFormBuilder($article);
+        $form->handleRequest($request);
 
-        $formBuilder
-            ->add('titre',TextType::class)
-            ->add('contenu', TextType::class)
-            ->add('date', DateType::class)
-            ->add('envoyer',   SubmitType::class);
+        if ($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
 
-        $form = $formBuilder->getForm();
+            return $this->redirectToRoute('blog_actu');
+        }
 
         return $this->render('@Blog/actualites.html.twig', array(
+            'articles' => $articles,
+            'i'=> $i,
             'form' => $form->createView(),
+            'article' => $article
         ));
     }
 

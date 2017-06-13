@@ -1,4 +1,5 @@
 blog_actu:
     path:     /actu
     defaults: {_controller: BlogBundle:Actu:index }
+    methods: ['GET', 'POST']
 

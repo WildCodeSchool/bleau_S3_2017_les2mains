@@ -13,7 +13,28 @@
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
                 <div class="modal-content">
-                        {{ form(form) }}
+                    {{ form_start(form) }}
+
+                    <div class="form_add">
+                        {{ form_label(form.titre) }}
+                        {{ form_widget(form.titre) }}
+                        {{ form_errors(form.titre) }}
+                    </div>
+                    <div class="form_add">
+                        {{ form_label(form.contenu) }}
+                        {{ form_widget(form.contenu) }}
+                        {{ form_errors(form.contenu) }}
+                    </div>
+                    <div class="form_add">
+                        {{ form_label(form.date) }}
+                        {{ form_widget(form.date) }}
+                        {{ form_errors(form.date) }}
+                    </div>
+                    <div class="form_add">
+                        {{ form_widget(form.submit, { 'label': 'Valider' }) }}
+                    </div>
+
+                    {{ form_end(form) }}
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
@@ -23,194 +44,69 @@
         </div>
         <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
     </div>
-
     <div class="container container_custom">
         <div class="row">
-            <div class="col s6 card card_custom">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">add</i></span>
-                    <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="row">
-                    <!-- Modal Trigger -->
-                    <a class="col s4 offset-s1 waves-effect waves-light btn btn_custom_modal" href="#modal2">Modifier</a>
 
-                    <!-- Modal Structure -->
-                    <div id="modal2" class="modal">
-                        <div class="modal-content">
-                            <h4>Modal Header</h4>
-                            <p>A bunch of text</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                        </div>
-                    </div>
-                    <!-- Modal Trigger -->
-                    <a class="col s4 offset-s2 waves-effect waves-light btn btn_custom_modal" href="#modal3">Effacer</a>
+    {% for articles in articles %}
+            {% set i = i + 1 %}
 
-                    <!-- Modal Structure -->
-                    <div id="modal3" class="modal">
-                        <div class="modal-content">
-                            <h4>Modal Header</h4>
-                            <p>A bunch of text</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor.
-                    </p>
-                </div>
-            </div>
-            <div class="col s6 card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ asset('bundles/core/img/background/pic2.jpg') }}">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">add</i></span>
-                    <p><a href="#">This is a link</a></p>
-                </div>
-                    <div class="row">
-                        <!-- Modal Trigger -->
-                        <a class="col s4 offset-s1 waves-effect waves-light btn btn_custom_modal" href="#modal2">Modifier</a>
-
-                        <!-- Modal Structure -->
-                        <div id="modal2" class="modal">
-                            <div class="modal-content">
-                                <h4>Modal Header</h4>
-                                <p>A bunch of text</p>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                            </div>
-                        </div>
-                        <!-- Modal Trigger -->
-                        <a class="col s4 offset-s2 waves-effect waves-light btn btn_custom_modal" href="#modal3">Effacer</a>
-
-                        <!-- Modal Structure -->
-                        <div id="modal3" class="modal">
-                            <div class="modal-content">
-                                <h4>Modal Header</h4>
-                                <p>A bunch of text</p>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="parallax-container">
-        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic2.jpg') }}"></div>
-    </div>
-
-
-    <div class="container container_custom">
-        <div class="row">
-            <div class="col s6 card card_custom">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ asset('bundles/core/img/background/monkey.jpg') }}">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">add</i></span>
-                    <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor.
-                    </p>
-                </div>
-            </div>
-            <div class="col s6 card">
+            <div class="col s12 m6 l6 card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="{{ asset('bundles/core/img/background/pic3.jpg') }}">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">add</i></span>
-                    <p><a href="#">This is a link</a></p>
+                    <span class="card-title activator grey-text text-darken-4">{{ articles.titre }}<i class="material-icons right">add</i></span>
+                    <p><a href="#">{{ articles.date|date("d/m/Y") }}</a></p>
+                    <div class="row">
+                        <!-- Modal Trigger -->
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <a class="col s4 offset-s1 waves-effect waves-light btn" href="#modal4">Modifier</a>
+                        {% endif %}
+
+                        <!-- Modal Structure -->
+                        <div id="modal4" class="modal">
+                            <div class="modal-content">
+                                <h4>Modal Header</h4>
+                                <p>A bunch of text</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>
+                        <!-- Modal Trigger -->
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <a class="col s4 offset-s2 waves-effect waves-light btn">Effacer</a>
+                        {% endif %}
+                    </div>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cumque eum hic illo incidunt, nemo neque
-                        nobis omnis placeat quae qui ratione reiciendis sit tempora ut. Alias amet eveniet soluta!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dolorum eaque earum eveniet iste
-                        magnam odio quasi repellendus soluta voluptatem. Ex fugiat nisi optio provident voluptate. Ratione sed
-                    </p>
+                    <p>{{ articles.contenu }}</p>
                 </div>
             </div>
-        </div>
+        {% if i is even %}
+            </div> <!-- close row -->
+        {% endif %}
+        {% if i is even %}
+        </div> <!-- close container -->
+        {% endif %}
+                {% if i is even %}
+                    <div class="parallax-container">
+                        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic3.jpg') }}"></div>
+                    </div>
+                {% endif %}
+        {% if i is even %}
+        <div class="container container_custom">
+        {% endif %}
+            {% if i is even %}
+            <div class="row">
+            {% endif %}
+            {% endfor %}
+
     </div>
 
 
-    <div class="parallax-container">
-        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic3.jpg') }}"></div>
-    </div>
+
 </div>
 
 {% endblock %}

@@ -575,8 +575,9 @@ Animation keyframes
   height: 500px;
 }
 /* line 27, ../scss/_blog.scss */
-#blog .btn_custom_modal {
-  margin-bottom: 25px;
+#blog .form_add {
+  margin: 50px;
+  color: black;
 }
 
 /*----------------------------------------*\
