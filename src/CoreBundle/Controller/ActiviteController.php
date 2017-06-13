@@ -8,18 +8,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ActiviteController extends Controller
 {
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $activite = $em->getRepository(Activite::class)->findAll();
 
-        return $this->render('@Core/pages/activite/activite.html.twig', array(
-            'activites' => $activite
-        ));
-    }
 
     public function addAction(Request $request)
     {
+
+        $em = $this->getDoctrine()->getManager();
+        $activites = $em->getRepository(Activite::class)->findAll();
+
         $activite = new Activite();
         $form = $this->createForm('CoreBundle\Form\ActiviteType', $activite);
         $form->handleRequest($request);
@@ -29,12 +25,13 @@ class ActiviteController extends Controller
             $em->persist($activite);
             $em->flush();
 
-            return $this->redirectToRoute('core_activite');
+            return $this->redirectToRoute('core_activite_add');
 
         }
 
         return $this->render('@Core/pages/activite/addActivite.html.twig', array(
             'activite' => $activite,
+            'activites' => $activites,
             'form' => $form->createView(),
         ));
     }

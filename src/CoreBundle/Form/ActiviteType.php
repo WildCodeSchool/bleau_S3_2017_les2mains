@@ -2,6 +2,7 @@
 
 namespace CoreBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,8 +19,10 @@ class ActiviteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-                ->add('activiteType', ChoiceType::class)
-                ->add('titre', TextType::class)
+            ->add('activiteType', EntityType::class, array(
+                'class' => 'CoreBundle\Entity\ActiviteType',
+                'choice_label' => 'nom'
+            ))                ->add('titre', TextType::class)
                 ->add('contenu', TextType::class)
                 ->add('submit', SubmitType::class);
     }

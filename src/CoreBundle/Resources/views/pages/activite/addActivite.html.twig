@@ -3,8 +3,6 @@
 
 {% block body %}
 
-
-
  {% if is_granted('ROLE_ADMIN')%}
      {{ form_start(form) }}
 
@@ -14,25 +12,9 @@
             <h4>l'activité est ...</h4>
             <div class='row'>
                 <div class="input-field col s12">
-                    <select multiple>
-                        <option value="" disabled selected>Type d'activité</option>
-                        <option value="1">
-                            {{ form_label (form.activiteType) }}
-                            {{ form_widget (form.activiteType) }}
-                            {{ form_errors (form.activiteType) }}
-                        </option>
-                        <option value="2">
-                            {{ form_label (form.activiteType) }}
-                            {{ form_widget (form.activiteType) }}
-                            {{ form_errors (form.activiteType) }}
-                        </option>
-                        <option value="3">
-                            {{ form_label (form.activiteType) }}
-                            {{ form_widget (form.activiteType) }}
-                            {{ form_errors (form.activiteType) }}
-                        </option>
-                    </select>
-                    <label>Materialize Multiple Select</label>
+                    {{ form_label (form.activiteType) }}
+                    {{ form_widget (form.activiteType) }}
+                    {{ form_errors (form.activiteType) }}
                 </div>
             </div>
             <div class="row">
@@ -63,7 +45,35 @@
 
 
     {{ form_end(form) }}
-    {% endif %}
+{% endif %}
 
 
-                {% endblock %}
+
+    {% for activite in activites %}
+
+        <div class="row rubrique">
+            <div class="col s12 m12 l12 center">
+                <h1>
+                    {{ activite.activiteType.nom }}
+                </h1>
+            </div>
+        </div>
+        <div class="row titre">
+            <div class="col s12 m12 l12 center">
+                <h1>
+                    {{ activite.titre }}
+                </h1>
+            </div>
+        </div>
+        <div class="row contenu">
+            <div class="col s6 m6 l6 left-align">
+                <p>
+                    {{ activite.contenu }}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+
+
+    <a href="{{ path('core_activite_add') }}">ajout d'une activite</a>
+{% endblock %}

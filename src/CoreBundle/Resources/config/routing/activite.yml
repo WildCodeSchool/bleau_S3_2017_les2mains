@@ -1,6 +1,4 @@
-core_activite:
-    path:     /index
-    defaults: { _controller: CoreBundle:Activite:index }
+
 
 core_activite_add:
     path:     /add

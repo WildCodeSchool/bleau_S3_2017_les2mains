@@ -1,4 +1,4 @@
-{% extends '@Core/layout.html.twig'  %}
+{#{% extends '@Core/layout.html.twig'  %}
 
 {% block body %}
     {% for activite in activites %}
@@ -6,7 +6,7 @@
         <div class="row rubrique">
             <div class="col s12 m12 l12 center">
                 <h1>
-                    {{ activite.activiteType.id }}
+                    {#{{ activite.activite_type.nom }}
                 </h1>
             </div>
         </div>
@@ -28,4 +28,4 @@
 
 
     <a href="{{ path('core_activite_add') }}">ajout d'une activite</a>
-{% endblock %}
+{% endblock %}#}
