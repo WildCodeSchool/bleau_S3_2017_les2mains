@@ -8,10 +8,10 @@
             <h1 class="col s12 center title">Fil d'actu</h1>
             {% if is_granted('ROLE_ADMIN') %}
             <!-- Modal Trigger -->
-            <a class="col s2 offset-s5 waves-effect waves-light btn" href="#modal1">Ajouter une Actu</a>
+            <a class="col s2 offset-s5 waves-effect waves-light btn" href="#addArticle">Ajouter une Actu</a>
 
             <!-- Modal Structure -->
-            <div id="modal1" class="modal">
+            <div id="addArticle" class="modal">
                 <div class="modal-content">
                     {{ form_start(form) }}
 
@@ -47,7 +47,7 @@
     <div class="container container_custom">
         <div class="row">
 
-    {% for articles in articles %}
+        {% for article in articles %}
             {% set i = i + 1 %}
 
             <div class="col s12 m6 l6 card">
@@ -55,50 +55,37 @@
                     <img class="activator" src="{{ asset('bundles/core/img/background/pic3.jpg') }}">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{ articles.titre }}<i class="material-icons right">add</i></span>
-                    <p><a href="#">{{ articles.date|date("d/m/Y") }}</a></p>
+                    <span class="card-title activator grey-text text-darken-4">{{ article.titre }}<i class="material-icons right">add</i></span>
+                    <p><a href="#">{{ article.date|date("d/m/Y") }}</a></p>
                     <div class="row">
                         <!-- Modal Trigger -->
                         {% if is_granted('ROLE_ADMIN') %}
-                        <a class="col s4 offset-s1 waves-effect waves-light btn" href="#modal4">Modifier</a>
+                        <a class="col s4 offset-s1 waves-effect waves-light btn" href="#modal{{ article.id }}">Modifier</a>
                         {% endif %}
 
                         <!-- Modal Structure -->
-                        <div id="modal4" class="modal">
-                            <div class="modal-content">
-                                <h4>Modal Header</h4>
-                                <p>A bunch of text</p>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                            </div>
+                        <div id="modal{{ article.id }}" class="modal">
+                            <!-- On rend la vue editArticle a la vue de la modal -->
+                            {{ render(controller('BlogBundle:Actu:editArticle',{ 'id': article.id })) }}
                         </div>
                         <!-- Modal Trigger -->
                         {% if is_granted('ROLE_ADMIN') %}
-                        <a class="col s4 offset-s2 waves-effect waves-light btn">Effacer</a>
+                        <a class="col s4 offset-s2 waves-effect waves-light btn" href="{{ path('blog_actu_delete', { 'id': article.id }) }}">Effacer</a>
                         {% endif %}
                     </div>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-                    <p>{{ articles.contenu }}</p>
+                    <p>{{ article.contenu }}</p>
                 </div>
             </div>
         {% if i is even %}
             </div> <!-- close row -->
-        {% endif %}
-        {% if i is even %}
         </div> <!-- close container -->
-        {% endif %}
-                {% if i is even %}
                     <div class="parallax-container">
                         <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic3.jpg') }}"></div>
                     </div>
-                {% endif %}
-        {% if i is even %}
         <div class="container container_custom">
-        {% endif %}
-            {% if i is even %}
             <div class="row">
             {% endif %}
             {% endfor %}
@@ -107,6 +94,7 @@
 
 
 
+</div>
 </div>
 
 {% endblock %}

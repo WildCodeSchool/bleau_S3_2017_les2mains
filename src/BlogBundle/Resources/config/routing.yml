@@ -3,3 +3,12 @@ blog_actu:
     defaults: {_controller: BlogBundle:Actu:index }
     methods: ['GET', 'POST']
 
+blog_actu_delete:
+    path:     /{id}/actu/delete
+    defaults: {_controller: BlogBundle:Actu:delete }
+
+
+blog_actu_editValide:
+    path:     /{id}/actu/edit
+    defaults: {_controller: BlogBundle:Actu:valideEdit }
+
