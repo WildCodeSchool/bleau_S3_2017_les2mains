@@ -11,5 +11,8 @@ use Symfony\Component\HttpFoundation\Request;
 class EventController extends Controller
 {
 
+    public function eventAction() {
+        return $this->render('@Commerce/nos_events.html.twig');
+    }
 
 }

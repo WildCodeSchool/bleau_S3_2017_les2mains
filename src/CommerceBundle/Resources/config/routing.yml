@@ -1,1 +1,3 @@
-
+commerce_event:
+    path: /events
+    defaults: { _controller: CommerceBundle:Event:event }
