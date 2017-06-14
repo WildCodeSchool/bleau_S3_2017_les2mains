@@ -13,4 +13,6 @@ core_contact:
     defaults: { _controller: CoreBundle:Default:contact}
 
 
-
+core_activite:
+    prefix: /activite
+    resource: 'routing/activite.yml'
