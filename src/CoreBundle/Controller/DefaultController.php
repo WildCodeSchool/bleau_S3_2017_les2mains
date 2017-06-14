@@ -12,4 +12,9 @@ class DefaultController extends Controller
         return $this->render('CoreBundle:pages:index.html.twig');
     }
 
+    public function contactAction()
+    {
+        return $this->render('CoreBundle:pages:contact.html.twig');
+    }
+
 }
