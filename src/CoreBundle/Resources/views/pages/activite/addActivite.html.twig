@@ -10,9 +10,10 @@
         {#Form Admin #}
         {% if is_granted('ROLE_ADMIN')%}
         {{ form_start(form) }}
+<div class="row">
 
-    <a class="waves-effect waves-light btn align-center" href="#modal1">Admin</a>
-
+    <a class="offset-s4 offset-m4 col s4 m4  waves-effect teal z-depth-5 darken-4 btn align-center " href="#modal1">Ajouter une activité</a>
+</div>
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h4>l'activité est ...</h4>
@@ -44,12 +45,6 @@
             <div class="row">
                 <div class="col s6 m6">
                    {{ form_widget(form.submit, {'label': 'create'}) }}
-                </div>
-                <div class="col s6 m6">
-                    <!-- delete-->
-                    <div class=" col s2 m4">
-                        <a href="{{ path ('core_activite_delete',{'id': activite.id}) }}" class="btn-floating btn-large waves-effect waves-light z-depth-5 teal darken-4 new">delete</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -104,6 +99,15 @@
             <a class="waves-effect teal z-depth-5 darken-4 btn" href="#modal1">En savoir plus</a>
             </div>
         </div>
+        {% if is_granted('ROLE_ADMIN')%}
+        <div class="row delete">
+            <!-- delete-->
+            <div class=" col s2 m4">
+                <a href="{{ path('core_activite_delete', {'id' :activite.id}) }}" class="waves-effect teal z-depth-5 darken-4 btn">delete</a>
+            </div>
+        </div>
+        {% endif %}
+
     </div>
     {% endfor %}
     <div class="parallax-container">

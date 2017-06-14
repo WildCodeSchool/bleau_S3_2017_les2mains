@@ -6,5 +6,5 @@ core_activite_add:
 
 core_activite_delete:
     path:     /{id}/delete
-    defaults: { _controller: "CoreBundle:Activite:delete"}
+    defaults: { _controller: CoreBundle:Activite:delete}
 

@@ -39,12 +39,12 @@ class ActiviteController extends Controller
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $activite = $em->getRepository('CoreBundle:Activite')->myFindOneById($id);
+        $activite = $em->getRepository('CoreBundle:Activite')->findOneById($id);
         $em->remove($activite);
         $em->flush();
 
 
-        return $this->redirectToRoute('core_activite_delete', array('id' => $id));
+        return $this->redirectToRoute('core_activite_add');
     }
 
 
