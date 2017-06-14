@@ -14,19 +14,20 @@
 
   }
 
-  .card_image{
+  .card-image {
     height: 350px;
-    padding: 10px;
   }
 
   .card{
-    border-top: darkgreen solid 1px;
-    border-bottom: darkgreen solid 1px;
     margin-top: 50px;
     margin-bottom: 30px;
+    height: 500px;
   }
 
-  .seb_title{
-
+  .form_add {
+    margin: 50px;
+    color: black;
   }
+
+
 }
