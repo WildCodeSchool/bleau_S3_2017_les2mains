@@ -1,0 +1,10 @@
+
+core_activite_add:
+    path:     /add
+    defaults: { _controller: CoreBundle:Activite:add }
+
+
+core_activite_delete:
+    path:     /{id}/delete
+    defaults: { _controller: CoreBundle:Activite:delete}
+

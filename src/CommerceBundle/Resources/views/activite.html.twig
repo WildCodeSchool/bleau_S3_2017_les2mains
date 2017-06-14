@@ -1,0 +1,213 @@
+{% extends '@Core/layout.html.twig' %}
+
+{% block body %}
+
+    <div id="activite">
+        <!--demo en dur-->
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row titre">
+                <div class="col s12 m12 l12 center">
+                    <h1>
+                        Le corps
+                    </h1>
+                </div>
+            </div>
+            <div class="row contenu">
+                <div class="col s6 m6 l6 left-align">
+                    <p>
+                        Le Yoga renforce votre corps et améliore votre souplesse. Le Yoga est associé à une recherche
+                        spirituelle et philosophique. Cependant, en pratiquant les postures, vous allez aussi renforcer
+                        vos muscles, y compris vos muscles profonds. Le Yoga va vous rendre plus forte physiquement et
+                        aussi renforcer votre souplesse.
+                    </p>
+                </div>
+
+                <div class ="col s6 m6 l6">
+                    <img src="https://mejorconsalud.com/wp-content/uploads/2014/07/Yoga1-500x333.jpg" height="200" alt="image_yoga"/>
+                </div>
+            </div>
+            <div class="row lien">
+                <div class="col s4 m4 l4">
+                    <a href="https://www.pierrerabhi.org/" class="waves-effect teal z-depth-5 darken-4 btn">à decouvrir</a>
+                </div>
+                <div class="col s4 m4 l4">
+                  <a  {# href="{{ path('nos_events.html.twig') }}" #}class="waves-effect teal z-depth-5 darken-4 btn">Nos stages</a>
+                </div>
+            </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="https://mejorconsalud.com/wp-content/uploads/2014/07/Yoga1-500x333.jpg" alt="image_yoga">
+            </div>
+        </div>
+    </div>
+    <!--demo en dur end-->
+
+
+
+        <!--Vue User-->
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}">
+            </div>
+        </div>
+
+
+        <div class="container">
+    {% for activite in activites %}
+            <div class="row rubrique">
+                <div class="col s12 m12 l12 center">
+                    <h1>
+                        {{ activite.activiteType }}
+                    </h1>
+                </div>
+            </div>
+            <div class="row titre">
+                <div class="col s12 m12 l12 center">
+                    <h1>
+                        {{ activite.titre }}
+                    </h1>
+                </div>
+            </div>
+            <div class="row contenu">
+                <div class="col s6 m6 l6 left-align">
+                    <p>
+                        {{ activite.contenu }}
+                    </p>
+                </div>
+                <div class ="col s6 m6 l6">
+                       {{ activite.picture }}
+                </div>
+            </div>
+            <div class="row lien">
+                <div class="col s4 m4 l4">
+                    <a href="https://www.pierrerabhi.org/" class="waves-effect teal z-depth-5 darken-4 btn">
+                       {{ activite.lien }}
+                    </a>
+                </div>
+                {% endfor %}
+
+                <div class="col s4 m4 l4">
+                    <a  {# href="{{ path('event.html.twig') }}" #}class="waves-effect teal z-depth-5 darken-4 btn">Nos stages</a>
+                </div>
+                <div class="col s4 m4 l4">
+                    <!-- Modal Trigger -->
+                    <a class="waves-effect teal z-depth-5 darken-4 btn" href="#modalinfo">En savoir plus</a>
+                    <div id="modalinfo" class="modalinfo">
+                        <div class="modal-content">
+                            <h4>Modal Header</h4>
+                            <p>A bunch of text</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="https://mejorconsalud.com/wp-content/uploads/2014/07/Yoga1-500x333.jpg" alt="image_yoga">
+            </div>
+        </div>
+    </div>
+    <!--Vue user end-->
+
+
+
+    <!-- if Admin-->
+   {# {% if is_granted('ROLE_ADMIN') %}
+        {{ form_start(form) }}
+    {% endif %}#}
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn align-center" href="#modal1">Admin</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            {{ form_start(form) }}
+            <h4>l'activité est ...</h4>
+            <div class="row">
+                    <div class="col s6">
+                        <div class="row">
+                            <div class="input-field col s6 activite">
+                                    {#{{ form_label (form.activiteType) }}#}
+                                    {#{{ form_widget (form.activiteType) }}#}
+                                    {#{{ form_errors (form.activiteType) }}#}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="row">
+                            <div class="row">
+                                <div class="input-field col s6 activite">
+                                        {{ form_label (form.titre) }}
+                                        {{ form_widget (form.titre) }}
+                                        {{ form_errors (form.titre) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                    {{ form_label (form.contenu) }}
+                                    {{ form_widget (form.contenu) }}
+                                    {{ form_errors (form.contenu) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s6">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                {#<span>#}
+                                    {#{{ form_label (form.picture) }}#}
+                                    {#{{ form_widget (form.picture) }}#}
+                                    {#{{ form_errors (form.picture) }}#}
+                                {#</span>#}
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                </div>
+                <div class="col s6">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                {#<span>#}
+                                    {#{{ form_label (form.lien) }}#}
+                                    {#{{ form_widget (form.lien) }}#}
+                                    {#{{ form_errors (form.lien) }}#}
+                                {#</span>#}
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Create</a>
+            {{ form_end(form) }}
+        </div>
+    </div>
+   {# {% if is_granted('ROLE_ADMIN') %}
+    {{ form_end(form) }}
+    {% endif %}#}
+    <!--if Admin end-->
+{% endblock %}
