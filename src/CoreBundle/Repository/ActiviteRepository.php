@@ -10,4 +10,12 @@ namespace CoreBundle\Repository;
  */
 class ActiviteRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function myFindOneById($id){
+        $qb = $this->createQueryBuilder('activite');
+        $qb->select('activite')
+            ->where('activite.id = :id')
+            ->setParameter('id', $id);
+
+        return $qb->getQuery()->getSingleResult();
+    }
 }
