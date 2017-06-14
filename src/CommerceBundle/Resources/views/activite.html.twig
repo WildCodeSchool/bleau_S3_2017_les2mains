@@ -3,6 +3,7 @@
 {% block body %}
 
     <div id="activite">
+        <!--demo en dur-->
         <div class="parallax-container">
             <div class="parallax">
                 <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}">
@@ -25,6 +26,7 @@
                         aussi renforcer votre souplesse.
                     </p>
                 </div>
+
                 <div class ="col s6 m6 l6">
                     <img src="https://mejorconsalud.com/wp-content/uploads/2014/07/Yoga1-500x333.jpg" height="200" alt="image_yoga"/>
                 </div>
@@ -36,39 +38,77 @@
                 <div class="col s4 m4 l4">
                   <a  {# href="{{ path('nos_events.html.twig') }}" #}class="waves-effect teal z-depth-5 darken-4 btn">Nos stages</a>
                 </div>
+            </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="https://mejorconsalud.com/wp-content/uploads/2014/07/Yoga1-500x333.jpg" alt="image_yoga">
+            </div>
+        </div>
+    </div>
+    <!--demo en dur end-->
+
+
+
+        <!--Vue User-->
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}">
+            </div>
+        </div>
+
+
+        <div class="container">
+    {% for activite in activites %}
+            <div class="row rubrique">
+                <div class="col s12 m12 l12 center">
+                    <h1>
+                        {{ activite.activiteType }}
+                    </h1>
+                </div>
+            </div>
+            <div class="row titre">
+                <div class="col s12 m12 l12 center">
+                    <h1>
+                        {{ activite.titre }}
+                    </h1>
+                </div>
+            </div>
+            <div class="row contenu">
+                <div class="col s6 m6 l6 left-align">
+                    <p>
+                        {{ activite.contenu }}
+                    </p>
+                </div>
+                <div class ="col s6 m6 l6">
+                       {{ activite.picture }}
+                </div>
+            </div>
+            <div class="row lien">
+                <div class="col s4 m4 l4">
+                    <a href="https://www.pierrerabhi.org/" class="waves-effect teal z-depth-5 darken-4 btn">
+                       {{ activite.lien }}
+                    </a>
+                </div>
+                {% endfor %}
+
+                <div class="col s4 m4 l4">
+                    <a  {# href="{{ path('event.html.twig') }}" #}class="waves-effect teal z-depth-5 darken-4 btn">Nos stages</a>
+                </div>
                 <div class="col s4 m4 l4">
                     <!-- Modal Trigger -->
-                    <a class="waves-effect teal z-depth-5 darken-4 btn" href="#modal1">En savoir plus</a>
-
-                    <!-- Modal Structure -->
-                    <div id="modal1" class="modal">
+                    <a class="waves-effect teal z-depth-5 darken-4 btn" href="#modalinfo">En savoir plus</a>
+                    <div id="modalinfo" class="modalinfo">
                         <div class="modal-content">
-                            <h4>Demande de renseignements</h4>
-                            <div class="row">
-                                <form class="col s12">
-                                    <div class="input-field col s12 m12 l12">
-                                        <input id="email" type="email" class="validate">
-                                        <label for="email">Votre Email</label>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="row">
-                                <form class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                            <label for="textarea1">Votre message</label>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <button class="btn waves-effect teal z-depth-5 darken-4" type="submit" name="action">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Envoyer
-                                </a>
-                                <i class="material-icons right">send</i>
-                            </button>
+                            <h4>Modal Header</h4>
+                            <p>A bunch of text</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
                         </div>
                     </div>
+                </div>
+
                 </div>
             </div>
         </div>
@@ -78,84 +118,96 @@
             </div>
         </div>
     </div>
-    <!--feck end-->
+    <!--Vue user end-->
 
 
 
     <!-- if Admin-->
-    {% if is_granted('ROLE_ADMIN') %}
+   {# {% if is_granted('ROLE_ADMIN') %}
         {{ form_start(form) }}
+    {% endif %}#}
     <!-- Modal Trigger -->
     <a class="waves-effect waves-light btn align-center" href="#modal1">Admin</a>
 
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
         <div class="modal-content">
+            {{ form_start(form) }}
             <h4>l'activité est ...</h4>
             <div class="row">
-                <form class="col s6">
-                    <div class="row">
-                        <div class="input-field col s6 activite">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Rubrique</label>
-                        </div>
-                    </div>
-                </form>
-                <form class="col s6">
-                    <div class="row">
+                    <div class="col s6">
                         <div class="row">
                             <div class="input-field col s6 activite">
-                                <input id="last_name" type="text" class="validate">
-                                <label for="last_name">Titre</label>
+                                    {#{{ form_label (form.activiteType) }}#}
+                                    {#{{ form_widget (form.activiteType) }}#}
+                                    {#{{ form_errors (form.activiteType) }}#}
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="row">
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Contenu</label>
+                    <div class="col s6">
+                        <div class="row">
+                            <div class="row">
+                                <div class="input-field col s6 activite">
+                                        {{ form_label (form.titre) }}
+                                        {{ form_widget (form.titre) }}
+                                        {{ form_errors (form.titre) }}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </form>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                    {{ form_label (form.contenu) }}
+                                    {{ form_widget (form.contenu) }}
+                                    {{ form_errors (form.contenu) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <div class="row">
                 <div class="col s6">
-                    <form action="#">
                         <div class="file-field input-field">
                             <div class="btn">
-                                <span>Image</span>
+                                {#<span>#}
+                                    {#{{ form_label (form.picture) }}#}
+                                    {#{{ form_widget (form.picture) }}#}
+                                    {#{{ form_errors (form.picture) }}#}
+                                {#</span>#}
                                 <input type="file">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div class="col s6">
-                    <form action="#">
                         <div class="file-field input-field">
                             <div class="btn">
-                                <span>Lien</span>
+                                {#<span>#}
+                                    {#{{ form_label (form.lien) }}#}
+                                    {#{{ form_widget (form.lien) }}#}
+                                    {#{{ form_errors (form.lien) }}#}
+                                {#</span>#}
                                 <input type="file">
                             </div>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text">
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Create</a>
+            {{ form_end(form) }}
         </div>
     </div>
-        {{ form_end(form) }}
-    {% endif %}
+   {# {% if is_granted('ROLE_ADMIN') %}
+    {{ form_end(form) }}
+    {% endif %}#}
     <!--if Admin end-->
 {% endblock %}

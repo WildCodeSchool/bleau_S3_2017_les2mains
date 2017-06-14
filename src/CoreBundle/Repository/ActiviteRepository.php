@@ -10,4 +10,5 @@ namespace CoreBundle\Repository;
  */
 class ActiviteRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }
