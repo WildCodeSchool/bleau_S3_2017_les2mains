@@ -10,4 +10,11 @@ namespace CoreBundle\Repository;
  */
 class OurRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function myFindSingleOurPage()
+    {
+        $qb=$this->createQueryBuilder('o');
+        $qb->select('o');
+        //transforem du DQL en SQl
+        return $qb->getQuery()->getSingleResult();
+    }
 }

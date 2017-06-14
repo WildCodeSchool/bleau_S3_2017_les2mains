@@ -565,16 +565,19 @@ Animation keyframes
   min-height: 30px;
 }
 /* line 17, ../scss/_blog.scss */
-#blog .card_image {
+#blog .card-image {
   height: 350px;
-  padding: 10px;
 }
-/* line 22, ../scss/_blog.scss */
+/* line 21, ../scss/_blog.scss */
 #blog .card {
-  border-top: darkgreen solid 1px;
-  border-bottom: darkgreen solid 1px;
   margin-top: 50px;
   margin-bottom: 30px;
+  height: 500px;
+}
+/* line 27, ../scss/_blog.scss */
+#blog .form_add {
+  margin: 50px;
+  color: black;
 }
 
 /*----------------------------------------*\
@@ -586,6 +589,109 @@ Animation keyframes
 /*----------------------------------------*\
     8.CONTACT
 \*----------------------------------------*/
+/* line 1, ../scss/_contact.scss */
+#contact {
+  /*----------------------------------------
+   PARALAX
+  ----------------------------------------*/
+  /*----------------------------------------
+   Size Img
+  ----------------------------------------*/
+}
+/* line 6, ../scss/_contact.scss */
+#contact .parallax-container {
+  min-height: 300px;
+}
+/* line 10, ../scss/_contact.scss */
+#contact .form .mail {
+  margin-bottom: 0;
+}
+/* line 14, ../scss/_contact.scss */
+#contact #div_mail #div_message {
+  padding: 0;
+}
+/* line 21, ../scss/_contact.scss */
+#contact .google-maps {
+  position: relative;
+  padding-bottom: 50%;
+  height: 0;
+  overflow: hidden;
+  margin-top: 1%;
+  margin-right: 1%;
+  margin-left: 1%;
+  margin-bottom: -20%;
+}
+/* line 31, ../scss/_contact.scss */
+#contact .google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 50% !important;
+}
+@media screen and (min-width: 350px) and (max-width: 500px) {
+  /* line 43, ../scss/_contact.scss */
+  #contact .google-maps {
+    position: relative;
+    padding-bottom: 50%;
+    height: 0;
+    overflow: hidden;
+    margin-top: 1%;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: -20%;
+  }
+  /* line 53, ../scss/_contact.scss */
+  #contact .google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  /* line 60, ../scss/_contact.scss */
+  #contact .adress {
+    font-size: smaller;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 66, ../scss/_contact.scss */
+  #contact .adress h4 {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 349px) {
+  /* line 74, ../scss/_contact.scss */
+  #contact .google-maps {
+    position: relative;
+    padding-bottom: 50%;
+    height: 0;
+    overflow: hidden;
+    margin-top: 1%;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: -20%;
+  }
+  /* line 84, ../scss/_contact.scss */
+  #contact .google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  /* line 91, ../scss/_contact.scss */
+  #contact .adress {
+    font-size: x-small;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 97, ../scss/_contact.scss */
+  #contact .adress h4 {
+    font-size: 20px;
+  }
+}
+
 /*----------------------------------------*\
     9.FOOTER
 \*----------------------------------------*/
