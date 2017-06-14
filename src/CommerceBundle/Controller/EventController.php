@@ -10,30 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class EventController extends Controller
 {
-    // TODO: Generate entity
-    public function EventAction()
-    {
-        return $this->render('@Commerce/nos_events.html.twig');
-    }
 
-    public function addAction(Request $request){
-
-//        $stage = new Event();
-//        $formBuilder = $this->createFormBuilder($stage);
-//
-//        $formBuilder
-//            ->add('dates_debut', DateTimeType::class)
-//            ->add('dates_fin', DateTimeType::class)
-//            ->add('prix', IntegerType::class)
-//            ->add('Descriptions', TextareaType::class)
-//        ;
-//
-//        $form =$formBuilder->getForm();
-//
-//
-//
-
-        return $this->render('@Commerce/nos_events.html.twig');
-    }
 
 }
