@@ -32,11 +32,11 @@
 								{{ form_row(form.titre1) }}
 							</div>
 							<div class="row col l12">
-								{{ form_row(form.contenu1) }}
+								{{ form_row(form.contenu1 , { 'attr': {'style':'width:625px', 'style':'height:600px'}} ) }}
 							</div>
 						</div>
 						<div class="modal-footer">
-							{{ form_row(form.save_1) }}
+							{{ form_row(form.save_1, {'attr': {'class': 'btn btn-primary'}}) }}
 							{#<a href="" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>#}
 							{#<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>#}
 						</div>
@@ -84,11 +84,11 @@
 								{{ form_row(form.titre2) }}
 							</div>
 							<div class="row col l12">
-							{{ form_row(form.contenu2) }}
+								{{ form_row(form.contenu2 , { 'attr': {'style':'width:625px', 'style':'height:600px'}} ) }}
 							</div>
 						</div>
 						<div class="modal-footer">
-							{{ form_row(form.save_2) }}
+							{{ form_row(form.save_2, {'attr': {'class': 'btn btn-primary'}}) }}
 							{#<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
 							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>#}
 						</div>
@@ -132,12 +132,12 @@
 							<div class="row col l12">
 								{{ form_row(form.titre3) }}
 							</div>
-							<div class="row col l12">
-								{{ form_row(form.contenu3) }}
+							<div class="row col l12 ">
+								{{ form_row(form.contenu3 , { 'attr': {'style':'width:625px', 'style':'height:625px'}} ) }}
 							</div>
 						</div>
 						<div class="modal-footer">
-						{{ form_row(form.save_3) }}
+						{{ form_row(form.save_3, {'attr': {'class': 'btn btn-primary'}}) }}
 							{#<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
 							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>#}
 						</div>
