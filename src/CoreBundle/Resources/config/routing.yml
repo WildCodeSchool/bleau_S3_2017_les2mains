@@ -6,4 +6,7 @@ core_nous:
     path:     /nous
     defaults: { _controller: CoreBundle:Our:nous }
 
+core_contact:
+    path:   /contact
+    defaults: { _controller: CoreBundle:Default:contact}
 
