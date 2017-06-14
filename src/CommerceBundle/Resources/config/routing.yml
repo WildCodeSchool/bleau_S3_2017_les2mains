@@ -1,16 +1,10 @@
 
-<<<<<<< HEAD
-=======
-commerce_events:
+commerce_event:
     path:     /events
     defaults: { _controller: CommerceBundle:Event:Event }
-
-
-activite:
-    path:     /activite
-    defaults: {  _controller: CommerceBundle:Activite:Activite }
 
 produit:
     path:     /produit
     defaults: {  _controller: CommerceBundle:Produit:Produit }
->>>>>>> babydev
+
+
