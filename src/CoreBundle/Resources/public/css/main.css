@@ -237,7 +237,7 @@ nav li a {
   text-decoration: none;
   display: block;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   opacity: 0;
 }
 
@@ -300,27 +300,27 @@ nav li a:after {
 
 /* line 133, ../scss/_nav_style.scss */
 nav li:nth-of-type(1) {
-  background-color: #29363B;
+  background-color: rgba(41, 54, 59, 0.75);
 }
 
 /* line 138, ../scss/_nav_style.scss */
 nav li:nth-of-type(2) {
-  background-color: #EA495F;
+  background-color: rgba(41, 54, 59, 0.75);
 }
 
 /* line 142, ../scss/_nav_style.scss */
 nav li:nth-of-type(3) {
-  background-color: #F4837D;
+  background-color: rgba(41, 54, 59, 0.75);
 }
 
 /* line 146, ../scss/_nav_style.scss */
 nav li:nth-of-type(4) {
-  background-color: #FDCEA9;
+  background-color: rgba(41, 54, 59, 0.75);
 }
 
 /* line 150, ../scss/_nav_style.scss */
 nav li:nth-of-type(5) {
-  background-color: #99B998;
+  background-color: rgba(41, 54, 59, 0.75);
 }
 
 /* ====================================
