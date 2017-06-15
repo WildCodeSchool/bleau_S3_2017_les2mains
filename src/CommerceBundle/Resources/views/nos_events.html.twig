@@ -1,0 +1,143 @@
+{% extends '@Core/layout.html.twig' %}
+
+{% block body %}
+
+<div id="events">
+
+    <div class="container">
+
+        <div class="row">
+            <input type="date" class="datepicker">
+            <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Modal Header</h4>
+                    {{ form_start(form) }}
+
+                    <div class="form_add">
+                        {{ form_label(form.title) }}
+                        {{ form_widget(form.title) }}
+                        {{ form_errors(form.title) }}
+                    </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.description) }}
+                        {{ form_widget(form.description) }}
+                        {{ form_errors(form.description) }}
+                    </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.dateStart) }}
+                        {{ form_widget(form.dateStart) }}
+                        {{ form_errors(form.dateStart) }}
+                    </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.dateEnd) }}
+                        {{ form_widget(form.dateEnd) }}
+                        {{ form_errors(form.dateEnd) }}
+                    </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.location) }}
+                        {{ form_widget(form.location) }}
+                        {{ form_errors(form.location) }}
+                    </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.price) }}
+                        {{ form_widget(form.price) }}
+                        {{ form_errors(form.price) }}
+                    </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.available_places) }}
+                        {{ form_widget(form.available_places) }}
+                        {{ form_errors(form.available_places) }}
+                    </div>
+
+                    {{ form_end((form))}}
+
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+            </div>
+            {% for event in events  %}
+                <div class="col m6">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="http://www.ooom.ch/wp-content/uploads/2014/09/yoga_sukhasana.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">{{ event.title }}<i class="material-icons right">add</i></span>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">
+                                <i class="medium material-icons center">http</i>
+                            </button>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Je participe
+                                <i class="medium material-icons right">done</i>
+                            </button>
+                            <a class="col s12 btn" href=" {{ path('event_delete', {'id': event.id}) }}">Effacer</a>
+                <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn" href="#modal{{ event.id }}">Modifier</a>
+
+                            <!-- Modal Structure -->
+                            <div id="modal{{ event.id }}" class="modal">
+                                {{ render(controller('CommerceBundle:Event:editEvent', { 'id': event.id})) }}
+                            </div>
+                <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                        </div>
+                        <div class="card-reveal">
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+                                <h4 class="text_perso_events">Description</h4>
+                                <p class="p_justify">{{ event.description }}</p>
+                                <h4 class="text_perso_events">Informations :</h4>
+                                <p><b class="text_perso_events">Date :</b> {{ event.dateStart|date("m/d/Y") }} à {{ event.dateEnd|date("m/d/Y")  }}</p>
+                                <p><b class="text_perso_events">Lieu :</b> {{ event.location }}</p>
+                                <p><b class="text_perso_events">Prix :</b> {{ event.price }}€</p>
+                                <h4 class="text_perso_events">Besoin d'informations ?</h4>
+                                <form action="">
+                                    <p>
+                                        <i class="material-icons prefix">perm_identity</i>
+                                        <label for="pseudo">Email :</label>
+                                        <input type="text" name="email" id="email" />
+                                    </p>
+                                    <p>
+                                        <i class="material-icons prefix">mode_edit</i>
+                                        <label for="subject">Sujet :</label>
+                                        <input type="text" name="subject" id="subject" />
+                                    </p>
+                                    <p>
+                                        <i class="material-icons prefix">chat_bubble_outline</i>
+                                        <label for="textarea1">Votre message :</label>
+                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                    </p>
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </form>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+
+        {% endblock %}
