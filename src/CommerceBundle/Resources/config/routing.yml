@@ -1,13 +1,9 @@
 
-commerce_events:
+commerce_event:
     path:     /events
-    defaults: { _controller: CommerceBundle:Event:Event }
-
-
-activite:
-    path:     /activite
-    defaults: {  _controller: CommerceBundle:Activite:Activite }
+    defaults: { _controller: CommerceBundle:Event:event }
 
 produit:
     path:     /produit
     defaults: {  _controller: CommerceBundle:Produit:Produit }
+
