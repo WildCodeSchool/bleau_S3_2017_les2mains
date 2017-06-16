@@ -583,6 +583,20 @@ Animation keyframes
 /*----------------------------------------*\
     6.EVENTS
 \*----------------------------------------*/
+/* line 2, ../scss/_events.scss */
+#events .text_perso_events {
+  color: #80cbc4;
+}
+/* line 5, ../scss/_events.scss */
+#events .card_picture {
+  transition: .5s;
+}
+/* line 8, ../scss/_events.scss */
+#events .card_picture:hover {
+  opacity: .5;
+  transition: .5s;
+}
+
 /*----------------------------------------*\
     7.PRODUITS
 \*----------------------------------------*/

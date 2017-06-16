@@ -16,7 +16,7 @@ class EventController extends Controller
     public function addEventAction(Request $request){
 
         $em = $this->getDoctrine()->getManager();
-        $events = $em->getRepository('CommerceBundle:Event')->findAll();
+        $events = $em->getRepository(Event::class)->findAll();
 
         $event = new Event();
         $form = $this->createForm(EventType::class, $event);
