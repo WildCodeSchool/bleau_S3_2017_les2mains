@@ -621,6 +621,14 @@ Responsive Menu Nav
   background-position: center center;
 }
 
+/* line 12, ../scss/_homepage.scss */
+.titre {
+  position: relative;
+  top: 150px;
+  left: -1000px;
+  margin-top: 0;
+}
+
 /*----------------------------------------*\
     4.NOUS
 \*----------------------------------------*/
