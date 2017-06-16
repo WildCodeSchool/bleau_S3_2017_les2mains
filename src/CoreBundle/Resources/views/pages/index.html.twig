@@ -16,4 +16,19 @@
 {% endblock %}
 
 
+{% block javascripts %}
+
+    {{ parent() }}
+
+	<script>
+        $(document).ready(function () {
+            $(".open-overlay").delay(3000).queue(function() {
+                $(".open-overlay").trigger('click');
+            });
+        });
+	</script>
+
+{% endblock %}
+
+
 
