@@ -700,6 +700,10 @@ Responsive Menu Nav
   margin-top: 20px;
   margin-bottom: 20px;
 }
+/* line 18, ../scss/_events.scss */
+#events .event_parallax_bottom {
+  min-height: 200px;
+}
 
 /*----------------------------------------*\
     7.PRODUITS
