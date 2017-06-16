@@ -2,7 +2,10 @@
 
 namespace CoreBundle\Controller;
 
+use CoreBundle\Entity\Contact;
+use CoreBundle\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
@@ -12,9 +15,29 @@ class DefaultController extends Controller
         return $this->render('CoreBundle:pages:index.html.twig');
     }
 
-    public function contactAction()
+    public function contactAction(Request $request)
     {
-        return $this->render('CoreBundle:pages:contact.html.twig');
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($contact);
+            $em->flush();
+
+            return $this->redirectToRoute('core_contact');
+        }
+
+
+        return $this->render('@Core/pages/contact.html.twig',array(
+            'form'=> $form->createView()
+        ));
     }
 
 }
+
+
+
