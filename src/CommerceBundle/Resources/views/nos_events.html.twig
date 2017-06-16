@@ -6,13 +6,17 @@
 <div id="events">
 
     <div class="parallax-container">
+        <div class="section header">
+            <h2 class="header center teal-text text-lighten-2">Nos stages</h2>
+        </div>
         <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
     </div>
     <div class="container">
 
         <div class="row">
             <!-- Modal Trigger -->
-            <a class=" col s6 offset-s3 waves-effect waves-light btn" href="#addevent">Ajouter un stage</a>
+            <a class=" col s6 offset-s3 waves-effect waves-light btn add_stage_btn" href="#addevent">Ajouter un stage</a>
+
 
             <!-- Modal Structure -->
             <div id="addevent" class="modal">
@@ -98,9 +102,10 @@
                                 <h4 class="text_perso_events">Description</h4>
                                 <p class="p_justify">{{ event.description }}</p>
                                 <h4 class="text_perso_events">Informations :</h4>
-                                <p><b class="text_perso_events">Date :</b> {{ event.dateStart|date("m/d/Y") }} à {{ event.dateEnd|date("m/d/Y")  }}</p>
+                                <p><b class="text_perso_events">Date :</b> {{ event.dateStart|date("d/m/Y H:i") }} à {{ event.dateEnd|date("d/m/Y H:i")  }}</p>
                                 <p><b class="text_perso_events">Lieu :</b> {{ event.location }}</p>
                                 <p><b class="text_perso_events">Prix :</b> {{ event.price }}€</p>
+                                <p><b class="text_perso_events">Places disponibles :</b> {{ event.availablePlaces }}</p>
                                 <h4 class="text_perso_events">Besoin d'informations ?</h4>
                                 <form action="">
                                     <p>
@@ -141,8 +146,12 @@
             {% endfor %}
         </div>
     </div>
+    <div class="parallax-container event_parallax_bottom">
+        <div class="parallax">
+            <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
+        </div>
+    </div>
 
-
-
+    {% include '@Core/pages/footer.html.twig' %}
 </div>
 {% endblock %}
