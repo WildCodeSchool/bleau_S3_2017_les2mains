@@ -225,4 +225,33 @@ class Event
     {
         return $this->available_places;
     }
+    /**
+     * @var \CoreBundle\Entity\Activite
+     */
+    private $activite;
+
+
+    /**
+     * Set activite
+     *
+     * @param \CoreBundle\Entity\Activite $activite
+     *
+     * @return Event
+     */
+    public function setActivite(\CoreBundle\Entity\Activite $activite = null)
+    {
+        $this->activite = $activite;
+
+        return $this;
+    }
+
+    /**
+     * Get activite
+     *
+     * @return \CoreBundle\Entity\Activite
+     */
+    public function getActivite()
+    {
+        return $this->activite;
+    }
 }

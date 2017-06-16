@@ -4,18 +4,18 @@
 
 
 <div id="events">
-
     <div class="parallax-container">
-        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
+        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
+        </div>
     </div>
     <div class="container">
-
         <div class="row">
+	        {% if is_granted('ROLE_ADMIN') %}
             <!-- Modal Trigger -->
-            <a class=" col s6 offset-s3 waves-effect waves-light btn" href="#modal1">Ajouter un stage</a>
+            <a class=" col s6 offset-s3 waves-effect waves-light btn" href="#addevent">Ajouter un stage</a>
 
             <!-- Modal Structure -->
-            <div id="modal1" class="modal">
+            <div id="addevent" class="modal">
                 <div class="modal-content">
                     <h4>Modal Header</h4>
                     {{ form_start(form) }}
@@ -69,13 +69,10 @@
                     </div>
 
                     {{ form_end((form))}}
-
-
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
                 </div>
             </div>
+	        {% endif %}
+            
             {% for event in events  %}
                 <div class="col m6">
                     <div class="card">
@@ -126,6 +123,7 @@
                             </div>
                         </div>
                     </div>
+	                {% if is_granted('ROLE_ADMIN') %}
                     <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                     <!-- Modal Trigger -->
                     <a class="waves-effect waves-light center-align btn" href="#modal{{ event.id }}">Modifier</a>
@@ -136,13 +134,10 @@
                     </div>
                     <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                     <a class="waves-effect waves-light center-align btn" href=" {{ path('event_delete', {'id': event.id}) }}">Effacer</a>
-
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
     </div>
-
-
-
 </div>
 {% endblock %}
