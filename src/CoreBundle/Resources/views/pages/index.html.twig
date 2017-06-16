@@ -1,7 +1,7 @@
 {% extends '@Core/layout.html.twig'%}
 
 	{% block menu %}
-		<section class="home home_index">
+		<section class="home">
 			<div class="row open-overlay">
 				{#<i class="material-icons large grey-text">dashboard</i>#}
 				<a class="col s1 offset-s11 waves-effect waves-light btn menu-btn"></a>
@@ -11,9 +11,24 @@
 	{% endblock %}
 
 
-{% block body %}
+	{% block body %}
+		<div class="home_index">
+			<div class="container">
+				<div class="row">
+					<h1 class="titre">Le Jardin De La Vallée</h1>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
 
-{% endblock %}
+
+	{% block javascripts %}
+	
+		{{ parent() }}
+
+		<script src="{{ asset('bundles/core/js/home.js') }}"></script>
+	
+	{% endblock %}
 
 
 
