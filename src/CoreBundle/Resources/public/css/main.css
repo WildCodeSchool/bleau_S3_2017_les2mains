@@ -621,6 +621,15 @@ Responsive Menu Nav
   background-position: center center;
 }
 
+/* line 12, ../scss/_homepage.scss */
+.titre {
+  font-family: Parisienne;
+  position: relative;
+  top: 150px;
+  left: -1000px;
+  margin-top: 0;
+}
+
 /*----------------------------------------*\
     4.NOUS
 \*----------------------------------------*/
@@ -694,6 +703,15 @@ Responsive Menu Nav
 #events .card_picture:hover {
   opacity: .5;
   transition: .5s;
+}
+/* line 13, ../scss/_events.scss */
+#events .add_stage_btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* line 18, ../scss/_events.scss */
+#events .event_parallax_bottom {
+  min-height: 200px;
 }
 
 /*----------------------------------------*\
