@@ -695,6 +695,11 @@ Responsive Menu Nav
   opacity: .5;
   transition: .5s;
 }
+/* line 13, ../scss/_events.scss */
+#events .add_stage_btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 
 /*----------------------------------------*\
     7.PRODUITS
