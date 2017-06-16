@@ -232,6 +232,7 @@ nav li a {
   display: block;
   text-align: center;
   font-size: 1.3rem;
+
   opacity: 0;
 }
 
@@ -292,35 +293,61 @@ nav li a:after {
   opacity: 1;
 }
 
-/* line 127, ../scss/_nav_style.scss */
+
+/*
+nav li:nth-of-type(1) {
+  background-color: rgba(41, 54, 59, 0.75)
+
+}
+
+nav li:nth-of-type(2) {
+  background-color: rgba(41, 54, 59, 0.75)
+}
+
+nav li:nth-of-type(3) {
+  background-color: rgba(41, 54, 59, 0.75)
+}
+
+nav li:nth-of-type(4) {
+  background-color: rgba(41, 54, 59, 0.75)
+}
+
+nav li:nth-of-type(5) {
+  background-color: rgba(41, 54, 59, 0.75)
+}
+*/
+/* line 151, ../scss/_nav_style.scss */
 nav li:nth-of-type(1) {
   background-color: rgba(41, 54, 59, 0.75);
 }
 
-/* line 132, ../scss/_nav_style.scss */
+/* line 156, ../scss/_nav_style.scss */
 nav li:nth-of-type(2) {
   background-color: rgba(41, 54, 59, 0.73);
 }
 
-/* line 136, ../scss/_nav_style.scss */
+/* line 160, ../scss/_nav_style.scss */
 nav li:nth-of-type(3) {
   background-color: rgba(41, 54, 59, 0.69);
 }
 
-/* line 140, ../scss/_nav_style.scss */
+/* line 164, ../scss/_nav_style.scss */
 nav li:nth-of-type(4) {
   background-color: rgba(41, 54, 59, 0.66);
 }
 
-/* line 144, ../scss/_nav_style.scss */
+/* line 168, ../scss/_nav_style.scss */
 nav li:nth-of-type(5) {
+
   background-color: rgba(41, 54, 59, 0.59);
 }
 
 /* ====================================
 Burger king
 ==================================== */
+
 /* line 153, ../scss/_nav_style.scss */
+
 .open-overlay {
   position: absolute;
   right: 5rem;
@@ -331,7 +358,9 @@ Burger king
   cursor: pointer;
 }
 
+
 /* line 163, ../scss/_nav_style.scss */
+
 .open-overlay span {
   display: block;
   height: 1px;
@@ -341,36 +370,44 @@ Burger king
 }
 
 /* line 171, ../scss/_nav_style.scss */
+
 .animate-top-bar {
   -webkit-animation: animate-top-bar .6s linear 1 both;
   animation: animate-top-bar 0.6s linear 1 both;
 }
 
+
 /* line 176, ../scss/_nav_style.scss */
+
 .animate-bottom-bar {
   -webkit-animation: animate-bottom-bar .6s linear 1 both;
   animation: animate-bottom-bar 0.6s linear 1 both;
 }
 
+
 /* line 181, ../scss/_nav_style.scss */
+
 .animate-middle-bar {
   -webkit-animation: animate-middle-bar .6s linear 1 both;
   animation: animate-middle-bar 0.6s linear 1 both;
 }
 
 /* line 186, ../scss/_nav_style.scss */
+
 .animate-out-top-bar {
   -webkit-animation: animate-out-top-bar .6s linear 1 both;
   animation: animate-out-top-bar 0.6s linear 1 both;
 }
 
 /* line 191, ../scss/_nav_style.scss */
+
 .animate-out-bottom-bar {
   -webkit-animation: animate-out-bottom-bar .6s linear 1 both;
   animation: animate-out-bottom-bar 0.6s linear 1 both;
 }
 
 /* line 196, ../scss/_nav_style.scss */
+
 .animate-out-middle-bar {
   -webkit-animation: animate-out-middle-bar .6s linear 1 both;
   animation: animate-out-middle-bar 0.6s linear 1 both;
@@ -477,7 +514,9 @@ Animation keyframes
     background-color: #fff;
   }
 }
+
 /* line 310, ../scss/_nav_style.scss */
+
 .home a {
   font-family: "Work Sans", sans-serif;
   color: #222;
@@ -494,7 +533,9 @@ Animation keyframes
 }
 
 @media (max-width: 640px) {
+
   /* line 326, ../scss/_nav_style.scss */
+
   nav ul {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -503,28 +544,37 @@ Animation keyframes
     flex-direction: column;
   }
 
+
   /* line 334, ../scss/_nav_style.scss */
+
   nav ul li {
     height: 20%;
   }
 
+
   /* line 338, ../scss/_nav_style.scss */
+
   nav ul li a {
     font-size: 11px;
   }
 
+
   /* line 342, ../scss/_nav_style.scss */
+
   nav li a:after {
     font-size: 0.6rem;
     bottom: -25px;
   }
 
+
   /* line 347, ../scss/_nav_style.scss */
+
   nav li a:hover:after {
     transform: translateY(0);
   }
 
   /* line 351, ../scss/_nav_style.scss */
+
   .open-overlay {
     right: 1rem;
   }
@@ -538,6 +588,7 @@ Animation keyframes
 Responsive Menu Nav
 ==================================== */
 @media screen and (min-width: 992px) and (max-width: 1200px) {
+
   /* line 366, ../scss/_nav_style.scss */
   nav li a {
     position: relative;
@@ -555,6 +606,7 @@ Responsive Menu Nav
   }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
+
   /* line 383, ../scss/_nav_style.scss */
   nav li a {
     position: relative;
@@ -654,30 +706,24 @@ Responsive Menu Nav
 }
 /* line 27, ../scss/_blog.scss */
 #blog .form_add {
-  margin: 50px;
   color: black;
 }
 
 /*----------------------------------------*\
     6.EVENTS
 \*----------------------------------------*/
-/* line 1, ../scss/_events.scss */
-#events {
-  /*----------------------------------------*\
-    6.EVENTS
-\*----------------------------------------*/
+/* line 3, ../scss/_events.scss */
+#events .text_perso_events {
+  color: #80cbc4;
 }
 /* line 6, ../scss/_events.scss */
-#events .p_justify {
-  text-align: justify;
+#events .card_picture {
+  transition: .5s;
 }
 /* line 9, ../scss/_events.scss */
-#events .text_perso_events {
-  color: #4db6ac;
-}
-/* line 12, ../scss/_events.scss */
-#events .text_teal_events {
-  color: #009688;
+#events .card_picture:hover {
+  opacity: .5;
+  transition: .5s;
 }
 
 /*----------------------------------------*\
@@ -792,3 +838,16 @@ Responsive Menu Nav
 /*----------------------------------------*\
     9.FOOTER
 \*----------------------------------------*/
+/*----------------------------------------*\
+    10.LOGIN_PAGE
+\*----------------------------------------*/
+/* line 3, ../scss/_login.scss */
+#log .logo img {
+  width: 250px;
+  height: 250px;
+  margin-top: 20px;
+}
+/* line 9, ../scss/_login.scss */
+#log .row_login {
+  margin-top: 100px;
+}

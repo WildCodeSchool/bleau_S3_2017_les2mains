@@ -1,15 +1,13 @@
-#events{
-  /*----------------------------------------*\
-    6.EVENTS
-\*----------------------------------------*/
+#events {
 
-  .p_justify{
-    text-align: justify;
+  .text_perso_events {
+    color: #80cbc4
   }
-  .text_perso_events{
-    color: #4db6ac;
+  .card_picture {
+    transition: .5s;
   }
-  .text_teal_events{
-    color: #009688
+  .card_picture:hover {
+    opacity: .5;
+    transition: .5s;
   }
 }

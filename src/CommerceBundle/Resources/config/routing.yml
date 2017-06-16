@@ -1,9 +1,12 @@
+event_add:
+    path: /events
+    defaults: {_controller: CommerceBundle:Event:addEvent}
+    methods: ['GET', 'POST']
 
-commerce_event:
-    path:     /events
-    defaults: { _controller: CommerceBundle:Event:event }
+event_delete:
+    path: /event/delete/{id}
+    defaults: {_controller: CommerceBundle:Event:deleteEvent}
 
-produit:
-    path:     /produit
-    defaults: {  _controller: CommerceBundle:Produit:Produit }
-
+event_edit_valid:
+    path: /{id}/event/edit
+    defaults: {_controller: CommerceBundle:Event:validEdit}

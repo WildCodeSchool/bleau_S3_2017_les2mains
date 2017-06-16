@@ -155,4 +155,43 @@ class Activite
     {
         return $this->pictures;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $event;
+
+
+    /**
+     * Add event
+     *
+     * @param \CommerceBundle\Entity\Event $event
+     *
+     * @return Activite
+     */
+    public function addEvent(\CommerceBundle\Entity\Event $event)
+    {
+        $this->event[] = $event;
+
+        return $this;
+    }
+
+    /**
+     * Remove event
+     *
+     * @param \CommerceBundle\Entity\Event $event
+     */
+    public function removeEvent(\CommerceBundle\Entity\Event $event)
+    {
+        $this->event->removeElement($event);
+    }
+
+    /**
+     * Get event
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
 }

@@ -2,248 +2,147 @@
 
 {% block body %}
 
-    <div id="events">
 
-        <div class="container">
+<div id="events">
 
-            <div class="row">
+    <div class="parallax-container">
+        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
+    </div>
+    <div class="container">
 
-                <h1 class="text_teal_events">Le corps</h1>
+        <div class="row">
+            <!-- Modal Trigger -->
+            <a class=" col s6 offset-s3 waves-effect waves-light btn" href="#modal1">Ajouter un stage</a>
 
-                {% for i in 0..1  %}
-                <div class="col m6">
-                <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="http://www.ooom.ch/wp-content/uploads/2014/09/yoga_sukhasana.png">
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Modal Header</h4>
+                    {{ form_start(form) }}
+
+                    <div class="form_add">
+                        {{ form_label(form.title) }}
+                        {{ form_widget(form.title) }}
+                        {{ form_errors(form.title) }}
                     </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Yoga<i class="material-icons right">add</i></span>
-                        <button class="btn waves-effect waves-light" type="submit" name="action">
-                            <i class="medium material-icons center">http</i>
-                        </button>
-                        <button class="btn waves-effect waves-light" type="submit" name="action">Je participe
-                            <i class="medium material-icons right">done</i>
-                        </button>
+
+                    <div class="form_add">
+                        {{ form_label(form.description) }}
+                        {{ form_widget(form.description) }}
+                        {{ form_errors(form.description) }}
                     </div>
-                    <div class="card-reveal">
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-                            <h4 class="text_perso_events">Description</h4>
-                            <p class="p_justify">Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam
-                                (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias,
-                                ne necesse sit unum sollicitum esse pro pluribus; satis superque esse sibi suarum cuique rerum,
-                                alienis nimis implicari molestum esse; commodissimum esse quam laxissimas habenas habere amicitiae,
-                                quas vel adducas, cum velis, vel remittas;
-                                caput enim esse ad beate vivendum securitatem, qua frui non possit animus,
-                                si tamquam parturiat unus pro pluribus.</p>
-                            <h4 class="text_perso_events">Informations :</h4>
-                            <p><b class="text_perso_events">Date :</b> Du lundi 21 mai au vendredi 25 mai 2017</p>
-                            <p><b class="text_perso_events">Lieu :</b> Au jardin de la vallée</p>
-                            <p><b class="text_perso_events">Prix :</b> ..€</p>
-                            <h4 class="text_perso_events">Besoin d'informations ?</h4>
-                            <form action="">
-                                <p>
-                                    <i class="material-icons prefix">perm_identity</i>
-                                    <label for="pseudo">Email :</label>
-                                    <input type="text" name="email" id="email" />
-                                </p>
-                                <p>
-                                    <i class="material-icons prefix">mode_edit</i>
-                                    <label for="subject">Sujet :</label>
-                                    <input type="text" name="subject" id="subject" />
-                                </p>
-                                <p>
-                                    <i class="material-icons prefix">chat_bubble_outline</i>
-                                    <label for="textarea1">Votre message :</label>
-                                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                </p>
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
-                                    <i class="material-icons right">send</i>
-                                </button>
-                            </form>
-                            <br>
-                        </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.dateStart) }}
+                        {{ form_widget(form.dateStart) }}
+                        {{ form_errors(form.dateStart) }}
                     </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.dateEnd) }}
+                        {{ form_widget(form.dateEnd) }}
+                        {{ form_errors(form.dateEnd) }}
+                    </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.location) }}
+                        {{ form_widget(form.location) }}
+                        {{ form_errors(form.location) }}
+                    </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.price) }}
+                        {{ form_widget(form.price) }}
+                        {{ form_errors(form.price) }}
+                    </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.available_places) }}
+                        {{ form_widget(form.available_places) }}
+                        {{ form_errors(form.available_places) }}
+                    </div>
+
+                    <div class="form_add">
+                        {{ form_label(form.activite) }}
+                        {{ form_widget(form.activite) }}
+                        {{ form_errors(form.activite) }}
+                    </div>
+
+                    {{ form_end((form))}}
+
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
                 </div>
             </div>
-                {% endfor %}
-            </div>
-        </div>
+            {% for event in events  %}
+                <div class="col m6">
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator card_picture" src="http://www.ooom.ch/wp-content/uploads/2014/09/yoga_sukhasana.png">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">{{ event.title }}<i class="material-icons right">add</i></span>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">
+                                <i class="medium material-icons center">http</i>
+                            </button>
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Je participe
+                                <i class="medium material-icons right">done</i>
+                            </button>
 
-
-        <div class="container">
-            <div class="row">
-
-                <h1 class="text_teal_events">La terre</h1>
-
-
-                {% for i in 0..1  %}
-                    <div class="col m6">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0B93OypjsD1boiGGYBzMpY0WUTdFxug9KxQDooz7cqknAmuKtBg">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">Title<i class="material-icons right">add</i></span>
-                                <button class="btn waves-effect waves-light" type="submit" name="action">
-                                    <i class="medium material-icons center">http</i>
-                                </button>
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Je participe
-                                    <i class="medium material-icons right">done</i>
-                                </button>
-                            </div>
+                        </div>
+                        <div class="card-reveal">
                             <div class="card-reveal">
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-                                    <h4 class="text_perso_events">Description</h4>
-                                    <p class="p_justify">Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam
-                                        (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias,
-                                        ne necesse sit unum sollicitum esse pro pluribus; satis superque esse sibi suarum cuique rerum,
-                                        alienis nimis implicari molestum esse; commodissimum esse quam laxissimas habenas habere amicitiae,
-                                        quas vel adducas, cum velis, vel remittas;
-                                        caput enim esse ad beate vivendum securitatem, qua frui non possit animus,
-                                        si tamquam parturiat unus pro pluribus.</p>
-                                    <h4 class="text_perso_events">Informations :</h4>
-                                    <p><b class="text_perso_events">Date :</b> Du lundi 21 mai au vendredi 25 mai 2017</p>
-                                    <p><b class="text_perso_events">Lieu :</b> Au jardin de la vallée</p>
-                                    <p><b class="text_perso_events">Prix :</b> ..€</p>
-                                    <h4 class="text_perso_events">Besoin d'informations ?</h4>
-                                    <form action="">
-                                        <p>
-                                            <i class="material-icons prefix">perm_identity</i>
-                                            <label for="pseudo">Email :</label>
-                                            <input type="text" name="email" id="email" />
-                                        </p>
-                                        <p>
-                                            <i class="material-icons prefix">mode_edit</i>
-                                            <label for="subject">Sujet :</label>
-                                            <input type="text" name="subject" id="subject" />
-                                        </p>
-                                        <p>
-                                            <i class="material-icons prefix">chat_bubble_outline</i>
-                                            <label for="textarea1">Votre message :</label>
-                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                        </p>
-                                        <button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
-                                            <i class="material-icons right">send</i>
-                                        </button>
-                                    </form>
-                                    <br>
-                                </div>
+                                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+                                <h4 class="text_perso_events">Description</h4>
+                                <p class="p_justify">{{ event.description }}</p>
+                                <h4 class="text_perso_events">Informations :</h4>
+                                <p><b class="text_perso_events">Date :</b> {{ event.dateStart|date("m/d/Y") }} à {{ event.dateEnd|date("m/d/Y")  }}</p>
+                                <p><b class="text_perso_events">Lieu :</b> {{ event.location }}</p>
+                                <p><b class="text_perso_events">Prix :</b> {{ event.price }}€</p>
+                                <h4 class="text_perso_events">Besoin d'informations ?</h4>
+                                <form action="">
+                                    <p>
+                                        <i class="material-icons prefix">perm_identity</i>
+                                        <label for="pseudo">Email :</label>
+                                        <input type="text" name="email" id="email" />
+                                    </p>
+                                    <p>
+                                        <i class="material-icons prefix">mode_edit</i>
+                                        <label for="subject">Sujet :</label>
+                                        <input type="text" name="subject" id="subject" />
+                                    </p>
+                                    <p>
+                                        <i class="material-icons prefix">chat_bubble_outline</i>
+                                        <label for="textarea1">Votre message :</label>
+                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                    </p>
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </form>
+                                <br>
                             </div>
                         </div>
                     </div>
-                {% endfor %}
-
-            <div class="row">
-
-                <h1 class="text_teal_events">La bouche</h1>
-
-
-                {% for i in 0..1  %}
-                    <div class="col m6">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="http://www.gite-nature.com/wp-content/uploads/2011/05/fabrication-du-pain-IMG_0436.jpg">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">Title<i class="material-icons right">add</i></span>
-                                <button class="btn waves-effect waves-light" type="submit" name="action">
-                                    <i class="medium material-icons center">http</i>
-                                </button>
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Je participe
-                                    <i class="medium material-icons right">done</i>
-                                </button>
-                            </div>
-                            <div class="card-reveal">
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-                                    <h4 class="text_perso_events">Description</h4>
-                                    <p class="p_justify">Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam
-                                        (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias,
-                                        ne necesse sit unum sollicitum esse pro pluribus; satis superque esse sibi suarum cuique rerum,
-                                        alienis nimis implicari molestum esse; commodissimum esse quam laxissimas habenas habere amicitiae,
-                                        quas vel adducas, cum velis, vel remittas;
-                                        caput enim esse ad beate vivendum securitatem, qua frui non possit animus,
-                                        si tamquam parturiat unus pro pluribus.</p>
-                                    <h4 class="text_perso_events">Informations :</h4>
-                                    <p><b class="text_perso_events">Date :</b> Du lundi 21 mai au vendredi 25 mai 2017</p>
-                                    <p><b class="text_perso_events">Lieu :</b> Au jardin de la vallée</p>
-                                    <p><b class="text_perso_events">Prix :</b> ..€</p>
-                                    <h4 class="text_perso_events">Besoin d'informations ?</h4>
-                                    <form action="">
-                                        <p>
-                                            <i class="material-icons prefix">perm_identity</i>
-                                            <label for="pseudo">Email :</label>
-                                            <input type="text" name="email" id="email" />
-                                        </p>
-                                        <p>
-                                            <i class="material-icons prefix">mode_edit</i>
-                                            <label for="subject">Sujet :</label>
-                                            <input type="text" name="subject" id="subject" />
-                                        </p>
-                                        <p>
-                                            <i class="material-icons prefix">chat_bubble_outline</i>
-                                            <label for="textarea1">Votre message :</label>
-                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                        </p>
-                                        <button class="btn waves-effect waves-light" type="submit" name="action">Envoyer
-                                            <i class="material-icons right">send</i>
-                                        </button>
-                                    </form>
-                                    <br>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-
-            <div class="row">
-                <div class="col m12">
+                    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                     <!-- Modal Trigger -->
-                    <a class="waves-effect waves-light btn btn_custom" href="#modal1">créer un stage</a>
+                    <a class="waves-effect waves-light center-align btn" href="#modal{{ event.id }}">Modifier</a>
 
                     <!-- Modal Structure -->
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            {#<div class="row">#}
-                            {#<div class="col s12">#}
-                            {#{{ form_start(form) }}#}
-
-                            {#{{ form_label (form.dates_debut) }}#}
-                            {#{{ form_widget (form.dates_debut) }}#}
-                            {#{{ form_errors (form.dates_debut) }}#}
-
-                            {#{{ form_label (form.dates_fin) }}#}
-                            {#{{ form_widget (form.dates_fin) }}#}
-                            {#{{ form_errors (form.dates_fin) }}#}
-
-                            {#{{ form_label (form.prix) }}#}
-                            {#{{ form_widget (form.prix) }}#}
-                            {#{{ form_errors (form.prix) }}#}
-
-                            {#{{ form_label (form.Descriptions) }}#}
-                            {#{{ form_widget (form.Descriptions) }}#}
-                            {#{{ form_errors (form.Descriptions) }}#}
-
-                            {#{{ form_end(form) }}#}
-                            {#<input type="submit" class="modal-action modal-close waves-effect waves-green btn-flat" value="Soumettre">#}
-                            {#<h4></h4>#}
-                            {#<p>A bunch of text</p>#}
-                            {#</div>#}
-                            {#</div>#}
-                        </div>
+                    <div id="modal{{ event.id }}" class="modal">
+                        {{ render(controller('CommerceBundle:Event:editEvent', { 'id': event.id})) }}
                     </div>
+                    <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                    <a class="waves-effect waves-light center-align btn" href=" {{ path('event_delete', {'id': event.id}) }}">Effacer</a>
+
                 </div>
-            </div>
-
+            {% endfor %}
         </div>
-
     </div>
 
 
 
-
+</div>
 {% endblock %}
-
-

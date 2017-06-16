@@ -25,3 +25,7 @@ CoreBundle\Entity\Activite:
         pictures:
             targetEntity: CoreBundle\Entity\Picture
 
+    oneToMany:
+        event:
+            targetEntity: CommerceBundle\Entity\Event
+            mappedBy: activite
