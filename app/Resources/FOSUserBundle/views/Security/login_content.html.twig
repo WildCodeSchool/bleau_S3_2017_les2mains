@@ -6,7 +6,7 @@
 {% if error %}
     <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 {% endif %}
-    <div class="row ">
+    <div class="row">
         <div class="col s10 offset-s1 z-depth-5 row_login">
             <form action="{{ path("fos_user_security_check") }}" method="post">
             
@@ -14,7 +14,7 @@
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 				{% endif %}
                 <div class="center-align col s2 logo" style="width: 100%">
-                    <img class="z-depth-3" src="{{ asset('bundles/core/img/pictures/favicon.ico') }}">
+                    <img class="z-depth-3" src="{{ asset('bundles/core/img/background/logo_2.JPG') }}">
                 </div>
                 <div class="col s8 offset-s2 username">
                     <label for="username">{{ 'security.login.username'|trans }}</label>

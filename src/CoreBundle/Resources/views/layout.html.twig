@@ -18,12 +18,8 @@
 					</div>
 				</li>
 				<li>
-					<a href="{{ path('event_add') }}" >Nos stages</a>
-					<div class="onglet">
-						<a href="#">Le corps</a>
-						<a href="#">La bouche</a>
-						<a href="#">La Terre</a>
-					</div>
+					<a href="{{ path('core_activite_add') }}">Nos Activités</a>
+					<a href="{{ path('commerce_event') }}">Nos Events</a>
 				</li>
 				<li>
 					<a href="#">Nos produits</a>
@@ -38,7 +34,8 @@
 	{% block menu %}
 		<section class="home home_all">
 			<div class="row open-overlay">
-				<a class="col s1 offset-s10 waves-effect waves-light btn menu-btn">MENU</a>
+				<a class="col s1 offset-s10 waves-effect waves-light btn menu-btn"></a>
+				<div class="menu_text">Menu</div>
 			</div>
 		</section>
 	{% endblock %}

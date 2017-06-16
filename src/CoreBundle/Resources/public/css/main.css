@@ -48,12 +48,15 @@ p {
   background-image: none;
   background-size: cover;
   background-position: center center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 /*----------------------------------------*\
     BUTTON MENU
 \*----------------------------------------*/
-/* line 78, ../scss/_global.scss */
+/* line 81, ../scss/_global.scss */
 .row .col.s1 {
   font-style: italic;
   font-weight: bold;
@@ -62,14 +65,43 @@ p {
   right: inherit;
 }
 
-/* line 87, ../scss/_global.scss */
+/* line 90, ../scss/_global.scss */
 .menu-btn {
   position: absolute;
   margin-left: auto;
   margin-right: auto;
+  background-image: url("http://image.noelshack.com/fichiers/2017/24/1/1497270075-les2mainspicture.png");
+  background-color: transparent;
+  background-size: cover;
+  height: 50px;
+  width: 50px !important;
+  border-bottom: none !important;
 }
 
-/* line 94, ../scss/_global.scss */
+/* line 103, ../scss/_global.scss */
+.menu-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* line 106, ../scss/_global.scss */
+.menu_text {
+  margin: 50px auto 0px -15px;
+  color: black;
+  position: fixed;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 50px;
+  font-size: 17px;
+  transition: 1s;
+}
+
+/* line 116, ../scss/_global.scss */
+.menu_text:hover {
+  transition: 1s;
+  text-shadow: 0px 0px 2px black;
+}
+
+/* line 120, ../scss/_global.scss */
 html > body .menu-btn {
   position: fixed;
 }
@@ -77,52 +109,52 @@ html > body .menu-btn {
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
-/* line 103, ../scss/_global.scss */
+/* line 129, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 107, ../scss/_global.scss */
+/* line 133, ../scss/_global.scss */
 .parallax-container {
   line-height: 0;
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 113, ../scss/_global.scss */
+/* line 139, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 118, ../scss/_global.scss */
+  /* line 144, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 123, ../scss/_global.scss */
+  /* line 149, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 130, ../scss/_global.scss */
+  /* line 156, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 135, ../scss/_global.scss */
+/* line 161, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 139, ../scss/_global.scss */
+/* line 165, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 143, ../scss/_global.scss */
+/* line 169, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
@@ -143,18 +175,12 @@ footer.page-footer {
   opacity: 0;
 }
 
-/*.menu-btn
-{
-  margin-left: -120px;
-  margin-top: -15px;
-  color:red;
-}*/
-/* line 19, ../scss/_nav_style.scss */
+/* line 13, ../scss/_nav_style.scss */
 .menu-btn a {
   font-size: x-large;
 }
 
-/* line 25, ../scss/_nav_style.scss */
+/* line 19, ../scss/_nav_style.scss */
 nav,
 nav ul {
   width: 100%;
@@ -165,7 +191,7 @@ nav ul {
   /* Arrière Plan Menu Burger*/
 }
 
-/* line 34, ../scss/_nav_style.scss */
+/* line 28, ../scss/_nav_style.scss */
 nav ul {
   display: -webkit-box;
   display: -webkit-flex;
@@ -174,7 +200,7 @@ nav ul {
   list-style: none;
 }
 
-/* line 42, ../scss/_nav_style.scss */
+/* line 36, ../scss/_nav_style.scss */
 nav ul li {
   -webkit-flex-basis: 20%;
   -ms-flex-preferred-size: 20%;
@@ -193,7 +219,7 @@ nav ul li {
   display: none;
 }
 
-/* line 60, ../scss/_nav_style.scss */
+/* line 54, ../scss/_nav_style.scss */
 nav li a {
   position: relative;
   top: 46%;
@@ -205,11 +231,11 @@ nav li a {
   text-decoration: none;
   display: block;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   opacity: 0;
 }
 
-/* line 75, ../scss/_nav_style.scss */
+/* line 69, ../scss/_nav_style.scss */
 nav li a:before {
   content: '';
   width: 70px;
@@ -227,7 +253,7 @@ nav li a:before {
   transition: all .2s linear;
 }
 
-/* line 92, ../scss/_nav_style.scss */
+/* line 86, ../scss/_nav_style.scss */
 nav li a:after {
   content: attr(data-content);
   font-size: 0.7rem;
@@ -250,7 +276,7 @@ nav li a:after {
   letter-spacing: 0;
 }
 
-/* line 116, ../scss/_nav_style.scss */
+/* line 110, ../scss/_nav_style.scss */
 .onglet:hover:before {
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -258,7 +284,7 @@ nav li a:after {
   opacity: 1;
 }
 
-/* line 123, ../scss/_nav_style.scss */
+/* line 117, ../scss/_nav_style.scss */
 .onglet:hover:after {
   -webkit-transform: translateY(15px);
   -ms-transform: translateY(15px);
@@ -266,35 +292,57 @@ nav li a:after {
   opacity: 1;
 }
 
-/* line 133, ../scss/_nav_style.scss */
+/*
 nav li:nth-of-type(1) {
-  background-color: #29363B;
+  background-color: rgba(41, 54, 59, 0.75)
+
 }
 
-/* line 138, ../scss/_nav_style.scss */
 nav li:nth-of-type(2) {
-  background-color: #EA495F;
+  background-color: rgba(41, 54, 59, 0.75)
 }
 
-/* line 142, ../scss/_nav_style.scss */
 nav li:nth-of-type(3) {
-  background-color: #F4837D;
+  background-color: rgba(41, 54, 59, 0.75)
 }
 
-/* line 146, ../scss/_nav_style.scss */
 nav li:nth-of-type(4) {
-  background-color: #FDCEA9;
+  background-color: rgba(41, 54, 59, 0.75)
 }
 
-/* line 150, ../scss/_nav_style.scss */
 nav li:nth-of-type(5) {
-  background-color: #99B998;
+  background-color: rgba(41, 54, 59, 0.75)
+}
+*/
+/* line 151, ../scss/_nav_style.scss */
+nav li:nth-of-type(1) {
+  background-color: rgba(41, 54, 59, 0.75);
+}
+
+/* line 156, ../scss/_nav_style.scss */
+nav li:nth-of-type(2) {
+  background-color: rgba(41, 54, 59, 0.73);
+}
+
+/* line 160, ../scss/_nav_style.scss */
+nav li:nth-of-type(3) {
+  background-color: rgba(41, 54, 59, 0.69);
+}
+
+/* line 164, ../scss/_nav_style.scss */
+nav li:nth-of-type(4) {
+  background-color: rgba(41, 54, 59, 0.66);
+}
+
+/* line 168, ../scss/_nav_style.scss */
+nav li:nth-of-type(5) {
+  background-color: rgba(41, 54, 59, 0.59);
 }
 
 /* ====================================
 Burger king
 ==================================== */
-/* line 159, ../scss/_nav_style.scss */
+/* line 177, ../scss/_nav_style.scss */
 .open-overlay {
   position: absolute;
   right: 5rem;
@@ -305,7 +353,7 @@ Burger king
   cursor: pointer;
 }
 
-/* line 169, ../scss/_nav_style.scss */
+/* line 187, ../scss/_nav_style.scss */
 .open-overlay span {
   display: block;
   height: 1px;
@@ -314,37 +362,37 @@ Burger king
   margin-top: 8px;
 }
 
-/* line 177, ../scss/_nav_style.scss */
+/* line 195, ../scss/_nav_style.scss */
 .animate-top-bar {
   -webkit-animation: animate-top-bar .6s linear 1 both;
   animation: animate-top-bar 0.6s linear 1 both;
 }
 
-/* line 182, ../scss/_nav_style.scss */
+/* line 200, ../scss/_nav_style.scss */
 .animate-bottom-bar {
   -webkit-animation: animate-bottom-bar .6s linear 1 both;
   animation: animate-bottom-bar 0.6s linear 1 both;
 }
 
-/* line 187, ../scss/_nav_style.scss */
+/* line 205, ../scss/_nav_style.scss */
 .animate-middle-bar {
   -webkit-animation: animate-middle-bar .6s linear 1 both;
   animation: animate-middle-bar 0.6s linear 1 both;
 }
 
-/* line 192, ../scss/_nav_style.scss */
+/* line 210, ../scss/_nav_style.scss */
 .animate-out-top-bar {
   -webkit-animation: animate-out-top-bar .6s linear 1 both;
   animation: animate-out-top-bar 0.6s linear 1 both;
 }
 
-/* line 197, ../scss/_nav_style.scss */
+/* line 215, ../scss/_nav_style.scss */
 .animate-out-bottom-bar {
   -webkit-animation: animate-out-bottom-bar .6s linear 1 both;
   animation: animate-out-bottom-bar 0.6s linear 1 both;
 }
 
-/* line 202, ../scss/_nav_style.scss */
+/* line 220, ../scss/_nav_style.scss */
 .animate-out-middle-bar {
   -webkit-animation: animate-out-middle-bar .6s linear 1 both;
   animation: animate-out-middle-bar 0.6s linear 1 both;
@@ -451,7 +499,7 @@ Animation keyframes
     background-color: #fff;
   }
 }
-/* line 316, ../scss/_nav_style.scss */
+/* line 334, ../scss/_nav_style.scss */
 .home a {
   font-family: "Work Sans", sans-serif;
   color: #222;
@@ -468,7 +516,7 @@ Animation keyframes
 }
 
 @media (max-width: 640px) {
-  /* line 332, ../scss/_nav_style.scss */
+  /* line 350, ../scss/_nav_style.scss */
   nav ul {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -477,35 +525,87 @@ Animation keyframes
     flex-direction: column;
   }
 
-  /* line 340, ../scss/_nav_style.scss */
+  /* line 358, ../scss/_nav_style.scss */
   nav ul li {
     height: 20%;
   }
 
-  /* line 344, ../scss/_nav_style.scss */
+  /* line 362, ../scss/_nav_style.scss */
   nav ul li a {
     font-size: 11px;
   }
 
-  /* line 348, ../scss/_nav_style.scss */
+  /* line 366, ../scss/_nav_style.scss */
   nav li a:after {
     font-size: 0.6rem;
     bottom: -25px;
   }
 
-  /* line 353, ../scss/_nav_style.scss */
+  /* line 371, ../scss/_nav_style.scss */
   nav li a:hover:after {
     transform: translateY(0);
   }
 
-  /* line 357, ../scss/_nav_style.scss */
+  /* line 375, ../scss/_nav_style.scss */
   .open-overlay {
     right: 1rem;
   }
 
-  /* line 361, ../scss/_nav_style.scss */
+  /* line 379, ../scss/_nav_style.scss */
   nav li a:before {
     width: 25px;
+  }
+}
+/* ====================================
+Responsive Menu Nav
+==================================== */
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  /* line 390, ../scss/_nav_style.scss */
+  nav li a {
+    position: relative;
+    top: 46%;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Work sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    opacity: 0;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  /* line 407, ../scss/_nav_style.scss */
+  nav li a {
+    position: relative;
+    top: 46%;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Work sans', sans-serif;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    opacity: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  /* line 424, ../scss/_nav_style.scss */
+  nav li a {
+    position: relative;
+    top: 36%;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Work sans', sans-serif;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0;
   }
 }
 /*----------------------------------------*\
@@ -576,22 +676,21 @@ Animation keyframes
 }
 /* line 27, ../scss/_blog.scss */
 #blog .form_add {
-  margin: 50px;
   color: black;
 }
 
 /*----------------------------------------*\
     6.EVENTS
 \*----------------------------------------*/
-/* line 2, ../scss/_events.scss */
+/* line 3, ../scss/_events.scss */
 #events .text_perso_events {
   color: #80cbc4;
 }
-/* line 5, ../scss/_events.scss */
+/* line 6, ../scss/_events.scss */
 #events .card_picture {
   transition: .5s;
 }
-/* line 8, ../scss/_events.scss */
+/* line 9, ../scss/_events.scss */
 #events .card_picture:hover {
   opacity: .5;
   transition: .5s;
@@ -709,3 +808,16 @@ Animation keyframes
 /*----------------------------------------*\
     9.FOOTER
 \*----------------------------------------*/
+/*----------------------------------------*\
+    10.LOGIN_PAGE
+\*----------------------------------------*/
+/* line 3, ../scss/_login.scss */
+#log .logo img {
+  width: 250px;
+  height: 250px;
+  margin-top: 20px;
+}
+/* line 9, ../scss/_login.scss */
+#log .row_login {
+  margin-top: 100px;
+}

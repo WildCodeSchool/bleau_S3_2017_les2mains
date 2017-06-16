@@ -4,6 +4,11 @@ $(document).ready(function(){
     $('.parallax').parallax();
 });
 
+
+$(document).ready(function() {
+    $('select').material_select();
+});
+
 $('.open-overlay').click(function() {
     $('.open-overlay').css('pointer-events', 'none');
     var overlay_navigation = $('.overlay-navigation'),
