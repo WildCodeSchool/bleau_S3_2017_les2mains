@@ -49,7 +49,7 @@ class ActiviteController extends Controller
         $form->handleRequest($request);
 
         return $this->render('@Core/pages/activite/editActivite.html.twig', array(
-            'article_selected' => $activite,
+            'activite_selected' => $activite,
             'form'  => $form->createView()
         ));
 

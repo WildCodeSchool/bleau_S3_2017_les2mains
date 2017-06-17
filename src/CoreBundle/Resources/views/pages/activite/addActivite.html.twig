@@ -2,6 +2,8 @@
 {% extends '@Core/layout.html.twig' %}
 
 {% block body %}
+
+
     <div id="activite">
         <!--parallax haut de page fix-->
         <div class="parallax-container parallax-custom">
@@ -52,7 +54,7 @@
                             </div>
                             <div class="row">
                                 <div class="col s6 m6">
-                                    {{ form_widget(form.submit, {'label': 'create'}) }}
+                                    <input class="btn z-depth-5 teal darken-4" type="submit" value="Create" />
                                 </div>
                             </div>
                         </div>
@@ -65,13 +67,9 @@
             <!--CONDITION POUR ADMIN FIN-->
 
 
-
-
-
-
             <!--PARTIE VISIBLE PAR UTILISATEUR-->
             <div class="container activite">
-                <!--BOUCLE QUI AJOUTE DES ACTIVITES-->
+                <!--BOUCLE QUI AFFICHE LES ACTIVITES-->
 
                 {% for activite in activites %}
 
@@ -102,38 +100,53 @@
                                 <p>
                                     {{ activite.contenu }}
                                 </p>
+
                                 <div class="row">
                                     <div class="col s6 m6">
                                         <a href="https://www.pierrerabhi.org/" class="waves-effect teal z-depth-5 darken-4 btn">à decouvrir</a>
                                     </div>
                                     <div class="offset-s3 offset-m3 col s3 m3">
-                                        <a class="waves-effect teal z-depth-5 darken-4 btn" href="#modal1">En savoir plus</a>
+                                        <a class="waves-effect teal z-depth-5 darken-4 btn" href="#modal8">En plus</a>
+
+                                        <!-- Modal de renseignements-->
+                                        <div id="modal8" class="modal8">
+                                            <div class="modal-content">
+                                                <div class="row">
+                                                    <div class="input-field col s12">
+                                                        <input id="email" type="email" class="validate">
+                                                        <label for="email">Email</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                                            </div>
+                                        </div>
+                                        <!-- Modal de renseignements fin-->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- button delete-->
+
                         {% if is_granted('ROLE_ADMIN')%}
+                            <!-- button delete-->
                             <div class="row delete">
                                 <div class=" col s2 m4">
                                     <a href="{{ path('core_activite_delete', {'id' :activite.id}) }}" class="waves-effect teal z-depth-5 darken-4 btn">delete</a>
                                 </div>
                             </div>
+                            <!-- button edit-->
                             <div class="row edit">
                                 <div class=" col s2 m4">
                                     <a href="#modal{{ activite.id }}" class="waves-effect teal z-depth-5 darken-4 btn">Edit</a>
                                 </div>
                             </div>
                         {% endif %}
-
                                 <!-- Modal Structure -->
                                 <div id="modal{{ activite.id }}" class="modal">
-                                    <!-- On rend la vue editArticle a la vue de la modal -->
+                                    <!-- On rend la vue editActivite a la vue de la modal -->
                                     {{ render(controller('CoreBundle:Activite:editActivite',{ 'id': activite.id })) }}
                                 </div>
-
-
-
                     </div>
 
 
