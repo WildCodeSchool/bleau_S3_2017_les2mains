@@ -8,3 +8,7 @@ core_activite_delete:
     path:     /{id}/delete
     defaults: { _controller: CoreBundle:Activite:delete}
 
+core_activite_editValide:
+    path:     /{id}/activite/edit
+    defaults: { _controller: CoreBundle:Activite:valideEdit }
+
