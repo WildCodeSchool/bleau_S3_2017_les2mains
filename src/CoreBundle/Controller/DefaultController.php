@@ -58,7 +58,7 @@ class DefaultController extends Controller
                 'contact' => $contact
             )));
 
-# Send the message
+        // Send the message
         $this->get('mailer')->send($message);
     }
 }

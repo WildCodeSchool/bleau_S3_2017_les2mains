@@ -1,8 +1,6 @@
 <?php
 namespace CoreBundle\DataFixtures\ORM;
 
-namespace CoreBundle\DataFixtures\ORM;
-
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -67,6 +65,7 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
     {
         $this->container = $container;
     }
+
     /**
      * @return ContainerInterface
      */

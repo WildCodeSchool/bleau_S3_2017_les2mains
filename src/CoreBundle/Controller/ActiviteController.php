@@ -9,16 +9,18 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ActiviteController extends Controller
 {
-
-
+    /**
+     * Render page for sho allActivities and add new Activity
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function addAction(Request $request)
     {
-
         $em = $this->getDoctrine()->getManager();
-        $activites = $em->getRepository(Activite::class)->findAll();
+        $themes = $em->getRepository(\CoreBundle\Entity\ActiviteType::class)->findAll();
 
         $activite = new Activite();
-        $form = $this->createForm('CoreBundle\Form\ActiviteType', $activite);
+        $form = $this->createForm(ActiviteType::class, $activite);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -27,19 +29,23 @@ class ActiviteController extends Controller
             $em->flush();
 
             return $this->redirectToRoute('core_activite_add');
-
         }
 
         return $this->render('@Core/pages/activite/addActivite.html.twig', array(
-            'activite' => $activite,
-            'activites' => $activites,
+            'themes' => $themes,
             'form' => $form->createView(),
         ));
     }
 
+    /**
+     * Render form for EditActivity
+     * Call directly in template with renderController method
+     * @param Request $request
+     * @param Activite $activite
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function editActiviteAction(Request $request, Activite $activite)
     {
-
         $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $activite->getId(), ActiviteType::class, $activite);
         $formBuilder->setAction($this->generateUrl('core_activite_editValide', array(
             'id' => $activite->getId()
@@ -49,12 +55,17 @@ class ActiviteController extends Controller
         $form->handleRequest($request);
 
         return $this->render('@Core/pages/activite/editActivite.html.twig', array(
-            'activite_selected' => $activite,
             'form'  => $form->createView()
         ));
 
     }
 
+    /**
+     * Validat form edit Activity
+     * @param Activite $activite
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function valideEditAction(Activite $activite, Request $request){
         $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $activite->getId(),ActiviteType::class, $activite);
         $form = $formBuilder->getForm();
@@ -68,6 +79,11 @@ class ActiviteController extends Controller
         return $this->redirectToRoute('core_activite_add');
     }
 
+    /**
+     * Delete one activity
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -75,9 +91,6 @@ class ActiviteController extends Controller
         $em->remove($activite);
         $em->flush();
 
-
         return $this->redirectToRoute('core_activite_add');
     }
-
-
 }

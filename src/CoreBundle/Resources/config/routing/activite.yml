@@ -1,14 +1,19 @@
-
+# Add activity
 core_activite_add:
     path:     /add
     defaults: { _controller: CoreBundle:Activite:add }
 
-
+# Delete one activy
 core_activite_delete:
     path:     /{id}/delete
     defaults: { _controller: CoreBundle:Activite:delete}
+    requirements:
+        id: '\d+'
 
+# Edit one activity
 core_activite_editValide:
     path:     /{id}/activite/edit
     defaults: { _controller: CoreBundle:Activite:valideEdit }
+    requirements:
+        id: '\d+'
 

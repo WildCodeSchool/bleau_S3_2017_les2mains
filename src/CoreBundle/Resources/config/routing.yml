@@ -12,7 +12,7 @@ core_contact:
     path:   /contact
     defaults: { _controller: CoreBundle:Default:contact}
 
-
+# Activity route
 core_activite:
     prefix: /activite
     resource: 'routing/activite.yml'

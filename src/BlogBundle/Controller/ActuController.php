@@ -11,12 +11,14 @@ use Symfony\Component\HttpFoundation\Response;
 class ActuController extends Controller
 {
     /**
+     * Show view Actu
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      *
      */
     public function indexAction(Request $request)
     {
+        // Init i for paralax in view
         $i = 0;
 
         $em = $this->getDoctrine()->getManager();
@@ -28,7 +30,6 @@ class ActuController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
-            $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $em->flush();
 
@@ -37,13 +38,13 @@ class ActuController extends Controller
 
         return $this->render('@Blog/actualites.html.twig', array(
             'articles' => $articles,
-            'i'=> $i,
+            'i' => $i,
             'form' => $form->createView(),
-            'article' => $article
         ));
     }
 
     /**
+     * Render form for edit article
      * @param Article $article
      * @return \Symfony\Component\HttpFoundation\Response
      *
@@ -96,5 +97,4 @@ class ActuController extends Controller
 
         return $this->redirectToRoute('blog_actu');
     }
-
 }

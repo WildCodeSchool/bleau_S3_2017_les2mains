@@ -6,7 +6,6 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 
@@ -22,9 +21,10 @@ class ActiviteType extends AbstractType
                 'class' => 'CoreBundle\Entity\ActiviteType',
                 'choice_label' => 'nom',
                 'label' => ' '
-            ))                ->add('titre', TextType::class)
-                ->add('contenu', TextType::class)
-                ->add('submit', SubmitType::class);
+            ))
+            ->add('titre', TextType::class)
+            ->add('contenu', TextType::class)
+        ;
     }
 
     /**

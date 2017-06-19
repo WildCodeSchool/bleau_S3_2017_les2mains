@@ -8,10 +8,10 @@
     </div>
     <div class="form_add">
         {{ form_label(form.contenu) }}
-        {{ form_widget(form.contenu) }}
+        {{ form_widget(form.contenu, {'attr': {'class': 'materialize-textarea' }} ) }}
         {{ form_errors(form.contenu) }}
     </div>
-    <div class="form_add">
+    <div class="form_add center-align">
         {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
     </div>
 
