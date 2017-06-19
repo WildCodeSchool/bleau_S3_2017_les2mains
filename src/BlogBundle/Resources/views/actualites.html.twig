@@ -15,17 +15,17 @@
                 <div class="modal-content">
                     {{ form_start(form) }}
 
-                    <div class="form_add">
+                    <div class="input-field form_add">
                         {{ form_label(form.titre) }}
                         {{ form_widget(form.titre) }}
                         {{ form_errors(form.titre) }}
                     </div>
-                    <div class="form_add">
+                    <div class="input-field form_add">
                         {{ form_label(form.contenu) }}
-                        {{ form_widget(form.contenu) }}
+                        {{ form_widget(form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
                         {{ form_errors(form.contenu) }}
                     </div>
-                    <div class="form_add">
+                    <div class="input-field form_add">
                         {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
                     </div>
 
@@ -34,7 +34,7 @@
             </div>
             {% endif %}
         </div>
-        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
+        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}" alt="paralax_1"></div>
     </div>
     <div class="container container_custom">
         <div class="row">
@@ -44,7 +44,7 @@
 
             <div class="col s12 m6 l6 card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ asset('bundles/core/img/background/pic3.jpg') }}">
+                    <img class="activator" src="{{ asset('bundles/core/img/background/pic3.jpg') }}" alt="{{ article.titre }}">
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{ article.titre }}<i class="material-icons right">add</i></span>
@@ -75,7 +75,7 @@
             </div> <!-- close row -->
         </div> <!-- close container -->
                     <div class="parallax-container">
-                        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic3.jpg') }}"></div>
+                        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic3.jpg') }}"  alt="{{ 'paralax_' ~ i }}"></div>
                     </div>
         <div class="container container_custom">
             <div class="row">
@@ -90,5 +90,14 @@
 </div>
 
 {% include '@Core/pages/footer.html.twig' %}
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script>
+        $('textarea').trigger('autoresize');
+    </script>
 
 {% endblock %}
