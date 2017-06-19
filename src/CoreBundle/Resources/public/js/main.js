@@ -2,11 +2,13 @@ $(document).ready(function(){
     $('.modal').modal();
     $('.button-collapse').sideNav();
     $('.parallax').parallax();
+    $('select').material_select();
 });
 
-
-$(document).ready(function() {
-    $('select').material_select();
+/* Date Picker */
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
 });
 
 $('.open-overlay').click(function() {
@@ -69,19 +71,4 @@ $('.open-overlay').click(function() {
             }
         })
     }
-});
-
-/* Date Picker */
-
-
-$('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
-});
-
-
-// Menu Nav Fermeture Auto
-
-$(document).ready(function () {
-
 });
