@@ -37,8 +37,6 @@
 						</div>
 						<div class="modal-footer">
 							{{ form_row(form.save_1, {'attr': {'class': 'btn btn-primary'}}) }}
-							{#<a href="" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>#}
-							{#<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>#}
 						</div>
 					</div>
 					{% endif %}
@@ -89,8 +87,7 @@
 						</div>
 						<div class="modal-footer">
 							{{ form_row(form.save_2, {'attr': {'class': 'btn btn-primary'}}) }}
-							{#<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
-							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>#}
+							
 						</div>
 					</div>
 					{% endif %}
@@ -138,8 +135,7 @@
 						</div>
 						<div class="modal-footer">
 						{{ form_row(form.save_3, {'attr': {'class': 'btn btn-primary'}}) }}
-							{#<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Validation</a>
-							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Refus</a>#}
+						
 						</div>
 					</div>
 					{{ form_end(form) }}
@@ -172,23 +168,6 @@
 				<img src="{{ asset('bundles/core/img/background/pic4.jpg') }}" alt="Unsplashed background img 3">
 			</div>
 		</div>
-		
-		<!--   Section "La Footer"   -->
-		<footer class="page-footer teal">
-			<div class="container">
-				<div class="row">
-					<div class="col l6 s12">
-						<h5 class="white-text">Company Bio</h5>
-						<p class="grey-text text-lighten-4">A définir</p>
-					</div>
-				</div>
-			</div>
-			<div class="footer-copyright">
-				<div class="container">
-					Made by <a class="brown-text text-lighten-3">Les Jardins dans la Vallée</a>
-				</div>
-			</div>
-		</footer>
-	</div>
+    {% include '@Core/pages/footer.html.twig' %}
 	
 {% endblock %}
