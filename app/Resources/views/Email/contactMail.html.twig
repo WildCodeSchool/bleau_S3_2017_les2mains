@@ -6,7 +6,15 @@
 
 
 	<body>
-		{{ contact.nom }}
-
+		<div class="Name">
+			<h4>Nom :{{ contact.nom }}</h4>
+			<h4>Prénom :{{ contact.prenom }}</h4>
+		</div>
+		<div class="email">
+			<p>Email :{{ contact.email }}</p>
+		</div>
+		<div class="content">
+			<p>Informations : {{ contact.contenu }}</p>
+		</div>
 	</body>
 </html>
