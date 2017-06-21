@@ -21,4 +21,5 @@ BlogBundle\Entity\Article:
     oneToOne:
         picture:
             targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
         

@@ -168,4 +168,3 @@ class Contact
         return $this->contenu;
     }
 }
-

@@ -2,6 +2,7 @@
 
 namespace CommerceBundle\Form;
 
+use CoreBundle\Form\PictureType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -30,6 +31,7 @@ class EventType extends AbstractType
             ->add('activite', EntityType::class, array(
                 'class'=>'CoreBundle\Entity\Activite',
                 'choice_label' => 'titre'))
+            ->add('picture', PictureType::class)
             ->add('submit', SubmitType::class);
     }
     
