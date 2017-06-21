@@ -2,6 +2,7 @@
 
 namespace BlogBundle\Form;
 
+use CoreBundle\Form\PictureType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -20,7 +21,7 @@ class ArticleType extends AbstractType
         $builder
             ->add('titre', TextType::class)
             ->add('contenu', TextareaType::class)
-            //->add('picture')
+            ->add('picture', PictureType::class)
             ->add('submit', SubmitType::class, array('label'=>'Valider'));
     }
     

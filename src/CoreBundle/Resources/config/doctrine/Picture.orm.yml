@@ -9,10 +9,22 @@ CoreBundle\Entity\Picture:
             generator:
                 strategy: AUTO
     fields:
-        url:
+        src:
             type: string
             length: 255
         alt:
             type: string
             length: 255
-    lifecycleCallbacks: {  }
+
+    lifecycleCallbacks:
+    #Upload
+        prePersist: [ preUpload ]
+        postPersist: [ postUpload ]
+
+        #delete upload
+        preRemove: [ preRemove ]
+        postRemove: [ remove ]
+
+        #edit Upload
+        preUpdate: [ preUpload ]
+        postUpdate: [ postUpload ]

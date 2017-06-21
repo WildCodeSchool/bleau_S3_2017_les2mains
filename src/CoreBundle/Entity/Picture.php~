@@ -1,14 +1,85 @@
 <?php
 
 namespace CoreBundle\Entity;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Picture
  */
 class Picture
 {
+
+    private $tempName;
+
+
+    private $file;
+
     /**
-     * @var int
+     * @param mixed $file
+     */
+    public function setFile(UploadedFile $file)
+    {
+//        if($this->url !=null)
+//        {
+//         $this->tempName=$this->url;
+//
+//         $this->url=null;
+//         $this->alt=null;
+//        }
+        $this->file = $file;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function preUpload()
+    {
+//        if($this->tempName != null)
+//        {
+//            unlink($this->getUploadDir() . $this->tempName);
+//        }
+        $this->url = uniqid() . '.' . $this->file->guessExtension();
+        $this->alt = $this->file->getClientOriginalName();
+    }
+
+    /**
+     * @ORM\PostPersist
+     */
+    public function postUpload()
+    {
+      $this->file->move($this->getUploadDir(), $this->url);
+    }
+
+    /**
+     * @ORM\PreRemove
+     */
+    public function preRemove()
+    {
+        $this->tempName = $this->url;
+    }
+
+    /**
+     * @ORM\PostRemove
+     */
+    public function remove()
+    {
+        unlink($this->getUploadDir() . $this->url);
+    }
+
+    private function getUploadDir()
+    {
+        return __DIR__ . '/../../../web/uploads/images/';
+    }
+
+
+    //generate code
+    /**
+     * @var integer
      */
     private $id;
 
@@ -26,7 +97,7 @@ class Picture
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -80,4 +151,8 @@ class Picture
     {
         return $this->alt;
     }
+
+    /**
+     * @ORM\PrePersist
+     */
 }
