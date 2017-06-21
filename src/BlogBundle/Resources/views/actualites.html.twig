@@ -71,22 +71,19 @@
                     <p>{{ article.contenu }}</p>
                 </div>
             </div>
-        {% if i is even %}
-            </div> <!-- close row -->
-        </div> <!-- close container -->
-                    <div class="parallax-container">
-                        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic3.jpg') }}"  alt="{{ 'paralax_' ~ i }}"></div>
-                    </div>
-        <div class="container container_custom">
-            <div class="row">
+            {% if i is even %}
+                </div> <!-- close row -->
+            </div> <!-- close container -->
+            <div class="parallax-container">
+                <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic3.jpg') }}"  alt="{{ 'paralax_' ~ i }}"></div>
+            </div>
+            <div class="container container_custom">
+                <div class="row">
             {% endif %}
-            {% endfor %}
+        {% endfor %}
 
+        </div>
     </div>
-
-
-
-</div>
 </div>
 
 {% include '@Core/pages/footer.html.twig' %}
