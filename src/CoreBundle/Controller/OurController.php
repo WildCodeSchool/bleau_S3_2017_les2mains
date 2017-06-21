@@ -13,7 +13,11 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class OurController extends Controller
 {
-
+    /**
+     * Render ourPage and edit it
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function ourFormAction(Request $request)
     {
        $em=$this->getDoctrine()->getManager();

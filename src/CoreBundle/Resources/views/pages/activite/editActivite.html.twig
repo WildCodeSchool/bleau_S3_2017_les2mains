@@ -1,18 +1,25 @@
 <div class="modal-content">
     {{ form_start(form) }}
 
-    <div class="form_add">
+    <div class="input-field">
+        {{ form_label (form.activiteType) }}
+        {{ form_widget (form.activiteType) }}
+        {{ form_errors (form.activiteType) }}
+    </div>
+    <div class="input-field">
         {{ form_label(form.titre) }}
         {{ form_widget(form.titre) }}
         {{ form_errors(form.titre) }}
     </div>
-    <div class="form_add">
+    <div class="input-field">
         {{ form_label(form.contenu) }}
         {{ form_widget(form.contenu) }}
         {{ form_errors(form.contenu) }}
     </div>
-    <div class="form_add">
-        {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+    <div class="input-field">
+        <div class="center-align">
+            <input class="btn z-depth-5 teal darken-4" type="submit" value="Create" />
+        </div>
     </div>
 
     {{ form_end(form) }}
