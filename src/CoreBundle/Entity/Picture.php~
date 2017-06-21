@@ -19,13 +19,14 @@ class Picture
      */
     public function setFile(UploadedFile $file)
     {
-        if($this->src !=null)
+        if($this->src != null)
         {
-         $this->tempName=$this->src;
+         $this->tempName = $this->src;
 
          $this->url=null;
          $this->alt=null;
         }
+
         $this->file = $file;
     }
 
@@ -43,8 +44,12 @@ class Picture
         {
             unlink($this->getUploadDir() . $this->tempName);
         }
+
         $this->src = uniqid() . '.' . $this->file->guessExtension();
         $this->alt = $this->file->getClientOriginalName();
+
+
+
     }
 
     /**

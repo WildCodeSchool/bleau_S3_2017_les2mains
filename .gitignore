@@ -17,3 +17,4 @@
 .idea
 .sass-cache
 !/composer.lock
+/web/uploads
