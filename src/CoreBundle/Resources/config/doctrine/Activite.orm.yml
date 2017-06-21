@@ -21,9 +21,10 @@ CoreBundle\Entity\Activite:
             targetEntity: CoreBundle\Entity\ActiviteType
             inversedBy: activites
 
-    manyToMany:
-        pictures:
+    oneToOne:
+        picture:
             targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
 
     oneToMany:
         event:
