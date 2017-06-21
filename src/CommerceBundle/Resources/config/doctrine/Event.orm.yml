@@ -33,3 +33,8 @@ CommerceBundle\Entity\Event:
         activite:
             targetEntity: CoreBundle\Entity\Activite
             inversedBy: event
+
+    oneToOne:
+        picture:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
