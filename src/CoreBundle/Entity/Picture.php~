@@ -19,13 +19,14 @@ class Picture
      */
     public function setFile(UploadedFile $file)
     {
-//        if($this->url !=null)
-//        {
-//         $this->tempName=$this->url;
-//
-//         $this->url=null;
-//         $this->alt=null;
-//        }
+        if($this->src != null)
+        {
+         $this->tempName = $this->src;
+
+         $this->url=null;
+         $this->alt=null;
+        }
+
         $this->file = $file;
     }
 
@@ -39,12 +40,16 @@ class Picture
 
     public function preUpload()
     {
-//        if($this->tempName != null)
-//        {
-//            unlink($this->getUploadDir() . $this->tempName);
-//        }
-        $this->url = uniqid() . '.' . $this->file->guessExtension();
+        if($this->tempName != null)
+        {
+            unlink($this->getUploadDir() . $this->tempName);
+        }
+
+        $this->src = uniqid() . '.' . $this->file->guessExtension();
         $this->alt = $this->file->getClientOriginalName();
+
+
+
     }
 
     /**
@@ -52,7 +57,7 @@ class Picture
      */
     public function postUpload()
     {
-      $this->file->move($this->getUploadDir(), $this->url);
+      $this->file->move($this->getUploadDir(), $this->src);
     }
 
     /**
@@ -60,7 +65,7 @@ class Picture
      */
     public function preRemove()
     {
-        $this->tempName = $this->url;
+        $this->tempName = $this->src;
     }
 
     /**
@@ -68,7 +73,7 @@ class Picture
      */
     public function remove()
     {
-        unlink($this->getUploadDir() . $this->url);
+        unlink($this->getUploadDir() . $this->src);
     }
 
     private function getUploadDir()
@@ -155,4 +160,33 @@ class Picture
     /**
      * @ORM\PrePersist
      */
+    /**
+     * @var string
+     */
+    private $src;
+
+
+    /**
+     * Set src
+     *
+     * @param string $src
+     *
+     * @return Picture
+     */
+    public function setSrc($src)
+    {
+        $this->src = $src;
+
+        return $this;
+    }
+
+    /**
+     * Get src
+     *
+     * @return string
+     */
+    public function getSrc()
+    {
+        return $this->src;
+    }
 }
