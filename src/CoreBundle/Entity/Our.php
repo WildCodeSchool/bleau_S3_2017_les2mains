@@ -7,6 +7,7 @@ namespace CoreBundle\Entity;
  */
 class Our
 {
+
     /**
      * @var integer
      */
@@ -41,6 +42,51 @@ class Our
      * @var string
      */
     private $contenu3;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture1;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture2;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture3;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture4;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture5;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture6;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture7;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture8;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture9;
 
 
     /**
@@ -196,180 +242,6 @@ class Our
     {
         return $this->contenu3;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $pictures;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->pictures = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add picture
-     *
-     * @param \CoreBundle\Entity\Picture $picture
-     *
-     * @return Our
-     */
-    public function addPicture(\CoreBundle\Entity\Picture $picture)
-    {
-        $this->pictures[] = $picture;
-
-        return $this;
-    }
-
-    /**
-     * Remove picture
-     *
-     * @param \CoreBundle\Entity\Picture $picture
-     */
-    public function removePicture(\CoreBundle\Entity\Picture $picture)
-    {
-        $this->pictures->removeElement($picture);
-    }
-
-    /**
-     * Get pictures
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPictures()
-    {
-        return $this->pictures;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $association;
-
-
-    /**
-     * Add association
-     *
-     * @param \CoreBundle\Entity\AssociationOurAndPicture $association
-     *
-     * @return Our
-     */
-    public function addAssociation(\CoreBundle\Entity\AssociationOurAndPicture $association)
-    {
-        $this->association[] = $association;
-
-        return $this;
-    }
-
-    /**
-     * Remove association
-     *
-     * @param \CoreBundle\Entity\AssociationOurAndPicture $association
-     */
-    public function removeAssociation(\CoreBundle\Entity\AssociationOurAndPicture $association)
-    {
-        $this->association->removeElement($association);
-    }
-
-    /**
-     * Get association
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAssociation()
-    {
-        return $this->association;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $associations;
-
-
-    /**
-     * Get associations
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAssociations()
-    {
-        return $this->associations;
-    }
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture;
-
-
-    /**
-     * Set picture
-     *
-     * @param \CoreBundle\Entity\Picture $picture
-     *
-     * @return Our
-     */
-    public function setPicture(\CoreBundle\Entity\Picture $picture = null)
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
-    /**
-     * Get picture
-     *
-     * @return \CoreBundle\Entity\Picture
-     */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture1;
-
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture2;
-
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture3;
-
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture4;
-
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture5;
-
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture6;
-
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture7;
-
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture8;
-
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture9;
-
 
     /**
      * Set picture1
