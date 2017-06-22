@@ -16,6 +16,10 @@ class ActiviteController extends Controller
      */
     public function addAction(Request $request)
     {
+        // Init i for parallax in view activity
+        $i = 0;
+
+
         $em = $this->getDoctrine()->getManager();
         $themes = $em->getRepository(\CoreBundle\Entity\ActiviteType::class)->findAll();
 
@@ -32,6 +36,7 @@ class ActiviteController extends Controller
         }
 
         return $this->render('@Core/pages/activite/addActivite.html.twig', array(
+            'i' => $i,
             'themes' => $themes,
             'form' => $form->createView(),
         ));
