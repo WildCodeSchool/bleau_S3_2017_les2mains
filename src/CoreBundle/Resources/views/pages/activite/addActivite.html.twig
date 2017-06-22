@@ -61,7 +61,7 @@
 
 
         <!--PARTIE VISIBLE PAR UTILISATEUR-->
-        <div class="container activite">
+
             <!--BOUCLE QUI AFFICHE LES ACTIVITES-->
 
             {% for theme in themes %}
@@ -69,9 +69,9 @@
                 <h1>{{ theme.nom }}</h1>
                 <!--MODAL D'ACTIVITE-->
                 <div class="container info">
-
+                    <div class="row">
                     {% for activite in theme.activites %}
-                        <div class="card">
+                        <div class="col s12 m6 l6 card">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="{{ asset('uploads/images/' ~ activite.picture.src ) }}">
                             </div>
@@ -100,20 +100,25 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                                                <style>
+                                                    .card-image{
+                                                        height: 350px;
+                                                    }
+                                                </style>
 
                         {% if is_granted('ROLE_ADMIN')%}
                             <!-- button delete-->
                             <div class="row delete">
-                                <div class=" col s2 m4">
+                                <div class=" col offset-s3 s3">
                                     <a href="{{ path('core_activite_delete', {'id' :activite.id}) }}" class="waves-effect teal z-depth-5 darken-4 btn">delete</a>
                                 </div>
-                            </div>
+
                             <!-- button edit-->
-                            <div class="row edit">
-                                <div class=" col s2 m4">
+
+                                <div class=" col offset-s1 s5">
                                     <a href="#modal{{ activite.id }}" class="waves-effect teal z-depth-5 darken-4 btn">Edit</a>
                                 </div>
+                            </div>
                             </div>
                         {% endif %}
                         <!-- Modal Structure -->
@@ -122,6 +127,7 @@
                             {{ render(controller('CoreBundle:Activite:editActivite',{ 'id': activite.id })) }}
                         </div>
                     {% endfor %}
+                    </div>
                 </div>
 
 
@@ -133,6 +139,6 @@
         </div>
             {% endfor %}
         </div>
-    </div>
+
     {% include '@Core/pages/footer.html.twig' %}
 {% endblock %}
