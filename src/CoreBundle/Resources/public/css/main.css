@@ -116,45 +116,44 @@ html > body .menu-btn {
 
 /* line 133, ../scss/_global.scss */
 .parallax-container {
-  line-height: 0;
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 139, ../scss/_global.scss */
+/* line 138, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 144, ../scss/_global.scss */
+  /* line 143, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 149, ../scss/_global.scss */
+  /* line 148, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 156, ../scss/_global.scss */
+  /* line 155, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 161, ../scss/_global.scss */
+/* line 160, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 165, ../scss/_global.scss */
+/* line 164, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 169, ../scss/_global.scss */
+/* line 168, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
