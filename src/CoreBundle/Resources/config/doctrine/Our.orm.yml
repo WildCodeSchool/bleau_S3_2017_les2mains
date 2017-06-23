@@ -32,6 +32,40 @@ CoreBundle\Entity\Our:
             column: contenu_3
     lifecycleCallbacks: {  }
 
-    manyToMany:
-        pictures:
+    oneToOne:
+        picture1:
             targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture2:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture3:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture4:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture5:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture6:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture7:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture8:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture9:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
