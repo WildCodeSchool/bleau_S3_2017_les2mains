@@ -1,0 +1,112 @@
+<?php
+
+namespace CoreBundle\Entity;
+
+/**
+ * AssociationOurAndPicture
+ */
+class AssociationOurAndPicture
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var int
+     */
+    private $position;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     *
+     * @return AssociationOurAndPicture
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture;
+
+    /**
+     * @var \CoreBundle\Entity\our
+     */
+    private $our;
+
+
+    /**
+     * Set picture
+     *
+     * @param \CoreBundle\Entity\Picture $picture
+     *
+     * @return AssociationOurAndPicture
+     */
+    public function setPicture(\CoreBundle\Entity\Picture $picture = null)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return \CoreBundle\Entity\Picture
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * Set our
+     *
+     * @param \CoreBundle\Entity\our $our
+     *
+     * @return AssociationOurAndPicture
+     */
+    public function setOur(\CoreBundle\Entity\our $our = null)
+    {
+        $this->our = $our;
+
+        return $this;
+    }
+
+    /**
+     * Get our
+     *
+     * @return \CoreBundle\Entity\our
+     */
+    public function getOur()
+    {
+        return $this->our;
+    }
+}
