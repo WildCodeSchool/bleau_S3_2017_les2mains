@@ -4,6 +4,7 @@
 	
 {% block body %}
 	<div id="nous">
+	
 		<div class="parallax-container">
 			<div class="section header">
 				<h2 class="header center teal-text text-lighten-2">Notre Permaculture et Nous</h2>
@@ -45,6 +46,8 @@
 							{{ form_row(form.save_1, {'attr': {'class': 'btn btn-primary'}}) }}
 						</div>
 					</div>
+					{% endif %}
+				
 				</div>
 			</div>
 			
@@ -60,7 +63,6 @@
 				<div class="center-align col s12 m6 l4 img_box">
 					<img class="center-align responsive-img" src="{{ asset('uploads/images/' ~ our.picture3.src ) }}">
 				</div>
-				{% endif %}
 			</div>
 		</div>
 		
@@ -101,6 +103,8 @@
 							{{ form_row(form.save_2, {'attr': {'class': 'btn btn-primary'}}) }}
 						</div>
 					</div>
+					{% endif %}
+				
 				</div>
 			</div>
 			
@@ -110,14 +114,11 @@
 					<img class="center-align responsive-img" src="{{ asset('uploads/images/' ~ our.picture4.src ) }}">
 				</div>
 				<div class="center-align col s12 m6 l4 img_box">
-					{{ form_row(form.picture5) }}
 					<img class="center-align responsive-img" src="{{ asset('uploads/images/' ~ our.picture5.src ) }}">
 				</div>
 				<div class="center-align col s12 m6 l4 img_box">
-					{{ form_row(form.picture6) }}
-				<img class="center-align responsive-img" src="{{ asset('uploads/images/' ~ our.picture6.src ) }}">
+					<img class="center-align responsive-img" src="{{ asset('uploads/images/' ~ our.picture6.src ) }}">
 				</div>
-				{% endif %}
 			</div>
 		</div>
 		
@@ -156,6 +157,10 @@
 						{{ form_row(form.save_3, {'attr': {'class': 'btn btn-primary'}}) }}
 						</div>
 					</div>
+						{{ form_end(form) }}
+					
+					{% endif %}
+				
 				</div>
 			</div>
 			
@@ -169,8 +174,6 @@
 				<div class="center-align col s12 m6 l4 img_box">
 					<img class="center-align responsive-img" src="{{ asset('uploads/images/' ~ our.picture9.src ) }}">
 				</div>
-				{{ form_end(form) }}
-				{% endif %}
 			</div>
 		</div>
 		

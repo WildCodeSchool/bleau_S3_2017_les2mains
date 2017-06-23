@@ -50,12 +50,13 @@ class LoadOurData extends AbstractFixture implements FixtureInterface
                             Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum. Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat, aut ne plus aequo quid in amicitiam congeratur.');
 
 
-        copy(__DIR__ . '/../../Resources/public/img/pictures/1.jpg', __DIR__ . '/../../../../web/uploads/images/picture_template.jpg');
 
         for ($i = 1; $i < 10; $i++){
+            copy(__DIR__ . '/../../Resources/public/img/pictures/1.jpg', __DIR__ . '/../../../../web/uploads/images/picture_template_' . $i . '.jpg');
+
             $name = 'setPicture' . $i;
             $$name = new Picture();
-            $$name->setSrc(__DIR__ . '/../../../../web/uploads/images/picture_template.jpg');
+            $$name->setSrc('picture_template_' . $i . '.jpg');
             $$name->setAlt('picture');
 
             $our->$name($$name);
