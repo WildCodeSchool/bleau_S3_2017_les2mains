@@ -8,17 +8,27 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\FixtureInterface;
-use Doctrine\Common\Persistence\ObjectManager;
-
-
-
 class LoadActivityTypeData extends AbstractFixture implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $activity= new ActiviteType();
-        $activity
+        $activity = array(
+            'La Bouche',
+            "L'humain",
+            'La Terre',
+            'La Terre',
+            'La Terre',
+        );
+
+        foreach ($activity as $activities)
+        {
+            $type = new ActiviteType();
+            $type->setNom($activities);
+            $manager->persist($type);
+            $manager->flush();
+        }
     }
 }
+
+
+
