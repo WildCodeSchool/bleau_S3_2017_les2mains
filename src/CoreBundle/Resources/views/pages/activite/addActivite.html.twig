@@ -2,7 +2,7 @@
 
 {% block body %}
 <div id="activite">
-    <!--parallax haut de page fix-->
+
     <div class="parallax-container parallax-custom">
         <div class="parallax">
             <img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
@@ -16,7 +16,6 @@
     <div class="container">
         <!--CONDITION POUR ADMIN-->
         {% if is_granted('ROLE_ADMIN')%}
-
             <div class="row">
                 <a class="offset-s4 offset-m4 col s4 m4  waves-effect teal z-depth-5 darken-4 btn align-center " href="#modal1">Ajouter une activité</a>
             </div>
@@ -24,8 +23,8 @@
             <!--MODAL D'AJOUT D'ACTIVITE-->
             <div id="modal1" class="modal">
                 <div class="modal-content">
-                    {{ form_start(form) }}
-                    <h4>l'activité est ...</h4>
+                            {{ form_start(form) }}
+                            <h4>l'activité est ...</h4>
                     <div class='row'>
                         <div class="input-field col s12">
                             {{ form_label (form.activiteType) }}
@@ -53,15 +52,21 @@
             </div>
             <!--MODAL D'AJOUT D'ACTIVITE FIN-->
         {% endif %}
-    </div>
+
     <!--CONDITION POUR ADMIN FIN-->
 
     <!--BOUCLE QUI AFFICHE LES ACTIVITES PAR THEMES-->
 
     {% for theme in themes %}
-        <h1>{{ theme.nom }}</h1>
+
+        <div class="row">
+            <div class="col s12">
+           <h1>{{ theme.nom }}</h1>
+            </div>
+        </div>
+
     <!--MODAL D'ACTIVITE-->
-        <div class="container info">
+
             <div class="row">
             {% for activite in theme.activites %}
                 {% set i = i + 1 %}
@@ -116,10 +121,13 @@
                     {{ render(controller('CoreBundle:Activite:editActivite',{ 'id': activite.id })) }}
                 </div>
             {% endfor %}
+
                 {% endfor %}
         {% if i is even %}
             </div>
         </div>
+
+
         <div class="parallax-container parallax-custom">
             <div class="parallax">
                 <img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
@@ -128,16 +136,16 @@
 
 
 
-    // boucle theme//
-
+    <div class="container theme">
+    <div class="row">
 
         <div class="container info">
             <div class="row">
 
            {% endif %}
 
-        </div>
-    </div>
+            </div>
+
 </div>
 
 
