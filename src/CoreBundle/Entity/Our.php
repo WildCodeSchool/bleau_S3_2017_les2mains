@@ -7,6 +7,7 @@ namespace CoreBundle\Entity;
  */
 class Our
 {
+
     /**
      * @var integer
      */
@@ -41,6 +42,51 @@ class Our
      * @var string
      */
     private $contenu3;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture1;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture2;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture3;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture4;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture5;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture6;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture7;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture8;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture9;
 
 
     /**
@@ -196,50 +242,220 @@ class Our
     {
         return $this->contenu3;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $pictures;
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->pictures = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add picture
+     * Set picture1
      *
-     * @param \CoreBundle\Entity\Picture $picture
+     * @param \CoreBundle\Entity\Picture $picture1
      *
      * @return Our
      */
-    public function addPicture(\CoreBundle\Entity\Picture $picture)
+    public function setPicture1(\CoreBundle\Entity\Picture $picture1 = null)
     {
-        $this->pictures[] = $picture;
+        $this->picture1 = $picture1;
 
         return $this;
     }
 
     /**
-     * Remove picture
+     * Get picture1
      *
-     * @param \CoreBundle\Entity\Picture $picture
+     * @return \CoreBundle\Entity\Picture
      */
-    public function removePicture(\CoreBundle\Entity\Picture $picture)
+    public function getPicture1()
     {
-        $this->pictures->removeElement($picture);
+        return $this->picture1;
     }
 
     /**
-     * Get pictures
+     * Set picture2
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @param \CoreBundle\Entity\Picture $picture2
+     *
+     * @return Our
      */
-    public function getPictures()
+    public function setPicture2(\CoreBundle\Entity\Picture $picture2 = null)
     {
-        return $this->pictures;
+        $this->picture2 = $picture2;
+
+        return $this;
+    }
+
+    /**
+     * Get picture2
+     *
+     * @return \CoreBundle\Entity\Picture
+     */
+    public function getPicture2()
+    {
+        return $this->picture2;
+    }
+
+    /**
+     * Set picture3
+     *
+     * @param \CoreBundle\Entity\Picture $picture3
+     *
+     * @return Our
+     */
+    public function setPicture3(\CoreBundle\Entity\Picture $picture3 = null)
+    {
+        $this->picture3 = $picture3;
+
+        return $this;
+    }
+
+    /**
+     * Get picture3
+     *
+     * @return \CoreBundle\Entity\Picture
+     */
+    public function getPicture3()
+    {
+        return $this->picture3;
+    }
+
+    /**
+     * Set picture4
+     *
+     * @param \CoreBundle\Entity\Picture $picture4
+     *
+     * @return Our
+     */
+    public function setPicture4(\CoreBundle\Entity\Picture $picture4 = null)
+    {
+        $this->picture4 = $picture4;
+
+        return $this;
+    }
+
+    /**
+     * Get picture4
+     *
+     * @return \CoreBundle\Entity\Picture
+     */
+    public function getPicture4()
+    {
+        return $this->picture4;
+    }
+
+    /**
+     * Set picture5
+     *
+     * @param \CoreBundle\Entity\Picture $picture5
+     *
+     * @return Our
+     */
+    public function setPicture5(\CoreBundle\Entity\Picture $picture5 = null)
+    {
+        $this->picture5 = $picture5;
+
+        return $this;
+    }
+
+    /**
+     * Get picture5
+     *
+     * @return \CoreBundle\Entity\Picture
+     */
+    public function getPicture5()
+    {
+        return $this->picture5;
+    }
+
+    /**
+     * Set picture6
+     *
+     * @param \CoreBundle\Entity\Picture $picture6
+     *
+     * @return Our
+     */
+    public function setPicture6(\CoreBundle\Entity\Picture $picture6 = null)
+    {
+        $this->picture6 = $picture6;
+
+        return $this;
+    }
+
+    /**
+     * Get picture6
+     *
+     * @return \CoreBundle\Entity\Picture
+     */
+    public function getPicture6()
+    {
+        return $this->picture6;
+    }
+
+    /**
+     * Set picture7
+     *
+     * @param \CoreBundle\Entity\Picture $picture7
+     *
+     * @return Our
+     */
+    public function setPicture7(\CoreBundle\Entity\Picture $picture7 = null)
+    {
+        $this->picture7 = $picture7;
+
+        return $this;
+    }
+
+    /**
+     * Get picture7
+     *
+     * @return \CoreBundle\Entity\Picture
+     */
+    public function getPicture7()
+    {
+        return $this->picture7;
+    }
+
+    /**
+     * Set picture8
+     *
+     * @param \CoreBundle\Entity\Picture $picture8
+     *
+     * @return Our
+     */
+    public function setPicture8(\CoreBundle\Entity\Picture $picture8 = null)
+    {
+        $this->picture8 = $picture8;
+
+        return $this;
+    }
+
+    /**
+     * Get picture8
+     *
+     * @return \CoreBundle\Entity\Picture
+     */
+    public function getPicture8()
+    {
+        return $this->picture8;
+    }
+
+    /**
+     * Set picture9
+     *
+     * @param \CoreBundle\Entity\Picture $picture9
+     *
+     * @return Our
+     */
+    public function setPicture9(\CoreBundle\Entity\Picture $picture9 = null)
+    {
+        $this->picture9 = $picture9;
+
+        return $this;
+    }
+
+    /**
+     * Get picture9
+     *
+     * @return \CoreBundle\Entity\Picture
+     */
+    public function getPicture9()
+    {
+        return $this->picture9;
     }
 }
