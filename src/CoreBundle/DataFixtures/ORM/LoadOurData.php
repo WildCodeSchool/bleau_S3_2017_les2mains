@@ -4,11 +4,14 @@ namespace CoreBundle\DataFixtures\ORM;
 
 use CoreBundle\Entity\Our;
 use CoreBundle\Entity\Picture;
+use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 
-class LoadOurData implements FixtureInterface
+class LoadOurData extends AbstractFixture implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -23,6 +26,7 @@ class LoadOurData implements FixtureInterface
                             Vbi curarum abiectis ponderibus aliis tamquam nodum et codicem difficillimum Caesarem convellere nisu valido cogitabat, eique deliberanti cum proximis clandestinis conloquiis et nocturnis qua vi, quibusve commentis id fieret, antequam effundendis rebus pertinacius incumberet confidentia, acciri mollioribus scriptis per simulationem tractatus publici nimis urgentis eundem placuerat Gallum, ut auxilio destitutus sine ullo interiret obstaculo.
                             
                             Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum. Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat, aut ne plus aequo quid in amicitiam congeratur.')
+
             ->setTitre2('Notre Histoire')
             ->setContenu2('Tempore quo primis auspiciis in mundanum fulgorem surgeret victura dum erunt homines Roma, ut augeretur sublimibus incrementis, foedere pacis aeternae Virtus convenit atque Fortuna plerumque dissidentes, quarum si altera defuisset, ad perfectam non venerat summitatem.
 
@@ -33,6 +37,7 @@ class LoadOurData implements FixtureInterface
                             Vbi curarum abiectis ponderibus aliis tamquam nodum et codicem difficillimum Caesarem convellere nisu valido cogitabat, eique deliberanti cum proximis clandestinis conloquiis et nocturnis qua vi, quibusve commentis id fieret, antequam effundendis rebus pertinacius incumberet confidentia, acciri mollioribus scriptis per simulationem tractatus publici nimis urgentis eundem placuerat Gallum, ut auxilio destitutus sine ullo interiret obstaculo.
                             
                             Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum. Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat, aut ne plus aequo quid in amicitiam congeratur.')
+
             ->setTitre3("L'association 'Les 2 Mains'")
             ->setContenu3('Tempore quo primis auspiciis in mundanum fulgorem surgeret victura dum erunt homines Roma, ut augeretur sublimibus incrementis, foedere pacis aeternae Virtus convenit atque Fortuna plerumque dissidentes, quarum si altera defuisset, ad perfectam non venerat summitatem.
 
@@ -44,23 +49,20 @@ class LoadOurData implements FixtureInterface
                             
                             Altera sententia est, quae definit amicitiam paribus officiis ac voluntatibus. Hoc quidem est nimis exigue et exiliter ad calculos vocare amicitiam, ut par sit ratio acceptorum et datorum. Divitior mihi et affluentior videtur esse vera amicitia nec observare restricte, ne plus reddat quam acceperit; neque enim verendum est, ne quid excidat, aut ne quid in terram defluat, aut ne plus aequo quid in amicitiam congeratur.');
 
+
+        copy(__DIR__ . '/../../Resources/public/img/pictures/1.jpg', __DIR__ . '/../../../../web/uploads/images/picture_template.jpg');
+
+        for ($i = 1; $i < 10; $i++){
+            $name = 'setPicture' . $i;
+            $$name = new Picture();
+            $$name->setSrc(__DIR__ . '/../../../../web/uploads/images/picture_template.jpg');
+            $$name->setAlt('picture');
+
+            $our->$name($$name);
+
+        }
         $manager->persist($our);
         $manager->flush();
-
-       /* $pic = new Our();
-        $pic->setPicture1('http://img08.deviantart.net/2c6f/i/2013/082/a/c/png_grass_by_moonglowlilly-d5z1o5t.png');
-        /*  ->setPicture2('https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/plant-shoot-being-watered-with-watering-can.jpg?itok=LJpuDrF3')
-          ->setPicture3('https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/plant-shoot-being-watered-with-watering-can.jpg?itok=LJpuDrF3')
-          ->setPicture4('https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/plant-shoot-being-watered-with-watering-can.jpg?itok=LJpuDrF3')
-          ->setPicture5('https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/plant-shoot-being-watered-with-watering-can.jpg?itok=LJpuDrF3')
-          ->setPicture6('https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/plant-shoot-being-watered-with-watering-can.jpg?itok=LJpuDrF3')
-          ->setPicture7('https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/plant-shoot-being-watered-with-watering-can.jpg?itok=LJpuDrF3')
-          ->setPicture8('https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/plant-shoot-being-watered-with-watering-can.jpg?itok=LJpuDrF3')
-          ->setPicture9('https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/plant-shoot-being-watered-with-watering-can.jpg?itok=LJpuDrF3');*/
-
-        /*$manager->persist($pic);
-        $manager->flush();*/
-
     }
 
 

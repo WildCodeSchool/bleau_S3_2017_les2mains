@@ -40,6 +40,10 @@ class Picture
 
     public function preUpload()
     {
+        if ($this->file === null){
+            return ;
+        }
+
         if($this->tempName != null)
         {
             unlink($this->getUploadDir() . $this->tempName);
@@ -47,9 +51,6 @@ class Picture
 
         $this->src = uniqid() . '.' . $this->file->guessExtension();
         $this->alt = $this->file->getClientOriginalName();
-
-
-
     }
 
     /**
@@ -57,7 +58,10 @@ class Picture
      */
     public function postUpload()
     {
-      $this->file->move($this->getUploadDir(), $this->src);
+        if ($this->file === null){
+            return ;
+        }
+        $this->file->move($this->getUploadDir(), $this->src);
     }
 
     /**
