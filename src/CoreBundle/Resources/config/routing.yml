@@ -12,6 +12,10 @@ core_contact:
     path:   /contact
     defaults: { _controller: CoreBundle:Default:contact}
 
+core_contact_redirection:
+    path:     /redirect
+    defaults: { _controller: CoreBundle:Default:redirect }
+
 # Activity route
 core_activite:
     prefix: /activite

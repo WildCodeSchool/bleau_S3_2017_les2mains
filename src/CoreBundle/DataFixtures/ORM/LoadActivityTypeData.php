@@ -10,14 +10,18 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadActivityTypeData extends AbstractFixture implements FixtureInterface
 {
+    /**
+     * Load ActivityType
+     */
+
     public function load(ObjectManager $manager)
     {
         $activity = array(
             'La Bouche',
             "L'humain",
             'La Terre',
-            'La Terre',
-            'La Terre',
+            'Les Mains',
+
         );
 
         foreach ($activity as $activities)
