@@ -40,6 +40,10 @@ class Picture
 
     public function preUpload()
     {
+        if ($this->file === null){
+            return ;
+        }
+
         if($this->tempName != null)
         {
             unlink($this->getUploadDir() . $this->tempName);
@@ -47,9 +51,6 @@ class Picture
 
         $this->src = uniqid() . '.' . $this->file->guessExtension();
         $this->alt = $this->file->getClientOriginalName();
-
-
-
     }
 
     /**
@@ -57,7 +58,10 @@ class Picture
      */
     public function postUpload()
     {
-      $this->file->move($this->getUploadDir(), $this->src);
+        if ($this->file === null){
+            return ;
+        }
+        $this->file->move($this->getUploadDir(), $this->src);
     }
 
     /**
@@ -83,6 +87,7 @@ class Picture
 
 
     //generate code
+
     /**
      * @var integer
      */
@@ -91,7 +96,7 @@ class Picture
     /**
      * @var string
      */
-    private $url;
+    private $src;
 
     /**
      * @var string
@@ -110,27 +115,27 @@ class Picture
     }
 
     /**
-     * Set url
+     * Set src
      *
-     * @param string $url
+     * @param string $src
      *
      * @return Picture
      */
-    public function setUrl($url)
+    public function setSrc($src)
     {
-        $this->url = $url;
+        $this->src = $src;
 
         return $this;
     }
 
     /**
-     * Get url
+     * Get src
      *
      * @return string
      */
-    public function getUrl()
+    public function getSrc()
     {
-        return $this->url;
+        return $this->src;
     }
 
     /**
@@ -155,38 +160,5 @@ class Picture
     public function getAlt()
     {
         return $this->alt;
-    }
-
-    /**
-     * @ORM\PrePersist
-     */
-    /**
-     * @var string
-     */
-    private $src;
-
-
-    /**
-     * Set src
-     *
-     * @param string $src
-     *
-     * @return Picture
-     */
-    public function setSrc($src)
-    {
-        $this->src = $src;
-
-        return $this;
-    }
-
-    /**
-     * Get src
-     *
-     * @return string
-     */
-    public function getSrc()
-    {
-        return $this->src;
     }
 }
