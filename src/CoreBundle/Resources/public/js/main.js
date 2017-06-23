@@ -11,6 +11,52 @@ $('.datepicker').pickadate({
     selectYears: 15 // Creates a dropdown of 15 years to control year
 });
 
+/* flèche UP */
+
+$(document).ready(function() {
+    $(window).scroll(function() {
+        if ($(window).scrollTop() <= 5) {
+            $('.fleche_img').css({right: '-100px', 'transition': '.4s'});
+        } else {
+            $('.fleche_img').css({right: '0px', 'transition': '.4s'});
+        }
+    });
+
+    $(".fleche_img").on("click")(function () {
+        $(window).scrollTop();
+    })
+
+});
+
+// $(document).ready(function() {
+//
+//     if ($(window).scrollTop() === 0) {
+//         $(".fleche_img").animate({right: -100});
+//     }
+//     else{
+//
+//         $(".fleche_img").animate({right: "0"});
+//
+//
+//         $(".fleche_img").click(function () {
+//             $(window).scrollTop();
+//         });
+//     }
+// });
+
+// $(document).ready(function() {
+//     $(window).scroll(function() {
+//         if ($(window).scrollTop() === 0) {
+//             $(".fleche_img").animate({right: -100});
+//         }
+//         else {
+//             $(".fleche_img").scroll(function () {
+//                 $('.fleche_img').animate({right: 0})
+//             });
+//         }
+//     });
+// });
+
 $('.open-overlay').click(function() {
     $('.open-overlay').css('pointer-events', 'none');
     var overlay_navigation = $('.overlay-navigation'),
