@@ -56,7 +56,7 @@
     <!--CONDITION POUR ADMIN FIN-->
 
     <!--BOUCLE QUI AFFICHE LES ACTIVITES PAR THEMES-->
-
+<div class="container theme">
     {% for theme in themes %}
 
         <div class="row">
@@ -120,8 +120,9 @@
                     <!-- On rend la vue editActivite a la vue de la modal -->
                     {{ render(controller('CoreBundle:Activite:editActivite',{ 'id': activite.id })) }}
                 </div>
+            </div>
             {% endfor %}
-
+    </div>
                 {% endfor %}
         {% if i is even %}
             </div>
@@ -137,15 +138,15 @@
 
 
     <div class="container theme">
-    <div class="row">
-
-        <div class="container info">
-            <div class="row">
+        <div class="row">
+            <div class="container info">
+                <div class="row">
 
            {% endif %}
 
             </div>
-
+        </div>
+    </div>
 </div>
 
 
