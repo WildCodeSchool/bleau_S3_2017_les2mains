@@ -20,6 +20,7 @@ class LoadActivityTypeData extends AbstractFixture implements FixtureInterface
             'La Bouche',
             "L'humain",
             'La Terre',
+            'Le Pain',
             'Les Mains',
 
         );

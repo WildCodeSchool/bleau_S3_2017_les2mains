@@ -652,19 +652,26 @@ Responsive Menu Nav
    Size Img
   ----------------------------------------*/
 }
-/* line 6, ../scss/_nous.scss */
+/* line 7, ../scss/_nous.scss */
 #nous .parallax-container {
   min-height: 600px;
 }
-/* line 10, ../scss/_nous.scss */
+/* line 11, ../scss/_nous.scss */
 #nous .footer {
   min-height: 300px;
 }
-/* line 17, ../scss/_nous.scss */
+/* line 18, ../scss/_nous.scss */
 #nous .img_box img {
   width: 300px;
   height: 200px;
   margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+}
+/* line 27, ../scss/_nous.scss */
+#nous .img_box img:hover {
+  width: 450px;
+  height: 300px;
 }
 
 /*----------------------------------------*\
