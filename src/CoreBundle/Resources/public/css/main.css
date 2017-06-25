@@ -540,11 +540,9 @@ Animation keyframes
     height: 20%;
   }
 
-  /* line 361, ../scss/_nav_style.scss */
-  nav ul li a {
-    font-size: 11px;
-  }
-
+  /* nav ul li a {
+     font-size: 11px;            // TO DO// A delete à la fin du projet //
+   }*/
   /* line 365, ../scss/_nav_style.scss */
   nav li a:after {
     font-size: 0.6rem;
@@ -614,7 +612,7 @@ Responsive Menu Nav
     text-decoration: none;
     display: block;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     opacity: 0;
   }
 }
