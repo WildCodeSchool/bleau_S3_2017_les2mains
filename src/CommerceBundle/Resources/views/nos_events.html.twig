@@ -99,7 +99,7 @@
                             <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
                                 <h4 class="text_perso_events">Description</h4>
-                                <p class="p_justify">{{ event.description }}</p>
+                                <p class="p_justify">{{ event.description|nl2br }}</p>
                                 <h4 class="text_perso_events">Informations :</h4>
                                 <p><b class="text_perso_events">Date :</b> {{ event.dateStart|date("d/m/Y H:i") }} à {{ event.dateEnd|date("d/m/Y H:i")  }}</p>
                                 <p><b class="text_perso_events">Lieu :</b> {{ event.location }}</p>
