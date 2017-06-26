@@ -3,7 +3,7 @@
 {% block body %}
 <div id="activite">
 
-    <div class="parallax-container parallax-custom">
+    <div class="parallax-container parallax-custom para_activite">
         <div class="parallax">
             <img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
         </div>
@@ -59,20 +59,20 @@
     <!--BOUCLE QUI AFFICHE LES ACTIVITES PAR THEMES-->
     <div class="container activite">
         <div class="row">
+
     {% for theme in themes %}
 
             <div class="col s12">
-           <h1>{{ theme.nom }}</h1>
+                <h1>{{ theme.nom }}</h1>
             </div>
 
-
     <!--MODAL D'ACTIVITE-->
-
 
             {% for activite in theme.activites %}
                     {% set i = i + 1 %}
 
-                        <div class="col s12 m6 l6 card">
+                    <div class="col s12 m6 l6">
+                        <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img class="activator" src="{{ asset('uploads/images/' ~ activite.picture.src ) }}">
                             </div>
@@ -102,44 +102,43 @@
                                 </div>
                             </div>
                         </div>
+
                             {% if is_granted('ROLE_ADMIN')%}
                             <!-- button delete-->
-                                    <a href="{{ path('core_activite_delete', {'id' :activite.id}) }}" class="waves-effect teal z-depth-5 darken-4 btn">delete</a>
+                                    <a href="{{ path('core_activite_delete', {'id' :activite.id}) }}" class="waves-effect teal z-depth-5 darken-4 btn activite">Effacer</a>
                             <!-- button edit-->
-                                    <a href="#modal{{ activite.id }}" class="waves-effect teal z-depth-5 darken-4 btn">Edit</a>
+                                    <a href="#modal{{ activite.id }}" class="waves-effect teal z-depth-5 darken-4 btn activite">Modifier</a>
                             <!-- Modal Structure -->
                             <div id="modal{{ activite.id }}" class="modal">
                                 <!-- On rend la vue editActivite a la vue de la modal -->
                                 {{ render(controller('CoreBundle:Activite:editActivite',{ 'id': activite.id })) }}
                             </div>
+
+
+
                             {% endif %}
+                    </div>
 
 
             {% endfor %}
 
-        {% if i is even %}
 
             </div>
-            </div>
-
-
-        <div class="parallax-container parallax-custom">
+    </div>
+        <div class="parallax-container parallax-custom para_activite">
             <div class="parallax">
                 <img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
             </div>
         </div>
 
-
-
-            <div class="container activite">
-                <div class="row">
-
-           {% endif %}
-
+        <div class="container activite">
+            <div class="row">
         {% endfor %}
-                </div>
-            </div>
-</div>
+        </div>
+        </div>
+
+    </div>
+
 
 
 
