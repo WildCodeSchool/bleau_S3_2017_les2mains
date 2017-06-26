@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div id="contact">
+	<meta http-equiv="refresh" content="3; url={{ path('core_contact') }}"/>
+	<div class="parallax-container">
+		<div class="parallax">
+			<img src="https://nancyaruegg.files.wordpress.com/2015/03/oak-sapling-15.jpg">
+		</div>
+	</div>
+	
+	<div class="section container">
+		<div class="row">
+			<div class="col m8 offset-m2 s12 center-align">
+				<h2 class="title form center-align">Votre Mail va etre pris en compte rapidement.</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col m12 s12 center-align">
+				<i class="fa fa-spinner fa-spin fa-4x fa-fw center-align"></i>
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
+	</div>
+		<div class="parallax-container">
+			<div class="parallax">
+				<img src="https://nancyaruegg.files.wordpress.com/2015/03/oak-sapling-15.jpg">
+			</div>
+		</div>
+</div>
+{% endblock %}
