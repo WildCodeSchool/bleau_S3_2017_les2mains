@@ -768,6 +768,10 @@ Responsive Menu Nav
 #events .event_parallax {
   min-height: 50px;
 }
+/* line 25, ../scss/_events.scss */
+#events .h2_events {
+  text-align: center;
+}
 
 /*----------------------------------------*\
     7.PRODUITS
