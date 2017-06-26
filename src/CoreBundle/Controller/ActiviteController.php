@@ -17,7 +17,7 @@ class ActiviteController extends Controller
     public function addAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $themes = $em->getRepository(\CoreBundle\Entity\ActiviteType::class)->findAll();
+        $themes = $em->getRepository(\CoreBundle\Entity\ActiviteType::class)->getActivitiesType();
 
         $activite = new Activite();
         $form = $this->createForm(ActiviteType::class, $activite);

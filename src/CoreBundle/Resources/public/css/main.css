@@ -665,11 +665,13 @@ Responsive Menu Nav
   margin-top: 30px;
   border-radius: 10px;
   box-shadow: 5px 5px 5px #888888;
+  transition: 0.5s;
 }
-/* line 27, ../scss/_nous.scss */
+/* line 28, ../scss/_nous.scss */
 #nous .img_box img:hover {
   width: 450px;
   height: 300px;
+  transition: 0.5s;
 }
 
 /*----------------------------------------*\

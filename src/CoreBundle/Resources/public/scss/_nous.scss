@@ -21,13 +21,15 @@
         height: 200px;
         margin-top: 30px;
         border-radius: 10px;
-        box-shadow: 5px 5px 5px #888888;;
+        box-shadow: 5px 5px 5px #888888;
+        transition: 0.5s;
     }
 
     .img_box img:hover
     {
         width:450px;
         height:300px;
+        transition: 0.5s;
     }
 
 }

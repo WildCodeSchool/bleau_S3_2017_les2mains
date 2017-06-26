@@ -30,8 +30,8 @@ class LoadActivityTypeData extends AbstractFixture implements FixtureInterface
             $type = new ActiviteType();
             $type->setNom($activities);
             $manager->persist($type);
-            $manager->flush();
         }
+            $manager->flush();
     }
 }
 

@@ -26,6 +26,10 @@
                         {{ form_errors(form.contenu) }}
                     </div>
                     <div class="input-field form_add">
+                        {{ form_widget(form.picture.file, {'attr': {'required': 'true' }}) }}
+                        {{ form_errors(form.picture.file) }}
+                    </div>
+                    <div class="input-field form_add">
                         {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
                     </div>
 

@@ -12,9 +12,11 @@ CoreBundle\Entity\Picture:
         src:
             type: string
             length: 255
+            nullable: True
         alt:
             type: string
             length: 255
+            nullable: True
 
     lifecycleCallbacks:
     #Upload
