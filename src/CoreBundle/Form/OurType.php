@@ -21,23 +21,44 @@ class OurType extends AbstractType
     {
         $builder->add('titre1',         TextType::class)
                 ->add('contenu1',    TextareaType::class)
-                ->add('picture1', PictureType::class)
-                ->add('picture2', PictureType::class)
-                ->add('picture3',PictureType::class)
+
+                ->add('picture1', PictureType::class,array(
+                    'required'=> false
+                ))
+                ->add('picture2', PictureType::class,array(
+                    'required'=> false
+                ))
+                ->add('picture3',PictureType::class,array(
+                    'required'=> false
+                ))
                 ->add('save_1',         SubmitType::class, array('label' => 'Validation'))
 
                 ->add('titre2', TextType::class)
                 ->add('contenu2', TextareaType::class)
-                ->add('picture4', PictureType::class)
-                ->add('picture5', PictureType::class)
-                ->add('picture6', PictureType::class)
+
+                ->add('picture4', PictureType::class,array(
+                    'required'=> false
+                ))
+                ->add('picture5', PictureType::class,array(
+                    'required'=> false
+                ))
+                ->add('picture6', PictureType::class,array(
+                    'required'=> false
+                ))
                 ->add('save_2', SubmitType::class, array('label' => 'Validation'))
 
                 ->add('titre3', TextType::class)
                 ->add('contenu3', TextareaType::class)
-                ->add('picture7', PictureType::class)
-                ->add('picture8', PictureType::class)
-                ->add('picture9', PictureType::class)
+
+                ->add('picture7', PictureType::class,array(
+                    'required'=> false
+                ))
+                ->add('picture8', PictureType::class,array(
+                    'required'=> false
+                ))
+                ->add('picture9', PictureType::class,array(
+                    'required'=> false
+                ))
                 ->add('save_3', SubmitType::class, array('label' => 'Validation'))
             ->getForm();
 

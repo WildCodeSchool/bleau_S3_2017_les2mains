@@ -10,4 +10,14 @@ namespace CoreBundle\Repository;
  */
 class ActiviteTypeRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getActivitiesType()
+    {
+        $qb = $this->createQueryBuilder('a');
+        $qb->select('a')
+            ->join('a.activites','t')
+            ->where('t.id IS NOT NULL');
+
+        return $qb->getQuery()->getresult();
+    }
 }
