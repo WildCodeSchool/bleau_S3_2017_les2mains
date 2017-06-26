@@ -677,11 +677,13 @@ Responsive Menu Nav
   margin-top: 30px;
   border-radius: 10px;
   box-shadow: 5px 5px 5px #888888;
+  transition: 0.5s;
 }
-/* line 27, ../scss/_nous.scss */
+/* line 28, ../scss/_nous.scss */
 #nous .img_box img:hover {
   width: 450px;
   height: 300px;
+  transition: 0.5s;
 }
 
 /*----------------------------------------*\
@@ -768,6 +770,10 @@ Responsive Menu Nav
 #events .event_parallax {
   min-height: 50px;
 }
+/* line 25, ../scss/_events.scss */
+#events .h2_events {
+  text-align: center;
+}
 
 /*----------------------------------------*\
     7.PRODUITS
@@ -804,7 +810,11 @@ Responsive Menu Nav
 #contact #div_mail #div_message {
   padding: 0;
 }
-/* line 29, ../scss/_contact.scss */
+/* line 26, ../scss/_contact.scss */
+#contact p {
+  text-align: center;
+}
+/* line 32, ../scss/_contact.scss */
 #contact .google-maps {
   position: relative;
   padding-bottom: 50%;
@@ -815,7 +825,7 @@ Responsive Menu Nav
   margin-left: 1%;
   margin-bottom: -20%;
 }
-/* line 39, ../scss/_contact.scss */
+/* line 42, ../scss/_contact.scss */
 #contact .google-maps iframe {
   position: absolute;
   top: 0;
@@ -824,7 +834,7 @@ Responsive Menu Nav
   height: 50% !important;
 }
 @media screen and (min-width: 350px) and (max-width: 500px) {
-  /* line 51, ../scss/_contact.scss */
+  /* line 54, ../scss/_contact.scss */
   #contact .google-maps {
     position: relative;
     padding-bottom: 50%;
@@ -835,7 +845,7 @@ Responsive Menu Nav
     margin-left: 1%;
     margin-bottom: -20%;
   }
-  /* line 61, ../scss/_contact.scss */
+  /* line 64, ../scss/_contact.scss */
   #contact .google-maps iframe {
     position: absolute;
     top: 0;
@@ -843,19 +853,19 @@ Responsive Menu Nav
     width: 100% !important;
     height: 100% !important;
   }
-  /* line 68, ../scss/_contact.scss */
+  /* line 71, ../scss/_contact.scss */
   #contact .adress {
     font-size: smaller;
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 74, ../scss/_contact.scss */
+  /* line 77, ../scss/_contact.scss */
   #contact .adress h4 {
     font-size: 25px;
   }
 }
 @media screen and (max-width: 349px) {
-  /* line 82, ../scss/_contact.scss */
+  /* line 85, ../scss/_contact.scss */
   #contact .google-maps {
     position: relative;
     padding-bottom: 50%;
@@ -866,7 +876,7 @@ Responsive Menu Nav
     margin-left: 1%;
     margin-bottom: -20%;
   }
-  /* line 92, ../scss/_contact.scss */
+  /* line 95, ../scss/_contact.scss */
   #contact .google-maps iframe {
     position: absolute;
     top: 0;
@@ -874,13 +884,13 @@ Responsive Menu Nav
     width: 100% !important;
     height: 100% !important;
   }
-  /* line 99, ../scss/_contact.scss */
+  /* line 102, ../scss/_contact.scss */
   #contact .adress {
     font-size: x-small;
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 105, ../scss/_contact.scss */
+  /* line 108, ../scss/_contact.scss */
   #contact .adress h4 {
     font-size: 20px;
   }
