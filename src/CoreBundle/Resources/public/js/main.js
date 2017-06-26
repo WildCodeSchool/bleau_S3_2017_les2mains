@@ -22,7 +22,7 @@ $(document).ready(function() {
         }
     });
 
-    $(".fleche_img").on("click")(function () {
+    $(".fleche_img").click(function () {
         $(window).scrollTop();
     })
 
