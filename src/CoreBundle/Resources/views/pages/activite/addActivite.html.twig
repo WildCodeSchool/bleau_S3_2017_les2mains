@@ -57,15 +57,15 @@
     <!--CONDITION POUR ADMIN FIN-->
 
     <!--BOUCLE QUI AFFICHE LES ACTIVITES PAR THEMES-->
-
+    <div class="container activite">
+        <div class="row">
     {% for theme in themes %}
 
             <div class="col s12">
            <h1>{{ theme.nom }}</h1>
             </div>
-        </div>
-        <div class="container activite">
-            <div class="row">
+
+
     <!--MODAL D'ACTIVITE-->
 
 
@@ -101,6 +101,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                             {% if is_granted('ROLE_ADMIN')%}
                             <!-- button delete-->
                                     <a href="{{ path('core_activite_delete', {'id' :activite.id}) }}" class="waves-effect teal z-depth-5 darken-4 btn">delete</a>
@@ -112,7 +113,7 @@
                                 {{ render(controller('CoreBundle:Activite:editActivite',{ 'id': activite.id })) }}
                             </div>
                             {% endif %}
-                        </div>
+
 
             {% endfor %}
 
@@ -134,14 +135,12 @@
                 <div class="row">
 
            {% endif %}
-        </div>
-        </div>
+
         {% endfor %}
-
-
-    </div>
+                </div>
+            </div>
 </div>
-    </div>
+
 
 
 

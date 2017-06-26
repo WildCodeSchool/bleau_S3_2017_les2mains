@@ -21,7 +21,7 @@ class ActiviteController extends Controller
 
 
         $em = $this->getDoctrine()->getManager();
-        $themes = $em->getRepository(\CoreBundle\Entity\ActiviteType::class)->findAll();
+        $themes= $em->getRepository(\CoreBundle\Entity\ActiviteType::class)->findAll();
 
         $activite = new Activite();
         $form = $this->createForm(ActiviteType::class, $activite);
@@ -39,7 +39,9 @@ class ActiviteController extends Controller
             'i' => $i,
             'themes' => $themes,
             'form' => $form->createView(),
+
         ));
+
     }
 
     /**
@@ -58,7 +60,7 @@ class ActiviteController extends Controller
 
         $form = $formBuilder->getForm();
         $form->handleRequest($request);
-
+        
         return $this->render('@Core/pages/activite/editActivite.html.twig', array(
             'form'  => $form->createView()
         ));
