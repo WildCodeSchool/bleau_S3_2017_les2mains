@@ -15,6 +15,8 @@ class EventController extends Controller
 
     public function addEventAction(Request $request){
 
+        $i = 0;
+
         $em = $this->getDoctrine()->getManager();
         $events = $em->getRepository(Event::class)->findAll();
 
@@ -34,7 +36,8 @@ class EventController extends Controller
         return $this->render('@Commerce/nos_events.html.twig', array(
            'form' =>$form->createView(),
             'event' => $event,
-            'events' => $events
+            'events' => $events,
+            'i' => $i
         ));
 
 
