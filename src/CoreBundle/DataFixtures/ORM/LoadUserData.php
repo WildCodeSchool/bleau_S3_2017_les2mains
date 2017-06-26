@@ -8,6 +8,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class LoadUserData implements FixtureInterface, ContainerAwareInterface
 {
+    /**
+     * Load UserData
+     */
     private $container = 'Private';
 
 

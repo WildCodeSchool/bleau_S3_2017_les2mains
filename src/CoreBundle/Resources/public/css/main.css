@@ -38,9 +38,10 @@
 /* line 62, ../scss/_global.scss */
 p {
   line-height: 2rem;
+  text-align: justify;
 }
 
-/* line 66, ../scss/_global.scss */
+/* line 67, ../scss/_global.scss */
 .home_all {
   width: 100%;
   height: 0;
@@ -53,7 +54,7 @@ p {
   text-align: center;
 }
 
-/* line 79, ../scss/_global.scss */
+/* line 80, ../scss/_global.scss */
 .fleche_img {
   background-color: rgba(0, 0, 0, 0.5);
   width: 50px;
@@ -64,19 +65,23 @@ p {
   border-radius: 25px 0 0 25px;
 }
 
+/* line 90, ../scss/_global.scss */
+.fleche_img:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 /*----------------------------------------*\
     BUTTON MENU
 \*----------------------------------------*/
-/* line 92, ../scss/_global.scss */
+/* line 96, ../scss/_global.scss */
 .row .col.s1 {
-  font-style: italic;
   font-weight: bold;
   font-size: large;
   left: inherit;
   right: inherit;
 }
 
-/* line 101, ../scss/_global.scss */
+/* line 104, ../scss/_global.scss */
 .menu-btn {
   position: absolute;
   margin-left: auto;
@@ -87,32 +92,39 @@ p {
   height: 50px;
   width: 50px !important;
   border-bottom: none !important;
+  transition: .5s;
 }
 
-/* line 114, ../scss/_global.scss */
+/* line 118, ../scss/_global.scss */
 .menu-btn:hover {
   background-color: rgba(0, 0, 0, 0.1);
+  height: 55px;
+  width: 55px !important;
+  transition: .5s;
 }
 
-/* line 117, ../scss/_global.scss */
+/* line 124, ../scss/_global.scss */
 .menu_text {
-  margin: 50px auto 0px -15px;
-  color: black;
+  margin: 50px auto 0px -13px;
+  color: #69c546;
   position: fixed;
   font-weight: bold;
   text-transform: uppercase;
   width: 50px;
   font-size: 17px;
-  transition: 1s;
+  transition: .5s;
+  letter-spacing: 0px;
 }
 
-/* line 127, ../scss/_global.scss */
-.menu_text:hover {
-  transition: 1s;
-  text-shadow: 0px 0px 2px black;
+/* line 136, ../scss/_global.scss */
+.menu-btn:hover .menu_text {
+  transition: .5s;
+  color: #00a248;
+  margin: 50px auto 0px -11px;
+  letter-spacing: 2px;
 }
 
-/* line 131, ../scss/_global.scss */
+/* line 142, ../scss/_global.scss */
 html > body .menu-btn {
   position: fixed;
 }
@@ -120,51 +132,51 @@ html > body .menu-btn {
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
-/* line 140, ../scss/_global.scss */
+/* line 151, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 144, ../scss/_global.scss */
+/* line 155, ../scss/_global.scss */
 .parallax-container {
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 149, ../scss/_global.scss */
+/* line 160, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 154, ../scss/_global.scss */
+  /* line 165, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 159, ../scss/_global.scss */
+  /* line 170, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 166, ../scss/_global.scss */
+  /* line 177, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 171, ../scss/_global.scss */
+/* line 182, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 175, ../scss/_global.scss */
+/* line 186, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 179, ../scss/_global.scss */
+/* line 190, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
@@ -540,11 +552,9 @@ Animation keyframes
     height: 20%;
   }
 
-  /* line 361, ../scss/_nav_style.scss */
-  nav ul li a {
-    font-size: 11px;
-  }
-
+  /* nav ul li a {
+     font-size: 11px;            // TO DO// A delete à la fin du projet //
+   }*/
   /* line 365, ../scss/_nav_style.scss */
   nav li a:after {
     font-size: 0.6rem;
@@ -614,7 +624,7 @@ Responsive Menu Nav
     text-decoration: none;
     display: block;
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     opacity: 0;
   }
 }
@@ -652,19 +662,26 @@ Responsive Menu Nav
    Size Img
   ----------------------------------------*/
 }
-/* line 6, ../scss/_nous.scss */
+/* line 7, ../scss/_nous.scss */
 #nous .parallax-container {
   min-height: 600px;
 }
-/* line 10, ../scss/_nous.scss */
+/* line 11, ../scss/_nous.scss */
 #nous .footer {
   min-height: 300px;
 }
-/* line 17, ../scss/_nous.scss */
+/* line 18, ../scss/_nous.scss */
 #nous .img_box img {
   width: 300px;
   height: 200px;
   margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
+}
+/* line 27, ../scss/_nous.scss */
+#nous .img_box img:hover {
+  width: 450px;
+  height: 300px;
 }
 
 /*----------------------------------------*\
@@ -708,20 +725,24 @@ Responsive Menu Nav
 /* line 6, ../scss/_events.scss */
 #events .card_picture {
   transition: .5s;
+  height: 350px;
+  width: auto;
+  display: block;
+  margin: auto;
 }
-/* line 9, ../scss/_events.scss */
+/* line 13, ../scss/_events.scss */
 #events .card_picture:hover {
   opacity: .5;
   transition: .5s;
 }
-/* line 13, ../scss/_events.scss */
+/* line 17, ../scss/_events.scss */
 #events .add_stage_btn {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/* line 18, ../scss/_events.scss */
-#events .event_parallax_bottom {
-  min-height: 200px;
+/* line 22, ../scss/_events.scss */
+#events .event_parallax {
+  min-height: 50px;
 }
 
 /*----------------------------------------*\
