@@ -716,6 +716,30 @@ Responsive Menu Nav
 }
 
 /*----------------------------------------*\
+    5.ACTIVITE
+\*----------------------------------------*/
+/* line 1, ../scss/_activite.scss */
+#activite {
+ /*----------------------------------------
+ PARALLAX
+----------------------------------------*/
+}
+/* line 5, ../scss/_activite.scss */
+#activite .card-image {
+  height: 350px;
+}
+/* line 9, ../scss/_activite.scss */
+#activite .card {
+  margin-top: 50px;
+  margin-bottom: 70px;
+  height: 500px;
+}
+/* line 15, ../scss/_activite.scss */
+#activite .para_activite {
+  height: 300px;
+}
+
+/*----------------------------------------*\
     6.EVENTS
 \*----------------------------------------*/
 /* line 3, ../scss/_events.scss */
