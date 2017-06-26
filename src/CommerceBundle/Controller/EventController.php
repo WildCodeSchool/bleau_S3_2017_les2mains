@@ -4,6 +4,7 @@ namespace CommerceBundle\Controller;
 
 use CommerceBundle\Entity\Event;
 use CommerceBundle\Form\EventType;
+use CoreBundle\Entity\Activite;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -18,7 +19,8 @@ class EventController extends Controller
         $i = 0;
 
         $em = $this->getDoctrine()->getManager();
-        $events = $em->getRepository(Event::class)->findAll();
+        $activities = $em->getRepository(Activite::class)->findAll();
+
 
         $event = new Event();
         $form = $this->createForm(EventType::class, $event);
@@ -36,7 +38,7 @@ class EventController extends Controller
         return $this->render('@Commerce/nos_events.html.twig', array(
            'form' =>$form->createView(),
             'event' => $event,
-            'events' => $events,
+            'activities' => $activities,
             'i' => $i
         ));
 
