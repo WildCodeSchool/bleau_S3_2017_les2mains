@@ -87,12 +87,14 @@ p {
     bottom: 150px;
     border-radius: 25px 0 0 25px;
 }
+.fleche_img:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+}
 /*----------------------------------------*\
     BUTTON MENU
 \*----------------------------------------*/
 .row .col.s1
 {
-    font-style: italic;
     font-weight: bold;
     font-size: large;
     left:inherit;
@@ -110,14 +112,14 @@ p {
     height: 50px;
     width:50px!important;
     border-bottom: none!important;
-    transition: 1s;
+    transition: .5s;
 
 }
 .menu-btn:hover{
     background-color: rgba(0,0,0, .1);
     height: 55px;
     width: 55px!important;
-    transition: 1s;
+    transition: .5s;
 }
 .menu_text{
     margin: 50px auto 0px -13px;
@@ -127,12 +129,12 @@ p {
     text-transform: uppercase;
     width: 50px;
     font-size: 17px;
-    transition: 1s;
+    transition: .5s;
     letter-spacing: 0px;
 
 }
 .menu-btn:hover .menu_text{
-    transition: 1s;
+    transition: .5s;
     color: #00a248;
     margin: 50px auto 0px -11px;
     letter-spacing: 2px;

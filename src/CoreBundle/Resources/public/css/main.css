@@ -65,19 +65,23 @@ p {
   border-radius: 25px 0 0 25px;
 }
 
+/* line 90, ../scss/_global.scss */
+.fleche_img:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 /*----------------------------------------*\
     BUTTON MENU
 \*----------------------------------------*/
-/* line 93, ../scss/_global.scss */
+/* line 96, ../scss/_global.scss */
 .row .col.s1 {
-  font-style: italic;
   font-weight: bold;
   font-size: large;
   left: inherit;
   right: inherit;
 }
 
-/* line 102, ../scss/_global.scss */
+/* line 104, ../scss/_global.scss */
 .menu-btn {
   position: absolute;
   margin-left: auto;
@@ -88,18 +92,18 @@ p {
   height: 50px;
   width: 50px !important;
   border-bottom: none !important;
-  transition: 1s;
+  transition: .5s;
 }
 
-/* line 116, ../scss/_global.scss */
+/* line 118, ../scss/_global.scss */
 .menu-btn:hover {
   background-color: rgba(0, 0, 0, 0.1);
   height: 55px;
   width: 55px !important;
-  transition: 1s;
+  transition: .5s;
 }
 
-/* line 122, ../scss/_global.scss */
+/* line 124, ../scss/_global.scss */
 .menu_text {
   margin: 50px auto 0px -13px;
   color: #69c546;
@@ -108,19 +112,19 @@ p {
   text-transform: uppercase;
   width: 50px;
   font-size: 17px;
-  transition: 1s;
+  transition: .5s;
   letter-spacing: 0px;
 }
 
-/* line 134, ../scss/_global.scss */
+/* line 136, ../scss/_global.scss */
 .menu-btn:hover .menu_text {
-  transition: 1s;
+  transition: .5s;
   color: #00a248;
   margin: 50px auto 0px -11px;
   letter-spacing: 2px;
 }
 
-/* line 140, ../scss/_global.scss */
+/* line 142, ../scss/_global.scss */
 html > body .menu-btn {
   position: fixed;
 }
@@ -128,51 +132,51 @@ html > body .menu-btn {
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
-/* line 149, ../scss/_global.scss */
+/* line 151, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 153, ../scss/_global.scss */
+/* line 155, ../scss/_global.scss */
 .parallax-container {
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 158, ../scss/_global.scss */
+/* line 160, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 163, ../scss/_global.scss */
+  /* line 165, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 168, ../scss/_global.scss */
+  /* line 170, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 175, ../scss/_global.scss */
+  /* line 177, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 180, ../scss/_global.scss */
+/* line 182, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 184, ../scss/_global.scss */
+/* line 186, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 188, ../scss/_global.scss */
+/* line 190, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
