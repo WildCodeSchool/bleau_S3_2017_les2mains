@@ -61,6 +61,7 @@ $orange: orangered;
 
 p {
     line-height: 2rem;
+    text-align: justify;
 }
 
 .home_all
@@ -86,12 +87,14 @@ p {
     bottom: 150px;
     border-radius: 25px 0 0 25px;
 }
+.fleche_img:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+}
 /*----------------------------------------*\
     BUTTON MENU
 \*----------------------------------------*/
 .row .col.s1
 {
-    font-style: italic;
     font-weight: bold;
     font-size: large;
     left:inherit;
@@ -109,24 +112,32 @@ p {
     height: 50px;
     width:50px!important;
     border-bottom: none!important;
+    transition: .5s;
 
 }
 .menu-btn:hover{
     background-color: rgba(0,0,0, .1);
+    height: 55px;
+    width: 55px!important;
+    transition: .5s;
 }
 .menu_text{
-    margin: 50px auto 0px -15px;
-    color:black;
+    margin: 50px auto 0px -13px;
+    color:#69c546;
     position: fixed;
     font-weight: bold;
     text-transform: uppercase;
     width: 50px;
     font-size: 17px;
-    transition: 1s;
+    transition: .5s;
+    letter-spacing: 0px;
+
 }
-.menu_text:hover{
-    transition: 1s;
-    text-shadow: 0px 0px 2px black;
+.menu-btn:hover .menu_text{
+    transition: .5s;
+    color: #00a248;
+    margin: 50px auto 0px -11px;
+    letter-spacing: 2px;
 }
 html>body .menu-btn
 {
