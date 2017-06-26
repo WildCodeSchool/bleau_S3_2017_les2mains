@@ -38,9 +38,10 @@
 /* line 62, ../scss/_global.scss */
 p {
   line-height: 2rem;
+  text-align: justify;
 }
 
-/* line 66, ../scss/_global.scss */
+/* line 67, ../scss/_global.scss */
 .home_all {
   width: 100%;
   height: 0;
@@ -53,7 +54,7 @@ p {
   text-align: center;
 }
 
-/* line 79, ../scss/_global.scss */
+/* line 80, ../scss/_global.scss */
 .fleche_img {
   background-color: rgba(0, 0, 0, 0.5);
   width: 50px;
@@ -64,19 +65,23 @@ p {
   border-radius: 25px 0 0 25px;
 }
 
+/* line 90, ../scss/_global.scss */
+.fleche_img:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 /*----------------------------------------*\
     BUTTON MENU
 \*----------------------------------------*/
-/* line 92, ../scss/_global.scss */
+/* line 96, ../scss/_global.scss */
 .row .col.s1 {
-  font-style: italic;
   font-weight: bold;
   font-size: large;
   left: inherit;
   right: inherit;
 }
 
-/* line 101, ../scss/_global.scss */
+/* line 104, ../scss/_global.scss */
 .menu-btn {
   position: absolute;
   margin-left: auto;
@@ -87,32 +92,39 @@ p {
   height: 50px;
   width: 50px !important;
   border-bottom: none !important;
+  transition: .5s;
 }
 
-/* line 114, ../scss/_global.scss */
+/* line 118, ../scss/_global.scss */
 .menu-btn:hover {
   background-color: rgba(0, 0, 0, 0.1);
+  height: 55px;
+  width: 55px !important;
+  transition: .5s;
 }
 
-/* line 117, ../scss/_global.scss */
+/* line 124, ../scss/_global.scss */
 .menu_text {
-  margin: 50px auto 0px -15px;
-  color: black;
+  margin: 50px auto 0px -13px;
+  color: #69c546;
   position: fixed;
   font-weight: bold;
   text-transform: uppercase;
   width: 50px;
   font-size: 17px;
-  transition: 1s;
+  transition: .5s;
+  letter-spacing: 0px;
 }
 
-/* line 127, ../scss/_global.scss */
-.menu_text:hover {
-  transition: 1s;
-  text-shadow: 0px 0px 2px black;
+/* line 136, ../scss/_global.scss */
+.menu-btn:hover .menu_text {
+  transition: .5s;
+  color: #00a248;
+  margin: 50px auto 0px -11px;
+  letter-spacing: 2px;
 }
 
-/* line 131, ../scss/_global.scss */
+/* line 142, ../scss/_global.scss */
 html > body .menu-btn {
   position: fixed;
 }
@@ -120,51 +132,51 @@ html > body .menu-btn {
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
-/* line 140, ../scss/_global.scss */
+/* line 151, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 144, ../scss/_global.scss */
+/* line 155, ../scss/_global.scss */
 .parallax-container {
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 149, ../scss/_global.scss */
+/* line 160, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 154, ../scss/_global.scss */
+  /* line 165, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 159, ../scss/_global.scss */
+  /* line 170, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 166, ../scss/_global.scss */
+  /* line 177, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 171, ../scss/_global.scss */
+/* line 182, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 175, ../scss/_global.scss */
+/* line 186, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 179, ../scss/_global.scss */
+/* line 190, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
@@ -706,6 +718,30 @@ Responsive Menu Nav
 }
 
 /*----------------------------------------*\
+    5.ACTIVITE
+\*----------------------------------------*/
+/* line 1, ../scss/_activite.scss */
+#activite {
+ /*----------------------------------------
+ PARALLAX
+----------------------------------------*/
+}
+/* line 5, ../scss/_activite.scss */
+#activite .card-image {
+  height: 350px;
+}
+/* line 9, ../scss/_activite.scss */
+#activite .card {
+  margin-top: 50px;
+  margin-bottom: 70px;
+  height: 500px;
+}
+/* line 15, ../scss/_activite.scss */
+#activite .para_activite {
+  height: 300px;
+}
+
+/*----------------------------------------*\
     6.EVENTS
 \*----------------------------------------*/
 /* line 3, ../scss/_events.scss */
@@ -715,20 +751,24 @@ Responsive Menu Nav
 /* line 6, ../scss/_events.scss */
 #events .card_picture {
   transition: .5s;
+  height: 350px;
+  width: auto;
+  display: block;
+  margin: auto;
 }
-/* line 9, ../scss/_events.scss */
+/* line 13, ../scss/_events.scss */
 #events .card_picture:hover {
   opacity: .5;
   transition: .5s;
 }
-/* line 13, ../scss/_events.scss */
+/* line 17, ../scss/_events.scss */
 #events .add_stage_btn {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/* line 18, ../scss/_events.scss */
-#events .event_parallax_bottom {
-  min-height: 200px;
+/* line 22, ../scss/_events.scss */
+#events .event_parallax {
+  min-height: 50px;
 }
 
 /*----------------------------------------*\
@@ -766,7 +806,11 @@ Responsive Menu Nav
 #contact #div_mail #div_message {
   padding: 0;
 }
-/* line 29, ../scss/_contact.scss */
+/* line 26, ../scss/_contact.scss */
+#contact p {
+  text-align: center;
+}
+/* line 32, ../scss/_contact.scss */
 #contact .google-maps {
   position: relative;
   padding-bottom: 50%;
@@ -777,7 +821,7 @@ Responsive Menu Nav
   margin-left: 1%;
   margin-bottom: -20%;
 }
-/* line 39, ../scss/_contact.scss */
+/* line 42, ../scss/_contact.scss */
 #contact .google-maps iframe {
   position: absolute;
   top: 0;
@@ -786,7 +830,7 @@ Responsive Menu Nav
   height: 50% !important;
 }
 @media screen and (min-width: 350px) and (max-width: 500px) {
-  /* line 51, ../scss/_contact.scss */
+  /* line 54, ../scss/_contact.scss */
   #contact .google-maps {
     position: relative;
     padding-bottom: 50%;
@@ -797,7 +841,7 @@ Responsive Menu Nav
     margin-left: 1%;
     margin-bottom: -20%;
   }
-  /* line 61, ../scss/_contact.scss */
+  /* line 64, ../scss/_contact.scss */
   #contact .google-maps iframe {
     position: absolute;
     top: 0;
@@ -805,19 +849,19 @@ Responsive Menu Nav
     width: 100% !important;
     height: 100% !important;
   }
-  /* line 68, ../scss/_contact.scss */
+  /* line 71, ../scss/_contact.scss */
   #contact .adress {
     font-size: smaller;
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 74, ../scss/_contact.scss */
+  /* line 77, ../scss/_contact.scss */
   #contact .adress h4 {
     font-size: 25px;
   }
 }
 @media screen and (max-width: 349px) {
-  /* line 82, ../scss/_contact.scss */
+  /* line 85, ../scss/_contact.scss */
   #contact .google-maps {
     position: relative;
     padding-bottom: 50%;
@@ -828,7 +872,7 @@ Responsive Menu Nav
     margin-left: 1%;
     margin-bottom: -20%;
   }
-  /* line 92, ../scss/_contact.scss */
+  /* line 95, ../scss/_contact.scss */
   #contact .google-maps iframe {
     position: absolute;
     top: 0;
@@ -836,13 +880,13 @@ Responsive Menu Nav
     width: 100% !important;
     height: 100% !important;
   }
-  /* line 99, ../scss/_contact.scss */
+  /* line 102, ../scss/_contact.scss */
   #contact .adress {
     font-size: x-small;
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 105, ../scss/_contact.scss */
+  /* line 108, ../scss/_contact.scss */
   #contact .adress h4 {
     font-size: 20px;
   }

@@ -18,7 +18,7 @@
 			<div class="row">
 				<div class="col s10 offset-s1 center">
 					<h2 class="title center teal-text text-lighten-2">{{ our.titre1 }}</h2>
-					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu1 }}</p>
+					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu1|nl2br }}</p>
 					
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
@@ -74,7 +74,7 @@
 			<div class="row">
 				<div class="col s10 offset-s1 center">
 					<h2 class="title center teal-text text-lighten-2">{{ our.titre2 }}</h2>
-					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu2 }}</p>
+					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu2|nl2br }}</p>
 					
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
@@ -129,7 +129,7 @@
 			<div class="row">
 				<div class="col s10 offset-s1 center">
 					<h2 class="title center teal-text text-lighten-2">{{ our.titre3 }}</h2>
-					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu3 }}</p>
+					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu3|nl2br }}</p>
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
 					<!-- Modal Trigger -->

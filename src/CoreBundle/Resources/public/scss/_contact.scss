@@ -11,17 +11,20 @@
     margin-left: 30px;
   }
 
-.parallax-container
-{
-  min-height: 300px;
-}
-.form .mail
-{
-  margin-bottom:0;
-}
+  .parallax-container
+  {
+    min-height: 300px;
+  }
+  .form .mail
+  {
+    margin-bottom:0;
+  }
   #div_mail #div_message
   {
     padding:0;
+  }
+  p{
+    text-align: center;
   }
   /*----------------------------------------
    Size Img
