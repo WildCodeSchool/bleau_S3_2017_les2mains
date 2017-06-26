@@ -38,9 +38,10 @@
 /* line 62, ../scss/_global.scss */
 p {
   line-height: 2rem;
+  text-align: justify;
 }
 
-/* line 66, ../scss/_global.scss */
+/* line 67, ../scss/_global.scss */
 .home_all {
   width: 100%;
   height: 0;
@@ -53,7 +54,7 @@ p {
   text-align: center;
 }
 
-/* line 79, ../scss/_global.scss */
+/* line 80, ../scss/_global.scss */
 .fleche_img {
   background-color: rgba(0, 0, 0, 0.5);
   width: 50px;
@@ -67,7 +68,7 @@ p {
 /*----------------------------------------*\
     BUTTON MENU
 \*----------------------------------------*/
-/* line 92, ../scss/_global.scss */
+/* line 93, ../scss/_global.scss */
 .row .col.s1 {
   font-style: italic;
   font-weight: bold;
@@ -76,7 +77,7 @@ p {
   right: inherit;
 }
 
-/* line 101, ../scss/_global.scss */
+/* line 102, ../scss/_global.scss */
 .menu-btn {
   position: absolute;
   margin-left: auto;
@@ -87,32 +88,39 @@ p {
   height: 50px;
   width: 50px !important;
   border-bottom: none !important;
+  transition: 1s;
 }
 
-/* line 114, ../scss/_global.scss */
+/* line 116, ../scss/_global.scss */
 .menu-btn:hover {
   background-color: rgba(0, 0, 0, 0.1);
+  height: 55px;
+  width: 55px !important;
+  transition: 1s;
 }
 
-/* line 117, ../scss/_global.scss */
+/* line 122, ../scss/_global.scss */
 .menu_text {
-  margin: 50px auto 0px -15px;
-  color: black;
+  margin: 50px auto 0px -13px;
+  color: #69c546;
   position: fixed;
   font-weight: bold;
   text-transform: uppercase;
   width: 50px;
   font-size: 17px;
   transition: 1s;
+  letter-spacing: 0px;
 }
 
-/* line 127, ../scss/_global.scss */
-.menu_text:hover {
+/* line 134, ../scss/_global.scss */
+.menu-btn:hover .menu_text {
   transition: 1s;
-  text-shadow: 0px 0px 2px black;
+  color: #00a248;
+  margin: 50px auto 0px -11px;
+  letter-spacing: 2px;
 }
 
-/* line 131, ../scss/_global.scss */
+/* line 140, ../scss/_global.scss */
 html > body .menu-btn {
   position: fixed;
 }
@@ -120,51 +128,51 @@ html > body .menu-btn {
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
-/* line 140, ../scss/_global.scss */
+/* line 149, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 144, ../scss/_global.scss */
+/* line 153, ../scss/_global.scss */
 .parallax-container {
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 149, ../scss/_global.scss */
+/* line 158, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 154, ../scss/_global.scss */
+  /* line 163, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 159, ../scss/_global.scss */
+  /* line 168, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 166, ../scss/_global.scss */
+  /* line 175, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 171, ../scss/_global.scss */
+/* line 180, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 175, ../scss/_global.scss */
+/* line 184, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 179, ../scss/_global.scss */
+/* line 188, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
