@@ -35,10 +35,10 @@ class DefaultController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             // Send mail
             $this->sendEmail($contact);
-            return $this->redirectToRoute('core_contact');
+            return $this->redirectToRoute('core_contact_redirection');
         }
 
-        return $this->render('@Core/pages/contact.html.twig', array(
+        return $this->render('@Core/pages/contact/contact.html.twig', array(
             'form' => $form->createView()
         ));
     }
@@ -60,6 +60,11 @@ class DefaultController extends Controller
 
         // Send the message
         $this->get('mailer')->send($message);
+    }
+
+    public function redirectAction()
+    {
+        return $this->render('@Core/pages/contact/redirectionSendContact.html.twig');
     }
 }
 

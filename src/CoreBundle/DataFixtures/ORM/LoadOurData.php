@@ -13,6 +13,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class LoadOurData extends AbstractFixture implements FixtureInterface
 {
+    /**
+     * Load Titles, Contents and Pictures of OurPage
+     */
     public function load(ObjectManager $manager)
     {
         $our = new Our();
