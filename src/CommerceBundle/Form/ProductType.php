@@ -3,6 +3,7 @@
 namespace CommerceBundle\Form;
 
 use CoreBundle\Form\PictureType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -19,8 +20,12 @@ class ProductType extends AbstractType
     {
         $builder->add('name', TextType::class)
             ->add('content', TextareaType::class)
-            /*->add('picture', PictureType::class)*/
-            /*->add('categories', CategoryType::class)*/
+            ->add('picture', PictureType::class)
+            ->add('categories', EntityType::class, array(
+                'class' => 'CommerceBundle\Entity\Category',
+                'choice_label' => 'type',
+                'label' => "Catégorie"
+            ))
             ->add('submit', SubmitType::class);
     }
     

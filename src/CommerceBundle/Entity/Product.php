@@ -7,8 +7,9 @@ namespace CommerceBundle\Entity;
  */
 class Product
 {
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -22,11 +23,21 @@ class Product
      */
     private $content;
 
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture;
+
+    /**
+     * @var \CommerceBundle\Entity\Category
+     */
+    private $categories;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -80,40 +91,6 @@ class Product
     {
         return $this->content;
     }
-    /**
-     * @var \CommerceBundle\Entity\Category
-     */
-    private $categories;
-
-
-    /**
-     * Set categories
-     *
-     * @param \CommerceBundle\Entity\Category $categories
-     *
-     * @return Product
-     */
-    public function setCategories(\CommerceBundle\Entity\Category $categories = null)
-    {
-        $this->categories = $categories;
-
-        return $this;
-    }
-
-    /**
-     * Get categories
-     *
-     * @return \CommerceBundle\Entity\Category
-     */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture;
-
 
     /**
      * Set picture
@@ -137,5 +114,29 @@ class Product
     public function getPicture()
     {
         return $this->picture;
+    }
+
+    /**
+     * Set categories
+     *
+     * @param \CommerceBundle\Entity\Category $categories
+     *
+     * @return Product
+     */
+    public function setCategories(\CommerceBundle\Entity\Category $categories = null)
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \CommerceBundle\Entity\Category
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }

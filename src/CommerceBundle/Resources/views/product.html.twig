@@ -7,9 +7,25 @@
 	
 	{{ form_end(form) }}
 	
+	{% for products in products %}
+		
+		{{ products.name }}
+		{{ products.content }}
+		<img class="activator" src="{{ asset('uploads/images/' ~ products.picture.src ) }}">
+	
+	{% endfor %}
+	
 	{{ form_start(forms) }}
 	
 	{{ form_end(forms) }}
+	
+	
+	{%  for categories in categories %}
+	
+	{{ categories.type }}
+		
+		{% endfor %}
+	
 	
 	
 	
