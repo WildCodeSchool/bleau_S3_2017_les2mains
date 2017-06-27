@@ -1,0 +1,16 @@
+#products{
+  .card_products_picture{
+    height: 200px;
+    width: auto;
+    display: block;
+    margin: auto;
+    transition: .5s all;
+  }
+  .card_products_picture:hover{
+    opacity: .5;
+    transition: .5s all;
+  }
+  body{
+    background-color: red;
+  }
+}
