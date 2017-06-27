@@ -11,6 +11,6 @@ event_edit_valid:
     path: /{id}/event/edit
     defaults: {_controller: CommerceBundle:Event:validEdit}
 
-product_add:
+product:
     path: /product
     defaults: {_controller: CommerceBundle:Product:addProduct}

@@ -30,7 +30,7 @@ class ProductController extends Controller
             $em->persist($product);
             $em->flush();
 
-            return $this->redirectToRoute('product_add');
+            return $this->redirectToRoute('product');
         }
 
         $category = new Category();
@@ -42,7 +42,7 @@ class ProductController extends Controller
             $em->persist($category);
             $em->flush();
 
-            return $this->redirectToRoute('product_add');
+            return $this->redirectToRoute('product');
         }
 
         return $this->render('@Commerce/product.html.twig', array(
