@@ -10,4 +10,13 @@ namespace CommerceBundle\Repository;
  */
 class CategoryRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getCategory()
+    {
+        $qb = $this->createQueryBuilder('c');
+        $qb->select('c')
+            ->join('c.products', 'p')
+            ->where('p.id IS NOT NULL');
+
+        return $qb->getQuery()->getresult();
+    }
 }

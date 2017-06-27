@@ -19,7 +19,7 @@ class ProductController extends Controller
         $products = $em->getRepository(Product::class)->findAll();
 
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository(Category::class)->findAll();
+        $categories = $em->getRepository(Category::class)->getCategory();
 
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
