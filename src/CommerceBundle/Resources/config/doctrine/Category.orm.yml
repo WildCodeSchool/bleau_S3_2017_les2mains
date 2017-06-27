@@ -9,7 +9,7 @@ CommerceBundle\Entity\Category:
             generator:
                 strategy: AUTO
     fields:
-        name:
+        type:
             type: string
             length: 255
     oneToMany:
