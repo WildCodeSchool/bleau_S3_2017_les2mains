@@ -24,7 +24,17 @@ $(document).ready(function() {
 
     $(".fleche_img").click(function () {
         $(window).scrollTop();
-    })
+    });
+
+
+    // $(window).scroll(function() {
+    //     if ($(window).scrollTop() <= 0) {
+    //         $('footer').removeClass('scroll');
+    //         $(window).trigger('scroll');
+    //     } else {
+    //         $('footer').removeClass('no_scroll').addClass('scroll');
+    //     }
+    // });
 
 });
 

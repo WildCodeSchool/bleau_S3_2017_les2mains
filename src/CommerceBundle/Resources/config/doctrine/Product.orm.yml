@@ -20,7 +20,6 @@ CommerceBundle\Entity\Product:
         categories:
             targetEntity: CommerceBundle\Entity\Category
             inversedBy: products
-            cascade: ['all']
 
     oneToOne:
         picture:
