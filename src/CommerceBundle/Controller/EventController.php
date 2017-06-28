@@ -19,7 +19,7 @@ class EventController extends Controller
         $i = 0;
 
         $em = $this->getDoctrine()->getManager();
-        $activities = $em->getRepository(Activite::class)->findAll();
+        $activities = $em->getRepository(Activite::class)->getActivities();
 
 
         $event = new Event();

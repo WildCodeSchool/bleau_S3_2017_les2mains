@@ -45,7 +45,9 @@
                             {{ form_widget (form.contenu) }}
                             {{ form_errors (form.contenu) }}
                         </div>
+                        <div class="row">
                         {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                        </div>
                         {{ form_end(form) }}
                     </div>
                 </div>
@@ -80,10 +82,10 @@
                             <div class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">
                                     {{ activite.titre }}
-                                    <i class="material-icons right">add</i>
+                                    <i class="material-icons right">reply</i>
                                 </span>
                                 <p>
-                                    <a  {# href="{{ path('nos_events.html.twig') }}" #}class="waves-effect teal z-depth-5 darken-4 btn">stages / cours </a>
+                                    <a href="{{ path('event_add') }}#{{ activite.id }}" class="waves-effect teal z-depth-5 darken-4 btn">stages / cours </a>
                                 </p>
                             </div>
                             <div class="card-reveal">

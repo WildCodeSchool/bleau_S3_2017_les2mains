@@ -18,13 +18,13 @@
 			<div class="row">
 				<div class="col s10 offset-s1 center">
 					<h2 class="title center teal-text text-lighten-2">{{ our.titre1 }}</h2>
-					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu1|nl2br }}</p>
+					<p class="grey-text text-darken-3 lighten-3 content">{{ our.contenu1|nl2br }}</p>
 					
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
 						{{ form_start(form) }}
 					<!-- Modal Trigger -->
-					<a class="modal-trigger waves-effect waves-light btn" href="#modal1">Edition</a>
+					<a class="modal-trigger waves-effect teal z-depth-5 darken-4 btn" href="#modal1">Edition</a>
 					
 					<!-- Modal Structure -->
 					<div id="modal1" class="modal modal-fixed-footer">
@@ -46,7 +46,6 @@
 						</div>
 					</div>
 					{% endif %}
-				
 				</div>
 			</div>
 			
@@ -79,7 +78,7 @@
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
 					<!-- Modal Trigger -->
-					<a class="modal-trigger waves-effect waves-light btn" href="#modal2">Edition</a>
+					<a class="modal-trigger waves-effect teal z-depth-5 darken-4 btn" href="#modal2">Edition</a>
 					
 					<!-- Modal Structure -->
 					<div id="modal2" class="modal modal-fixed-footer">
@@ -133,7 +132,7 @@
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
 					<!-- Modal Trigger -->
-					<a class="modal-trigger waves-effect waves-light btn" href="#modal3">Edition</a>
+					<a class="modal-trigger waves-effect teal z-depth-5 darken-4 btn" href="#modal3">Edition</a>
 					
 					<!-- Modal Structure -->
 					<div id="modal3" class="modal modal-fixed-footer">
