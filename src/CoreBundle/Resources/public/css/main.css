@@ -125,6 +125,41 @@ p {
 }
 
 /* line 142, ../scss/_global.scss */
+.btn_menu_index {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+/* line 146, ../scss/_global.scss */
+.btn_menu_index:hover {
+  height: 110px !important;
+  width: 110px !important;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* line 151, ../scss/_global.scss */
+.menu-btn:hover .menu_text_index {
+  transition: .5s;
+  color: #00a248;
+  margin: 50px auto 0px -11px;
+  letter-spacing: 2px;
+}
+
+/* line 157, ../scss/_global.scss */
+.menu_text_index {
+  margin: 100px auto 0px -66px;
+  width: 100px;
+  font-size: 36px;
+}
+
+/* line 162, ../scss/_global.scss */
+.menu_text_index:hover {
+  height: 110px !important;
+  width: 110px !important;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* line 167, ../scss/_global.scss */
 html > body .menu-btn {
   position: fixed;
 }
@@ -132,51 +167,51 @@ html > body .menu-btn {
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
-/* line 151, ../scss/_global.scss */
+/* line 176, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 155, ../scss/_global.scss */
+/* line 180, ../scss/_global.scss */
 .parallax-container {
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 160, ../scss/_global.scss */
+/* line 185, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 165, ../scss/_global.scss */
+  /* line 190, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 170, ../scss/_global.scss */
+  /* line 195, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 177, ../scss/_global.scss */
+  /* line 202, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 182, ../scss/_global.scss */
+/* line 207, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 186, ../scss/_global.scss */
+/* line 211, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 190, ../scss/_global.scss */
+/* line 215, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
@@ -787,7 +822,7 @@ Responsive Menu Nav
 /*----------------------------------------*\
     7.PRODUITS
 \*----------------------------------------*/
-/* line 2, ../scss/_products.scss */
+/* line 3, ../scss/_products.scss */
 #products .card_products_picture {
   height: 200px;
   width: auto;
@@ -795,14 +830,40 @@ Responsive Menu Nav
   margin: auto;
   transition: .5s all;
 }
-/* line 9, ../scss/_products.scss */
+/* line 10, ../scss/_products.scss */
 #products .card_products_picture:hover {
   opacity: .5;
   transition: .5s all;
 }
-/* line 13, ../scss/_products.scss */
-#products body {
-  background-color: red;
+/* line 14, ../scss/_products.scss */
+#products .products_parallax {
+  min-height: 200px;
+}
+/* line 17, ../scss/_products.scss */
+#products .text_perso_products {
+  color: #80cbc4;
+}
+/* line 20, ../scss/_products.scss */
+#products .products_navigation {
+  position: fixed;
+  margin-top: 20vh;
+  z-index: 1;
+}
+/* line 25, ../scss/_products.scss */
+#products .nav_word {
+  display: block;
+  margin-top: 10px;
+  opacity: 1;
+  transition: .3s;
+  padding: 7px 15px 7px 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0px 10px 10px 0px;
+  color: white;
+}
+/* line 35, ../scss/_products.scss */
+#products .nav_word:hover {
+  transition: .3s;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /*----------------------------------------*\
