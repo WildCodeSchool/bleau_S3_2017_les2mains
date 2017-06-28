@@ -42,13 +42,23 @@
     </div>
     <div class="container container_custom">
         <div class="row">
-
         {% for article in articles %}
             {% set i = i + 1 %}
-
             <div class="col s12 m6 l6 card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ asset('uploads/images/' ~ article.picture.src ) }}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l4">
+                            <div class="grid">
+                                <figure class="effect-bubba">
+                                        <img class="activator" src="{{ asset('uploads/images/' ~ article.picture.src ) }}">
+                                    <figcaption>
+                                        <h2><span>Click</span></h2>
+                                        <p>Pour connaitre la suite</p>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{ article.titre }}<i class="material-icons right">reply</i></span>
