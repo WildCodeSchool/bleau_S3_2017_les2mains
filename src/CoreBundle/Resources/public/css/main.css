@@ -685,6 +685,15 @@ Responsive Menu Nav
   height: 300px;
   transition: 0.5s;
 }
+/* line 35, ../scss/_nous.scss */
+#nous p {
+  line-height: 1.5rem;
+  margin: 5em 0;
+}
+/* line 39, ../scss/_nous.scss */
+#nous .content {
+  line-height: 1rem;
+}
 
 /*----------------------------------------*\
     5.ACTUALITES
