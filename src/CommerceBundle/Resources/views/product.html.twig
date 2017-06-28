@@ -3,29 +3,29 @@
 {% block body %}
 <div id="products">
 	
-	{#<div class="container product">#}
-		{#{% if is_granted('ROLE_ADMIN')%}#}
-			{#<div class="row">#}
-				{#<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 darken-4 btn align-center " href="#modalcategorie">Ajouter une categorie</a>#}
-			{#</div>#}
-			{##}
-			{#<div id="modalcategorie" class="modal">#}
-				{#<div class="modal-content">#}
-					{#{{ form_start(forms) }}#}
-					{#<div class="row">#}
-						{#<div class="input-field col s12">#}
-							{#{{ form_label (forms.type) }}#}
-							{#{{ form_widget (forms.type) }}#}
-							{#{{ form_errors (forms.type) }}#}
-						{#</div>#}
-						{#{{ form_widget(forms.submit, {'attr': {'class': 'btn btn-primary'}}) }}#}
-						{#{{ form_end(forms) }}#}
-					{#</div>#}
-				{#</div>#}
-			{#</div>#}
-		{#{% endif %}#}
-	{#</div>#}
-	{##}
+	<div class="container product">
+		{% if is_granted('ROLE_ADMIN')%}
+			<div class="row">
+				<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 darken-4 btn align-center " href="#modalcategorie">Ajouter une categorie</a>
+			</div>
+
+			<div id="modalcategorie" class="modal">
+				<div class="modal-content">
+					{{ form_start(forms) }}
+					<div class="row">
+						<div class="input-field col s12">
+							{{ form_label (forms.type) }}
+							{{ form_widget (forms.type) }}
+							{{ form_errors (forms.type) }}
+						</div>
+						{{ form_widget(forms.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+						{{ form_end(forms) }}
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+
 	
 	<div class="container product">
 	{% if is_granted('ROLE_ADMIN')%}
@@ -66,14 +66,7 @@
 	
 	</div>
 </div>
-	
-	
-	
-	
-	
-	
-	
-	
+
 	<div class="container">
 		<div class="row">
 		{% for products in products %}
@@ -101,41 +94,12 @@
 				<!-- Modal Structure -->
 				<div id="modal{{ products.id }}" class="modal">
 					<!-- On rend la vue editActivite a la vue de la modal -->
-					{{ render(controller('CommerceBundle:Product:editProduct',{ 'id': products.id })) }}
+                {{ render(controller('CommerceBundle:Product:editProduct',{ 'id': products.id })) }}
 				</div>
 			{% endif %}
 		{% endfor %}
 		</div>
 	</div>
-	
 
-	
-	
-	{#{%  for categories in categories %}#}
-	{##}
-	{#{{ categories.type }}#}
 
-    {#{% endfor %}#}
-	{##}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	{% endblock %}

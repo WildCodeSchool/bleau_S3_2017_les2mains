@@ -19,6 +19,6 @@ product_delete:
     path: /{id}/product/delete
     defaults: {_controller: CommerceBundle:Product:delete}
 
-product_edit_valid:
-    path:     /{id}/product/edit
-    defaults: {_controller: CommerceBundle:Product:validEdit}
+edit_valid_product:
+    path: /{id}/product/edit
+    defaults: {_controller: CommerceBundle:Product:editValidProduct}

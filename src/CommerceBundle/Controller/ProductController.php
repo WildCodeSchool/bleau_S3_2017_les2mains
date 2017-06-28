@@ -1,7 +1,6 @@
 <?php
 namespace CommerceBundle\Controller;
 
-
 use CommerceBundle\Entity\Category;
 use CommerceBundle\Entity\Product;
 use CommerceBundle\Form\CategoryType;
@@ -49,8 +48,38 @@ class ProductController extends Controller
             'products' => $products,
             'categories' => $categories,
             'form' => $form->createView(),
-//            'forms' => $forms->createView(),
+            'forms' => $forms->createView(),
         ));
+    }
+
+    public function editProductAction (Product $product, Request $request)
+    {
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form' . $product->getId(), ProductType::class, $product);
+        $formBuilder->setAction($this->generateUrl('edit_valid_product', array(
+            'id' => $product->getId()
+        )));
+
+        $form = $formBuilder->getForm();
+        $form->handleRequest($request);
+
+        return $this->render('@Commerce/editProduct.html.twig', array(
+            'product_selected' => $product,
+            'form' => $form->createView()
+        ));
+    }
+
+    public function editValidProductAction(Product $product, Request $request)
+    {
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form' . $product->getId(), ProductType::class, $product);
+        $form = $formBuilder->getForm();
+
+        $form->handleRequest($request);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($product);
+        $em->flush();
+
+        return $this->redirectToRoute('product');
     }
 
     public function deleteAction($id)
@@ -62,40 +91,5 @@ class ProductController extends Controller
 
         return $this->redirectToRoute('product');
     }
-
-    public function editProductAction(Product $products, Request $request){
-
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $products->getId(), ProductType::class, $products);
-        $formBuilder->setAction($this->generateUrl('product_edit_valid', array(
-            'id' => $products->getId()
-        )));
-
-        $form = $formBuilder->getForm();
-        $form->handleRequest($request);
-
-        return $this->render('@Commerce/product.html.twig', array(
-            'products' => $products,
-            'form'  => $form->createView()
-        ));
-    }
-
-    /**
-     * @param Product $products
-     * @param Request $request
-     * @return Response
-     */
-    public function validEditAction(Product $products, Request $request){
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $products->getId(), ProductType::class, $products);
-        $form = $formBuilder->getForm();
-
-        $form->handleRequest($request);
-
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($products);
-        $em->flush();
-
-        return $this->redirectToRoute('product');
-    }
-
 
 }
