@@ -2,6 +2,21 @@
 
 {% block body %}
 <div id="products">
+	<div class="products_navigation">
+		{% for categories in categories %}
+				<div class="nav_word_block">
+					<span class="nav_word">{{ categories.type }}</span>
+				</div>
+		{% endfor %}
+	</div>
+	<div class="parallax-container">
+		<div class="section header">
+			<h2 class="header center teal-text text-lighten-2">Nos produits</h2>
+		</div>
+		<div class="parallax">
+			<img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
+		</div>
+	</div>
 	
 	<div class="container product">
 		{% if is_granted('ROLE_ADMIN')%}
@@ -65,7 +80,7 @@
 	{% endif %}
 	
 	</div>
-</div>
+
 	
 	
 	
@@ -111,14 +126,18 @@
 	
 	{%  for categories in categories %}
 	
-	{{ categories.type }}
+	<h2 class="text_perso_products">{{ categories.type }}</h2>
 		
 		{% endfor %}
-	
-	
-	
-	
-	
+
+
+	<div class="parallax-container products_parallax">
+		<div class="parallax">
+			<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
+		</div>
+	</div>
+    {% include '@Core/pages/footer.html.twig' %}
+</div>
 	
 	
 	
