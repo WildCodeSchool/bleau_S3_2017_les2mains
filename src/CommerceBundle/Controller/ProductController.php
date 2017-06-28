@@ -1,7 +1,6 @@
 <?php
 namespace CommerceBundle\Controller;
 
-
 use CommerceBundle\Entity\Category;
 use CommerceBundle\Entity\Product;
 use CommerceBundle\Form\CategoryType;
@@ -52,4 +51,45 @@ class ProductController extends Controller
             'forms' => $forms->createView(),
         ));
     }
+
+    public function editProductAction (Product $product, Request $request)
+    {
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form' . $product->getId(), ProductType::class, $product);
+        $formBuilder->setAction($this->generateUrl('edit_valid_product', array(
+            'id' => $product->getId()
+        )));
+
+        $form = $formBuilder->getForm();
+        $form->handleRequest($request);
+
+        return $this->render('@Commerce/editProduct.html.twig', array(
+            'product_selected' => $product,
+            'form' => $form->createView()
+        ));
+    }
+
+    public function editValidProductAction(Product $product, Request $request)
+    {
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form' . $product->getId(), ProductType::class, $product);
+        $form = $formBuilder->getForm();
+
+        $form->handleRequest($request);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($product);
+        $em->flush();
+
+        return $this->redirectToRoute('product');
+    }
+
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $product = $em->getRepository('CommerceBundle:Product')->findOneById($id);
+        $em->remove($product);
+        $em->flush();
+
+        return $this->redirectToRoute('product');
+    }
+
 }
