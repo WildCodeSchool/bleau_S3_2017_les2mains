@@ -10,3 +10,15 @@ event_delete:
 event_edit_valid:
     path: /{id}/event/edit
     defaults: {_controller: CommerceBundle:Event:validEdit}
+
+product:
+    path: /product
+    defaults: {_controller: CommerceBundle:Product:addProduct}
+
+product_delete:
+    path: /{id}/product/delete
+    defaults: {_controller: CommerceBundle:Product:delete}
+
+edit_valid_product:
+    path: /{id}/product/edit
+    defaults: {_controller: CommerceBundle:Product:editValidProduct}

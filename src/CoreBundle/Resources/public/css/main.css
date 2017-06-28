@@ -778,6 +778,24 @@ Responsive Menu Nav
 /*----------------------------------------*\
     7.PRODUITS
 \*----------------------------------------*/
+/* line 2, ../scss/_products.scss */
+#products .card_products_picture {
+  height: 200px;
+  width: auto;
+  display: block;
+  margin: auto;
+  transition: .5s all;
+}
+/* line 9, ../scss/_products.scss */
+#products .card_products_picture:hover {
+  opacity: .5;
+  transition: .5s all;
+}
+/* line 13, ../scss/_products.scss */
+#products body {
+  background-color: red;
+}
+
 /*----------------------------------------*\
     8.CONTACT
 \*----------------------------------------*/

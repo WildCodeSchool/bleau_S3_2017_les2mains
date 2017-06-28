@@ -1,0 +1,29 @@
+CommerceBundle\Entity\Product:
+    type: entity
+    table: null
+    repositoryClass: CommerceBundle\Repository\ProductRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        content:
+            type: text
+            nullable: true
+
+    manyToOne:
+        categories:
+            targetEntity: CommerceBundle\Entity\Category
+            inversedBy: products
+            cascade: ['all']
+
+    oneToOne:
+        picture:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+
