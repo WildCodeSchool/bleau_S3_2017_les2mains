@@ -42,6 +42,11 @@
                         {{ form_widget(form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
                         {{ form_errors(form.contenu) }}
                     </div>
+                    <div class="input-field col s6">
+                        {{ form_label (form.lien) }}
+                        {{ form_widget (form.lien) }}
+                        {{ form_errors (form.lien) }}
+                    </div>
                     <div class="input-field">
                         {{ form_widget(form.picture.file, {'attr': {'required': 'true' }}) }}
                         {{ form_errors(form.picture.file) }}
@@ -95,7 +100,7 @@
 
                                 <div class="row">
                                     <div class="col s6 m6">
-                                        <a href="https://www.pierrerabhi.org/" class="waves-effect teal z-depth-5 darken-4 btn">à decouvrir</a>
+                                        <a href="{{ activite.lien }}" class="waves-effect teal z-depth-5 darken-4 btn">à decouvrir</a>
                                     </div>
                                     {#<div class="offset-s3 offset-m3 col s3 m3">#}
                                         {#<a class="waves-effect teal z-depth-5 darken-4 btn" href="{{ path('core_contact') }}">En plus</a>#}
