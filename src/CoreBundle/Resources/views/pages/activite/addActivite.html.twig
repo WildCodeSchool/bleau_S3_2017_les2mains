@@ -37,7 +37,7 @@
                         {{ form_widget (form.titre) }}
                         {{ form_errors (form.titre) }}
                     </div>
-                    <div class="input-field form_add">
+                    <div class="input-field">
                         {{ form_label(form.contenu) }}
                         {{ form_widget(form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
                         {{ form_errors(form.contenu) }}
@@ -73,8 +73,6 @@
     <!--MODAL D'ACTIVITE-->
 
             {% for activite in theme.activites %}
-
-
                     <div class="col s12 m6 l6">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">

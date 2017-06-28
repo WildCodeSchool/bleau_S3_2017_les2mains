@@ -1,6 +1,5 @@
 <div class="modal-content">
     {{ form_start(form) }}
-
     <div class="input-field">
         {{ form_label (form.activiteType) }}
         {{ form_widget (form.activiteType) }}
@@ -17,10 +16,11 @@
         {{ form_errors(form.contenu) }}
     </div>
     <div class="input-field">
-        <div class="center-align">
-            <input class="btn z-depth-5 teal darken-4" type="submit" value="Create" />
-        </div>
+        {{ form_widget(form.picture.file, {'attr': {'required': 'true' }}) }}
+        {{ form_errors(form.picture.file) }}
     </div>
-
+    <div class="input-field">
+        {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
     {{ form_end(form) }}
 </div>
