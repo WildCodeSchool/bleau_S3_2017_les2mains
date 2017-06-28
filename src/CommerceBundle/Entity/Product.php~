@@ -1,0 +1,11 @@
+<?php
+
+namespace CommerceBundle\Entity;
+
+/**
+ * Product
+ */
+class Product
+{
+
+}
