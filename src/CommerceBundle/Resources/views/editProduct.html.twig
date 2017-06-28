@@ -1,0 +1,21 @@
+
+
+<div class="modal-content">
+    {{ form_start(form) }}
+
+    <div class="form_add">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        {{ form_errors(form.name) }}
+    </div>
+    <div class="form_add">
+        {{ form_label(form.content) }}
+        {{ form_widget(form.content, {'attr': {'class': 'materialize-textarea' }} ) }}
+        {{ form_errors(form.content) }}
+    </div>
+    <div class="form_add center-align">
+        {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+
+{{ form_end(form) }}
+</div>

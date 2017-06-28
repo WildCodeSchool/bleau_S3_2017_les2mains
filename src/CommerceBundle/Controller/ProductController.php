@@ -49,7 +49,53 @@ class ProductController extends Controller
             'products' => $products,
             'categories' => $categories,
             'form' => $form->createView(),
-            'forms' => $forms->createView(),
+//            'forms' => $forms->createView(),
         ));
     }
+
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $product = $em->getRepository('CommerceBundle:Product')->findOneById($id);
+        $em->remove($product);
+        $em->flush();
+
+        return $this->redirectToRoute('product');
+    }
+
+    public function editProductAction(Product $products, Request $request){
+
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $products->getId(), ProductType::class, $products);
+        $formBuilder->setAction($this->generateUrl('product_edit_valid', array(
+            'id' => $products->getId()
+        )));
+
+        $form = $formBuilder->getForm();
+        $form->handleRequest($request);
+
+        return $this->render('@Commerce/product.html.twig', array(
+            'products' => $products,
+            'form'  => $form->createView()
+        ));
+    }
+
+    /**
+     * @param Product $products
+     * @param Request $request
+     * @return Response
+     */
+    public function validEditAction(Product $products, Request $request){
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $products->getId(), ProductType::class, $products);
+        $form = $formBuilder->getForm();
+
+        $form->handleRequest($request);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($products);
+        $em->flush();
+
+        return $this->redirectToRoute('product');
+    }
+
+
 }
