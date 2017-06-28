@@ -32,7 +32,7 @@ class EventType extends AbstractType
                 'class'=>'CoreBundle\Entity\Activite',
                 'choice_label' => 'titre'))
             ->add('picture', PictureType::class)
-            ->add('submit', SubmitType::class);
+            ->add('submit', SubmitType::class, array('label'=>'Valider'));
     }
     
     /**

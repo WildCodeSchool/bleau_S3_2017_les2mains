@@ -5,7 +5,7 @@
 	<div class="products_navigation">
         {% for categories in categories %}
 			<div class="nav_word_block">
-				<span class="nav_word">{{ categories.type }}</span>
+				<a href="#{{ categories.id }}" class="nav_word">{{ categories.type }}</a>
 			</div>
         {% endfor %}
 	</div>
@@ -81,7 +81,9 @@
 	</div>
 	<div class="container">
 		<div class="row">
-		{% for products in products %}
+	{%  for categories in categories %}
+		<h2 id="{{ categories.id }}" class="text_perso_products">{{ categories.type }}</h2>
+		{% for products in categories.products %}
 			<div class="col m3">
 				<div class="card">
 					<div class="card-image waves-effect waves-block waves-light">
@@ -97,35 +99,33 @@
 					</div>
 				</div>
 
-			</div>
-
 			{% if is_granted('ROLE_ADMIN')%}
 				<!-- button delete-->
-				<a href="{{ path('product_delete', {'id' : products.id}) }}" class="waves-effect teal z-depth-5 darken-4 btn ">Effacer</a>
+				<a href="{{ path('product_delete', {'id' : products.id}) }}" class="waves-effect teal z-depth-5 darken-4 btn col s6">Effacer</a>
 				<!-- button edit-->
-				<a href="#modal{{ products.id }}" class="waves-effect teal z-depth-5 darken-4 btn ">Modifier</a>
+				<a href="#modal{{ products.id }}" class="waves-effect teal z-depth-5 darken-4 btn col s6">Modifier</a>
 				<!-- Modal Structure -->
 				<div id="modal{{ products.id }}" class="modal">
 					<!-- On rend la vue editActivite a la vue de la modal -->
                 {{ render(controller('CommerceBundle:Product:editProduct',{ 'id': products.id })) }}
 				</div>
 			{% endif %}
+			</div>
 		{% endfor %}
 		</div>
 	</div>
-
-    {%  for categories in categories %}
-
-		<h2 class="text_perso_products">{{ categories.type }}</h2>
-
-    {% endfor %}
-
-
 	<div class="parallax-container products_parallax">
 		<div class="parallax">
 			<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
 		</div>
 	</div>
+	<div class="container">
+		<div class="row">
+	{% endfor %}
+	
+		</div>
+	</div>
+		
     {% include '@Core/pages/footer.html.twig' %}
 </div>
 	{% endblock %}

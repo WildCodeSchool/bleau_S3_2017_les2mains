@@ -167,51 +167,51 @@ html > body .menu-btn {
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
-/* line 176, ../scss/_global.scss */
+/* line 186, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 180, ../scss/_global.scss */
+/* line 190, ../scss/_global.scss */
 .parallax-container {
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 185, ../scss/_global.scss */
+/* line 195, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 190, ../scss/_global.scss */
+  /* line 200, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 195, ../scss/_global.scss */
+  /* line 205, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 202, ../scss/_global.scss */
+  /* line 212, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 207, ../scss/_global.scss */
+/* line 217, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 211, ../scss/_global.scss */
+/* line 221, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 215, ../scss/_global.scss */
+/* line 225, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
