@@ -44,10 +44,10 @@
 	<div class="container product">
 	{% if is_granted('ROLE_ADMIN')%}
 		<div class="row">
-			<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 darken-4 btn align-center " href="#modal1">Ajouter un produit</a>
+			<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 darken-4 btn align-center " href="#modaladd">Ajouter un produit</a>
 		</div>
 		
-	<div id="modal1" class="modal">
+	<div id="modaladd" class="modal">
 		<div class="modal-content">
 			{{ form_start(form) }}
 			<div class="row">
