@@ -2,6 +2,13 @@
 
 {% block body %}
     <div id="events">
+        <div class="products_navigation">
+            {% for activite in activities %}
+                <div class="nav_word_block">
+                    <a href="#{{ activite.id }}" class="nav_word">{{ activite.titre }}</a>
+                </div>
+            {% endfor %}
+        </div>
         <div class="parallax-container">
             <div class="section header">
                 <h2 class="header center teal-text text-lighten-2">Nos stages</h2>
