@@ -903,29 +903,29 @@ Responsive Menu Nav
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-/* line 34, ../scss/_blog.scss */
-#blog .effect-bubba, #blog img {
-  height: 300px;
-}
 /* line 39, ../scss/_blog.scss */
+#blog .img_card {
+  width: 100%;
+}
+/* line 43, ../scss/_blog.scss */
 #blog figcaption, #blog p {
   font-size: small;
 }
-/* line 47, ../scss/_blog.scss */
+/* line 51, ../scss/_blog.scss */
 #blog .parallax-container {
   min-height: 30px;
 }
-/* line 58, ../scss/_blog.scss */
+/* line 62, ../scss/_blog.scss */
 #blog .card-image {
   height: 350px;
 }
-/* line 62, ../scss/_blog.scss */
+/* line 66, ../scss/_blog.scss */
 #blog .card {
   margin-top: 50px;
   margin-bottom: 30px;
   height: 500px;
 }
-/* line 68, ../scss/_blog.scss */
+/* line 72, ../scss/_blog.scss */
 #blog .form_add {
   color: black;
 }
