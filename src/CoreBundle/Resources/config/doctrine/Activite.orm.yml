@@ -14,6 +14,8 @@ CoreBundle\Entity\Activite:
             length: 255
         contenu:
             type: text
+        Lien:
+            type: text
     lifecycleCallbacks: {  }
 
     manyToOne :

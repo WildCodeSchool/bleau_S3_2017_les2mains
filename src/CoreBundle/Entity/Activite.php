@@ -223,4 +223,33 @@ class Activite
     {
         return $this->picture;
     }
+    /**
+     * @var string
+     */
+    private $Lien;
+
+
+    /**
+     * Set lien
+     *
+     * @param string $lien
+     *
+     * @return Activite
+     */
+    public function setLien($lien)
+    {
+        $this->Lien = $lien;
+
+        return $this;
+    }
+
+    /**
+     * Get lien
+     *
+     * @return string
+     */
+    public function getLien()
+    {
+        return $this->Lien;
+    }
 }
