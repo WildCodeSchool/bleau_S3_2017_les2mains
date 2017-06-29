@@ -1,0 +1,71 @@
+CoreBundle\Entity\Our:
+    type: entity
+    table: null
+    repositoryClass: CoreBundle\Repository\OurRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre1:
+            type: string
+            length: 255
+            column: titre_1
+        contenu1:
+            type: text
+            column: contenu_1
+        titre2:
+            type: string
+            length: 255
+            column: titre_2
+        contenu2:
+            type: text
+            column: contenu_2
+        titre3:
+            type: string
+            length: 255
+            column: titre_3
+        contenu3:
+            type: text
+            column: contenu_3
+    lifecycleCallbacks: {  }
+
+    oneToOne:
+        picture1:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture2:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture3:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture4:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture5:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture6:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture7:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture8:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True
+        picture9:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+            nullable: True

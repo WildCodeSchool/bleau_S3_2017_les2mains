@@ -1,0 +1,115 @@
+#contact {
+  /*----------------------------------------
+   PARALAX
+  ----------------------------------------*/
+  .input-field .prefix
+  {
+    margin-left: 30px;
+  }
+  .input-field.col label
+  {
+    margin-left: 30px;
+  }
+
+  .parallax-container
+  {
+    min-height: 300px;
+  }
+  .form .mail
+  {
+    margin-bottom:0;
+  }
+  #div_mail #div_message
+  {
+    padding:0;
+  }
+  p{
+    text-align: center;
+  }
+  /*----------------------------------------
+   Size Img
+  ----------------------------------------*/
+  .google-maps {
+    position: relative;
+    padding-bottom: 50%; // This is the aspect ratio
+    height: 0;
+    overflow: hidden;
+    margin-top: 1%;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: -20%;
+  }
+  .google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 50% !important;
+  }
+
+
+
+  @media screen and (min-width: 350px) and (max-width: 500px)
+  {
+    .google-maps {
+      position: relative;
+      padding-bottom: 50%; // This is the aspect ratio
+      height: 0;
+      overflow: hidden;
+      margin-top: 1%;
+      margin-right: 1%;
+      margin-left: 1%;
+      margin-bottom: -20%;
+    }
+    .google-maps iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .adress
+    {
+      font-size: smaller;
+      margin-left: auto;
+      margin-right: auto;
+
+      h4
+      {
+        font-size: 25px;
+      }
+    }
+  }
+    @media screen and (max-width: 349px)
+    {
+      .google-maps {
+        position: relative;
+        padding-bottom: 50%; // This is the aspect ratio
+        height: 0;
+        overflow: hidden;
+        margin-top: 1%;
+        margin-right: 1%;
+        margin-left: 1%;
+        margin-bottom: -20%;
+      }
+      .google-maps iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .adress
+      {
+        font-size: x-small;
+        margin-left: auto;
+        margin-right: auto;
+
+        h4
+        {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+

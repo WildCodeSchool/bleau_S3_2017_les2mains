@@ -1,0 +1,19 @@
+# List all actu and add one
+blog_actu:
+    path:     /actu
+    defaults: {_controller: BlogBundle:Actu:index }
+    methods: ['GET', 'POST']
+
+# Delete one actu
+blog_actu_delete:
+    path:     /{id}/actu/delete
+    defaults: {_controller: BlogBundle:Actu:delete }
+    requirements:
+        id: '\d+'
+
+# Edit one actu
+blog_actu_editValide:
+    path:     /{id}/actu/edit
+    defaults: {_controller: BlogBundle:Actu:valideEdit }
+    requirements:
+        id: '\d+'

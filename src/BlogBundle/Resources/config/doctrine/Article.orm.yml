@@ -1,0 +1,25 @@
+BlogBundle\Entity\Article:
+    type: entity
+    table: null
+    repositoryClass: BlogBundle\Repository\ArticleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        contenu:
+            type: text
+        date:
+            type: datetime
+    lifecycleCallbacks: {  }
+    
+    oneToOne:
+        picture:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+        

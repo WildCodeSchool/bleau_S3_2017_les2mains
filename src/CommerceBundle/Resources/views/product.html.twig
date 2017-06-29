@@ -1,0 +1,131 @@
+{% extends '@Core/layout.html.twig' %}
+
+{% block body %}
+<div id="products">
+	<div class="products_navigation">
+        {% for categories in categories %}
+			<div class="nav_word_block">
+				<a href="#{{ categories.id }}" class="nav_word">{{ categories.type }}</a>
+			</div>
+        {% endfor %}
+	</div>
+	<div class="parallax-container">
+		<div class="section header">
+			<h2 class="header center teal-text text-lighten-2">Nos produits</h2>
+		</div>
+		<div class="parallax">
+			<img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
+		</div>
+	</div>
+		<div class="container product">
+		{% if is_granted('ROLE_ADMIN')%}
+			<div class="row">
+				<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 darken-4 btn align-center " href="#modalcategorie">Ajouter une categorie</a>
+			</div>
+
+			<div id="modalcategorie" class="modal">
+				<div class="modal-content">
+					{{ form_start(forms) }}
+					<div class="row">
+						<div class="input-field col s12">
+							{{ form_label (forms.type) }}
+							{{ form_widget (forms.type) }}
+							{{ form_errors (forms.type) }}
+						</div>
+						{{ form_widget(forms.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+						{{ form_end(forms) }}
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+
+	
+	<div class="container product">
+	{% if is_granted('ROLE_ADMIN')%}
+		<div class="row">
+			<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 darken-4 btn align-center " href="#modal1">Ajouter un produit</a>
+		</div>
+		
+	<div id="modal1" class="modal">
+		<div class="modal-content">
+			{{ form_start(form) }}
+			<div class="row">
+				<div class="input-field col s12">
+					{{ form_label (form.name) }}
+					{{ form_widget (form.name) }}
+					{{ form_errors (form.name) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s6">
+					{{ form_label (form.content) }}
+					{{ form_widget (form.content) }}
+					{{ form_errors (form.content) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					{{ form_label (form.picture) }}
+					{{ form_widget (form.picture) }}
+					{{ form_errors (form.picture) }}
+				</div>
+				{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+				{{ form_end(form) }}
+			</div>
+		</div>
+		
+	</div>
+	{% endif %}
+	
+	</div>
+	<div class="container">
+		<div class="row">
+	{%  for categories in categories %}
+		<h2 id="{{ categories.id }}" class="text_perso_products">{{ categories.type }}</h2>
+		{% for products in categories.products %}
+			<div class="col m3">
+				<div class="card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator card_products_picture" src="{{ asset('uploads/images/' ~ products.picture.src ) }}">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4">{{ products.name }}<i class="material-icons right">more_vert</i></span>
+						<p><a href="#">This is a link</a></p>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">{{ products.name }}<i class="material-icons right">close</i></span>
+						<p>{{ products.content }}</p>
+					</div>
+				</div>
+
+			{% if is_granted('ROLE_ADMIN')%}
+				<!-- button delete-->
+				<a href="{{ path('product_delete', {'id' : products.id}) }}" class="waves-effect teal z-depth-5 darken-4 btn col s6">Effacer</a>
+				<!-- button edit-->
+				<a href="#modal{{ products.id }}" class="waves-effect teal z-depth-5 darken-4 btn col s6">Modifier</a>
+				<!-- Modal Structure -->
+				<div id="modal{{ products.id }}" class="modal">
+					<!-- On rend la vue editActivite a la vue de la modal -->
+                {{ render(controller('CommerceBundle:Product:editProduct',{ 'id': products.id })) }}
+				</div>
+			{% endif %}
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+	<div class="parallax-container products_parallax">
+		<div class="parallax">
+			<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+	{% endfor %}
+	
+		</div>
+	</div>
+		
+    {% include '@Core/pages/footer.html.twig' %}
+</div>
+	{% endblock %}

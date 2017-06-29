@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}
+	<div class="overlay-navigation">
+		<nav role="navigation">
+			<ul>
+				<li>
+					<a href="{{ path('core_nous') }}">Nous</a>
+					<div class="onglet">
+						<a href="{{ path('core_homepage') }}">Home_page</a>
+					</div>
+				</li>
+				<li>
+					<a href="{{ path('blog_actu') }}">Nos actualités</a>
+					<div class="onglet">
+						<a href="#"></a>
+						<a href="#"></a>
+					</div>
+				</li>
+				<li>
+					<a href="{{ path('core_activite_add') }}">Nos Activités</a>
+					<a href="{{ path('event_add') }}">Nos Events</a>
+				</li>
+				<li>
+					<a href="{{ path('product') }}">Nos produits</a>
+				</li>
+				
+				<li>
+					<a href="{{ path('core_contact') }}" data-content="Don't hesitate">Contact</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	{% block menu %}
+		<section class="home home_all">
+			<div class="row open-overlay">
+				<a class="col s1 offset-s10 waves-effect waves-light btn menu-btn">
+					<div class="menu_text">Menu</div>
+				</a>
+
+			</div>
+		</section>
+	{% endblock %}
+	
+{% endblock %}

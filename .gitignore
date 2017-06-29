@@ -15,5 +15,6 @@
 /vendor/
 /web/bundles/
 .idea
-web/uploads/
-.sass-cache/
+.sass-cache
+!/composer.lock
+/web/uploads

@@ -1,0 +1,28 @@
+#events {
+
+  .text_perso_events {
+    color: #80cbc4
+  }
+  .card_picture {
+    transition: .5s;
+    height: 350px;
+    width: auto;
+    display: block;
+    margin: auto;
+  }
+  .card_picture:hover {
+    opacity: .5;
+    transition: .5s;
+  }
+  .add_stage_btn{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .event_parallax {
+    min-height: 50px;
+  }
+  .h2_events{
+    text-align: center;
+  }
+}

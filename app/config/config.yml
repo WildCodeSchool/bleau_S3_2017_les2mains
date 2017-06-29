@@ -2,14 +2,18 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: "@les2MainsBundle/Resources/config/services.yml" }
+    - { resource: "@CoreBundle/Resources/config/services.yml" }
+    - { resource: "@CommerceBundle/Resources/config/services.yml" }
+    - { resource: "@BlogBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    upload_directory: '%kernel.root_dir%/../web/uploads/images'
 
 framework:
+    translator: ~
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
@@ -69,3 +73,17 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+# Bootstrap Configuration
+twig:
+    form_themes:
+        - 'bootstrap_3_layout.html.twig'
+
+# FosUserBundle Configuration
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: CoreBundle\Entity\User
+    from_email:
+        address: "phle2022@gmail.com"
+        sender_name: "Jim"

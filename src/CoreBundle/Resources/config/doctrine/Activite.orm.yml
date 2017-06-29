@@ -1,0 +1,32 @@
+CoreBundle\Entity\Activite:
+    type: entity
+    table: null
+    repositoryClass: CoreBundle\Repository\ActiviteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        contenu:
+            type: text
+    lifecycleCallbacks: {  }
+
+    manyToOne :
+        activiteType:
+            targetEntity: CoreBundle\Entity\ActiviteType
+            inversedBy: activites
+
+    oneToOne:
+        picture:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
+
+    oneToMany:
+        event:
+            targetEntity: CommerceBundle\Entity\Event
+            mappedBy: activite

@@ -1,0 +1,40 @@
+CommerceBundle\Entity\Event:
+    type: entity
+    table: null
+    repositoryClass: CommerceBundle\Repository\EventRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: text
+        dateStart:
+            type: datetime
+            column: date_start
+        dateEnd:
+            type: datetime
+            column: date_end
+        location:
+            type: string
+            length: 255
+        price:
+            type: integer
+        available_places:
+            type: integer
+    lifecycleCallbacks: {  }
+
+    manyToOne:
+        activite:
+            targetEntity: CoreBundle\Entity\Activite
+            inversedBy: event
+
+    oneToOne:
+        picture:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']

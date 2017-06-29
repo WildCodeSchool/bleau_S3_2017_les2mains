@@ -1,15 +1,46 @@
 <!DOCTYPE html>
-<html>
+
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <!--Let browser know website is optimized for mobile-->
+       
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    
+    <title>{% block title %}Les Jardins dans la Vallée{% endblock %}</title>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/core/img/pictures/favicon.ico') }}" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/core/css/main.css') }}"/>
+        <link href="https://fonts.googleapis.com/css?family=Parisienne|Tangerine" rel="stylesheet">
+
+    {% block stylesheets %}
+
+	    {% endblock %}
+
     </head>
+    
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    
+        {% block nav %}
+        {% endblock %}
+        
+        {% block body %}
+        {% endblock %}
+
+        {% block fleche %}
+            <a class="fleche_click" href="#top"><img class="fleche_img" src="{{ asset('bundles/core/img/pictures/flèche.png') }}" ></a>
+        {% endblock %}
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.ui.min.js"></script>
+        <script src="{{ asset ('bundles/core/js/main.js') }}"></script>
+        <!-- Google Font -->
+        <script src="https://use.fontawesome.com/b8ef51d51b.js"></script>
+        {% block javascripts %} {% endblock %}
     </body>
 </html>

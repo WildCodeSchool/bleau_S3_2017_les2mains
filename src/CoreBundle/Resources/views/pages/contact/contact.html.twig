@@ -1,0 +1,65 @@
+{% extends '@Core/layout.html.twig'%}
+
+{% block title %}Page_Contact!{% endblock %}
+
+{% block body %}
+<div id="contact">
+	<div class="parallax-container">
+		<div class="parallax">
+			<img src="https://nancyaruegg.files.wordpress.com/2015/03/oak-sapling-15.jpg">
+		</div>
+	</div>
+	
+	<div class="section contact container">
+		<div class="row form">
+			<div class="col m10 offset-m1 s12">
+				<h3 class="title form center-align">Prendre Contact avec Nous</h3>
+                {{ form_start(form) }}
+				<div class="input-field">
+                    {#<i class="material-icons prefix">account_circle</i>#}
+                    {{ form_row(form.nom) }}
+				</div>
+				<div class="input-field">
+                    {#<i class="material-icons prefix">account_circle</i>#}
+                    {{ form_row(form.prenom) }}
+				</div>
+				<div id="div_mail" class="input-field">
+                    {#<i class="material-icons prefix">mail</i>#}
+                    {{ form_row(form.email) }}
+				</div>
+				<div id="div_message" class="input-field">
+                    {#<i class="material-icons prefix">mode_edit</i>#}
+                    {{ form_row(form.contenu) }}
+				</div>
+				<div class="input-field center align">
+                    {{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+				</div>
+                {{ form_end(form) }}
+			</div>
+		</div>
+
+		<div class="row content_adress">
+			<div class="col s4 center-align adress">
+				<h4>Notre Adresse</h4>
+				<p>8 Rue du Bourg</p>
+				<p>45120 Girolles</p>
+				<p>09 61 54 20 34</p>
+			</div>
+				
+			<div class="col s7 center-align google-maps">
+				<iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=8%20Rue%20du%20Bourg%2045120%20Girolles&key=AIzaSyAu1VylJNEbz-IA1XLcJQwST8utKQCR6X4" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+	
+	<div class="parallax-container">
+		<div class="parallax">
+			<img src="https://nancyaruegg.files.wordpress.com/2015/03/oak-sapling-15.jpg">
+		</div>
+	</div>
+</div>
+
+{% include '@Core/pages/footer.html.twig' %}
+
+{% endblock %}
+

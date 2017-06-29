@@ -1,0 +1,22 @@
+core_homepage:
+    path:     /
+    defaults: { _controller: CoreBundle:Default:index }
+
+core_nous:
+    path:     /nous
+    defaults: { _controller: CoreBundle:Our:ourForm }
+    requirements:
+        method: GET|POST
+
+core_contact:
+    path:   /contact
+    defaults: { _controller: CoreBundle:Default:contact}
+
+core_contact_redirection:
+    path:     /redirect
+    defaults: { _controller: CoreBundle:Default:redirect }
+
+# Activity route
+core_activite:
+    prefix: /activite
+    resource: 'routing/activite.yml'

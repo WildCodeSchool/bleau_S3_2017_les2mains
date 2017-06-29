@@ -1,0 +1,32 @@
+CoreBundle\Entity\Picture:
+    type: entity
+    table: null
+    repositoryClass: CoreBundle\Repository\PictureRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        src:
+            type: string
+            length: 255
+            nullable: True
+        alt:
+            type: string
+            length: 255
+            nullable: True
+
+    lifecycleCallbacks:
+    #Upload
+        prePersist: [ preUpload ]
+        postPersist: [ postUpload ]
+
+        #delete upload
+        preRemove: [ preRemove ]
+        postRemove: [ remove ]
+
+        #edit Upload
+        preUpdate: [ preUpload ]
+        postUpdate: [ postUpload ]

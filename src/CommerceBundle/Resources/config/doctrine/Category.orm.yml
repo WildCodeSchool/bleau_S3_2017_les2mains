@@ -1,0 +1,19 @@
+CommerceBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: CommerceBundle\Repository\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        type:
+            type: string
+            length: 255
+    oneToMany:
+        products:
+            targetEntity: CommerceBundle\Entity\Product
+            mappedBy: categories
+            cascade: ['all']
