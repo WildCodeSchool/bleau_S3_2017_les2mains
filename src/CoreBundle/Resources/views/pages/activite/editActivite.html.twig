@@ -27,8 +27,8 @@
         {{ form_errors(form.lien) }}
     </div>
     <div class="input-field">
-        <div class="center-align">
-            <input class="btn z-depth-5 teal darken-4" type="submit" value="Create" />
+        <div class="input-field col s12">
+            {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
         </div>
     </div>
 
