@@ -227,7 +227,7 @@ footer.page-footer {
 }
 
 /*----------------------------------------*\
-CARDS HOVER
+     CARDS HOVER
 \*----------------------------------------*/
 
 .block_text_card_picture{
@@ -250,14 +250,14 @@ CARDS HOVER
     color: black!important;
 }
 .big_text_card_picture{
-    top: 25%;
-    font-size: 40px;
+    top: 38%;
+    font-size: 30px;
     font-weight: 300;
 }
 .medium_text_card_picture{
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 500;
-    top: 35%;
+    top: 40%;
 }
 .card_picture:hover .text_card_picture{
     opacity: 1;
@@ -268,4 +268,26 @@ CARDS HOVER
 }
 .h2_events{
     text-align: center;
+}
+/*----------------------------------------*\
+    NAVIGATION PRODUCT, EVENT, ACTIVITE
+\*----------------------------------------*/
+.products_navigation {
+    position: fixed;
+    margin-top: 20vh;
+    z-index: 1;
+}
+.nav_word {
+    display: block;
+    margin-top: 10px;
+    opacity: 1;
+    transition: .3s;
+    padding: 7px 15px 7px 15px;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 0px 10px 10px 0px;
+    color: white;
+}
+.nav_word:hover {
+    transition: .3s;
+    background-color: rgba(0, 0, 0, .7);
 }
