@@ -24,6 +24,7 @@ CoreBundle\Entity\Activite:
             targetEntity: CoreBundle\Entity\ActiviteType
             inversedBy: activites
 
+
     oneToOne:
         picture:
             targetEntity: CoreBundle\Entity\Picture
@@ -33,3 +34,4 @@ CoreBundle\Entity\Activite:
         event:
             targetEntity: CommerceBundle\Entity\Event
             mappedBy: activite
+            cascade: ['remove']
