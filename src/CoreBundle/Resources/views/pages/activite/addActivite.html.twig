@@ -2,7 +2,13 @@
 
 {% block body %}
 <div id="activite">
-
+    <div class="products_navigation">
+        {% for theme in themes %}
+            <div class="nav_word_block">
+                <a href="#{{ theme.id }}" class="nav_word">{{ theme.nom }}</a>
+            </div>
+        {% endfor %}
+    </div>
     <div class="parallax-container parallax-custom para_activite">
         <div class="parallax">
             <img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
@@ -78,7 +84,7 @@
 
             <div class="col s12">
 
-                <h1>{{ theme.nom }}</h1>
+                <h1 id="{{ theme.id }}" class="text_perso_products">{{ theme.nom }}</h1>
             </div>
 
     <!--MODAL D'ACTIVITE-->

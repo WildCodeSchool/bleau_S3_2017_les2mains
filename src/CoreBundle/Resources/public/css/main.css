@@ -217,7 +217,7 @@ footer.page-footer {
 }
 
 /*----------------------------------------*\
-CARDS HOVER
+     CARDS HOVER
 \*----------------------------------------*/
 /* line 233, ../scss/_global.scss */
 .block_text_card_picture {
@@ -246,16 +246,16 @@ CARDS HOVER
 
 /* line 252, ../scss/_global.scss */
 .big_text_card_picture {
-  top: 25%;
-  font-size: 40px;
+  top: 38%;
+  font-size: 30px;
   font-weight: 300;
 }
 
 /* line 257, ../scss/_global.scss */
 .medium_text_card_picture {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 500;
-  top: 35%;
+  top: 40%;
 }
 
 /* line 262, ../scss/_global.scss */
@@ -272,6 +272,34 @@ CARDS HOVER
 /* line 269, ../scss/_global.scss */
 .h2_events {
   text-align: center;
+}
+
+/*----------------------------------------*\
+    NAVIGATION PRODUCT, EVENT, ACTIVITE
+\*----------------------------------------*/
+/* line 275, ../scss/_global.scss */
+.products_navigation {
+  position: fixed;
+  margin-top: 20vh;
+  z-index: 1;
+}
+
+/* line 280, ../scss/_global.scss */
+.nav_word {
+  display: block;
+  margin-top: 10px;
+  opacity: 1;
+  transition: .3s;
+  padding: 7px 15px 7px 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0px 10px 10px 0px;
+  color: white;
+}
+
+/* line 290, ../scss/_global.scss */
+.nav_word:hover {
+  transition: .3s;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /*----------------------------------------*\
@@ -926,38 +954,16 @@ Responsive Menu Nav
   color: #80cbc4;
 }
 /* line 16, ../scss/_products.scss */
-#products .products_navigation {
-  position: fixed;
-  margin-top: 20vh;
-  z-index: 1;
-}
-/* line 21, ../scss/_products.scss */
-#products .nav_word {
-  display: block;
-  margin-top: 10px;
-  opacity: 1;
-  transition: .3s;
-  padding: 7px 15px 7px 15px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0px 10px 10px 0px;
-  color: white;
-}
-/* line 31, ../scss/_products.scss */
-#products .nav_word:hover {
-  transition: .3s;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-/* line 35, ../scss/_products.scss */
 #products .big_text_card_picture_product {
-  top: 20%;
-  font-size: 30px;
+  top: 33%;
+  font-size: 24px;
   font-weight: 300;
 }
-/* line 40, ../scss/_products.scss */
+/* line 21, ../scss/_products.scss */
 #products .medium_text_card_picture_product {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
-  top: 30%;
+  top: 31%;
 }
 
 /*----------------------------------------*\
