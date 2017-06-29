@@ -77,7 +77,14 @@
                     <div class="col s12 m6 l6">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="{{ asset('uploads/images/' ~ activite.picture.src ) }}">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ activite.picture.src ) }}'); background-size:cover; background-position:center">
+                                        <div class="block_text_card_picture activator btn waves-effect waves-light">
+                                            <span class="text_card_picture big_text_card_picture activator">Cliquez</span>
+                                            <span class="text_card_picture medium_text_card_picture activator">Pour plus d'infos</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">

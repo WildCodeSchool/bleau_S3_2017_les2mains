@@ -226,3 +226,46 @@ footer.page-footer {
     margin: 0;
 }
 
+/*----------------------------------------*\
+CARDS HOVER
+\*----------------------------------------*/
+
+.block_text_card_picture{
+    background-color: rgba(255,255,255, 0);
+    min-height: 100%;
+    min-width: 100%;
+    transition: .5s;
+}
+.card_picture:hover .block_text_card_picture{
+    background-color: rgba(255,255,255, .4);
+    transition: .5s;
+}
+.text_card_picture{
+    opacity: 0;
+    transition: .5s;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    position: relative;
+    color: black!important;
+}
+.big_text_card_picture{
+    top: 25%;
+    font-size: 40px;
+    font-weight: 300;
+}
+.medium_text_card_picture{
+    font-size: 30px;
+    font-weight: 500;
+    top: 35%;
+}
+.card_picture:hover .text_card_picture{
+    opacity: 1;
+    transition: .5s;
+}
+.event_parallax {
+    min-height: 50px;
+}
+.h2_events{
+    text-align: center;
+}
