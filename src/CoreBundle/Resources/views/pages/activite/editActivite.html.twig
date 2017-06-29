@@ -17,6 +17,16 @@
         {{ form_errors(form.contenu) }}
     </div>
     <div class="input-field">
+        {{ form_label(form.picture) }}
+        {{ form_widget(form.picture) }}
+        {{ form_errors(form.picture) }}
+    </div>
+    <div class="input-field">
+        {{ form_label(form.lien) }}
+        {{ form_widget(form.lien) }}
+        {{ form_errors(form.lien) }}
+    </div>
+    <div class="input-field">
         <div class="center-align">
             <input class="btn z-depth-5 teal darken-4" type="submit" value="Create" />
         </div>
