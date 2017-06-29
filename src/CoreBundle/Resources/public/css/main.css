@@ -217,6 +217,64 @@ footer.page-footer {
 }
 
 /*----------------------------------------*\
+CARDS HOVER
+\*----------------------------------------*/
+/* line 233, ../scss/_global.scss */
+.block_text_card_picture {
+  background-color: rgba(255, 255, 255, 0);
+  min-height: 100%;
+  min-width: 100%;
+  transition: .5s;
+}
+
+/* line 239, ../scss/_global.scss */
+.card_picture:hover .block_text_card_picture {
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: .5s;
+}
+
+/* line 243, ../scss/_global.scss */
+.text_card_picture {
+  opacity: 0;
+  transition: .5s;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  position: relative;
+  color: black !important;
+}
+
+/* line 252, ../scss/_global.scss */
+.big_text_card_picture {
+  top: 25%;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+/* line 257, ../scss/_global.scss */
+.medium_text_card_picture {
+  font-size: 30px;
+  font-weight: 500;
+  top: 35%;
+}
+
+/* line 262, ../scss/_global.scss */
+.card_picture:hover .text_card_picture {
+  opacity: 1;
+  transition: .5s;
+}
+
+/* line 266, ../scss/_global.scss */
+.event_parallax {
+  min-height: 50px;
+}
+
+/* line 269, ../scss/_global.scss */
+.h2_events {
+  text-align: center;
+}
+
+/*----------------------------------------*\
     2.HEADER
 \*----------------------------------------*/
 /* line 1, ../scss/_nav_style.scss */
@@ -742,7 +800,7 @@ Responsive Menu Nav
   min-height: 30px;
 }
 /* line 18, ../scss/_blog.scss */
-#blog .card-image {
+#blog .card_picture {
   height: 350px;
 }
 /* line 22, ../scss/_blog.scss */
@@ -766,7 +824,7 @@ Responsive Menu Nav
 ----------------------------------------*/
 }
 /* line 5, ../scss/_activite.scss */
-#activite .card-image {
+#activite .card_picture {
   height: 350px;
 }
 /* line 9, ../scss/_activite.scss */
@@ -796,20 +854,54 @@ Responsive Menu Nav
   margin: auto;
 }
 /* line 13, ../scss/_events.scss */
-#events .card_picture:hover {
-  opacity: .5;
-  transition: .5s;
-}
-/* line 17, ../scss/_events.scss */
 #events .add_stage_btn {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/* line 22, ../scss/_events.scss */
+/* line 17, ../scss/_events.scss */
+#events .block_text_card_picture {
+  background-color: rgba(255, 255, 255, 0);
+  min-height: 100%;
+  min-width: 100%;
+  transition: .5s;
+}
+/* line 23, ../scss/_events.scss */
+#events .card_picture:hover .block_text_card_picture {
+  background-color: rgba(255, 255, 255, 0.4);
+  transition: .5s;
+}
+/* line 27, ../scss/_events.scss */
+#events .text_card_picture {
+  opacity: 0;
+  transition: .5s;
+  text-align: center;
+  display: block;
+  text-transform: uppercase;
+  position: relative;
+  color: black !important;
+}
+/* line 36, ../scss/_events.scss */
+#events .big_text_card_picture {
+  top: 25%;
+  font-size: 50px;
+  font-weight: 300;
+}
+/* line 41, ../scss/_events.scss */
+#events .medium_text_card_picture {
+  font-size: 40px;
+  font-weight: 500;
+  top: 35%;
+}
+/* line 46, ../scss/_events.scss */
+#events .card_picture:hover .text_card_picture {
+  opacity: 1;
+  transition: .5s;
+}
+/* line 50, ../scss/_events.scss */
 #events .event_parallax {
   min-height: 50px;
 }
-/* line 25, ../scss/_events.scss */
+/* line 53, ../scss/_events.scss */
 #events .h2_events {
   text-align: center;
 }
@@ -818,7 +910,7 @@ Responsive Menu Nav
     7.PRODUITS
 \*----------------------------------------*/
 /* line 3, ../scss/_products.scss */
-#products .card_products_picture {
+#products .card_picture {
   height: 200px;
   width: auto;
   display: block;
@@ -826,25 +918,20 @@ Responsive Menu Nav
   transition: .5s all;
 }
 /* line 10, ../scss/_products.scss */
-#products .card_products_picture:hover {
-  opacity: .5;
-  transition: .5s all;
-}
-/* line 14, ../scss/_products.scss */
 #products .products_parallax {
   min-height: 200px;
 }
-/* line 17, ../scss/_products.scss */
+/* line 13, ../scss/_products.scss */
 #products .text_perso_products {
   color: #80cbc4;
 }
-/* line 20, ../scss/_products.scss */
+/* line 16, ../scss/_products.scss */
 #products .products_navigation {
   position: fixed;
   margin-top: 20vh;
   z-index: 1;
 }
-/* line 25, ../scss/_products.scss */
+/* line 21, ../scss/_products.scss */
 #products .nav_word {
   display: block;
   margin-top: 10px;
@@ -855,10 +942,22 @@ Responsive Menu Nav
   border-radius: 0px 10px 10px 0px;
   color: white;
 }
-/* line 35, ../scss/_products.scss */
+/* line 31, ../scss/_products.scss */
 #products .nav_word:hover {
   transition: .3s;
   background-color: rgba(0, 0, 0, 0.7);
+}
+/* line 35, ../scss/_products.scss */
+#products .big_text_card_picture_product {
+  top: 20%;
+  font-size: 30px;
+  font-weight: 300;
+}
+/* line 40, ../scss/_products.scss */
+#products .medium_text_card_picture_product {
+  font-size: 20px;
+  font-weight: 500;
+  top: 30%;
 }
 
 /*----------------------------------------*\

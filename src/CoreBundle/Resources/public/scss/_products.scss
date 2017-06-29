@@ -1,28 +1,24 @@
-#products{
+#products {
 
-  .card_products_picture{
+  .card_picture {
     height: 200px;
     width: auto;
     display: block;
     margin: auto;
     transition: .5s all;
   }
-  .card_products_picture:hover{
-    opacity: .5;
-    transition: .5s all;
-  }
-  .products_parallax{
+  .products_parallax {
     min-height: 200px;
   }
   .text_perso_products {
     color: #80cbc4
   }
-  .products_navigation{
+  .products_navigation {
     position: fixed;
     margin-top: 20vh;
     z-index: 1;
   }
-  .nav_word{
+  .nav_word {
     display: block;
     margin-top: 10px;
     opacity: 1;
@@ -32,8 +28,18 @@
     border-radius: 0px 10px 10px 0px;
     color: white;
   }
-  .nav_word:hover{
-    transition:.3s;
+  .nav_word:hover {
+    transition: .3s;
     background-color: rgba(0, 0, 0, .7);
+  }
+  .big_text_card_picture_product {
+    top: 20%;
+    font-size: 30px;
+    font-weight: 300;
+  }
+  .medium_text_card_picture_product {
+    font-size: 20px;
+    font-weight: 500;
+    top: 30%;
   }
 }
