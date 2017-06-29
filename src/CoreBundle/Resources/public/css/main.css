@@ -730,7 +730,6 @@ Responsive Menu Nav
 \*----------------------------------------*/
 /* line 1, ../scss/_blog.scss */
 #blog {
-  /*figure.effect-bubba{background:#9e5406}*/
   /*----------------------------------------
    PARALAX
   ----------------------------------------*/
@@ -738,194 +737,21 @@ Responsive Menu Nav
    XXX
   ----------------------------------------*/
 }
-@font-face {
-  /* line 1, ../scss/_blog.scss */
-  #blog {
-    font-weight: normal;
-    font-style: normal;
-    font-family: 'feathericons';
-    /*src:url('../fonts/feathericons/feathericons.eot?-8is7zf');src:url('../fonts/feathericons/feathericons.eot?#iefix-8is7zf') format('embedded-opentype'),url('../fonts/feathericons/feathericons.woff?-8is7zf') format('woff'),url('../fonts/feathericons/feathericons.ttf?-8is7zf') format('truetype'),url('../fonts/feathericons/feathericons.svg?-8is7zf#feathericons') format('svg')*/
-  }
-}
-/* line 4, ../scss/_blog.scss */
-#blog *, #blog *:after, #blog *:before {
-  box-sizing: border-box;
-}
-/* line 5, ../scss/_blog.scss */
-#blog .grid {
-  position: relative;
-  margin: 0 auto;
-  padding: 1em 0 4em;
-  max-width: 1000px;
-  list-style: none;
-  text-align: center;
-}
-/* line 6, ../scss/_blog.scss */
-#blog .grid figure {
-  position: relative;
-  float: left;
-  overflow: hidden;
-  margin: 10px 1%;
-  min-width: 320px;
-  max-width: 480px;
-  max-height: 360px;
-  width: 48%;
-  text-align: center;
-  cursor: pointer;
-}
 /* line 7, ../scss/_blog.scss */
-#blog .grid figure img {
-  position: relative;
-  display: block;
-  min-height: 100%;
-  max-width: 100%;
-  opacity: .8;
-}
-/* line 8, ../scss/_blog.scss */
-#blog .grid figure figcaption {
-  padding: 2em;
-  color: #000000;
-  text-transform: uppercase;
-  font-size: 2em;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-/* line 9, ../scss/_blog.scss */
-#blog .grid figure figcaption::before, #blog .grid figure figcaption::after {
-  pointer-events: none;
-}
-/* line 10, ../scss/_blog.scss */
-#blog .grid figure figcaption, #blog .grid figure figcaption > a {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-/* line 11, ../scss/_blog.scss */
-#blog .grid figure figcaption > a {
-  z-index: 1000;
-  text-indent: 200%;
-  white-space: nowrap;
-  font-size: 0;
-  opacity: 0;
-}
-/* line 12, ../scss/_blog.scss */
-#blog .grid figure h2 {
-  word-spacing: -0.15em;
-  font-weight: 300;
-}
-/* line 13, ../scss/_blog.scss */
-#blog .grid figure h2 span {
-  font-weight: 800;
-}
-/* line 14, ../scss/_blog.scss */
-#blog .grid figure h2, #blog .grid figure p {
-  margin: 0;
-}
-/* line 15, ../scss/_blog.scss */
-#blog .grid figure p {
-  letter-spacing: 1px;
-  font-size: 68.5%;
-}
-@media screen and (max-width: 50em) {
-  /* line 19, ../scss/_blog.scss */
-  #blog .grid figure {
-    display: inline-block;
-    float: none;
-    margin: 10px auto;
-    width: 100%;
-  }
-}
-/* line 23, ../scss/_blog.scss */
-#blog figure.effect-bubba img {
-  opacity: 1;
-  -webkit-transition: opacity .35s;
-  transition: opacity .35s;
-}
-/* line 24, ../scss/_blog.scss */
-#blog figure.effect-bubba:hover img {
-  opacity: .4;
-}
-/* line 25, ../scss/_blog.scss */
-#blog figure.effect-bubba figcaption::before, #blog figure.effect-bubba figcaption::after {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  bottom: 30px;
-  left: 30px;
-  content: '';
-  opacity: 0;
-  -webkit-transition: opacity .35s,-webkit-transform .35s;
-  transition: opacity .35s,transform .35s;
-}
-/* line 26, ../scss/_blog.scss */
-#blog figure.effect-bubba figcaption::before {
-  border-top: 2px solid #000000;
-  border-bottom: 2px solid #000000;
-  -webkit-transform: scale(0, 1);
-  transform: scale(0, 1);
-}
-/* line 27, ../scss/_blog.scss */
-#blog figure.effect-bubba figcaption::after {
-  border-right: 2px solid #000000;
-  border-left: 2px solid #000000;
-  -webkit-transform: scale(1, 0);
-  transform: scale(1, 0);
-}
-/* line 28, ../scss/_blog.scss */
-#blog figure.effect-bubba h2 {
-  padding-top: 30%;
-  opacity: 0;
-  -webkit-transition: -webkit-transform .35s;
-  transition: transform .35s;
-  -webkit-transform: translate3d(0, -20px, 0);
-  transform: translate3d(0, -20px, 0);
-}
-/* line 29, ../scss/_blog.scss */
-#blog figure.effect-bubba p {
-  padding: 0 2.5em;
-  opacity: 0;
-  -webkit-transition: opacity .35s,-webkit-transform .35s;
-  transition: opacity .35s,transform .35s;
-  -webkit-transform: translate3d(0, 20px, 0);
-  transform: translate3d(0, 20px, 0);
-}
-/* line 30, ../scss/_blog.scss */
-#blog figure.effect-bubba:hover figcaption::before, #blog figure.effect-bubba:hover figcaption::after {
-  opacity: 1;
-  -webkit-transform: scale(1);
-  transform: scale(1);
-}
-/* line 31, ../scss/_blog.scss */
-#blog figure.effect-bubba:hover h2, #blog figure.effect-bubba:hover p {
-  opacity: 1;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-/* line 39, ../scss/_blog.scss */
-#blog .img_card {
-  width: 100%;
-}
-/* line 43, ../scss/_blog.scss */
-#blog figcaption, #blog p {
-  font-size: small;
-}
-/* line 51, ../scss/_blog.scss */
 #blog .parallax-container {
   min-height: 30px;
 }
-/* line 62, ../scss/_blog.scss */
+/* line 18, ../scss/_blog.scss */
 #blog .card-image {
   height: 350px;
 }
-/* line 66, ../scss/_blog.scss */
+/* line 22, ../scss/_blog.scss */
 #blog .card {
   margin-top: 50px;
   margin-bottom: 30px;
   height: 500px;
 }
-/* line 72, ../scss/_blog.scss */
+/* line 28, ../scss/_blog.scss */
 #blog .form_add {
   color: black;
 }
