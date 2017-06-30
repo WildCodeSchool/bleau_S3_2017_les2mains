@@ -18,15 +18,17 @@ class ProductType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', TextType::class)
-            ->add('content', TextareaType::class)
-            ->add('picture', PictureType::class)
+        $builder->add('name', TextType::class,array('label' => 'Nom du Produit'))
+            ->add('content', TextareaType::class,array('label' => 'Description'))
             ->add('categories', EntityType::class, array(
                 'class' => 'CommerceBundle\Entity\Category',
                 'choice_label' => 'type',
-                'label' => "Catégorie"
+                'label' => " "
             ))
-            ->add('submit', SubmitType::class);
+            ->add('picture', PictureType::class, array(
+                'label' => ' '
+            ))
+            ->add('submit', SubmitType::class,array('label' => 'Valider'));
     }
     
     /**

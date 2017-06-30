@@ -32,16 +32,29 @@
 /* FONT */
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Marmelad");
+/* line 52, ../scss/_global.scss */
+.title_categories {
+  text-align: left;
+  font-size: 3em;
+  color: #80cbc4;
+}
+
+/* line 58, ../scss/_global.scss */
+h3 {
+  color: white;
+  font-size: 60px;
+}
+
 /* VARIABLES */
 /* MIXING */
 /* GLOBAL */
-/* line 62, ../scss/_global.scss */
+/* line 74, ../scss/_global.scss */
 p {
   line-height: 2rem;
   text-align: justify;
 }
 
-/* line 67, ../scss/_global.scss */
+/* line 79, ../scss/_global.scss */
 .home_all {
   width: 100%;
   height: 0;
@@ -54,7 +67,7 @@ p {
   text-align: center;
 }
 
-/* line 80, ../scss/_global.scss */
+/* line 92, ../scss/_global.scss */
 .fleche_img {
   background-color: rgba(0, 0, 0, 0.5);
   width: 50px;
@@ -65,7 +78,7 @@ p {
   border-radius: 25px 0 0 25px;
 }
 
-/* line 90, ../scss/_global.scss */
+/* line 102, ../scss/_global.scss */
 .fleche_img:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
@@ -73,7 +86,7 @@ p {
 /*----------------------------------------*\
     BUTTON MENU
 \*----------------------------------------*/
-/* line 96, ../scss/_global.scss */
+/* line 108, ../scss/_global.scss */
 .row .col.s1 {
   font-weight: bold;
   font-size: large;
@@ -81,7 +94,7 @@ p {
   right: inherit;
 }
 
-/* line 104, ../scss/_global.scss */
+/* line 116, ../scss/_global.scss */
 .menu-btn {
   position: absolute;
   margin-left: auto;
@@ -95,7 +108,7 @@ p {
   transition: .5s;
 }
 
-/* line 118, ../scss/_global.scss */
+/* line 130, ../scss/_global.scss */
 .menu-btn:hover {
   background-color: rgba(0, 0, 0, 0.1);
   height: 55px;
@@ -103,7 +116,7 @@ p {
   transition: .5s;
 }
 
-/* line 124, ../scss/_global.scss */
+/* line 136, ../scss/_global.scss */
 .menu_text {
   margin: 50px auto 0px -13px;
   color: #69c546;
@@ -116,7 +129,7 @@ p {
   letter-spacing: 0px;
 }
 
-/* line 136, ../scss/_global.scss */
+/* line 148, ../scss/_global.scss */
 .menu-btn:hover .menu_text {
   transition: .5s;
   color: #00a248;
@@ -124,20 +137,20 @@ p {
   letter-spacing: 2px;
 }
 
-/* line 142, ../scss/_global.scss */
+/* line 154, ../scss/_global.scss */
 .btn_menu_index {
   width: 100px !important;
   height: 100px !important;
 }
 
-/* line 146, ../scss/_global.scss */
+/* line 158, ../scss/_global.scss */
 .btn_menu_index:hover {
   height: 110px !important;
   width: 110px !important;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* line 151, ../scss/_global.scss */
+/* line 163, ../scss/_global.scss */
 .menu-btn:hover .menu_text_index {
   transition: .5s;
   color: #00a248;
@@ -145,21 +158,21 @@ p {
   letter-spacing: 2px;
 }
 
-/* line 157, ../scss/_global.scss */
+/* line 169, ../scss/_global.scss */
 .menu_text_index {
   margin: 100px auto 0px -66px;
   width: 100px;
   font-size: 36px;
 }
 
-/* line 162, ../scss/_global.scss */
+/* line 174, ../scss/_global.scss */
 .menu_text_index:hover {
   height: 110px !important;
   width: 110px !important;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* line 167, ../scss/_global.scss */
+/* line 179, ../scss/_global.scss */
 html > body .menu-btn {
   position: fixed;
 }
@@ -167,59 +180,59 @@ html > body .menu-btn {
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
-/* line 186, ../scss/_global.scss */
+/* line 198, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 190, ../scss/_global.scss */
+/* line 202, ../scss/_global.scss */
 .parallax-container {
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 195, ../scss/_global.scss */
+/* line 207, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 200, ../scss/_global.scss */
+  /* line 212, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 205, ../scss/_global.scss */
+  /* line 217, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 212, ../scss/_global.scss */
+  /* line 224, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 217, ../scss/_global.scss */
+/* line 229, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 221, ../scss/_global.scss */
+/* line 233, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 225, ../scss/_global.scss */
+/* line 237, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
 
 /*----------------------------------------*\
-CARDS HOVER
+     CARDS HOVER
 \*----------------------------------------*/
-/* line 233, ../scss/_global.scss */
+/* line 245, ../scss/_global.scss */
 .block_text_card_picture {
   background-color: rgba(255, 255, 255, 0);
   min-height: 100%;
@@ -227,13 +240,13 @@ CARDS HOVER
   transition: .5s;
 }
 
-/* line 239, ../scss/_global.scss */
+/* line 251, ../scss/_global.scss */
 .card_picture:hover .block_text_card_picture {
   background-color: rgba(255, 255, 255, 0.4);
   transition: .5s;
 }
 
-/* line 243, ../scss/_global.scss */
+/* line 255, ../scss/_global.scss */
 .text_card_picture {
   opacity: 0;
   transition: .5s;
@@ -244,34 +257,62 @@ CARDS HOVER
   color: black !important;
 }
 
-/* line 252, ../scss/_global.scss */
+/* line 264, ../scss/_global.scss */
 .big_text_card_picture {
-  top: 25%;
-  font-size: 40px;
+  top: 38%;
+  font-size: 30px;
   font-weight: 300;
 }
 
-/* line 257, ../scss/_global.scss */
+/* line 269, ../scss/_global.scss */
 .medium_text_card_picture {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 500;
-  top: 35%;
+  top: 40%;
 }
 
-/* line 262, ../scss/_global.scss */
+/* line 274, ../scss/_global.scss */
 .card_picture:hover .text_card_picture {
   opacity: 1;
   transition: .5s;
 }
 
-/* line 266, ../scss/_global.scss */
+/* line 278, ../scss/_global.scss */
 .event_parallax {
   min-height: 50px;
 }
 
-/* line 269, ../scss/_global.scss */
+/* line 281, ../scss/_global.scss */
 .h2_events {
   text-align: center;
+}
+
+/*----------------------------------------*\
+    NAVIGATION PRODUCT, EVENT, ACTIVITE
+\*----------------------------------------*/
+/* line 287, ../scss/_global.scss */
+.products_navigation {
+  position: fixed;
+  margin-top: 20vh;
+  z-index: 1;
+}
+
+/* line 292, ../scss/_global.scss */
+.nav_word {
+  display: block;
+  margin-top: 10px;
+  opacity: 1;
+  transition: .3s;
+  padding: 7px 15px 7px 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0px 10px 10px 0px;
+  color: white;
+}
+
+/* line 302, ../scss/_global.scss */
+.nav_word:hover {
+  transition: .3s;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 /*----------------------------------------*\
@@ -756,15 +797,19 @@ Responsive Menu Nav
    Size Img
   ----------------------------------------*/
 }
-/* line 7, ../scss/_nous.scss */
-#nous .parallax-container {
+/* line 6, ../scss/_nous.scss */
+#nous .header_nous {
+  min-height: 170px;
+}
+/* line 10, ../scss/_nous.scss */
+#nous .parallax_mid {
   min-height: 450px;
 }
-/* line 11, ../scss/_nous.scss */
+/* line 14, ../scss/_nous.scss */
 #nous .footer {
-  min-height: 300px;
+  min-height: 170px;
 }
-/* line 18, ../scss/_nous.scss */
+/* line 21, ../scss/_nous.scss */
 #nous .img_box img {
   width: 300px;
   height: 200px;
@@ -773,13 +818,13 @@ Responsive Menu Nav
   box-shadow: 5px 5px 5px #888888;
   transition: 0.5s;
 }
-/* line 28, ../scss/_nous.scss */
+/* line 30, ../scss/_nous.scss */
 #nous .img_box img:hover {
   width: 450px;
   height: 300px;
   transition: 0.5s;
 }
-/* line 35, ../scss/_nous.scss */
+/* line 36, ../scss/_nous.scss */
 #nous p {
   line-height: 1.3rem;
 }
@@ -796,7 +841,11 @@ Responsive Menu Nav
    XXX
   ----------------------------------------*/
 }
-/* line 7, ../scss/_blog.scss */
+/* line 6, ../scss/_blog.scss */
+#blog .header_blog {
+  min-height: 170px;
+}
+/* line 11, ../scss/_blog.scss */
 #blog .parallax-container {
   min-height: 30px;
 }
@@ -825,16 +874,24 @@ Responsive Menu Nav
 ----------------------------------------*/
 }
 /* line 5, ../scss/_activite.scss */
+#activite .header_activite {
+  min-height: 170px;
+}
+/* line 9, ../scss/_activite.scss */
+#activite .parallax_mid_activite {
+  min-height: 30px;
+}
+/* line 12, ../scss/_activite.scss */
 #activite .card_picture {
   height: 350px;
 }
-/* line 9, ../scss/_activite.scss */
+/* line 16, ../scss/_activite.scss */
 #activite .card {
   margin-top: 50px;
   margin-bottom: 70px;
   height: 500px;
 }
-/* line 15, ../scss/_activite.scss */
+/* line 22, ../scss/_activite.scss */
 #activite .para_activite {
   height: 300px;
 }
@@ -843,10 +900,18 @@ Responsive Menu Nav
     6.EVENTS
 \*----------------------------------------*/
 /* line 3, ../scss/_events.scss */
+#events .header_event {
+  min-height: 170px;
+}
+/* line 7, ../scss/_events.scss */
+#events .parallax_mid_event {
+  min-height: 30px;
+}
+/* line 11, ../scss/_events.scss */
 #events .text_perso_events {
   color: #80cbc4;
 }
-/* line 6, ../scss/_events.scss */
+/* line 14, ../scss/_events.scss */
 #events .card_picture {
   transition: .5s;
   height: 350px;
@@ -854,24 +919,24 @@ Responsive Menu Nav
   display: block;
   margin: auto;
 }
-/* line 13, ../scss/_events.scss */
+/* line 21, ../scss/_events.scss */
 #events .add_stage_btn {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/* line 17, ../scss/_events.scss */
+/* line 25, ../scss/_events.scss */
 #events .block_text_card_picture {
   background-color: rgba(255, 255, 255, 0);
   min-height: 100%;
   min-width: 100%;
   transition: .5s;
 }
-/* line 23, ../scss/_events.scss */
+/* line 31, ../scss/_events.scss */
 #events .card_picture:hover .block_text_card_picture {
   background-color: rgba(255, 255, 255, 0.4);
   transition: .5s;
 }
-/* line 27, ../scss/_events.scss */
+/* line 35, ../scss/_events.scss */
 #events .text_card_picture {
   opacity: 0;
   transition: .5s;
@@ -881,36 +946,36 @@ Responsive Menu Nav
   position: relative;
   color: black !important;
 }
-/* line 36, ../scss/_events.scss */
+/* line 44, ../scss/_events.scss */
 #events .big_text_card_picture {
   top: 25%;
   font-size: 50px;
   font-weight: 300;
 }
-/* line 41, ../scss/_events.scss */
+/* line 49, ../scss/_events.scss */
 #events .medium_text_card_picture {
   font-size: 40px;
   font-weight: 500;
   top: 35%;
 }
-/* line 46, ../scss/_events.scss */
+/* line 54, ../scss/_events.scss */
 #events .card_picture:hover .text_card_picture {
   opacity: 1;
   transition: .5s;
-}
-/* line 50, ../scss/_events.scss */
-#events .event_parallax {
-  min-height: 50px;
-}
-/* line 53, ../scss/_events.scss */
-#events .h2_events {
-  text-align: center;
 }
 
 /*----------------------------------------*\
     7.PRODUITS
 \*----------------------------------------*/
 /* line 3, ../scss/_products.scss */
+#products .header_product {
+  min-height: 170px;
+}
+/* line 7, ../scss/_products.scss */
+#products .parallax_mid_product {
+  min-height: 30px;
+}
+/* line 11, ../scss/_products.scss */
 #products .card_picture {
   height: 200px;
   width: auto;
@@ -918,47 +983,25 @@ Responsive Menu Nav
   margin: auto;
   transition: .5s all;
 }
-/* line 10, ../scss/_products.scss */
+/* line 18, ../scss/_products.scss */
 #products .products_parallax {
   min-height: 200px;
 }
-/* line 13, ../scss/_products.scss */
+/* line 21, ../scss/_products.scss */
 #products .text_perso_products {
   color: #80cbc4;
 }
-/* line 16, ../scss/_products.scss */
-#products .products_navigation {
-  position: fixed;
-  margin-top: 20vh;
-  z-index: 1;
-}
-/* line 21, ../scss/_products.scss */
-#products .nav_word {
-  display: block;
-  margin-top: 10px;
-  opacity: 1;
-  transition: .3s;
-  padding: 7px 15px 7px 15px;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0px 10px 10px 0px;
-  color: white;
-}
-/* line 31, ../scss/_products.scss */
-#products .nav_word:hover {
-  transition: .3s;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-/* line 35, ../scss/_products.scss */
+/* line 24, ../scss/_products.scss */
 #products .big_text_card_picture_product {
-  top: 20%;
-  font-size: 30px;
+  top: 33%;
+  font-size: 24px;
   font-weight: 300;
 }
-/* line 40, ../scss/_products.scss */
+/* line 29, ../scss/_products.scss */
 #products .medium_text_card_picture_product {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 500;
-  top: 30%;
+  top: 31%;
 }
 
 /*----------------------------------------*\
@@ -1087,8 +1130,8 @@ Responsive Menu Nav
 \*----------------------------------------*/
 /* line 3, ../scss/_login.scss */
 #log .logo img {
-  width: 250px;
-  height: 250px;
+  /*width: 350px;*/
+  height: 350px;
   margin-top: 20px;
 }
 /* line 9, ../scss/_login.scss */

@@ -5,6 +5,7 @@ namespace CoreBundle\Form;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -23,10 +24,12 @@ class ActiviteType extends AbstractType
                 'choice_label' => 'nom',
                 'label' => ' '))
                 ->add('titre', TextType::class)
-                ->add('contenu', TextType::class)
-                ->add('picture', PictureType::class)
+                ->add('contenu', TextareaType::class)
+                ->add('picture', PictureType::class, array(
+                    'label' => ' '
+                ))
                 ->add('lien',TextType::class)
-                ->add('submit', SubmitType::class, array('label'=>'Créer'));
+                ->add('submit', SubmitType::class, array('label'=>'Valider'));
 
     }
 

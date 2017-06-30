@@ -1,5 +1,13 @@
 #products {
 
+  .header_product
+  {
+    min-height: 170px;
+  }
+  .parallax_mid_product {
+    min-height: 30px;
+  }
+
   .card_picture {
     height: 200px;
     width: auto;
@@ -13,33 +21,15 @@
   .text_perso_products {
     color: #80cbc4
   }
-  .products_navigation {
-    position: fixed;
-    margin-top: 20vh;
-    z-index: 1;
-  }
-  .nav_word {
-    display: block;
-    margin-top: 10px;
-    opacity: 1;
-    transition: .3s;
-    padding: 7px 15px 7px 15px;
-    background-color: rgba(0, 0, 0, .5);
-    border-radius: 0px 10px 10px 0px;
-    color: white;
-  }
-  .nav_word:hover {
-    transition: .3s;
-    background-color: rgba(0, 0, 0, .7);
-  }
   .big_text_card_picture_product {
-    top: 20%;
-    font-size: 30px;
+    top: 33%;
+    font-size: 24px;
     font-weight: 300;
   }
   .medium_text_card_picture_product {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
-    top: 30%;
+    top: 31%;
   }
+
 }

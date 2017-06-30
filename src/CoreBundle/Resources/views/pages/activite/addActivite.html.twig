@@ -2,22 +2,26 @@
 
 {% block body %}
 <div id="activite">
-
-    <div class="parallax-container parallax-custom para_activite">
+    <div class="products_navigation">
+        {% for theme in themes %}
+            <div class="nav_word_block">
+                <a href="#{{ theme.id }}" class="nav_word">{{ theme.nom }}</a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="parallax-container header_activite">
         <div class="parallax">
             <img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
         </div>
         <div class="row page">
-            <h1 class="col s12 center title">Nos activités</h1>
+            <h3 class="col s12 center title">Nos activités</h3>
         </div>
     </div>
-
-
     <div class="container">
         <!--CONDITION FOR ADMIN-->
         {% if is_granted('ROLE_ADMIN')%}
             <div class="row">
-                <a class="offset-s4 offset-m4 col s4 m4  waves-effect teal z-depth-5 btn align-center " href="#modal1">Ajouter une activité</a>
+                <a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modal1">Ajouter une activité</a>
             </div>
             <div id="modal1" class="modal">
                 <div class="modal-content">
@@ -31,7 +35,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12">
                             {{ form_label (form.titre) }}
                             {{ form_widget (form.titre) }}
                             {{ form_errors (form.titre) }}
@@ -40,7 +44,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             {{ form_label (form.contenu) }}
-                            {{ form_widget (form.contenu) }}
+                            {{ form_widget (form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
                             {{ form_errors (form.contenu) }}
                         </div>
                     </div>
@@ -68,17 +72,13 @@
             </div>
         {% endif %}
     </div>
-
-
+    
     <!--BOUCLE QUI AFFICHE LES ACTIVITES PAR THEMES-->
     <div class="container activite">
         <div class="row">
-        
     {% for theme in themes %}
-
             <div class="col s12">
-
-                <h1>{{ theme.nom }}</h1>
+                <h4 id="{{ theme.id }}" class="title_categories">{{ theme.nom }}</h4>
             </div>
 
     <!--MODAL D'ACTIVITE-->
@@ -100,7 +100,7 @@
                             <div class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">
                                     {{ activite.titre }}
-                                    <i class="material-icons right">reply</i>
+                                    <i class="material-icons right">more_vert</i>
                                 </span>
                                 <p>
                                     <a href="{{ path('event_add') }}#{{ activite.id }}" class="waves-effect teal z-depth-5 btn">stages / cours </a>
@@ -114,12 +114,11 @@
 
                                 <div class="row">
                                     <div class="col s6 m6">
-                                        <a href="{{ activite.lien }}" class="waves-effect teal z-depth-5  btn">à decouvrir</a>
+                                        <a href="{{ activite.lien }}" class="waves-effect teal z-depth-5 btn">à decouvrir</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                             {% if is_granted('ROLE_ADMIN')%}
                                     <a href="{{ path('core_activite_delete', {'id' :activite.id}) }}" class="waves-effect teal z-depth-5  btn activite">Effacer</a>
                                     <a href="#modal{{ activite.id }}" class="waves-effect teal z-depth-5  btn activite">Modifier</a>
@@ -131,7 +130,7 @@
             {% endfor %}
             </div>
     </div>
-        <div class="parallax-container parallax-custom para_activite">
+        <div class="parallax-container parallax_mid_activite">
             <div class="parallax">
                 <img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
             </div>
@@ -141,16 +140,8 @@
             <div class="row">
         {% endfor %}
         </div>
-        </div>
-
     </div>
-
-
-
-
-
-
-
-
+</div>
+    
     {% include '@Core/pages/footer.html.twig' %}
 {% endblock %}

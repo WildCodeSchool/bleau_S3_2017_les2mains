@@ -11,6 +11,15 @@
         {{ form_widget(form.contenu, {'attr': {'class': 'materialize-textarea' }} ) }}
         {{ form_errors(form.contenu) }}
     </div>
+    <div class="input-field form_add">
+        {{ form_label(form.lien) }}
+        {{ form_widget(form.lien, {'attr': {'class': 'materialize-textarea' }}) }}
+        {{ form_errors(form.lien) }}
+    </div>
+    <div class="input-field form_add">
+        {{ form_widget(form.picture.file, {'attr': {'required': 'true' }}) }}
+        {{ form_errors(form.picture.file) }}
+    </div>
     <div class="form_add center-align">
         {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
     </div>

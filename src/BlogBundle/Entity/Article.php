@@ -13,6 +13,7 @@ class Article
     }
 
     //gereate code
+   
     /**
      * @var integer
      */
@@ -32,6 +33,16 @@ class Article
      * @var \DateTime
      */
     private $date;
+
+    /**
+     * @var string
+     */
+    private $lien;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture;
 
 
     /**
@@ -115,11 +126,30 @@ class Article
     {
         return $this->date;
     }
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture;
 
+    /**
+     * Set lien
+     *
+     * @param string $lien
+     *
+     * @return Article
+     */
+    public function setLien($lien)
+    {
+        $this->lien = $lien;
+
+        return $this;
+    }
+
+    /**
+     * Get lien
+     *
+     * @return string
+     */
+    public function getLien()
+    {
+        return $this->lien;
+    }
 
     /**
      * Set picture
@@ -144,39 +174,4 @@ class Article
     {
         return $this->picture;
     }
-    /**
-     * @var string
-     */
-    private $Lien;
-
-
-    /**
-     * Set lien
-     *
-     * @param string $lien
-     *
-     * @return Article
-     */
-    public function setLien($lien)
-    {
-        $this->Lien = $lien;
-
-        return $this;
-    }
-
-    /**
-     * Get lien
-     *
-     * @return string
-     */
-    public function getLien()
-    {
-        return $this->Lien;
-    }
-    /**
-     * @var string
-     */
-    private $lien;
-
-
 }
