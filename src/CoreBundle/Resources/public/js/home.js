@@ -5,5 +5,5 @@ $(document).ready(function () {
     //     $(".open-overlay").trigger('click');
     // });
 
-    $(".titre").delay(1000).animate({left: "0"}, {duration: 1000});
+    $(".titre").delay(1000).animate({fontSize:'65px'}, {duration: 1500});
 });
