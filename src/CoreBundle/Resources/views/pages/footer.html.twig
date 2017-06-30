@@ -1,16 +1,29 @@
 <!--   Section "La Footer"   -->
-<footer class="page-footer teal no_scroll scroll">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Company Bio</h5>
-                <p class="grey-text text-lighten-4">A définir</p>
+<div id="footer">
+    <footer class="page-footer teal no_scroll scroll">
+        <div class="container">
+            <div class="row">
+                <div class="col l12 s12">
+                    <h5 class="white-text footer_title">Le jardin de la Vallée</h5>
+                    <p class="grey-text text-lighten-4 p_center">
+                        <a href="{{ path('core_contact') }}" target="_blank" class="contact_us">Nous contacter</a>
+                    </p>
+                    <div class="logo_container">
+                        <!--
+                          @Logos copyright :
+                          - Facebook logo made by Bogdan Rosu from flaticon
+                          - YouTube logo made by freepik from flaticon
+                        -->
+                        <a href="#"><img src="{{ asset('http://image.noelshack.com/fichiers/2017/26/5/1498813932-004-social-2.png') }}" alt="youtube_logo" class="logo"></a>
+                        <a href="#"><img src="{{ asset('http://image.noelshack.com/fichiers/2017/26/5/1498814076-012-social.png') }}" alt="facebook_logo" class="logo"></a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container">
-            Made by <a class="brown-text text-lighten-3">Les Jardins dans la Vallée</a>
+        <div class="footer-copyright">
+            <div class="container container_copyright">
+                <a class="brown-text text-lighten-3 copyright">© Wild Code School</a>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+</div>

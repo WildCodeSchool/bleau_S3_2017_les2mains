@@ -26,8 +26,7 @@ class EventType extends AbstractType
             ->add('dateStart', DateTimeType::class)
             ->add('dateEnd', DateTimeType::class)
             ->add('location', TextType::class)
-            ->add('price', IntegerType::class)
-            ->add('available_places', IntegerType::class)
+            ->add('price', TextareaType::class)
             ->add('activite', EntityType::class, array(
                 'class'=>'CoreBundle\Entity\Activite',
                 'choice_label' => 'titre'))

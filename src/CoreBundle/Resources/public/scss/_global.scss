@@ -113,6 +113,7 @@ p {
     width:50px!important;
     border-bottom: none!important;
     transition: .5s;
+    border-radius: 50%;
 
 }
 .menu-btn:hover{
@@ -158,11 +159,7 @@ p {
     margin: 100px auto 0px -66px;
     width: 100px;
     font-size: 36px;
-}
-.menu_text_index:hover{
-    height: 110px!important;
-    width: 110px!important;
-    background-color: rgba(0,0,0, .3);
+
 }
 html>body .menu-btn
 {
