@@ -49,6 +49,18 @@
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Marmelad');
 
+.title_categories
+{
+    text-align: left;
+    font-size: 3em;
+    color:#80cbc4;
+}
+h3
+{
+    color: white;
+    font-size: 60px;
+}
+
 /* VARIABLES */
 
 $orange: orangered;
@@ -169,6 +181,16 @@ html>body .menu-btn
     position: fixed;
 }
 
+//.scroll {
+//    position: relative;
+//}
+//
+//.no_scroll {
+//    position: fixed;
+//    bottom: 0;
+//    width: 100%;
+//}
+
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
@@ -216,3 +238,68 @@ footer.page-footer {
     margin: 0;
 }
 
+/*----------------------------------------*\
+     CARDS HOVER
+\*----------------------------------------*/
+
+.block_text_card_picture{
+    background-color: rgba(255,255,255, 0);
+    min-height: 100%;
+    min-width: 100%;
+    transition: .5s;
+}
+.card_picture:hover .block_text_card_picture{
+    background-color: rgba(255,255,255, .4);
+    transition: .5s;
+}
+.text_card_picture{
+    opacity: 0;
+    transition: .5s;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    position: relative;
+    color: black!important;
+}
+.big_text_card_picture{
+    top: 38%;
+    font-size: 30px;
+    font-weight: 300;
+}
+.medium_text_card_picture{
+    font-size: 20px;
+    font-weight: 500;
+    top: 40%;
+}
+.card_picture:hover .text_card_picture{
+    opacity: 1;
+    transition: .5s;
+}
+.event_parallax {
+    min-height: 50px;
+}
+.h2_events{
+    text-align: center;
+}
+/*----------------------------------------*\
+    NAVIGATION PRODUCT, EVENT, ACTIVITE
+\*----------------------------------------*/
+.products_navigation {
+    position: fixed;
+    margin-top: 20vh;
+    z-index: 1;
+}
+.nav_word {
+    display: block;
+    margin-top: 10px;
+    opacity: 1;
+    transition: .3s;
+    padding: 7px 15px 7px 15px;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 0px 10px 10px 0px;
+    color: white;
+}
+.nav_word:hover {
+    transition: .3s;
+    background-color: rgba(0, 0, 0, .7);
+}

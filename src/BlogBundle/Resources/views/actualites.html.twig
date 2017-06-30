@@ -3,18 +3,17 @@
 {% block body %}
 
 <div id="blog">
-    <div class="parallax-container">
+    <div class="parallax-container header_blog">
         <div class="row">
-            <h1 class="col s12 center title">Actualités</h1>
+            <h3 class="col s12 center title">Actualités</h3>
             {% if is_granted('ROLE_ADMIN') %}
             <!-- Modal Trigger -->
-            <a class="col s2 offset-s5 waves-effect waves-light btn" href="#addArticle">Ajouter une Actu</a>
+            <a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#addArticle">Ajouter une Actu</a>
 
             <!-- Modal Structure -->
             <div id="addArticle" class="modal">
                 <div class="modal-content">
                     {{ form_start(form) }}
-
                     <div class="input-field form_add">
                         {{ form_label(form.titre) }}
                         {{ form_widget(form.titre) }}
@@ -32,26 +31,29 @@
                     <div class="input-field form_add">
                         {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
                     </div>
-
                     {{ form_end(form) }}
                 </div>
             </div>
+            
             {% endif %}
         </div>
         <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}" alt="paralax_1"></div>
     </div>
     <div class="container container_custom">
         <div class="row">
-
         {% for article in articles %}
             {% set i = i + 1 %}
-
             <div class="col s12 m6 l6 card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="{{ asset('uploads/images/' ~ article.picture.src ) }}">
+                    <div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ article.picture.src ) }}'); background-size:cover; background-position:center">
+                        <div class="block_text_card_picture activator btn waves-effect waves-light">
+                            <span class="text_card_picture big_text_card_picture activator">Cliquez</span>
+                            <span class="text_card_picture medium_text_card_picture activator">Pour plus d'infos</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{ article.titre }}<i class="material-icons right">add</i></span>
+                    <span class="card-title activator grey-text text-darken-4">{{ article.titre }}<i class="material-icons right">more_vert</i></span>
                     <p><a href="#">{{ article.date|date("d/m/Y") }}</a></p>
                     <div class="row">
                         <!-- Modal Trigger -->

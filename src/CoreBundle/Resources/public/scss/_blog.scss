@@ -1,7 +1,12 @@
 #blog{
+
   /*----------------------------------------
    PARALAX
   ----------------------------------------*/
+  .header_blog
+  {
+    min-height: 170px;
+  }
 
   .parallax-container {
     min-height: 30px;
@@ -10,11 +15,7 @@
   /*----------------------------------------
    XXX
   ----------------------------------------*/
-  .container_custom{
-
-  }
-
-  .card-image {
+  .card_picture {
     height: 350px;
   }
 

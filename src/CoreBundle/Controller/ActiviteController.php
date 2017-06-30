@@ -3,7 +3,8 @@
 namespace CoreBundle\Controller;
 
 use CoreBundle\Entity\Activite;
-use CoreBundle\Form\ActiviteType;
+use CoreBundle\Entity\ActiviteType;
+use CoreBundle\Form\ActiviteTypeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,7 +27,7 @@ class ActiviteController extends Controller
 
 
         $activite = new Activite();
-        $form = $this->createForm(ActiviteType::class, $activite);
+        $form = $this->createForm(\CoreBundle\Form\ActiviteType::class, $activite);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -37,10 +38,23 @@ class ActiviteController extends Controller
             return $this->redirectToRoute('core_activite_add');
         }
 
+        $activitetype = new ActiviteType();
+        $forms = $this->createForm(ActiviteTypeType::class, $activitetype);
+        $forms ->handleRequest($request);
+
+        if ($forms->isSubmitted() && $forms->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($activitetype);
+            $em->flush();
+
+        return $this->redirectToRoute('core_activite_add');
+        }
+
         return $this->render('@Core/pages/activite/addActivite.html.twig', array(
             'i' => $i,
             'themes' => $themes,
             'form' => $form->createView(),
+            'forms' => $forms->createView(),
 
         ));
 
@@ -55,7 +69,7 @@ class ActiviteController extends Controller
      */
     public function editActiviteAction(Request $request, Activite $activite)
     {
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $activite->getId(), ActiviteType::class, $activite);
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $activite->getId(), \CoreBundle\Form\ActiviteType::class, $activite);
         $formBuilder->setAction($this->generateUrl('core_activite_editValide', array(
             'id' => $activite->getId()
         )));

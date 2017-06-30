@@ -2,25 +2,55 @@
 
 {% block body %}
 <div id="activite">
-
-    <div class="parallax-container parallax-custom para_activite">
+    <div class="products_navigation">
+        {% for theme in themes %}
+            <div class="nav_word_block">
+                <a href="#{{ theme.id }}" class="nav_word">{{ theme.nom }}</a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="parallax-container header_activite">
         <div class="parallax">
             <img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
         </div>
         <div class="row page">
-            <h1 class="col s12 center title">Nos activités</h1>
+            <h3 class="col s12 center title">Nos activités</h3>
         </div>
     </div>
 
 
-    <div class="container">
-        <!--CONDITION POUR ADMIN-->
+    <div class="container themes">
         {% if is_granted('ROLE_ADMIN')%}
             <div class="row">
-                <a class="offset-s4 offset-m4 col s4 m4  waves-effect teal z-depth-5 darken-4 btn align-center " href="#modal1">Ajouter une activité</a>
+                <a class = "offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center " href="#modalthemes">Ajouter un theme</a>
             </div>
+        <div id="modalthemes" class="modal">
+            <div class="modal-content">
+                {{ form_start(forms) }}
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form_label (forms.nom) }}
+                        {{ form_widget (forms.nom) }}
+                        {{ form_errors (forms.nom) }}
+                    </div>
+                    {{ form_widget(forms.submit, {'attr' : {'class': 'btn btn-primary'}}) }}
+                    {{ form_end(forms) }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
 
-            <!--MODAL D'AJOUT D'ACTIVITE-->
+
+
+
+
+    <div class="container">
+        <!--CONDITION FOR ADMIN-->
+        {% if is_granted('ROLE_ADMIN')%}
+            <div class="row">
+                <a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modal1">Ajouter une activité</a>
+            </div>
             <div id="modal1" class="modal">
                 <div class="modal-content">
                             {{ form_start(form) }}
@@ -33,7 +63,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s6">
+                        <div class="input-field col s12">
                             {{ form_label (form.titre) }}
                             {{ form_widget (form.titre) }}
                             {{ form_errors (form.titre) }}
@@ -42,48 +72,66 @@
                     <div class="row">
                         <div class="input-field col s12">
                             {{ form_label (form.contenu) }}
-                            {{ form_widget (form.contenu) }}
+                            {{ form_widget (form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
                             {{ form_errors (form.contenu) }}
                         </div>
-                        {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form_label (form.lien) }}
+                            {{ form_widget (form.lien) }}
+                            {{ form_errors (form.lien) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form_label (form.picture) }}
+                            {{ form_widget (form.picture) }}
+                            {{ form_errors (form.picture) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                        </div>
                         {{ form_end(form) }}
                     </div>
                 </div>
             </div>
-
-            <!--MODAL D'AJOUT D'ACTIVITE FIN-->
         {% endif %}
     </div>
-    <!--CONDITION POUR ADMIN FIN-->
-
+    
     <!--BOUCLE QUI AFFICHE LES ACTIVITES PAR THEMES-->
     <div class="container activite">
         <div class="row">
-        
     {% for theme in themes %}
-
             <div class="col s12">
-
-                <h1>{{ theme.nom }}</h1>
+                <h4 id="{{ theme.id }}" class="title_categories">{{ theme.nom }}</h4>
             </div>
 
     <!--MODAL D'ACTIVITE-->
 
             {% for activite in theme.activites %}
                     {% set i = i + 1 %}
-
                     <div class="col s12 m6 l6">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="{{ asset('uploads/images/' ~ activite.picture.src ) }}">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ activite.picture.src ) }}'); background-size:cover; background-position:center">
+                                        <div class="block_text_card_picture activator btn waves-effect waves-light">
+                                            <span class="text_card_picture big_text_card_picture activator">Cliquez</span>
+                                            <span class="text_card_picture medium_text_card_picture activator">Pour plus d'infos</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">
                                     {{ activite.titre }}
-                                    <i class="material-icons right">add</i>
+                                    <i class="material-icons right">more_vert</i>
                                 </span>
                                 <p>
-                                    <a  {# href="{{ path('nos_events.html.twig') }}" #}class="waves-effect teal z-depth-5 darken-4 btn">stages / cours </a>
+                                    <a href="{{ path('event_add') }}#{{ activite.id }}" class="waves-effect teal z-depth-5 btn">stages / cours </a>
                                 </p>
                             </div>
                             <div class="card-reveal">
@@ -94,39 +142,23 @@
 
                                 <div class="row">
                                     <div class="col s6 m6">
-                                        <a href="https://www.pierrerabhi.org/" class="waves-effect teal z-depth-5 darken-4 btn">à decouvrir</a>
-                                    </div>
-                                    <div class="offset-s3 offset-m3 col s3 m3">
-                                        <a class="waves-effect teal z-depth-5 darken-4 btn" href="{{ path('core_contact') }}">En plus</a>
-                                        <!-- Modal de renseignements fin-->
+                                        <a href="{{ activite.lien }}" class="waves-effect teal z-depth-5 btn">à decouvrir</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                             {% if is_granted('ROLE_ADMIN')%}
-                            <!-- button delete-->
-                                    <a href="{{ path('core_activite_delete', {'id' :activite.id}) }}" class="waves-effect teal z-depth-5 darken-4 btn activite">Effacer</a>
-                            <!-- button edit-->
-                                    <a href="#modal{{ activite.id }}" class="waves-effect teal z-depth-5 darken-4 btn activite">Modifier</a>
-                            <!-- Modal Structure -->
+                                    <a href="{{ path('core_activite_delete', {'id' :activite.id}) }}" class="waves-effect teal z-depth-5  btn activite">Effacer</a>
+                                    <a href="#modal{{ activite.id }}" class="waves-effect teal z-depth-5  btn activite">Modifier</a>
                             <div id="modal{{ activite.id }}" class="modal">
-                                <!-- On rend la vue editActivite a la vue de la modal -->
                                 {{ render(controller('CoreBundle:Activite:editActivite',{ 'id': activite.id })) }}
                             </div>
-
-
-
                             {% endif %}
                     </div>
-
-
             {% endfor %}
-
-
             </div>
     </div>
-        <div class="parallax-container parallax-custom para_activite">
+        <div class="parallax-container parallax_mid_activite">
             <div class="parallax">
                 <img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
             </div>
@@ -136,16 +168,8 @@
             <div class="row">
         {% endfor %}
         </div>
-        </div>
-
     </div>
-
-
-
-
-
-
-
-
+</div>
+    
     {% include '@Core/pages/footer.html.twig' %}
 {% endblock %}

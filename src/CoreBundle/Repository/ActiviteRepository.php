@@ -10,5 +10,13 @@ namespace CoreBundle\Repository;
  */
 class ActiviteRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getActivities()
+    {
+        $qb = $this->createQueryBuilder('a');
+        $qb->select('a')
+            ->join('a.event','e')
+            ->where('e.id IS NOT NULL');
 
+        return $qb->getQuery()->getresult();
+    }
 }
