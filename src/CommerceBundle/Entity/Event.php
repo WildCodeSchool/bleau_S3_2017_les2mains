@@ -7,6 +7,8 @@ namespace CommerceBundle\Entity;
  */
 class Event
 {
+   
+
     /**
      * @var integer
      */
@@ -38,14 +40,19 @@ class Event
     private $location;
 
     /**
-     * @var integer
+     * @var string
      */
     private $price;
 
     /**
-     * @var integer
+     * @var \CoreBundle\Entity\Picture
      */
-    private $available_places;
+    private $picture;
+
+    /**
+     * @var \CoreBundle\Entity\Activite
+     */
+    private $activite;
 
 
     /**
@@ -181,7 +188,7 @@ class Event
     /**
      * Set price
      *
-     * @param integer $price
+     * @param string $price
      *
      * @return Event
      */
@@ -195,70 +202,12 @@ class Event
     /**
      * Get price
      *
-     * @return integer
+     * @return string
      */
     public function getPrice()
     {
         return $this->price;
     }
-
-    /**
-     * Set availablePlaces
-     *
-     * @param integer $availablePlaces
-     *
-     * @return Event
-     */
-    public function setAvailablePlaces($availablePlaces)
-    {
-        $this->available_places = $availablePlaces;
-
-        return $this;
-    }
-
-    /**
-     * Get availablePlaces
-     *
-     * @return integer
-     */
-    public function getAvailablePlaces()
-    {
-        return $this->available_places;
-    }
-    /**
-     * @var \CoreBundle\Entity\Activite
-     */
-    private $activite;
-
-
-    /**
-     * Set activite
-     *
-     * @param \CoreBundle\Entity\Activite $activite
-     *
-     * @return Event
-     */
-    public function setActivite(\CoreBundle\Entity\Activite $activite = null)
-    {
-        $this->activite = $activite;
-
-        return $this;
-    }
-
-    /**
-     * Get activite
-     *
-     * @return \CoreBundle\Entity\Activite
-     */
-    public function getActivite()
-    {
-        return $this->activite;
-    }
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture;
-
 
     /**
      * Set picture
@@ -282,5 +231,29 @@ class Event
     public function getPicture()
     {
         return $this->picture;
+    }
+
+    /**
+     * Set activite
+     *
+     * @param \CoreBundle\Entity\Activite $activite
+     *
+     * @return Event
+     */
+    public function setActivite(\CoreBundle\Entity\Activite $activite = null)
+    {
+        $this->activite = $activite;
+
+        return $this;
+    }
+
+    /**
+     * Get activite
+     *
+     * @return \CoreBundle\Entity\Activite
+     */
+    public function getActivite()
+    {
+        return $this->activite;
     }
 }

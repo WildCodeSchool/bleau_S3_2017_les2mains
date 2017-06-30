@@ -24,9 +24,7 @@ CommerceBundle\Entity\Event:
             type: string
             length: 255
         price:
-            type: integer
-        available_places:
-            type: integer
+            type: text
     lifecycleCallbacks: {  }
 
     manyToOne:
