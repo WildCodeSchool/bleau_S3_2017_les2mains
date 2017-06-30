@@ -28,51 +28,53 @@
                                <h4>Ajouter un stage</h4>
                                {{ form_start(form) }}
 
-                               <div class="input-field">
+                               <div class="input-field col s12">
                                    {{ form_label(form.title) }}
                                    {{ form_widget(form.title) }}
                                    {{ form_errors(form.title) }}
                                </div>
 
-                               <div class="input-field">
+                               <div class="input-field col s12">
                                    {{ form_label(form.description) }}
                                    {{ form_widget(form.description, {'attr': {'class': 'materialize-textarea' }}) }}
                                    {{ form_errors(form.description) }}
+                               </div>
 
                                <div class="form_add col s6">
                                    {{ form_label(form.dateStart) }}
                                    {{ form_widget(form.dateStart) }}
                                    {{ form_errors(form.dateStart) }}
                                </div>
+
                                <div class="form_add col s6">
                                    {{ form_label(form.dateEnd) }}
                                    {{ form_widget(form.dateEnd) }}
                                    {{ form_errors(form.dateEnd) }}
                                </div>
-                               <div class="form_add">
+                               <div class="form_add col s12">
                                    {{ form_label(form.activite) }}
                                    {{ form_widget(form.activite) }}
                                    {{ form_errors(form.activite) }}
                                </div>
-                               <div class="form_add">
-		                           {{ form_label(form.price) }}
-		                           {{ form_widget(form.price) }}
-		                           {{ form_errors(form.price) }}
+                               <div class="form_add col s12">
+                                   {{ form_label(form.price) }}
+                                   {{ form_widget(form.price) }}
+                                   {{ form_errors(form.price) }}
                                </div>
 
-                               <div class="input-field">
-		                           {{ form_label(form.location) }}
-		                           {{ form_widget(form.location) }}
-		                           {{ form_errors(form.location) }}
+                               <div class="input-field col s12">
+                                   {{ form_label(form.location) }}
+                                   {{ form_widget(form.location) }}
+                                   {{ form_errors(form.location) }}
                                </div>
-                               <div class="input-field">
-		                           {{ form_widget(form.picture.file, {'attr': {'required': 'true' }}) }}
-		                           {{ form_errors(form.picture.file) }}
+                               <div class="input-field col s12">
+                                   {{ form_widget(form.picture.file, {'attr': {'required': 'true' }}) }}
+                                   {{ form_errors(form.picture.file) }}
                                </div>
                                <div class="row">
-                                   <div class="input-field">
-		                           {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-                               </div>
+                                   <div class="input-field col s12">
+                                       {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                                   </div>
                                {{ form_end((form))}}
                                </div>
                            </div>

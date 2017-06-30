@@ -109,7 +109,7 @@ p {
   border-radius: 50%;
 }
 
-/* line 130, ../scss/_global.scss */
+/* line 131, ../scss/_global.scss */
 .menu-btn:hover {
   background-color: rgba(0, 0, 0, 0.1);
   height: 55px;
@@ -117,8 +117,7 @@ p {
   transition: .5s;
 }
 
-
-/* line 136, ../scss/_global.scss */
+/* line 137, ../scss/_global.scss */
 .menu_text {
   margin: 50px auto 0px -13px;
   color: #69c546;
@@ -131,7 +130,7 @@ p {
   letter-spacing: 0px;
 }
 
-/* line 148, ../scss/_global.scss */
+/* line 149, ../scss/_global.scss */
 .menu-btn:hover .menu_text {
   transition: .5s;
   color: #00a248;
@@ -139,21 +138,20 @@ p {
   letter-spacing: 2px;
 }
 
-/* line 154, ../scss/_global.scss */
+/* line 155, ../scss/_global.scss */
 .btn_menu_index {
   width: 100px !important;
   height: 100px !important;
 }
 
-/* line 158, ../scss/_global.scss */
+/* line 159, ../scss/_global.scss */
 .btn_menu_index:hover {
   height: 110px !important;
   width: 110px !important;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-
-/* line 163, ../scss/_global.scss */
+/* line 164, ../scss/_global.scss */
 .menu-btn:hover .menu_text_index {
   transition: .5s;
   color: #00a248;
@@ -161,21 +159,14 @@ p {
   letter-spacing: 2px;
 }
 
-/* line 169, ../scss/_global.scss */
+/* line 170, ../scss/_global.scss */
 .menu_text_index {
   margin: 100px auto 0px -66px;
   width: 100px;
   font-size: 36px;
 }
 
-/* line 174, ../scss/_global.scss */
-.menu_text_index:hover {
-  height: 110px !important;
-  width: 110px !important;
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-/* line 179, ../scss/_global.scss */
+/* line 176, ../scss/_global.scss */
 html > body .menu-btn {
   position: fixed;
 }
@@ -183,57 +174,51 @@ html > body .menu-btn {
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
-
-/* line 198, ../scss/_global.scss */
+/* line 195, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 202, ../scss/_global.scss */
+/* line 199, ../scss/_global.scss */
 .parallax-container {
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-
-/* line 207, ../scss/_global.scss */
+/* line 204, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-
-  /* line 212, ../scss/_global.scss */
+  /* line 209, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 217, ../scss/_global.scss */
+  /* line 214, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-
-  /* line 224, ../scss/_global.scss */
+  /* line 221, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-
-/* line 229, ../scss/_global.scss */
+/* line 226, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-
-/* line 233, ../scss/_global.scss */
+/* line 230, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 237, ../scss/_global.scss */
+/* line 234, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
@@ -241,8 +226,7 @@ footer.page-footer {
 /*----------------------------------------*\
      CARDS HOVER
 \*----------------------------------------*/
-
-/* line 245, ../scss/_global.scss */
+/* line 242, ../scss/_global.scss */
 .block_text_card_picture {
   background-color: rgba(255, 255, 255, 0);
   min-height: 100%;
@@ -250,14 +234,13 @@ footer.page-footer {
   transition: .5s;
 }
 
-/* line 251, ../scss/_global.scss */
+/* line 248, ../scss/_global.scss */
 .card_picture:hover .block_text_card_picture {
   background-color: rgba(255, 255, 255, 0.4);
   transition: .5s;
 }
 
-
-/* line 255, ../scss/_global.scss */
+/* line 252, ../scss/_global.scss */
 .text_card_picture {
   opacity: 0;
   transition: .5s;
@@ -268,36 +251,32 @@ footer.page-footer {
   color: black !important;
 }
 
-
-/* line 264, ../scss/_global.scss */
+/* line 261, ../scss/_global.scss */
 .big_text_card_picture {
   top: 38%;
   font-size: 30px;
   font-weight: 300;
 }
 
-
-/* line 269, ../scss/_global.scss */
+/* line 266, ../scss/_global.scss */
 .medium_text_card_picture {
   font-size: 20px;
   font-weight: 500;
   top: 40%;
 }
 
-
-/* line 274, ../scss/_global.scss */
+/* line 271, ../scss/_global.scss */
 .card_picture:hover .text_card_picture {
   opacity: 1;
   transition: .5s;
 }
 
-
-/* line 278, ../scss/_global.scss */
+/* line 275, ../scss/_global.scss */
 .event_parallax {
   min-height: 50px;
 }
 
-/* line 281, ../scss/_global.scss */
+/* line 278, ../scss/_global.scss */
 .h2_events {
   text-align: center;
 }
@@ -305,17 +284,14 @@ footer.page-footer {
 /*----------------------------------------*\
     NAVIGATION PRODUCT, EVENT, ACTIVITE
 \*----------------------------------------*/
-
-/* line 287, ../scss/_global.scss */
-
+/* line 284, ../scss/_global.scss */
 .products_navigation {
   position: fixed;
   margin-top: 20vh;
   z-index: 1;
 }
 
-/* line 292, ../scss/_global.scss */
-
+/* line 289, ../scss/_global.scss */
 .nav_word {
   display: block;
   margin-top: 10px;
@@ -327,9 +303,7 @@ footer.page-footer {
   color: white;
 }
 
-
-/* line 302, ../scss/_global.scss */
-
+/* line 299, ../scss/_global.scss */
 .nav_word:hover {
   transition: .3s;
   background-color: rgba(0, 0, 0, 0.7);
@@ -966,18 +940,6 @@ Responsive Menu Nav
   color: black !important;
 }
 /* line 44, ../scss/_events.scss */
-#events .big_text_card_picture {
-  top: 25%;
-  font-size: 50px;
-  font-weight: 300;
-}
-/* line 49, ../scss/_events.scss */
-#events .medium_text_card_picture {
-  font-size: 40px;
-  font-weight: 500;
-  top: 35%;
-}
-/* line 54, ../scss/_events.scss */
 #events .card_picture:hover .text_card_picture {
   opacity: 1;
   transition: .5s;
@@ -1205,6 +1167,3 @@ Responsive Menu Nav
 #log .row_login {
   margin-top: 100px;
 }
-
-
-
