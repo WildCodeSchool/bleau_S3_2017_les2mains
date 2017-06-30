@@ -25,7 +25,9 @@ class ActiviteType extends AbstractType
                 ->add('titre', TextType::class)
                 ->add('contenu', TextType::class)
                 ->add('picture', PictureType::class)
-                ->add('lien',TextType::class)
+                ->add('lien',TextType::class, array(
+                    'required' => false
+                ))
                 ->add('submit', SubmitType::class, array('label'=>'Créer'));
 
     }
