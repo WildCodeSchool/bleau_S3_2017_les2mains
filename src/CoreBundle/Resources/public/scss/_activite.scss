@@ -2,6 +2,13 @@
   /*----------------------------------------
   PARALLAX
  ----------------------------------------*/
+  .header_activite
+  {
+    min-height: 170px;
+  }
+  .parallax_mid_activite {
+    min-height: 30px;
+  }
   .card_picture {
     height: 350px;
   }
@@ -15,6 +22,5 @@
   .para_activite{
     height: 300px;
   }
-
 
 }

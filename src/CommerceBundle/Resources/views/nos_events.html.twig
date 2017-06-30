@@ -9,9 +9,9 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="parallax-container">
+        <div class="parallax-container header_event">
             <div class="section header">
-                <h2 class="header center teal-text text-lighten-2">Nos stages</h2>
+                <h3 class="header center title">Nos Cours et Stages</h3>
             </div>
             <div class="parallax">
                 <img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
@@ -21,68 +21,67 @@
                <div class="row">
                    {% if is_granted('ROLE_ADMIN') %}
                        <!-- Modal Trigger -->
-                       <a class=" col s6 offset-s3 waves-effect waves-light btn add_stage_btn" href="#addevent">Ajouter un stage</a>
+                       <a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#addevent">Ajouter un stage</a>
                        <!-- Modal Structure -->
                        <div id="addevent" class="modal">
                            <div class="modal-content">
                                <h4>Ajouter un stage</h4>
                                {{ form_start(form) }}
 
-                               <div class="input-field form_add">
+                               <div class="input-field col s12">
                                    {{ form_label(form.title) }}
                                    {{ form_widget(form.title) }}
                                    {{ form_errors(form.title) }}
                                </div>
 
-                               <div class="input-field form_add">
+                               <div class="input-field col s12">
                                    {{ form_label(form.description) }}
-                                   {{ form_widget(form.description) }}
+                                   {{ form_widget(form.description, {'attr': {'class': 'materialize-textarea' }}) }}
                                    {{ form_errors(form.description) }}
                                </div>
 
-                               <div class="form_add">
+                               <div class="form_add col s12">
                                    {{ form_label(form.dateStart) }}
                                    {{ form_widget(form.dateStart) }}
                                    {{ form_errors(form.dateStart) }}
                                </div>
 
-                               <div class="form_add">
+                               <div class="form_add col s12">
                                    {{ form_label(form.dateEnd) }}
                                    {{ form_widget(form.dateEnd) }}
                                    {{ form_errors(form.dateEnd) }}
                                </div>
-
-                               <div class="input-field form_add">
-                                   {{ form_label(form.location) }}
-                                   {{ form_widget(form.location) }}
-                                   {{ form_errors(form.location) }}
-                               </div>
-
-                               <div class="form_add">
-                                   {{ form_label(form.price) }}
-                                   {{ form_widget(form.price) }}
-                                   {{ form_errors(form.price) }}
-                               </div>
-
-                               <div class="input-field form_add">
-                                   {{ form_label(form.available_places) }}
-                                   {{ form_widget(form.available_places) }}
-                                   {{ form_errors(form.available_places) }}
-                               </div>
-
-                               <div class="form_add">
+                               <div class="form_add col s12">
                                    {{ form_label(form.activite) }}
                                    {{ form_widget(form.activite) }}
                                    {{ form_errors(form.activite) }}
                                </div>
-                               <div class="input-field form_add">
+                               <div class="form_add col s12">
+		                           {{ form_label(form.price) }}
+		                           {{ form_widget(form.price) }}
+		                           {{ form_errors(form.price) }}
+                               </div>
+    
+                               <div class="input-field col s12">
+		                           {{ form_label(form.location) }}
+		                           {{ form_widget(form.location) }}
+		                           {{ form_errors(form.location) }}
+                               </div>
+                               <div class="input-field col s12">
+		                           {{ form_label(form.available_places) }}
+		                           {{ form_widget(form.available_places) }}
+		                           {{ form_errors(form.available_places) }}
+                               </div>
+                               <div class="input-field col s12">
 		                           {{ form_widget(form.picture.file, {'attr': {'required': 'true' }}) }}
 		                           {{ form_errors(form.picture.file) }}
                                </div>
                                <div class="row">
+                                   <div class="input-field col s12">
 		                           {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
                                </div>
                                {{ form_end((form))}}
+                               </div>
                            </div>
                        </div>
                    {% endif %}
@@ -90,7 +89,7 @@
             
                 <div class="row">
                 {% for activite in activities  %}
-                <h2 id="{{ activite.id }}" class="text_perso_events h2_events">{{ activite.titre }}</h2>
+                <h4 id="{{ activite.id }}" class="title_categories">{{ activite.titre }}</h4>
                 {% for event in activite.event %}
                 {% set i = i + 1 %}
                 <div class="col m6">
@@ -104,9 +103,7 @@
                             </div>
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">{{ event.title }} <i class="material-icons right">reply</i></span>
-                            <button class="btn waves-effect waves-light" type="submit" name="action">video
-                            </button>
+                            <span class="card-title activator grey-text text-darken-4">{{ event.title }} <i class="material-icons right">more_vert</i></span>
                             {# TODO A mettre en place avec un Form #}
                            {# <button class="btn waves-effect waves-light" type="submit" name="action">Je participe
                                 <i class="medium material-icons right">done</i>
@@ -146,7 +143,7 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="parallax-container event_parallax">
+        <div class="parallax-container parallax_mid_event">
             <div class="parallax">
                 <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
             </div>

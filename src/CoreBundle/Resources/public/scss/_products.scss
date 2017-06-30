@@ -1,5 +1,13 @@
 #products {
 
+  .header_product
+  {
+    min-height: 170px;
+  }
+  .parallax_mid_product {
+    min-height: 30px;
+  }
+
   .card_picture {
     height: 200px;
     width: auto;
@@ -23,4 +31,5 @@
     font-weight: 500;
     top: 31%;
   }
+
 }
