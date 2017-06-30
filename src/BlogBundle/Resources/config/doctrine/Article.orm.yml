@@ -16,6 +16,9 @@ BlogBundle\Entity\Article:
             type: text
         date:
             type: datetime
+        lien:
+            type: text
+            nullable: true
     lifecycleCallbacks: {  }
     
     oneToOne:

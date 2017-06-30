@@ -25,7 +25,9 @@ class ActiviteType extends AbstractType
                 'label' => ' '))
                 ->add('titre', TextType::class)
                 ->add('contenu', TextareaType::class)
-                ->add('picture', PictureType::class)
+                ->add('picture', PictureType::class, array(
+                    'label' => ' '
+                ))
                 ->add('lien',TextType::class)
                 ->add('submit', SubmitType::class, array('label'=>'Valider'));
 

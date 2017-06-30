@@ -2,19 +2,26 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<style>
+		h1 {color: rgb(128, 203, 196); font-size: 40px;}
+		h4, p{font-size: 20px; width: 300px;}
+		.border {border-bottom: solid 2px rgb(128, 203, 196);}
+		.green {background-color: #339933; width: 100%; height: 100px;}
+	</style>
 </head>
 
 
 	<body>
+	<h1>Le Jardin De La Vallée</h1>
 		<div class="Name">
-			<h4>Nom :{{ contact.nom }}</h4>
-			<h4>Prénom :{{ contact.prenom }}</h4>
+			<h4 class="border">Nom : {{ contact.nom }}</h4>
+			<h4 class="border">Prénom : {{ contact.prenom }}</h4>
 		</div>
 		<div class="email">
-			<p>Email :{{ contact.email }}</p>
+			<p>Email : {{ contact.email }}</p>
 		</div>
 		<div class="content">
-			<p>Informations : {{ contact.contenu }}</p>
+			<p>Sujet : {{ contact.contenu }}</p>
 		</div>
 	</body>
 </html>
