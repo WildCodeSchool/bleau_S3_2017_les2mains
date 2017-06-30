@@ -7,8 +7,9 @@ namespace CoreBundle\Entity;
  */
 class ActiviteType
 {
+    
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -17,11 +18,23 @@ class ActiviteType
      */
     private $nom;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $activites;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->activites = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -50,18 +63,6 @@ class ActiviteType
     public function getNom()
     {
         return $this->nom;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $activites;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->activites = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

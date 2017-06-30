@@ -17,6 +17,34 @@
             <h3 class="col s12 center title">Nos activités</h3>
         </div>
     </div>
+
+
+    <div class="container themes">
+        {% if is_granted('ROLE_ADMIN')%}
+            <div class="row">
+                <a class = "offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center " href="#modalthemes">Ajouter un theme</a>
+            </div>
+        <div id="modalthemes" class="modal">
+            <div class="modal-content">
+                {{ form_start(forms) }}
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form_label (forms.nom) }}
+                        {{ form_widget (forms.nom) }}
+                        {{ form_errors (forms.nom) }}
+                    </div>
+                    {{ form_widget(forms.submit, {'attr' : {'class': 'btn btn-primary'}}) }}
+                    {{ form_end(forms) }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+
+
+
+
     <div class="container">
         <!--CONDITION FOR ADMIN-->
         {% if is_granted('ROLE_ADMIN')%}
