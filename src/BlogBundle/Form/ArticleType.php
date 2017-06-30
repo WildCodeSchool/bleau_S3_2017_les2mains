@@ -21,6 +21,7 @@ class ArticleType extends AbstractType
         $builder
             ->add('titre', TextType::class)
             ->add('contenu', TextareaType::class)
+            ->add('lien', TextareaType::class, array('required' => false))
             ->add('picture', PictureType::class)
             ->add('submit', SubmitType::class, array('label'=>'Valider'));
     }

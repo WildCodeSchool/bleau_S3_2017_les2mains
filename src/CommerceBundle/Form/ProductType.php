@@ -23,9 +23,11 @@ class ProductType extends AbstractType
             ->add('categories', EntityType::class, array(
                 'class' => 'CommerceBundle\Entity\Category',
                 'choice_label' => 'type',
-                'label' => "Catégorie"
+                'label' => " "
             ))
-            ->add('picture', PictureType::class)
+            ->add('picture', PictureType::class, array(
+                'label' => ' '
+            ))
             ->add('submit', SubmitType::class,array('label' => 'Valider'));
     }
     
