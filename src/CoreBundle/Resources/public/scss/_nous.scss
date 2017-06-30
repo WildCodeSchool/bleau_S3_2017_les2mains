@@ -3,14 +3,17 @@
     /*----------------------------------------
      PARALAX
     ----------------------------------------*/
-
-    .parallax-container
+    .header_nous
+    {
+        min-height: 170px;
+    }
+    .parallax_mid
     {
         min-height: 450px;
     }
     .footer
     {
-        min-height: 300px;
+        min-height: 170px;
     }
     /*----------------------------------------
      Size Img
@@ -24,14 +27,12 @@
         box-shadow: 5px 5px 5px #888888;
         transition: 0.5s;
     }
-
     .img_box img:hover
     {
         width:450px;
         height:300px;
         transition: 0.5s;
     }
-
     p
     {
     line-height: 1.3rem;
