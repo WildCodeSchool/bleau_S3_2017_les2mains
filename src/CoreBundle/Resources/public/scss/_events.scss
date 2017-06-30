@@ -1,5 +1,13 @@
 #events {
 
+  .header_event
+  {
+    min-height: 170px;
+  }
+  .parallax_mid_event {
+    min-height: 30px;
+  }
+
   .text_perso_events {
     color: #80cbc4
   }
@@ -36,11 +44,5 @@
   .card_picture:hover .text_card_picture{
     opacity: 1;
     transition: .5s;
-  }
-  .event_parallax {
-    min-height: 50px;
-  }
-  .h2_events{
-    text-align: center;
   }
 }

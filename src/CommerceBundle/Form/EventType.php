@@ -21,12 +21,12 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class)
+            ->add('title', TextType::class,array('label' => 'Titre'))
             ->add('description', TextareaType::class)
-            ->add('dateStart', DateTimeType::class)
-            ->add('dateEnd', DateTimeType::class)
-            ->add('location', TextType::class)
-            ->add('price', TextareaType::class)
+            ->add('dateStart', DateTimeType::class,array('label' => 'Date de Début'))
+            ->add('dateEnd', DateTimeType::class, array('label' => 'Date de Fin'))
+            ->add('location', TextType::class, array('label' => "Lieu de l'évenement"))
+            ->add('price', TextareaType::class, array('label' => 'Prix'))
             ->add('activite', EntityType::class, array(
                 'class'=>'CoreBundle\Entity\Activite',
                 'choice_label' => 'titre'))

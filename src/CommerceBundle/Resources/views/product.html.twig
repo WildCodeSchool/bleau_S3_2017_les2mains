@@ -11,16 +11,16 @@
 	</div>
 	<div class="parallax-container">
 		<div class="section header">
-			<h2 class="header center teal-text text-lighten-2">Nos produits</h2>
+			<h3 class="header center title">Nos produits</h3>
 		</div>
-		<div class="parallax">
+		<div class="parallax header_product">
 			<img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
 		</div>
 	</div>
 		<div class="container product">
 		{% if is_granted('ROLE_ADMIN')%}
 			<div class="row">
-				<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 darken-4 btn align-center " href="#modalcategorie">Ajouter une categorie</a>
+				<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modalcategorie">Ajouter une categorie</a>
 			</div>
 
 			<div id="modalcategorie" class="modal">
@@ -44,7 +44,7 @@
 	<div class="container product">
 	{% if is_granted('ROLE_ADMIN')%}
 		<div class="row">
-			<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 darken-4 btn align-center " href="#modal1">Ajouter un produit</a>
+			<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modal1">Ajouter un produit</a>
 		</div>
 		
 	<div id="modal1" class="modal">
@@ -58,10 +58,17 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="input-field col s6">
+				<div class="input-field col s12">
 					{{ form_label (form.content) }}
-					{{ form_widget (form.content) }}
+					{{ form_widget (form.content, {'attr': {'class': 'materialize-textarea' }}) }}
 					{{ form_errors (form.content) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12">
+					{{ form_label (form.categories) }}
+					{{ form_widget (form.categories) }}
+					{{ form_errors (form.categories) }}
 				</div>
 			</div>
 			<div class="row">
@@ -70,11 +77,12 @@
 					{{ form_widget (form.picture) }}
 					{{ form_errors (form.picture) }}
 				</div>
+			</div>
+			<div class="row">
 				{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
 				{{ form_end(form) }}
 			</div>
 		</div>
-		
 	</div>
 	{% endif %}
 	
@@ -82,7 +90,7 @@
 	<div class="container">
 		<div class="row">
 	{%  for categories in categories %}
-		<h2 id="{{ categories.id }}" class="text_perso_products">{{ categories.type }}</h2>
+		<h4 id="{{ categories.id }}" class="title_categories">{{ categories.type }}</h4>
 		{% for products in categories.products %}
 			<div class="col m3">
 				<div class="card">
@@ -98,7 +106,6 @@
 					</div>
 					<div class="card-content">
 						<span class="card-title activator grey-text text-darken-4">{{ products.name }}<i class="material-icons right">more_vert</i></span>
-						<p><a href="#">This is a link</a></p>
 					</div>
 					<div class="card-reveal">
 						<span class="card-title grey-text text-darken-4">{{ products.name }}<i class="material-icons right">close</i></span>
@@ -108,9 +115,9 @@
 
 			{% if is_granted('ROLE_ADMIN')%}
 				<!-- button delete-->
-				<a href="{{ path('product_delete', {'id' : products.id}) }}" class="waves-effect teal z-depth-5 darken-4 btn col s6">Effacer</a>
+				<a href="{{ path('product_delete', {'id' : products.id}) }}" class="waves-effect teal z-depth-5 btn col s6">Effacer</a>
 				<!-- button edit-->
-				<a href="#modal{{ products.id }}" class="waves-effect teal z-depth-5 darken-4 btn col s6">Modifier</a>
+				<a href="#modal{{ products.id }}" class="waves-effect teal z-depth-5 btn col s6">Modifier</a>
 				<!-- Modal Structure -->
 				<div id="modal{{ products.id }}" class="modal">
 					<!-- On rend la vue editActivite a la vue de la modal -->
@@ -121,7 +128,7 @@
 		{% endfor %}
 		</div>
 	</div>
-	<div class="parallax-container products_parallax">
+	<div class="parallax-container parallax_mid_product">
 		<div class="parallax">
 			<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
 		</div>
