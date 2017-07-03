@@ -5,7 +5,7 @@
     <div class="products_navigation">
         {% for theme in themes %}
             <div class="nav_word_block">
-                <a href="#{{ theme.id }}" class="nav_word">{{ theme.nom }}</a>
+                <a href="#{{ theme.nom }}" class="nav_word">{{ theme.nom }}</a>
             </div>
         {% endfor %}
     </div>
@@ -62,9 +62,9 @@
         <!--CONDITION FOR ADMIN-->
         {% if is_granted('ROLE_ADMIN')%}
             <div class="row">
-                <a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modal1">Ajouter une activité</a>
+                <a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modalAdd">Ajouter une activité</a>
             </div>
-            <div id="modal1" class="modal">
+            <div id="modalAdd" class="modal">
                 <div class="modal-content">
                             {{ form_start(form) }}
                             <h4>l'activité est ...</h4>
@@ -119,7 +119,7 @@
         <div class="row">
     {% for theme in themes %}
             <div class="col s12">
-                <h4 id="{{ theme.id }}" class="title_categories">{{ theme.nom }}</h4>
+                <h4 id="{{ theme.nom }}" class="title_categories">{{ theme.nom }}</h4>
             </div>
 
     <!--MODAL D'ACTIVITE-->
