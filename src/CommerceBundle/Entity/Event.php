@@ -256,4 +256,33 @@ class Event
     {
         return $this->activite;
     }
+    /**
+     * @var string
+     */
+    private $lien;
+
+
+    /**
+     * Set lien
+     *
+     * @param string $lien
+     *
+     * @return Event
+     */
+    public function setLien($lien)
+    {
+        $this->lien = $lien;
+
+        return $this;
+    }
+
+    /**
+     * Get lien
+     *
+     * @return string
+     */
+    public function getLien()
+    {
+        return $this->lien;
+    }
 }

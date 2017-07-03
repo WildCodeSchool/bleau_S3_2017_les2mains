@@ -25,6 +25,9 @@ CommerceBundle\Entity\Event:
             length: 255
         price:
             type: text
+        lien:
+            type: text
+            nullable: true
     lifecycleCallbacks: {  }
 
     manyToOne:
