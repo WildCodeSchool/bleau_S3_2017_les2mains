@@ -117,9 +117,9 @@
 
 			{% if is_granted('ROLE_ADMIN')%}
 				<!-- button delete-->
-				<a href="{{ path('product_delete', {'id' : products.id}) }}" class="waves-effect teal z-depth-5 btn col s6">Effacer</a>
+				<a href="{{ path('product_delete', {'id' : products.id}) }}" class="waves-effect teal z-depth-5 btn index_btn col s6">Effacer</a>
 				<!-- button edit-->
-				<a href="#modal{{ products.id }}" class="waves-effect teal z-depth-5 btn col s6">Modifier</a>
+				<a href="#modal{{ products.id }}" class="waves-effect teal z-depth-5 btn index_btn col s6">Modifier</a>
 				<!-- Modal Structure -->
 				<div id="modal{{ products.id }}" class="modal">
 					<!-- On rend la vue editActivite a la vue de la modal -->

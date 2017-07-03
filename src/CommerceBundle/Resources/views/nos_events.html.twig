@@ -121,14 +121,14 @@
                     {% if is_granted('ROLE_ADMIN') %}
                         <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                         <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light center-align btn" href="#modal{{ event.id }}">Modifier</a>
+                        <a class="waves-effect waves-light center-align btn index_btn" href="#modal{{ event.id }}">Modifier</a>
 
                         <!-- Modal Structure -->
                         <div id="modal{{ event.id }}" class="modal">
                             {{ render(controller('CommerceBundle:Event:editEvent', { 'id': event.id})) }}
                         </div>
                         <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-                        <a class="waves-effect waves-light center-align btn" href=" {{ path('event_delete', {'id': event.id}) }}">Effacer</a>
+                        <a class="waves-effect waves-light center-align btn index_btn" href=" {{ path('event_delete', {'id': event.id}) }}">Effacer</a>
                     {% endif %}
 
 
