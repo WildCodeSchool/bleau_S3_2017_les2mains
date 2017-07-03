@@ -1,0 +1,32 @@
+{% if listthemes is empty %}
+
+    <p class="center-align">Il n'y a pas de thème référencé</p>
+
+{% else %}
+
+    <table class="centered responsive-table highlight">
+        <thead>
+            <tr>
+                <th>
+                    Nom :
+                </th>
+                <th>
+                    Action :
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for listthemes in listthemes %}
+            <tr>
+                <td>
+                    {{ listthemes.nom }}
+                </td>
+                <td>
+                    <a href="#" id="{{ listthemes.id }}" class="waves-effect teal z-depth-5 btn activite deleteThemeAction">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endif %}
