@@ -90,7 +90,7 @@ class ActiviteController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function valideEditAction(Activite $activite, Request $request){
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $activite->getId(),ActiviteType::class, $activite);
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $activite->getId(),\CoreBundle\Form\ActiviteType::class, $activite);
         $form = $formBuilder->getForm();
 
         $form->handleRequest($request);
