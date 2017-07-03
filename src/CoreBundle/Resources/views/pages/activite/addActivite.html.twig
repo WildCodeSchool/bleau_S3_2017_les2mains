@@ -41,6 +41,19 @@
         {% endif %}
     </div>
 
+    {% if is_granted('ROLE_ADMIN')%}
+        <div class="container themes">
+            <div class="row">
+                <a class = "offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center " href="#modalthemeslist">Liste des Thèmes</a>
+            </div>
+            <div id="modalthemeslist" class="modal">
+                <div class="modal-content">
+                    {{ render(controller('CoreBundle:Activite:listAllThemes')) }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
 
 
 
@@ -172,4 +185,29 @@
 </div>
     
     {% include '@Core/pages/footer.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+
+    <script>
+        $( document ).ready(function() {
+            $('.deleteThemeAction').click(function (e) {
+                e.preventDefault();
+                var idTheme = $(this).attr( "id" );
+                var element = $(this).parent().parent();
+
+                $.ajax({
+                    method: "post",
+                    data: {'idTheme': idTheme },
+                    url: "{{ path('core_activite_theme_delete') }}",
+
+                    success: function(response){
+                        alert(response);
+                        element.fadeOut();
+                    }
+                });
+            })
+        });
+    </script>
+
 {% endblock %}
