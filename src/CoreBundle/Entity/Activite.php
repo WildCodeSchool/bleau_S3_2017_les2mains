@@ -7,8 +7,9 @@ namespace CoreBundle\Entity;
  */
 class Activite
 {
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -22,11 +23,38 @@ class Activite
      */
     private $contenu;
 
+    /**
+     * @var string
+     */
+    private $lien;
+
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $event;
+
+    /**
+     * @var \CoreBundle\Entity\ActiviteType
+     */
+    private $activiteType;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->event = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -80,86 +108,54 @@ class Activite
     {
         return $this->contenu;
     }
-    /**
-     * @var \CoreBundle\Entity\ActiviteType
-     */
-    private $activiteType;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $pictures;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->pictures = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set activiteType
+     * Set lien
      *
-     * @param \CoreBundle\Entity\ActiviteType $activiteType
+     * @param string $lien
      *
      * @return Activite
      */
-    public function setActiviteType(\CoreBundle\Entity\ActiviteType $activiteType = null)
+    public function setLien($lien)
     {
-        $this->activiteType = $activiteType;
+        $this->lien = $lien;
 
         return $this;
     }
 
     /**
-     * Get activiteType
+     * Get lien
      *
-     * @return \CoreBundle\Entity\ActiviteType
+     * @return string
      */
-    public function getActiviteType()
+    public function getLien()
     {
-        return $this->activiteType;
+        return $this->lien;
     }
 
     /**
-     * Add picture
+     * Set picture
      *
      * @param \CoreBundle\Entity\Picture $picture
      *
      * @return Activite
      */
-    public function addPicture(\CoreBundle\Entity\Picture $picture)
+    public function setPicture(\CoreBundle\Entity\Picture $picture = null)
     {
-        $this->pictures[] = $picture;
+        $this->picture = $picture;
 
         return $this;
     }
 
     /**
-     * Remove picture
+     * Get picture
      *
-     * @param \CoreBundle\Entity\Picture $picture
+     * @return \CoreBundle\Entity\Picture
      */
-    public function removePicture(\CoreBundle\Entity\Picture $picture)
+    public function getPicture()
     {
-        $this->pictures->removeElement($picture);
+        return $this->picture;
     }
-
-    /**
-     * Get pictures
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getPictures()
-    {
-        return $this->pictures;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $event;
-
 
     /**
      * Add event
@@ -194,62 +190,28 @@ class Activite
     {
         return $this->event;
     }
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture;
-
 
     /**
-     * Set picture
+     * Set activiteType
      *
-     * @param \CoreBundle\Entity\Picture $picture
+     * @param \CoreBundle\Entity\ActiviteType $activiteType
      *
      * @return Activite
      */
-    public function setPicture(\CoreBundle\Entity\Picture $picture = null)
+    public function setActiviteType(\CoreBundle\Entity\ActiviteType $activiteType = null)
     {
-        $this->picture = $picture;
+        $this->activiteType = $activiteType;
 
         return $this;
     }
 
     /**
-     * Get picture
+     * Get activiteType
      *
-     * @return \CoreBundle\Entity\Picture
+     * @return \CoreBundle\Entity\ActiviteType
      */
-    public function getPicture()
+    public function getActiviteType()
     {
-        return $this->picture;
-    }
-    /**
-     * @var string
-     */
-    private $lien;
-
-
-    /**
-     * Set lien
-     *
-     * @param string $lien
-     *
-     * @return Activite
-     */
-    public function setLien($lien)
-    {
-        $this->lien = $lien;
-
-        return $this;
-    }
-
-    /**
-     * Get lien
-     *
-     * @return string
-     */
-    public function getLien()
-    {
-        return $this->lien;
+        return $this->activiteType;
     }
 }
