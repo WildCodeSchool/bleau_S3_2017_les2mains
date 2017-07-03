@@ -61,6 +61,11 @@
                                    {{ form_widget(form.price) }}
                                    {{ form_errors(form.price) }}
                                </div>
+                               <div class="input-field col s12">
+                                   {{ form_label(form.lien) }}
+                                   {{ form_widget(form.lien) }}
+                                   {{ form_errors(form.lien) }}
+                               </div>
 
                                <div class="input-field col s12">
                                    {{ form_label(form.location) }}
@@ -110,10 +115,12 @@
                                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
                                 <h4 class="text_perso_events">Description</h4>
                                 <p class="p_justify">{{ event.description|nl2br }}</p>
+                                <h4 class="text_perso_events">Lien Utile :</h4>
+                                <a target="_blank" href="{{ event.lien }}">{{ event.lien|nl2br }}</a>
                                 <h4 class="text_perso_events">Informations :</h4>
                                 <p><b class="text_perso_events">Date :</b> {{ event.dateStart|date("d/m/Y H:i") }} à {{ event.dateEnd|date("d/m/Y H:i")  }}</p>
                                 <p><b class="text_perso_events">Lieu :</b> {{ event.location }}</p>
-                                <p><b class="text_perso_events">Prix :</b> {{ event.price }}€</p>
+                                <p><b class="text_perso_events">Prix :</b> {{ event.price }}</p>
                                 <a class="waves-effect waves-light btn add_stage_btn" href="{{ 'contact' }}">Besoin de plus d'info ?</a>
                             </div>
                         </div>

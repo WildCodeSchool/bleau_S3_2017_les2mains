@@ -30,6 +30,9 @@ class EventType extends AbstractType
             ->add('activite', EntityType::class, array(
                 'class'=>'CoreBundle\Entity\Activite',
                 'choice_label' => 'titre'))
+            ->add('lien',TextareaType::class, array(
+                'required' => false
+            ))
             ->add('picture', PictureType::class)
             ->add('submit', SubmitType::class, array('label'=>'Valider'));
     }
