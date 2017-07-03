@@ -6,10 +6,22 @@ use CoreBundle\Entity\Activite;
 use CoreBundle\Entity\ActiviteType;
 use CoreBundle\Form\ActiviteTypeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ActiviteController extends Controller
 {
+
+    public function listAllThemesAction(){
+        $em = $this->getDoctrine()->getManager();
+
+        $listthemes = $em->getRepository(\CoreBundle\Entity\ActiviteType::class)->findAll();
+
+        return $this->render('@Core/pages/activite/listAllThemes.html.twig', array(
+            'listthemes' => $listthemes,
+        ));
+    }
     /**
      * Render page for sho allActivities and add new Activity
      * @param Request $request
@@ -115,5 +127,28 @@ class ActiviteController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('core_activite_add');
+    }
+
+    /**
+     * Delete one theme with ajax and all there activities
+     * @param Request $request
+     * @return Response
+     */
+    public function deleteThemeAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $id = $request->request->get('idTheme');
+
+            $theme = $em->getRepository('CoreBundle:ActiviteType')->findOneById($id);
+
+            $em->remove($theme);
+            $em->flush();
+
+            return new Response('Le thème ' . $theme->getNom() . ' ainsi que toutes ses activitées ont bien été supprimés');
+        }
+
+        return new Response('Une erreur est survenue, veuillez réessayer');
     }
 }

@@ -84,7 +84,7 @@
             
                 <div class="row">
                 {% for activite in activities  %}
-                <h4 id="{{ activite.id }}" class="title_categories">{{ activite.titre }}</h4>
+                <h4 id="{{  activite.id }}" class="title_categories">{{ activite.titre }}</h4>
                 {% for event in activite.event %}
                 {% set i = i + 1 %}
                 <div class="col m6">

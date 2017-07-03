@@ -18,6 +18,4 @@ CoreBundle\Entity\ActiviteType:
         activites:
             targetEntity: CoreBundle\Entity\Activite
             mappedBy: activiteType
-
-
-
+            cascade: ['all']
