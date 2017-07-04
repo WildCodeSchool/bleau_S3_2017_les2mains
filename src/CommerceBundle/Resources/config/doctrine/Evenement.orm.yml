@@ -1,0 +1,21 @@
+CommerceBundle\Entity\Evenement:
+    type: entity
+    table: null
+    repositoryClass: CommerceBundle\Repository\EvenementRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        date:
+            type: date
+
+    manyToOne:
+        lieu:
+            targetEntity: CommerceBundle\Entity\Lieu
+
+
+
+

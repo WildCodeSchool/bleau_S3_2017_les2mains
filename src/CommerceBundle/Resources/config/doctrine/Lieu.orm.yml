@@ -1,0 +1,23 @@
+CommerceBundle\Entity\Lieu:
+    type: entity
+    table: null
+    repositoryClass: CommerceBundle\Repository\LieuRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+        adresse:
+            type: string
+            length: 255
+            nullable: true
+        indication:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: {  }

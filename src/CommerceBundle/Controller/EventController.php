@@ -35,7 +35,7 @@ class EventController extends Controller
             return $this->redirectToRoute('event_add');
         }
 
-        return $this->render('@Commerce/nos_events.html.twig', array(
+        return $this->render('@Commerce/user/nos_events.html.twig', array(
            'form' =>$form->createView(),
             'event' => $event,
             'activities' => $activities,
@@ -69,7 +69,7 @@ class EventController extends Controller
         $form = $this->generateEventForm($event);
         $form->handleRequest($request);
 
-        return $this->render('@Commerce/editEvent.html.twig', array(
+        return $this->render('@Commerce/user/editEvent.html.twig', array(
             'event_selected' => $event,
             'form' => $form->createView()
         ));

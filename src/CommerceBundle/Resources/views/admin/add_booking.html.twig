@@ -1,0 +1,17 @@
+{% extends '@Core/layout.html.twig' %}
+
+{% block body %}
+	<div class="container">
+		<h1>Lieu</h1>
+		{{ form(formlieu) }}
+	</div>
+	<div class="container">
+		<h1>Date</h1>
+	{{ form(formdate) }}
+	</div>
+	<div class="container">
+		<h1>Stock</h1>
+	{{ form(formstock) }}
+	</div>
+
+{% endblock %}
