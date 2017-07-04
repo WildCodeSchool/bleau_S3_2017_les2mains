@@ -2,9 +2,11 @@
 
 namespace CommerceBundle\Form;
 
+use CommerceBundle\Entity\Evenement;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,14 +19,19 @@ class MarchandiseType extends AbstractType
     {
         $builder->add('prix')
                 ->add('quantite')
-                ->add('evenements',EntityType::class, array(
-                            'class' => 'CommerceBundle\Entity\Evenement',
-                            'choice_label' => 'date'))
+                ->add('evenements', EntityType::class, array(
+                    'class' => Evenement::class,
+                ))
                 ->add('products',EntityType::class, array(
-                            'class' => 'CommerceBundle\Entity\Product',
-                            'choice_label' => 'name'));
+                    'class' => 'CommerceBundle\Entity\Product',
+                    'choice_label' => 'name'))
+                ->add('submit', SubmitType::class)
+        ;
+
     }
-    
+
+
+
     /**
      * {@inheritdoc}
      */

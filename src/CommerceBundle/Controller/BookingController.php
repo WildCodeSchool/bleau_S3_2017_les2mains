@@ -19,14 +19,11 @@ class BookingController extends Controller
         $date = new Evenement();
         $formdate = $this->createForm(EvenementType::class, $date);
         $formdate->handleRequest($request);
-        
+        $em = $this ->getDoctrine()->getManager();
+
         if($formdate->isSubmitted() && $formdate->isValid())
         {
-            $em = $this ->getDoctrine()->getManager();
             $em->persist($date);
-            $em->flush();
-            
-            return $this->redirectToRoute('add_booking');
         }
 
         $lieu = new Lieu();
@@ -35,11 +32,7 @@ class BookingController extends Controller
 
         if($formlieu->isSubmitted() && $formlieu->isValid())
         {
-            $em = $this ->getDoctrine()->getManager();
             $em->persist($lieu);
-            $em->flush();
-
-            return $this->redirectToRoute('add_booking');
         }
 
         $stock = new Marchandise();
@@ -48,12 +41,10 @@ class BookingController extends Controller
 
         if($formstock->isSubmitted() && $formstock->isValid())
         {
-            $em = $this ->getDoctrine()->getManager();
             $em->persist($stock);
-            $em->flush();
-
-            return $this->redirectToRoute('add_booking');
         }
+
+        $em->flush();
 
        return $this->render('@Commerce/admin/add_booking.html.twig', array(
            'formdate'=>$formdate->createView(),

@@ -1178,3 +1178,11 @@ Responsive Menu Nav
 #log .row_login {
   margin-top: 100px;
 }
+
+/*----------------------------------------*\
+    11.BOOKING
+\*----------------------------------------*/
+/* line 2, ../scss/_booking.scss */
+#booking .parallax_booking {
+  min-height: 200px;
+}
