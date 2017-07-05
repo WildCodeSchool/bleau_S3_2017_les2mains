@@ -23,6 +23,10 @@ edit_valid_product:
     path: /{id}/product/edit
     defaults: {_controller: CommerceBundle:Product:editValidProduct}
 
+booking:
+    path: /booking
+    defaults: {_controller: CommerceBundle:Booking:booking}
+
 add_booking:
     path: /admin/booking
     defaults: {_controller: CommerceBundle:Booking:addBooking}

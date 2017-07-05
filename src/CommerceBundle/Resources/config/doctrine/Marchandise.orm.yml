@@ -17,5 +17,6 @@ CommerceBundle\Entity\Marchandise:
     manyToOne:
         evenements:
             targetEntity: CommerceBundle\Entity\Evenement
+            inversedBy: marchandises
         products:
             targetEntity: CommerceBundle\Entity\Product

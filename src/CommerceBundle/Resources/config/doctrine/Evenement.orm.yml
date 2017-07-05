@@ -16,6 +16,11 @@ CommerceBundle\Entity\Evenement:
         lieu:
             targetEntity: CommerceBundle\Entity\Lieu
 
+    oneToMany:
+        marchandises:
+            targetEntity: CommerceBundle\Entity\Marchandise
+            mappedBy: evenements
+
 
 
 

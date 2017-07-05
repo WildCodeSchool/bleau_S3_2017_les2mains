@@ -7,6 +7,13 @@ namespace CommerceBundle\Entity;
  */
 class Evenement
 {
+
+    public function __toString()
+    {
+        $date = $this->date->format('Y-m-d');
+        return $date;
+    }
+
     /**
      * @var int
      */

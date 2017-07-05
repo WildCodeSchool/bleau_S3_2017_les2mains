@@ -1,0 +1,40 @@
+{% extends '@Core/layout.html.twig' %}
+
+{% block body %}
+	<div id="booking">
+		<div class="container">
+			<div class="row">
+				{%  for evenement in evenements %}
+					
+						<div>
+							<h4>Date</h4>
+							{{ evenement.date|date("d/m/Y") }}
+						</div>
+					
+					{%  for lieu in evenements %}
+						
+							<div>
+								<h4>Lieu</h4>
+								{{ lieu.lieu.nom }}
+								{{ lieu.lieu.adresse }}
+								{{ lieu.lieu.indication }}
+							</div>
+						
+						{%  for marchandise in marchandises %}
+							
+								<div>
+									<h4>marchandise</h4>
+									{{ marchandise.products.name }}
+									{{ marchandise.prix }}
+									{{ marchandise.quantite }}
+								</div>
+							
+						{% endfor %}
+						
+					{% endfor %}
+					
+				{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}

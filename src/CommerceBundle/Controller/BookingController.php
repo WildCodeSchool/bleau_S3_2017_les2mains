@@ -14,6 +14,21 @@ use Symfony\Component\HttpFoundation\Request;
 
 class BookingController extends Controller
 {
+
+    public function bookingAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $evenement = $em->getRepository(Evenement::class)->findAll();
+        $stock = $em->getRepository(Marchandise::class)->findAll();
+
+
+        return $this->render('@Commerce/user/booking.html.twig', array(
+            'evenements'=> $evenement,
+            'marchandises' => $stock
+        ));
+
+
+    }
     public function addBookingAction(Request $request)
     {
         $date = new Evenement();

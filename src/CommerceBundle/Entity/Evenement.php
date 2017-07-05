@@ -87,4 +87,50 @@ class Evenement
     {
         return $this->lieu;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $marchandises;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->marchandises = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add marchandise
+     *
+     * @param \CommerceBundle\Entity\Marchandise $marchandise
+     *
+     * @return Evenement
+     */
+    public function addMarchandise(\CommerceBundle\Entity\Marchandise $marchandise)
+    {
+        $this->marchandises[] = $marchandise;
+
+        return $this;
+    }
+
+    /**
+     * Remove marchandise
+     *
+     * @param \CommerceBundle\Entity\Marchandise $marchandise
+     */
+    public function removeMarchandise(\CommerceBundle\Entity\Marchandise $marchandise)
+    {
+        $this->marchandises->removeElement($marchandise);
+    }
+
+    /**
+     * Get marchandises
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMarchandises()
+    {
+        return $this->marchandises;
+    }
 }
