@@ -14,8 +14,10 @@ class Evenement
         return $date;
     }
 
+    //
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -24,11 +26,28 @@ class Evenement
      */
     private $date;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $marchandises;
+
+    /**
+     * @var \CommerceBundle\Entity\Lieu
+     */
+    private $lieu;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->marchandises = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -57,47 +76,6 @@ class Evenement
     public function getDate()
     {
         return $this->date;
-    }
-    /**
-     * @var \CommerceBundle\Entity\Lieu
-     */
-    private $lieu;
-
-
-    /**
-     * Set lieu
-     *
-     * @param \CommerceBundle\Entity\Lieu $lieu
-     *
-     * @return Evenement
-     */
-    public function setLieu(\CommerceBundle\Entity\Lieu $lieu = null)
-    {
-        $this->lieu = $lieu;
-
-        return $this;
-    }
-
-    /**
-     * Get lieu
-     *
-     * @return \CommerceBundle\Entity\Lieu
-     */
-    public function getLieu()
-    {
-        return $this->lieu;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $marchandises;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->marchandises = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -132,5 +110,29 @@ class Evenement
     public function getMarchandises()
     {
         return $this->marchandises;
+    }
+
+    /**
+     * Set lieu
+     *
+     * @param \CommerceBundle\Entity\Lieu $lieu
+     *
+     * @return Evenement
+     */
+    public function setLieu(\CommerceBundle\Entity\Lieu $lieu = null)
+    {
+        $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    /**
+     * Get lieu
+     *
+     * @return \CommerceBundle\Entity\Lieu
+     */
+    public function getLieu()
+    {
+        return $this->lieu;
     }
 }

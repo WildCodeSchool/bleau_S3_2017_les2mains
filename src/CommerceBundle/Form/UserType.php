@@ -2,17 +2,13 @@
 
 namespace CommerceBundle\Form;
 
-use CommerceBundle\Entity\Lieu;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EvenementType extends AbstractType
+class UserType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -20,13 +16,10 @@ class EvenementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', DateType::class)
-            ->add('lieu', EntityType::class, array(
-                'class' => 'CommerceBundle\Entity\Lieu',
-                'choice_label' => 'nom'
-            ))
-            ->add('marchandises', CollectionType::class, array(
-                'entry_type' => MarchandiseType::class
+            ->add('nom')
+            ->add('prenom')
+            ->add('selectProduits',CollectionType::class, array(
+                'entry_type' => SelectProduitType::class
             ))
             ->add('submit', SubmitType::class);
     }
@@ -37,7 +30,7 @@ class EvenementType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'CommerceBundle\Entity\Evenement'
+            'data_class' => 'CommerceBundle\Entity\User'
         ));
     }
 
@@ -46,7 +39,7 @@ class EvenementType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'commercebundle_evenement';
+        return 'commercebundle_user';
     }
 
 

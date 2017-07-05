@@ -1,0 +1,6 @@
+{% for evenement in evenements %}
+
+	{{ dump(evenement) }}
+	
+	<a href="{{ path('booking', { 'id': evenement.id }) }}">voir</a>
+{% endfor %}

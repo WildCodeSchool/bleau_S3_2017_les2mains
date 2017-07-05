@@ -5,67 +5,101 @@ namespace CommerceBundle\Controller;
 use CommerceBundle\Entity\Evenement;
 use CommerceBundle\Entity\Lieu;
 use CommerceBundle\Entity\Marchandise;
-use CommerceBundle\Entity\Product;
+use CommerceBundle\Entity\SelectProduit;
+use CommerceBundle\Entity\User;
 use CommerceBundle\Form\EvenementType;
 use CommerceBundle\Form\LieuType;
-use CommerceBundle\Form\MarchandiseType;
+use CommerceBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class BookingController extends Controller
 {
 
-    public function bookingAction()
+    public function listEvenenementAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $evenement = $em->getRepository(Evenement::class)->findAll();
-        $stock = $em->getRepository(Marchandise::class)->findAll();
+        $evenements = $em->getRepository(Evenement::class)->findAll();
 
+        return $this->render('@Commerce/user/listAllEvenements.html.twig', array(
+            'evenements'=> $evenements,
+        ));
+    }
+
+    public function bookingAction(Request $request, Evenement $evenement)
+    {
+/*        $em = $this->getDoctrine()->getManager();
+        $evenement = $em->getRepository(Evenement::Class)->findOneById($id);*/
+
+        $user = new User();
+        foreach ($evenement->getMarchandises() as $marchandise){
+            $selectProduit = new SelectProduit();
+            $selectProduit->setMarchandise($marchandise);
+            $user->addSelectProduit($selectProduit);
+        }
+
+        $formUser = $this->createForm(UserType::class, $user);
+        $formUser->handleRequest($request);
+
+
+        if ($formUser->isSubmitted() && $formUser->isValid()) {
+            $em = $this ->getDoctrine()->getManager();
+            $em->persist($user);
+
+            foreach ($user->getSelectProduits() as $selectProduit){
+                $selectProduit->setUser($user);
+            }
+            $em->persist($user);
+
+            $session = $request->getSession();
+            $session->set('panier', $user);
+
+            return $this->render('@Commerce/user/recap.html.twig');
+        }
 
         return $this->render('@Commerce/user/booking.html.twig', array(
-            'evenements'=> $evenement,
-            'marchandises' => $stock
+            'evenement' => $evenement,
+            'formUser' => $formUser->createView()
         ));
 
-
     }
+
     public function addBookingAction(Request $request)
     {
-        $date = new Evenement();
-        $formdate = $this->createForm(EvenementType::class, $date);
-        $formdate->handleRequest($request);
+        $evenement = new Evenement();
+
+        for ($i = 0; $i < 3; $i++){
+            $marchandise = new Marchandise();
+            $evenement->addMarchandise($marchandise);
+        }
+
+        $formEvent = $this->createForm(EvenementType::class, $evenement);
+        $formEvent->handleRequest($request);
         $em = $this ->getDoctrine()->getManager();
 
-        if($formdate->isSubmitted() && $formdate->isValid())
+        if($formEvent->isSubmitted() && $formEvent->isValid())
         {
-            $em->persist($date);
+            foreach ($evenement->getMarchandises() as $marchandise){
+                $marchandise->setEvenement($evenement);
+            }
+            $em->persist($evenement);
         }
 
         $lieu = new Lieu();
-        $formlieu = $this->createForm(LieuType::class, $lieu);
-        $formlieu->handleRequest($request);
+        $formLieu = $this->createForm(LieuType::class, $lieu);
+        $formLieu->handleRequest($request);
 
-        if($formlieu->isSubmitted() && $formlieu->isValid())
+        if($formLieu->isSubmitted() && $formLieu->isValid())
         {
             $em->persist($lieu);
         }
 
-        $stock = new Marchandise();
-        $formstock = $this->createForm(MarchandiseType::class, $stock);
-        $formstock->handleRequest($request);
-
-        if($formstock->isSubmitted() && $formstock->isValid())
-        {
-            $em->persist($stock);
-        }
-
         $em->flush();
-
        return $this->render('@Commerce/admin/add_booking.html.twig', array(
-           'formdate'=>$formdate->createView(),
-           'formlieu'=>$formlieu->createView(),
-           'formstock'=>$formstock->createView(),
+           'formevent'=>$formEvent->createView(),
+           'formlieu'=>$formLieu->createView(),
        ));
     }
-    
+
 }
+

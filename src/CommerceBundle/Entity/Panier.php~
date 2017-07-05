@@ -1,0 +1,84 @@
+<?php
+
+namespace CommerceBundle\Entity;
+
+/**
+ * Panier
+ */
+class Panier
+{
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var int
+     */
+    private $quantiteCommande;
+
+    /**
+     * @var int
+     */
+    private $prixTotal;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set quantiteCommande
+     *
+     * @param integer $quantiteCommande
+     *
+     * @return Panier
+     */
+    public function setQuantiteCommande($quantiteCommande)
+    {
+        $this->quantiteCommande = $quantiteCommande;
+
+        return $this;
+    }
+
+    /**
+     * Get quantiteCommande
+     *
+     * @return int
+     */
+    public function getQuantiteCommande()
+    {
+        return $this->quantiteCommande;
+    }
+
+    /**
+     * Set prixTotal
+     *
+     * @param integer $prixTotal
+     *
+     * @return Panier
+     */
+    public function setPrixTotal($prixTotal)
+    {
+        $this->prixTotal = $prixTotal;
+
+        return $this;
+    }
+
+    /**
+     * Get prixTotal
+     *
+     * @return int
+     */
+    public function getPrixTotal()
+    {
+        return $this->prixTotal;
+    }
+}
+

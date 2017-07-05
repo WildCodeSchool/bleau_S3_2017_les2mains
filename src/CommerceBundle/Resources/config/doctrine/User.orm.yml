@@ -1,0 +1,23 @@
+CommerceBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: CommerceBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+        prenom:
+            type: string
+            length: 255
+
+    oneToMany:
+        selectProduits:
+            targetEntity: CommerceBundle\Entity\SelectProduit
+            mappedBy: user
+

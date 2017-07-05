@@ -19,8 +19,5 @@ CommerceBundle\Entity\Evenement:
     oneToMany:
         marchandises:
             targetEntity: CommerceBundle\Entity\Marchandise
-            mappedBy: evenements
-
-
-
-
+            mappedBy: evenement
+            cascade: ['all']

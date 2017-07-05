@@ -4,36 +4,61 @@
 	<div id="booking">
 		<div class="container">
 			<div class="row">
-				{%  for evenement in evenements %}
-					
-						<div>
-							<h4>Date</h4>
-							{{ evenement.date|date("d/m/Y") }}
-						</div>
-					
-					{%  for lieu in evenements %}
-						
-							<div>
-								<h4>Lieu</h4>
-								{{ lieu.lieu.nom }}
-								{{ lieu.lieu.adresse }}
-								{{ lieu.lieu.indication }}
-							</div>
-						
-						{%  for marchandise in marchandises %}
-							
-								<div>
-									<h4>marchandise</h4>
-									{{ marchandise.products.name }}
-									{{ marchandise.prix }}
-									{{ marchandise.quantite }}
-								</div>
-							
-						{% endfor %}
-						
+				{{ form_start(formUser) }}
+				
+				<div class="row">
+					<h4 class="col s2">Date</h4>
+					<p class="col s6">{{ evenement.date|date("d/m/Y") }}</p>
+				</div>
+				
+				<div>
+					<h4>Lieu</h4>
+					{{ evenement.lieu.nom }}<br>
+					{{ evenement.lieu.adresse }}<br>
+					{{ evenement.lieu.indication }}
+				</div>
+				<table>
+					<thead>
+					<tr>
+						<th>
+							Produits
+						</th>
+						<th>
+							Prix/Grammes
+						</th>
+						<th>
+							Quantité
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					{% for key, marchandise in evenement.marchandises %}
+						<tr>
+							<td>{{ marchandise.product.name }}</td>
+							<td>{{ marchandise.prix }}</td>
+							<td>{{ marchandise.quantite }}</td>
+							<td>
+								{{ form_widget(formUser.selectProduits[key].quantiteCommande) }}
+							</td>
+						</tr>
+
 					{% endfor %}
-					
-				{% endfor %}
+					</tbody>
+				</table>
+				
+				<div class="row">
+					<div class="col m6">
+						{{ form_row(formUser.nom) }}
+					</div>
+					<div class="col m6">
+						{{ form_row(formUser.prenom) }}
+					</div>
+					<div>
+						{{ form_row(formUser.submit) }}
+					</div>
+				</div>
+				{{ form_end(formUser) }}
+			</div>
 		</div>
 	</div>
 

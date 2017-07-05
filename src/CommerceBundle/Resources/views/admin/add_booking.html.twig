@@ -8,15 +8,55 @@
 					<h5>Lieu</h5>
 					{{ form(formlieu) }}
 				</div>
-				<div class="col s6">
-					<h5>Date</h5>
-					{{ form(formdate) }}
-				</div>
 			</div>
 			<div class="row">
-				<div class="col s12">
-					<h5>Stock</h5>
-					{{ form(formstock) }}
+				<div>
+					<h5>Date</h5>
+					{{ form_start(formevent) }}
+					
+					<div>
+						{{ form_label(formevent.lieu) }}
+						{{ form_widget(formevent.lieu) }}
+						{{ form_errors(formevent.lieu) }}
+					</div>
+					<div>
+						{{ form_label(formevent.date) }}
+						{{ form_widget(formevent.date) }}
+						{{ form_errors(formevent.date) }}
+					</div>
+					<div class="row">
+						{% for key,form in formevent.marchandises %}
+							<div class="col s4">
+								<h4>Marchandise {{ loop.index }}</h4>
+								{{ dump(form) }}
+								{{ dump(key) }}
+								<div>
+									{{ form_label(form.prix) }}
+									{{ form_widget(form.prix) }}
+									{{ form_errors(form.prix) }}
+								</div>
+								<div>
+									{{ form_label(form.quantite) }}
+									{{ form_widget(form.quantite) }}
+									{{ form_errors(form.quantite) }}
+								</div>
+								<div>
+									{{ form_label(form.product) }}
+									{{ form_widget(form.product) }}
+									{{ form_errors(form.product) }}
+								</div>
+							</div>
+						
+						{% endfor %}
+					</div>
+					
+					<div>
+						{{ form_widget(formevent.submit) }}
+					</div>
+					
+					{{ form_end(formevent) }}
+					
+					
 				</div>
 			</div>
 		</div>

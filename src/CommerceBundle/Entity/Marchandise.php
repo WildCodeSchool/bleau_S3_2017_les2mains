@@ -7,26 +7,37 @@ namespace CommerceBundle\Entity;
  */
 class Marchandise
 {
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
     /**
-     * @var int
+     * @var integer
      */
     private $prix;
 
     /**
-     * @var int
+     * @var integer
      */
     private $quantite;
+
+    /**
+     * @var \CommerceBundle\Entity\Evenement
+     */
+    private $evenement;
+
+    /**
+     * @var \CommerceBundle\Entity\Product
+     */
+    private $product;
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -50,7 +61,7 @@ class Marchandise
     /**
      * Get prix
      *
-     * @return int
+     * @return integer
      */
     public function getPrix()
     {
@@ -74,97 +85,58 @@ class Marchandise
     /**
      * Get quantite
      *
-     * @return int
+     * @return integer
      */
     public function getQuantite()
     {
         return $this->quantite;
     }
-    /**
-     * @var \CommerceBundle\Entity\Evenement
-     */
-    private $evenements;
 
     /**
-     * @var \CommerceBundle\Entity\Product
-     */
-    private $products;
-
-
-    /**
-     * Set evenements
+     * Set evenement
      *
-     * @param \CommerceBundle\Entity\Evenement $evenements
+     * @param \CommerceBundle\Entity\Evenement $evenement
      *
      * @return Marchandise
      */
-    public function setEvenements(\CommerceBundle\Entity\Evenement $evenements = null)
+    public function setEvenement(\CommerceBundle\Entity\Evenement $evenement = null)
     {
-        $this->evenements = $evenements;
+        $this->evenement = $evenement;
 
         return $this;
     }
 
     /**
-     * Get evenements
+     * Get evenement
      *
      * @return \CommerceBundle\Entity\Evenement
      */
-    public function getEvenements()
+    public function getEvenement()
     {
-        return $this->evenements;
+        return $this->evenement;
     }
 
     /**
-     * Set products
+     * Set product
      *
-     * @param \CommerceBundle\Entity\Product $products
+     * @param \CommerceBundle\Entity\Product $product
      *
      * @return Marchandise
      */
-    public function setProducts(\CommerceBundle\Entity\Product $products = null)
+    public function setProduct(\CommerceBundle\Entity\Product $product = null)
     {
-        $this->products = $products;
+        $this->product = $product;
 
         return $this;
     }
 
     /**
-     * Get products
+     * Get product
      *
      * @return \CommerceBundle\Entity\Product
      */
-    public function getProducts()
+    public function getProduct()
     {
-        return $this->products;
-    }
-    /**
-     * @var \CommerceBundle\Entity\Lieu
-     */
-    private $lieu;
-
-
-    /**
-     * Set lieu
-     *
-     * @param \CommerceBundle\Entity\Lieu $lieu
-     *
-     * @return Marchandise
-     */
-    public function setLieu(\CommerceBundle\Entity\Lieu $lieu = null)
-    {
-        $this->lieu = $lieu;
-
-        return $this;
-    }
-
-    /**
-     * Get lieu
-     *
-     * @return \CommerceBundle\Entity\Lieu
-     */
-    public function getLieu()
-    {
-        return $this->lieu;
+        return $this->product;
     }
 }
