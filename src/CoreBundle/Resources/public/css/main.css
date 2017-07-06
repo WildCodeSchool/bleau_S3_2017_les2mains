@@ -1184,5 +1184,77 @@ Responsive Menu Nav
 \*----------------------------------------*/
 /* line 2, ../scss/_booking.scss */
 #booking .parallax_booking {
+  min-height: 100px;
+}
+/* line 5, ../scss/_booking.scss */
+#booking .text_perso {
+  color: #80cbc4;
+}
+/* line 8, ../scss/_booking.scss */
+#booking td {
+  padding: 0px 10px !important;
+}
+/* line 11, ../scss/_booking.scss */
+#booking table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* line 15, ../scss/_booking.scss */
+#booking .info_content {
+  text-align: center;
+}
+/* line 18, ../scss/_booking.scss */
+#booking .place {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+/* line 22, ../scss/_booking.scss */
+#booking .btn_modal {
+  margin: 15px auto;
+  display: block;
+  width: 300px;
+}
+
+/*----------------------------------------*\
+    12.LIST ALL EVENEMENTS
+\*----------------------------------------*/
+/* line 2, ../scss/_list_all_evenements.scss */
+#list_all_evenements .parallax_evenement {
   min-height: 200px;
+}
+/* line 5, ../scss/_list_all_evenements.scss */
+#list_all_evenements .evenement_container {
+  text-align: center;
+  margin: auto;
+}
+/* line 9, ../scss/_list_all_evenements.scss */
+#list_all_evenements .evenement_content {
+  border-top: 2px solid teal;
+  border-bottom: 2px solid teal;
+  height: auto;
+  overflow: auto;
+  margin: 15px;
+  transition: 1s;
+  box-shadow: 3px 3px 7px gray;
+}
+/* line 18, ../scss/_list_all_evenements.scss */
+#list_all_evenements .place {
+  font-weight: 900;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+/* line 23, ../scss/_list_all_evenements.scss */
+#list_all_evenements .adress, #list_all_evenements .indication {
+  font-size: 16px;
+}
+/* line 26, ../scss/_list_all_evenements.scss */
+#list_all_evenements .evenement_btn {
+  margin: 10px;
+}
+/* line 29, ../scss/_list_all_evenements.scss */
+#list_all_evenements .e_content_child {
+  overflow: auto;
+  height: 220px;
+  padding-left: 10px;
+  padding-right: 10px;
 }

@@ -2,42 +2,45 @@
 
 {% block body %}
 	<div id="booking">
+		<div class="parallax-container">
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
+			<div class="section header">
+				<h3 class="header center title">Vente du {{ evenement.date|date("d/m/Y") }}</h3>
+			</div>
+		</div>
 		<div class="container">
 			<div class="row">
 				{{ form_start(formUser) }}
 				
-				<div class="row">
-					<h4 class="col s2">Date</h4>
-					<p class="col s6">{{ evenement.date|date("d/m/Y") }}</p>
+				<div class="info_content">
+					<h4 class="text_perso center-align place">{{ evenement.lieu.nom }}</h4><br>
+					<span class="p_center">{{ evenement.lieu.adresse }}</span><br>
+					<span class="p_center">{{ evenement.lieu.indication }}</span>
 				</div>
-				
-				<div>
-					<h4>Lieu</h4>
-					{{ evenement.lieu.nom }}<br>
-					{{ evenement.lieu.adresse }}<br>
-					{{ evenement.lieu.indication }}
-				</div>
-				<table>
+				<table class="striped col m10 offset-m1">
 					<thead>
 					<tr>
-						<th>
+						<th class="col m6">
 							Produits
 						</th>
-						<th>
+						<th class="col m2">
 							Prix/Grammes
 						</th>
-						<th>
+						<th class="col m2">
 							Quantité
+						</th>
+						<th class="col m2">
+
 						</th>
 					</tr>
 					</thead>
 					<tbody>
 					{% for key, marchandise in evenement.marchandises %}
 						<tr>
-							<td>{{ marchandise.product.name }}</td>
-							<td>{{ marchandise.prix }}</td>
-							<td>{{ marchandise.quantite }}</td>
-							<td>
+							<td class="col m6">{{ marchandise.product.name }}</td>
+							<td class="col m2">{{ marchandise.prix }}</td>
+							<td class="col m2">{{ marchandise.quantite }}</td>
+							<td class="col m2">
 								{{ form_widget(formUser.selectProduits[key].quantiteCommande) }}
 							</td>
 						</tr>
@@ -54,12 +57,18 @@
 						{{ form_row(formUser.prenom) }}
 					</div>
 					<div>
-						{{ form_row(formUser.submit) }}
+						<span class="center-align">{{ form_row(formUser.submit) }}</span>
 					</div>
 				</div>
 				{{ form_end(formUser) }}
 			</div>
 		</div>
+		<div class="parallax-container parallax_booking">
+			<div class="parallax">
+				<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
+			</div>
+		</div>
+        {% include '@Core/pages/footer.html.twig' %}
 	</div>
 
 {% endblock %}

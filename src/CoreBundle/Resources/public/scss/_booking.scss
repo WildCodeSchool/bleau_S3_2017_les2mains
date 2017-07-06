@@ -1,5 +1,27 @@
 #booking{
   .parallax_booking{
-    min-height: 200px;
+    min-height: 100px;
+  }
+  .text_perso {
+    color: #80cbc4
+  }
+  td{
+    padding: 0px 10px !important;
+  }
+  table{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .info_content{
+    text-align: center;
+  }
+  .place{
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+  .btn_modal{
+    margin: 15px auto;
+    display: block;
+    width: 300px;
   }
 }

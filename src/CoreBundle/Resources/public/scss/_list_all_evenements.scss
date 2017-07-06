@@ -1,0 +1,35 @@
+#list_all_evenements{
+  .parallax_evenement {
+    min-height: 200px;
+  }
+  .evenement_container{
+    text-align: center;
+    margin: auto;
+  }
+  .evenement_content{
+    border-top: 2px solid teal;
+    border-bottom: 2px solid teal;
+    height: auto;
+    overflow: auto;
+    margin: 15px;
+    transition: 1s;
+    box-shadow: 3px 3px 7px gray;
+  }
+  .place{
+    font-weight: 900;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+  .adress, .indication{
+    font-size: 16px;
+  }
+  .evenement_btn{
+    margin: 10px;
+  }
+  .e_content_child{
+    overflow: auto;
+    height: 220px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

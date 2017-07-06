@@ -2,16 +2,29 @@
 
 {% block body %}
 	<div id="booking">
+		<div class="parallax-container">
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
+			<div class="section header">
+				<h3 class="header center title">Ajout d'une vente</h3>
+			</div>
+		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col s6">
-					<h5>Lieu</h5>
-					{{ form(formlieu) }}
+
+				<!-- Modal Trigger -->
+				<a class="waves-effect waves-light btn btn_modal" href="#modaladdbooking">Ajouter un lieu</a>
+
+				<!-- Modal Structure -->
+				<div id="modaladdbooking" class="modal">
+					<div class="modal-content">
+						<h5 class="text_perso center-align">Ajout d'un lieu</h5>
+                        {{ form(formlieu) }}
+					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div>
-					<h5>Date</h5>
+					<h4 class="center-align text_perso">Lieu et date de la vente</h4>
 					{{ form_start(formevent) }}
 					
 					<div>
