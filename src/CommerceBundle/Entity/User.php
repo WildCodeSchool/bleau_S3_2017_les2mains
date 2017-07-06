@@ -29,6 +29,11 @@ class User
     private $selectProduits;
 
     /**
+     * @var \CommerceBundle\Entity\Evenement
+     */
+    private $evenement;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -126,5 +131,29 @@ class User
     public function getSelectProduits()
     {
         return $this->selectProduits;
+    }
+
+    /**
+     * Set evenement
+     *
+     * @param \CommerceBundle\Entity\Evenement $evenement
+     *
+     * @return User
+     */
+    public function setEvenement(\CommerceBundle\Entity\Evenement $evenement = null)
+    {
+        $this->evenement = $evenement;
+
+        return $this;
+    }
+
+    /**
+     * Get evenement
+     *
+     * @return \CommerceBundle\Entity\Evenement
+     */
+    public function getEvenement()
+    {
+        return $this->evenement;
     }
 }

@@ -33,6 +33,10 @@ booking:
     requirements:
         id: '\d+'
 
+valid_booking:
+    path: /{id}/valid
+    defaults: {_controller: CommerceBundle:Booking:validBooking}
+
 add_booking:
     path: /admin/booking
     defaults: {_controller: CommerceBundle:Booking:addBooking}

@@ -7,6 +7,7 @@ namespace CommerceBundle\Entity;
  */
 class SelectProduit
 {
+    // Generated code
 
     /**
      * @var integer
@@ -29,9 +30,9 @@ class SelectProduit
     private $user;
 
     /**
-     * @var \CommerceBundle\Entity\Marchandise
+     * @var \CommerceBundle\Entity\Product
      */
-    private $marchandise;
+    private $product;
 
 
     /**
@@ -117,26 +118,26 @@ class SelectProduit
     }
 
     /**
-     * Set marchandise
+     * Set product
      *
-     * @param \CommerceBundle\Entity\Marchandise $marchandise
+     * @param \CommerceBundle\Entity\Product $product
      *
      * @return SelectProduit
      */
-    public function setMarchandise(\CommerceBundle\Entity\Marchandise $marchandise = null)
+    public function setProduct(\CommerceBundle\Entity\Product $product = null)
     {
-        $this->marchandise = $marchandise;
+        $this->product = $product;
 
         return $this;
     }
 
     /**
-     * Get marchandise
+     * Get product
      *
-     * @return \CommerceBundle\Entity\Marchandise
+     * @return \CommerceBundle\Entity\Product
      */
-    public function getMarchandise()
+    public function getProduct()
     {
-        return $this->marchandise;
+        return $this->product;
     }
 }

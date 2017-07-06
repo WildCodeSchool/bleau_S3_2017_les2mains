@@ -28,8 +28,6 @@
 						{% for key,form in formevent.marchandises %}
 							<div class="col s4">
 								<h4>Marchandise {{ loop.index }}</h4>
-								{{ dump(form) }}
-								{{ dump(key) }}
 								<div>
 									{{ form_label(form.prix) }}
 									{{ form_widget(form.prix) }}
