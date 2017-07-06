@@ -20,16 +20,16 @@
 				<table class="striped col m10 offset-m1">
 					<thead>
 					<tr>
-						<th class="col m6">
+						<th class="col m6 col_table">
 							Produits
 						</th>
-						<th class="col m2">
+						<th class="col m2 col_table">
 							Prix/Grammes
 						</th>
-						<th class="col m2">
+						<th class="col m2 col_table">
 							Quantité
 						</th>
-						<th class="col m2">
+						<th class="col m2 col_table">
 
 						</th>
 					</tr>
@@ -37,10 +37,10 @@
 					<tbody>
 					{% for key, marchandise in evenement.marchandises %}
 						<tr>
-							<td class="col m6">{{ marchandise.product.name }}</td>
-							<td class="col m2">{{ marchandise.prix }}</td>
-							<td class="col m2">{{ marchandise.quantite }}</td>
-							<td class="col m2">
+							<td class="col m6 col_table">{{ marchandise.product.name }}</td>
+							<td class="col m2 col_table">{{ marchandise.prix }}</td>
+							<td class="col m2 col_table">{{ marchandise.quantite }}</td>
+							<td class="col m2 col_table">
 								{{ form_widget(formUser.selectProduits[key].quantiteCommande) }}
 							</td>
 						</tr>
@@ -57,7 +57,7 @@
 						{{ form_row(formUser.prenom) }}
 					</div>
 					<div>
-						<span class="center-align">{{ form_row(formUser.submit) }}</span>
+						<span class="center-align col m12">{{ form_row(formUser.submit) }}</span>
 					</div>
 				</div>
 				{{ form_end(formUser) }}

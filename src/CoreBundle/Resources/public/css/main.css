@@ -1214,6 +1214,10 @@ Responsive Menu Nav
   display: block;
   width: 300px;
 }
+/* line 27, ../scss/_booking.scss */
+#booking .col_table {
+  float: none !important;
+}
 
 /*----------------------------------------*\
     12.LIST ALL EVENEMENTS
