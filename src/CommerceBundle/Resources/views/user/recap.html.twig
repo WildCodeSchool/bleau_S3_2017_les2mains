@@ -1,1 +1,11 @@
-{{ dump(app.session.get('panier')) }}
+{{ dump(panier) }}
+{{ panier.nom }}
+{{ panier.prenom }}
+
+{% for prod in panier.selectProduits %}
+
+	{{ prod.quantiteCommande }}
+	{{ prod.marchandise.product.name }}
+	{{ prod.marchandise.prix }}
+	
+{% endfor %}

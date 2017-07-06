@@ -79,8 +79,11 @@ class BookingController extends Controller
         // Conservation en Mémoire Temp des infos de $user
             $session = $request->getSession();
             $session->set('panier', $user);
+            $panier = $session->get('panier');
         // Je retourne à la vue 'Recap' mon panier ($user) si ce dernier est valide
-            return $this->render('@Commerce/user/recap.html.twig');
+            return $this->render('@Commerce/user/recap.html.twig', array(
+                'panier' => $panier
+            ));
         }
         // Sinon retour à la vue de notre formulaire
         return $this->render('@Commerce/user/booking.html.twig', array(

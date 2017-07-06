@@ -1,6 +1,8 @@
 {% for evenement in evenements %}
-
-	{{ dump(evenement) }}
 	
+	{{ evenement.date|date("d/m/Y") }}
+	{{ evenement.lieu.nom }}
+	{{ evenement.lieu.adresse }}
+	{{ evenement.lieu.indication }}
 	<a href="{{ path('booking', { 'id': evenement.id }) }}">voir</a>
 {% endfor %}

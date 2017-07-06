@@ -14,7 +14,9 @@ class SelectProduitType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('quantiteCommande', IntegerType::class);
+        $builder->add('quantiteCommande', IntegerType::class, array(
+            'required' => false
+        ));
     }
     
     /**
