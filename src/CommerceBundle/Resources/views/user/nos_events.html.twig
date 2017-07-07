@@ -33,22 +33,17 @@
                                    {{ form_widget(form.title) }}
                                    {{ form_errors(form.title) }}
                                </div>
-
                                <div class="input-field col s12">
                                    {{ form_label(form.description) }}
                                    {{ form_widget(form.description, {'attr': {'class': 'materialize-textarea' }}) }}
                                    {{ form_errors(form.description) }}
                                </div>
-
                                <div class="form_add col s6">
-                                   {{ form_label(form.dateStart) }}
-                                   {{ form_widget(form.dateStart) }}
+	                               {{ form_row(form.dateStart,{'attr':{'class':'datepicker','placeholder': 'Clicker pour Ouvrir'}}) }}
                                    {{ form_errors(form.dateStart) }}
                                </div>
-
                                <div class="form_add col s6">
-                                   {{ form_label(form.dateEnd) }}
-                                   {{ form_widget(form.dateEnd) }}
+	                               {{ form_row(form.dateEnd,{'attr':{'class':'datepicker','placeholder': 'Clicker pour Ouvrir'}}) }}
                                    {{ form_errors(form.dateEnd) }}
                                </div>
                                <div class="form_add col s12">
@@ -58,15 +53,14 @@
                                </div>
                                <div class="form_add col s12">
                                    {{ form_label(form.price) }}
-                                   {{ form_widget(form.price) }}
+	                               {{ form_widget(form.price, {'attr': {'class': 'materialize-textarea' }}) }}
                                    {{ form_errors(form.price) }}
                                </div>
                                <div class="input-field col s12">
                                    {{ form_label(form.lien) }}
-                                   {{ form_widget(form.lien) }}
+	                               {{ form_widget(form.lien, {'attr': {'class': 'materialize-textarea' }}) }}
                                    {{ form_errors(form.lien) }}
                                </div>
-
                                <div class="input-field col s12">
                                    {{ form_label(form.location) }}
                                    {{ form_widget(form.location) }}
@@ -161,4 +155,11 @@
         {% include '@Core/pages/footer.html.twig' %}
 
     </div>
+    {% block javascripts %}
+        <script>$('.datepicker').pickadate({
+                selectMonths: true, // Creates a dropdown to control month
+                selectYears: 15 // Creates a dropdown of 15 years to control year
+            });
+        </script>
+        {% endblock %}
 {% endblock %}
