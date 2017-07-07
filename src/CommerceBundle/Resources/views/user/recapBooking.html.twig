@@ -1,11 +1,32 @@
 {{ dump(recap) }}
-{% for test in recap %}
+{#{% for test in recap %}#}
 
-    {{ test.nom }}
-    {{ test.prenom }}
+    {#{{ test.nom }}#}
+    {#{{ test.prenom }}#}
 
-    {% for produit in test %}
-    {{ produit.selectProduits }}
+    {#{% for produit in test %}#}
+        {#{{ produit.selectProduits }}#}
+    {#{% endfor %}#}
+
+{#{% endfor %}#}
+
+<table>
+    <thead>
+    <tr>
+        <th></th>
+        {% for recap in recap %}
+        <th>{{ recap.nom }}, {{ recap.prenom }}</th>
         {% endfor %}
-
-{% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+        {#{% for produit in recap.product %}#}
+            <tr>
+                <td>{{  }}</td>
+                {#{% for qtte in recap %}#}
+                    <td>{{  }}</td>
+                {#{% endfor %}#}
+            </tr>
+        {#{% endfor %}#}
+    </tbody>
+</table>
