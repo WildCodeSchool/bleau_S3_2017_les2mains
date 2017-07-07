@@ -1,5 +1,5 @@
 {{ dump(panier) }}
-{{ panier.nom }}
+{#{{ panier.nom }}
 {{ panier.prenom }}
 
 {% for prod in panier.selectProduits %}
@@ -8,4 +8,6 @@
 	{{ prod.marchandise.product.name }}
 	{{ prod.marchandise.prix }}
 	
-{% endfor %}
+{% endfor %}#}
+<a href="{{ path('valid_booking', { 'id': evenement.id }) }}">Validation</a>
+

@@ -20,5 +20,5 @@ CommerceBundle\Entity\SelectProduit:
         user:
             targetEntity: CommerceBundle\Entity\User
             inversedBy: selectProduits
-        marchandise:
-            targetEntity: CommerceBundle\Entity\Marchandise
+        product:
+            targetEntity: CommerceBundle\Entity\Product
