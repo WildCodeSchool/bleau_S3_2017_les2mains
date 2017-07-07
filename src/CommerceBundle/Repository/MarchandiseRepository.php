@@ -10,4 +10,14 @@ namespace CommerceBundle\Repository;
  */
 class MarchandiseRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getMarchandiseById($evenement)
+    {
+        $qb = $this->createQueryBuilder('m');
+        $qb->where('m.evenement = :event')
+            ->join('m.product', 'p')
+            ->orderBy('p.name')
+            ->setParameter('event', $evenement)
+        ;
+        return $qb->getQuery()->getResult();
+    }
 }

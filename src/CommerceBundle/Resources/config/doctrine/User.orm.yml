@@ -20,4 +20,7 @@ CommerceBundle\Entity\User:
         selectProduits:
             targetEntity: CommerceBundle\Entity\SelectProduit
             mappedBy: user
-
+            cascade: ['all' ]
+    manyToOne:
+        evenement:
+            targetEntity: CommerceBundle\Entity\Evenement
