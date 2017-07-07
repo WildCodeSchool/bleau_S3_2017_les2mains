@@ -17,7 +17,9 @@ class LieuType extends AbstractType
         $builder->add('nom')
                 ->add('adresse')
                 ->add('indication')
-                ->add('submit', SubmitType::class);
+                ->add('submit', SubmitType::class, array(
+                    'label' => 'Valider'
+                ));
     }
     
     /**
