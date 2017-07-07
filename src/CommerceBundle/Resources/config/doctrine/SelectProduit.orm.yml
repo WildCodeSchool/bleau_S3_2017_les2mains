@@ -1,0 +1,24 @@
+CommerceBundle\Entity\SelectProduit:
+    type: entity
+    table: null
+    repositoryClass: CommerceBundle\Repository\SelectProduitRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        quantiteCommande:
+            type: integer
+        prixTotal:
+            type: integer
+            column: PrixTotal
+
+
+    manyToOne:
+        user:
+            targetEntity: CommerceBundle\Entity\User
+            inversedBy: selectProduits
+        marchandise:
+            targetEntity: CommerceBundle\Entity\Marchandise

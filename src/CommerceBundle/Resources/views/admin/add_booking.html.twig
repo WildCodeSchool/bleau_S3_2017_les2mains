@@ -1,0 +1,78 @@
+{% extends '@Core/layout.html.twig' %}
+
+{% block body %}
+	<div id="booking">
+		<div class="parallax-container">
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
+			<div class="section header">
+				<h3 class="header center title">Ajout d'une vente</h3>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+
+				<!-- Modal Trigger -->
+				<a class="waves-effect waves-light btn btn_modal" href="#modaladdbooking">Ajouter un lieu</a>
+
+				<!-- Modal Structure -->
+				<div id="modaladdbooking" class="modal">
+					<div class="modal-content">
+						<h5 class="text_perso center-align">Ajout d'un lieu</h5>
+                        {{ form(formlieu) }}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div>
+					<h4 class="center-align text_perso">Lieu et date de la vente</h4>
+					{{ form_start(formevent) }}
+					
+					<div>
+						{{ form_label(formevent.lieu) }}
+						{{ form_widget(formevent.lieu) }}
+						{{ form_errors(formevent.lieu) }}
+					</div>
+					<div>
+						{{ form_label(formevent.date) }}
+						{{ form_widget(formevent.date) }}
+						{{ form_errors(formevent.date) }}
+					</div>
+					<div class="row">
+						{% for key,form in formevent.marchandises %}
+							<div class="col s4">
+								<h4>Marchandise {{ loop.index }}</h4>
+								{{ dump(form) }}
+								{{ dump(key) }}
+								<div>
+									{{ form_label(form.prix) }}
+									{{ form_widget(form.prix) }}
+									{{ form_errors(form.prix) }}
+								</div>
+								<div>
+									{{ form_label(form.quantite) }}
+									{{ form_widget(form.quantite) }}
+									{{ form_errors(form.quantite) }}
+								</div>
+								<div>
+									{{ form_label(form.product) }}
+									{{ form_widget(form.product) }}
+									{{ form_errors(form.product) }}
+								</div>
+							</div>
+						
+						{% endfor %}
+					</div>
+					
+					<div>
+						{{ form_widget(formevent.submit) }}
+					</div>
+					
+					{{ form_end(formevent) }}
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+CommerceBundle\Entity\Marchandise:
+    type: entity
+    table: null
+    repositoryClass: CommerceBundle\Repository\MarchandiseRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        prix:
+            type: integer
+        quantite:
+            type: integer
+
+    manyToOne:
+        evenement:
+            targetEntity: CommerceBundle\Entity\Evenement
+            inversedBy: marchandises
+        product:
+            targetEntity: CommerceBundle\Entity\Product

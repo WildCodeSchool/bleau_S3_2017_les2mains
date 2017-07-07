@@ -22,3 +22,18 @@ product_delete:
 edit_valid_product:
     path: /{id}/product/edit
     defaults: {_controller: CommerceBundle:Product:editValidProduct}
+
+list_evenementAction:
+    path: /evenement
+    defaults: {_controller: CommerceBundle:Booking:listEvenenement}
+
+booking:
+    path: /{id}/booking
+    defaults: {_controller: CommerceBundle:Booking:booking}
+    requirements:
+        id: '\d+'
+
+add_booking:
+    path: /admin/booking
+    defaults: {_controller: CommerceBundle:Booking:addBooking}
+

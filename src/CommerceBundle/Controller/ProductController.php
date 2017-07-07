@@ -44,7 +44,7 @@ class ProductController extends Controller
             return $this->redirectToRoute('product');
         }
 
-        return $this->render('@Commerce/product.html.twig', array(
+        return $this->render('@Commerce/user/product.html.twig', array(
             'products' => $products,
             'categories' => $categories,
             'form' => $form->createView(),
@@ -62,7 +62,7 @@ class ProductController extends Controller
         $form = $formBuilder->getForm();
         $form->handleRequest($request);
 
-        return $this->render('@Commerce/editProduct.html.twig', array(
+        return $this->render('@Commerce/user/editProduct.html.twig', array(
             'product_selected' => $product,
             'form' => $form->createView()
         ));
