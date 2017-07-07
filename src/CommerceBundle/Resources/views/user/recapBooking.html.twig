@@ -1,0 +1,11 @@
+{{ dump(recap) }}
+{% for test in recap %}
+
+    {{ test.nom }}
+    {{ test.prenom }}
+
+    {% for produit in test %}
+    {{ produit.selectProduits }}
+        {% endfor %}
+
+{% endfor %}

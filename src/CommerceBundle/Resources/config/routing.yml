@@ -41,3 +41,6 @@ add_booking:
     path: /admin/booking
     defaults: {_controller: CommerceBundle:Booking:addBooking}
 
+recap_booking:
+    path: /{id}/recap/booking
+    defaults: {_controller: CommerceBundle:Booking:RecapBooking}

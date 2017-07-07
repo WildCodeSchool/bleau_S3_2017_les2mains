@@ -5,4 +5,5 @@
 	{{ evenement.lieu.adresse }}
 	{{ evenement.lieu.indication }}
 	<a href="{{ path('booking', { 'id': evenement.id }) }}">voir</a>
+	<a href="{{ path('recap_booking', { 'id': evenement.id }) }}">Recapitulatif Commande</a>
 {% endfor %}

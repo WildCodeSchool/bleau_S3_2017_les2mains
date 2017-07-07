@@ -10,4 +10,14 @@ namespace CommerceBundle\Repository;
  */
 class EvenementRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getEvenementById($id)
+    {
+        $qb = $this->createQueryBuilder('e');
+        $qb->select('e.id as id', 'e.date as date', 'l.adresse as adresse', 'l.nom as nom', 'l.indication as indication')
+            ->where('e.id = :id')
+            ->join('e.lieu', 'l')
+            ->setParameter('id', $id)
+        ;
+        return $qb->getQuery()->getSingleResult();
+    }
 }

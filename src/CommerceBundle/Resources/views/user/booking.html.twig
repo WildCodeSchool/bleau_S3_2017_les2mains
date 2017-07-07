@@ -13,9 +13,9 @@
 				
 				<div>
 					<h4>Lieu</h4>
-					{{ evenement.lieu.nom }}<br>
-					{{ evenement.lieu.adresse }}<br>
-					{{ evenement.lieu.indication }}
+					{{ evenement.nom }}<br>
+					{{ evenement.adresse }}<br>
+					{{ evenement.indication }}
 				</div>
 				<table>
 					<thead>
@@ -32,7 +32,7 @@
 					</tr>
 					</thead>
 					<tbody>
-					{% for key, marchandise in evenement.marchandises %}
+					{% for key, marchandise in marchandise %}
 						<tr>
 							<td>{{ marchandise.product.name }}</td>
 							<td>{{ marchandise.prix }}</td>
