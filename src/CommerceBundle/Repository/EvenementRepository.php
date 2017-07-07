@@ -16,8 +16,73 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
         $qb->select('e.id as id', 'e.date as date', 'l.adresse as adresse', 'l.nom as nom', 'l.indication as indication')
             ->where('e.id = :id')
             ->join('e.lieu', 'l')
-            ->setParameter('id', $id)
-        ;
+            ->setParameter('id', $id);
         return $qb->getQuery()->getSingleResult();
+    }
+
+    public function getEvenement($idEvent)
+    {
+        $marchandises = $this->getMarchandisesByEvent($idEvent);
+        $users = $this->getUserByEvent($idEvent);
+
+        $event = array();
+
+        foreach ($marchandises as $marchandise)
+        {
+            $nameProduit = $marchandise['name'];
+            foreach ($users as $user){
+                $name = ucfirst($user['nom']) . ' ' . ucfirst($user['prenom']);
+                $qantityPerProductSelect = $this->getQuantitySelectByProductAndByUser($user['id'], $nameProduit);
+                $event[$nameProduit][$name] = $qantityPerProductSelect;
+            }
+        }
+
+        return $event;
+    }
+
+    public function getMarchandisesByEvent($idEvent)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder()
+            ->from('CommerceBundle:Marchandise', 'm');
+
+        $qb->join('m.evenement', 'e')
+            ->where('e.id = :idEvent')
+            ->join('m.product', 'p')
+            ->select('p.name')
+            ->setParameter('idEvent', $idEvent)
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getUserByEvent($idEvent)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder()
+            ->from('CommerceBundle:User', 'u');
+        $qb->join('u.evenement', 'e')
+            ->where('e.id = :idEvent')
+            ->select('u.nom as nom', 'u.prenom as prenom', 'u.id as id')
+            ->setParameter('idEvent', $idEvent);
+
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getQuantitySelectByProductAndByUser($idUser, $product)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder()
+            ->from('CommerceBundle:User', 'u');
+
+        $qb->where('u.id = :idUser')
+            ->andWhere('p.name = :name')
+            ->join('u.selectProduits', 's')
+            ->join('s.product', 'p')
+            ->select('s.quantiteCommande')
+            ->setParameters(
+                array(
+                    'idUser' => $idUser,
+                    'name' => $product
+                ));
+
+        return $qb->getQuery()->getOneOrNullResult();
     }
 }

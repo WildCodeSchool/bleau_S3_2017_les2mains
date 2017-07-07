@@ -11,6 +11,7 @@ use CommerceBundle\Entity\User;
 use CommerceBundle\Form\EvenementType;
 use CommerceBundle\Form\LieuType;
 use CommerceBundle\Form\UserType;
+use CommerceBundle\Repository\EvenementRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -208,10 +209,10 @@ class BookingController extends Controller
     public function RecapBookingAction(Evenement $evenement)
     {
         $em = $this->getDoctrine()->getManager();
-        $recap = $em->getRepository(User::class)->findByEvenement($evenement);
+        $recaps = $em->getRepository(Evenement::class)->getEvenement($evenement->getId());
 
         return $this-> render('@Commerce/user/recapBooking.html.twig', array(
-            'recap' => $recap
+            'recaps' => $recaps,
         ));
     }
 
