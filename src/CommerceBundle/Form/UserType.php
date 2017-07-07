@@ -5,6 +5,7 @@ namespace CommerceBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,11 +18,11 @@ class UserType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('prenom')
+            ->add('prenom',TextType::class, array('label'=>'Prénom'))
             ->add('selectProduits',CollectionType::class, array(
                 'entry_type' => SelectProduitType::class
             ))
-            ->add('submit', SubmitType::class);
+            ->add('submit', SubmitType::class, array('label'=>'Valider'));
     }
     
     /**

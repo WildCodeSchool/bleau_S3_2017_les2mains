@@ -1,8 +1,37 @@
-{% for evenement in evenements %}
-	
-	{{ evenement.date|date("d/m/Y") }}
-	{{ evenement.lieu.nom }}
-	{{ evenement.lieu.adresse }}
-	{{ evenement.lieu.indication }}
-	<a href="{{ path('booking', { 'id': evenement.id }) }}">voir</a>
-{% endfor %}
+{% extends "@Core/layout.html.twig" %}
+{% block body %}
+	<div id="list_all_evenements">
+		<div class="parallax-container">
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
+			<div class="section header">
+				<h3 class="header center title">Nos ventes</h3>
+			</div>
+		</div>
+			<div class="evenement_container container">
+				<div class="row">
+                    {% for evenement in evenements %}
+						<div class="evenement_content col s5 push-s1">
+							<div class="e_content_child">
+								<h4 class="date text_perso">{{ evenement.date|date("d/m/Y") }}</h4>
+								<br>
+								<span class="place">{{ evenement.lieu.nom }}</span>
+								<br>
+								<span class="adress">{{ evenement.lieu.adresse }}</span>
+								<br>
+								<span class="indication">{{ evenement.lieu.indication }}</span>
+								<br>
+							</div>
+							<a href="{{ path('booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">voir</a>
+							<br>
+						</div>
+                    {% endfor %}
+				</div>
+			</div>
+			<div class="parallax-container parallax_evenement">
+				<div class="parallax">
+					<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
+				</div>
+			</div>
+        {% include '@Core/pages/footer.html.twig' %}
+	</div>
+{% endblock %}

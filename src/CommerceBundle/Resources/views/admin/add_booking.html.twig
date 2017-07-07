@@ -2,16 +2,46 @@
 
 {% block body %}
 	<div id="booking">
+		<div class="parallax-container">
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
+			<div class="section header">
+				<h3 class="header center title">Ajout d'une vente</h3>
+			</div>
+		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col s6">
-					<h5>Lieu</h5>
-					{{ form(formlieu) }}
+
+				<!-- Modal Trigger -->
+				<a class="waves-effect waves-light btn btn_modal" href="#modaladdbooking">Ajouter un lieu</a>
+
+				<!-- Modal Structure -->
+				<div id="modaladdbooking" class="modal">
+					<div class="modal-content">
+						<h5 class="text_perso center-align">Ajout d'un lieu</h5>
+                        {{ form_start(formlieu) }}
+						<div>
+                            {{ form_label(formlieu.nom) }}
+                            {{ form_widget(formlieu.nom) }}
+                            {{ form_errors(formlieu.nom) }}
+						</div>
+						<div>
+                            {{ form_label(formlieu.adresse) }}
+                            {{ form_widget(formlieu.adresse) }}
+                            {{ form_errors(formlieu.adresse) }}
+						</div>
+						<div>
+                            {{ form_label(formlieu.indication) }}
+                            {{ form_widget(formlieu.indication) }}
+                            {{ form_errors(formlieu.indication) }}
+						</div>
+                        {{ form_widget(formlieu.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+						{{ form_end(formlieu) }}
+					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div>
-					<h5>Date</h5>
+					<h4 class="center-align text_perso">Lieu et date de la vente</h4>
 					{{ form_start(formevent) }}
 					
 					<div>
@@ -49,7 +79,7 @@
 					</div>
 					
 					<div>
-						{{ form_widget(formevent.submit) }}
+						{{ form_widget(formevent.submit, {'attr': {'class': 'btn btn-primary'}}) }}
 					</div>
 					
 					{{ form_end(formevent) }}
