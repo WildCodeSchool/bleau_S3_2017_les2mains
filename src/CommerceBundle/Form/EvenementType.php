@@ -28,7 +28,7 @@ class EvenementType extends AbstractType
             ->add('marchandises', CollectionType::class, array(
                 'entry_type' => MarchandiseType::class
             ))
-            ->add('submit', SubmitType::class);
+            ->add('submit', SubmitType::class, array('label' => 'Valider'));
     }
     
     /**

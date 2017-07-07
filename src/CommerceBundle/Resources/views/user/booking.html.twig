@@ -24,10 +24,10 @@
 							Produits
 						</th>
 						<th class="col m2 col_table">
-							Prix/Grammes
+							Prix/kg
 						</th>
 						<th class="col m2 col_table">
-							Quantité
+							Quantité*
 						</th>
 						<th class="col m2 col_table">
 
@@ -57,8 +57,14 @@
 						{{ form_row(formUser.prenom) }}
 					</div>
 					<div>
-						<span class="center-align col m12">{{ form_row(formUser.submit) }}</span>
+						<span class="center-align col m12">{{ form_row(formUser.submit, {'attr': {'class': 'btn btn-primary'}}) }}</span>
+
 					</div>
+				</div>
+				<div class="row">
+					<p>
+						* Merci de renseigner la quantité en grammes
+					</p>
 				</div>
 				{{ form_end(formUser) }}
 			</div>
