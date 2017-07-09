@@ -108,17 +108,6 @@
 						<p>{{ products.content|nl2br }}</p>
 					</div>
 				</div>
-			{#{% if is_granted('ROLE_ADMIN')%}
-				<!-- button delete-->
-				<a href="{{ path('product_delete', {'id' : products.id}) }}" class="waves-effect teal z-depth-5 btn index_btn col s6">Effacer</a>
-				<!-- button edit-->
-				<a href="#modal{{ products.id }}" class="waves-effect teal z-depth-5 btn index_btn col s6">Modifier</a>
-				<!-- Modal Structure -->
-				<div id="modal{{ products.id }}" class="modal">
-					<!-- On rend la vue editActivite a la vue de la modal -->
-                {{ render(controller('CommerceBundle:Product:editProduct',{ 'id': products.id })) }}
-				</div>
-			{% endif %}#}
 				{% if is_granted('ROLE_ADMIN') %}
 					<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 					<!-- Modal Trigger -->
@@ -170,5 +159,4 @@
         });
 	</script>
 	{% endblock %}
-
 {% endblock %}

@@ -12,7 +12,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ActiviteController extends Controller
 {
-
+    /**
+     * Listing All Themes of ActivityType
+     * @return Response
+     */
     public function listAllThemesAction(){
         $em = $this->getDoctrine()->getManager();
 
@@ -24,9 +27,8 @@ class ActiviteController extends Controller
     }
 
     /**
-     * Render page for sho allActivities and add new Activity
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function addAction(Request $request)
     {
@@ -71,10 +73,7 @@ class ActiviteController extends Controller
     }
 
     /**
-     * Render form for EditActivity
-     * Call directly in template with renderController method
      * @param Request $request
-     * @param Activite $activite
      * @return Response
      */
     public function editActiviteAction(Request $request)
@@ -95,7 +94,6 @@ class ActiviteController extends Controller
     }
 
     /**
-     * Validat form edit Activity
      * @param Activite $activite
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
@@ -112,8 +110,12 @@ class ActiviteController extends Controller
         return $this->redirectToRoute('core_activite_add');
     }
 
+    /**
+     * @param $object
+     * @return \Symfony\Component\Form\FormInterface
+     */
     private function generateActivityForm($object){
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $object->getId(), ActiviteType::class, $object);
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $object->getId(), \CoreBundle\Form\ActiviteType::class, $object);
         $formBuilder->setAction($this->generateUrl('core_activite_editValide', array(
             'id' => $object->getId()
         )));
@@ -121,7 +123,6 @@ class ActiviteController extends Controller
         $form = $formBuilder->getForm();
         return $form;
     }
-
 
     /**
      * Delete one activity

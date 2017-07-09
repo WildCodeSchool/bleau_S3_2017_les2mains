@@ -128,6 +128,12 @@ class BookingController extends Controller
         ));
 
     }
+
+    /**
+     * @param Request $request
+     * @param Evenement $evenement
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function validBookingAction(Request $request, Evenement $evenement)
     {
         $em = $this->getDoctrine()->getManager();
@@ -206,6 +212,10 @@ class BookingController extends Controller
        ));
     }
 
+    /**
+     * @param Evenement $evenement
+     * @return Response
+     */
     public function RecapBookingAction(Evenement $evenement)
     {
         $em = $this->getDoctrine()->getManager();
