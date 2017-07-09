@@ -31,7 +31,7 @@ class OurType extends AbstractType
                 ->add('picture3',PictureType::class,array(
                     'required'=> false
                 ))
-                ->add('save_1',         SubmitType::class, array('label' => 'Validation'))
+                ->add('save_1',         SubmitType::class, array('label' => 'Valider'))
 
                 ->add('titre2', TextType::class)
                 ->add('contenu2', TextareaType::class)
@@ -45,7 +45,7 @@ class OurType extends AbstractType
                 ->add('picture6', PictureType::class,array(
                     'required'=> false
                 ))
-                ->add('save_2', SubmitType::class, array('label' => 'Validation'))
+                ->add('save_2', SubmitType::class, array('label' => 'Valider'))
 
                 ->add('titre3', TextType::class)
                 ->add('contenu3', TextareaType::class)
@@ -59,7 +59,7 @@ class OurType extends AbstractType
                 ->add('picture9', PictureType::class,array(
                     'required'=> false
                 ))
-                ->add('save_3', SubmitType::class, array('label' => 'Validation'))
+                ->add('save_3', SubmitType::class, array('label' => 'Valider'))
             ->getForm();
 
     }

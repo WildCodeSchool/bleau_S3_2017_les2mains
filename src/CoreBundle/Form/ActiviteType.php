@@ -30,7 +30,7 @@ class ActiviteType extends AbstractType
                 ->add('lien',TextareaType::class, array(
                     'required' => false
                 ))
-                ->add('submit', SubmitType::class, array('label'=>'Créer'));
+                ->add('submit', SubmitType::class, array('label'=>'Valider'));
         
 
 

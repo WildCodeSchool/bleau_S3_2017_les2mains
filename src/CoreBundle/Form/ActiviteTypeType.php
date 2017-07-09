@@ -16,7 +16,7 @@ class ActiviteTypeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nom', TextType::class)
-                ->add('submit', SubmitType::class, array('label'=>'Créer'));
+                ->add('submit', SubmitType::class, array('label'=>'Valider'));
     }
     
     /**
