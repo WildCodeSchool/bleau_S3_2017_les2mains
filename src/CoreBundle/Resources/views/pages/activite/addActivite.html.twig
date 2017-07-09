@@ -160,13 +160,17 @@
                                 </div>
                             </div>
                         </div>
-                            {% if is_granted('ROLE_ADMIN')%}
-                                    <a href="{{ path('core_activite_delete', {'id' :activite.id}) }}" class="waves-effect teal z-depth-5 index_btn btn activite">Effacer</a>
-                                    <a href="#modal{{ activite.id }}" class="waves-effect teal z-depth-5 index_btn btn activite">Modifier</a>
+	                    {% if is_granted('ROLE_ADMIN') %}
+                            <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light center-align btn index_btn formEditEvent" data-id="{{ activite.id }}" href="#modal{{ activite.id }}">Modifier</a>
+        
+                            <!-- Modal Structure -->
                             <div id="modal{{ activite.id }}" class="modal">
-                                {{ render(controller('CoreBundle:Activite:editActivite',{ 'id': activite.id })) }}
                             </div>
-                            {% endif %}
+                            <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <a class="waves-effect waves-light center-align btn index_btn" href=" {{ path('core_activite_delete', {'id': activite.id}) }}">Effacer</a>
+	                    {% endif %}
                     </div>
             {% endfor %}
             </div>
@@ -188,7 +192,6 @@
 {% endblock %}
 
 {% block javascripts %}
-
     <script>
         $( document ).ready(function() {
             $('.deleteThemeAction').click(function (e) {
@@ -209,5 +212,4 @@
             })
         });
     </script>
-
 {% endblock %}

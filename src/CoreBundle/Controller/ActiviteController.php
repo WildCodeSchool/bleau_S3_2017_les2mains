@@ -22,6 +22,7 @@ class ActiviteController extends Controller
             'listthemes' => $listthemes,
         ));
     }
+
     /**
      * Render page for sho allActivities and add new Activity
      * @param Request $request
@@ -32,11 +33,9 @@ class ActiviteController extends Controller
         // Init i for parallax in view activity
         $i = 0;
 
-
         $em = $this->getDoctrine()->getManager();
 
         $themes = $em->getRepository(\CoreBundle\Entity\ActiviteType::class)->getActivitiesType();
-
 
         $activite = new Activite();
         $form = $this->createForm(\CoreBundle\Form\ActiviteType::class, $activite);
@@ -69,7 +68,6 @@ class ActiviteController extends Controller
             'forms' => $forms->createView(),
 
         ));
-
     }
 
     /**
@@ -77,22 +75,22 @@ class ActiviteController extends Controller
      * Call directly in template with renderController method
      * @param Request $request
      * @param Activite $activite
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function editActiviteAction(Request $request, Activite $activite)
-    {
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $activite->getId(), \CoreBundle\Form\ActiviteType::class, $activite);
-        $formBuilder->setAction($this->generateUrl('core_activite_editValide', array(
-            'id' => $activite->getId()
-        )));
+    public function editActiviteAction(Request $request, Activite $activite){
+        if ($request->isXmlHttpRequest())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $idActivite = $request->request->get('idActivite');
+            $activite = $em->getRepository(ActiviteType::class)->findOneById($idActivite);
+            $form = $this->generateEventForm($activite);
+            $form->handleRequest($request);
 
-        $form = $formBuilder->getForm();
-        $form->handleRequest($request);
-        
-        return $this->render('@Core/pages/activite/editActivite.html.twig', array(
-            'form'  => $form->createView()
-        ));
-
+            return $this->render('@Core/pages/activite/editActivite.html.twig', array(
+                'event_selected' => $activite,
+                'form' => $form->createView()
+            ));
+        }
     }
 
     /**

@@ -6,21 +6,20 @@ use CommerceBundle\Entity\Event;
 use CommerceBundle\Form\EventType;
 use CoreBundle\Entity\Activite;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 
 class EventController extends Controller
 {
-
-    public function addEventAction(Request $request){
-
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function addEventAction(Request $request)
+    {
         $i = 0;
 
         $em = $this->getDoctrine()->getManager();
         $activities = $em->getRepository(Activite::class)->getActivities();
-
 
         $event = new Event();
         $form = $this->createForm(EventType::class, $event);
@@ -41,10 +40,12 @@ class EventController extends Controller
             'activities' => $activities,
             'i' => $i
         ));
-
-
     }
 
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function deleteEventAction($id){
         $em = $this->getDoctrine()->getManager();
         $event = $em->getRepository('CommerceBundle:Event')->findOneById($id);
@@ -52,9 +53,12 @@ class EventController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('event_add');
-
     }
 
+    /**
+     * @param $object
+     * @return \Symfony\Component\Form\FormInterface
+     */
     private function generateEventForm($object){
         $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $object->getId(), EventType::class, $object);
         $formBuilder->setAction($this->generateUrl('event_edit_valid', array(
@@ -65,16 +69,31 @@ class EventController extends Controller
         return $form;
     }
 
-    public function editEventAction(Event $event, Request $request){
-        $form = $this->generateEventForm($event);
-        $form->handleRequest($request);
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function editEventAction(Request $request){
+        if ($request->isXmlHttpRequest())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $idEvent = $request->request->get('idEvent');
+            $event = $em->getRepository(Event::class)->findOneById($idEvent);
+            $form = $this->generateEventForm($event);
+            $form->handleRequest($request);
 
-        return $this->render('@Commerce/user/editEvent.html.twig', array(
-            'event_selected' => $event,
-            'form' => $form->createView()
-        ));
+            return $this->render('@Commerce/user/editEvent.html.twig', array(
+                'event_selected' => $event,
+                'form' => $form->createView()
+            ));
+        }
     }
 
+    /**
+     * @param Event $event
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function validEditAction(Event $event, Request $request){
         $form = $this->generateEventForm($event);
         $form->handleRequest($request);
@@ -84,7 +103,5 @@ class EventController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('event_add');
-
     }
-
 }

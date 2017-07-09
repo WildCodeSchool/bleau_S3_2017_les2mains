@@ -68,7 +68,7 @@ class ProductController extends Controller
         ));
     }
 
-    public function editValidProductAction(Product $product, Request $request)
+    /*public function editValidProductAction(Product $product, Request $request)
     {
         $formBuilder = $this->get('form.factory')->createNamedBuilder('form' . $product->getId(), ProductType::class, $product);
         $form = $formBuilder->getForm();
@@ -80,6 +80,23 @@ class ProductController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('product');
+    }*/
+
+    public function editValidProductAction(Product $product, Request $request)
+    {
+        if ($request->isXmlHttpRequest())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $idProduct = $request->request->get('idProduct');
+            $product = $em->getRepository(ProductType::class)->findOneById($idProduct);
+            $form = $this->generateEventForm($product);
+            $form->handleRequest($request);
+
+            return $this->render('@Commerce/user/editProduct.html.twig', array(
+                'product_selected' => $product,
+                'form' => $form->createView()
+            ));
+        }
     }
 
     public function deleteAction($id)

@@ -44,25 +44,24 @@ class ActuController extends Controller
     }
 
     /**
-     * Render form for edit article
+     * @param Request $request
      * @param Article $article
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
+     * @return Response
      */
-    public function editArticleAction(Article $article, Request $request){
+    public function editArticleAction(Request $request, Article $article){
+        if ($request->isXmlHttpRequest())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $idArticle = $request->request->get('idArticle');
+            $event = $em->getRepository(Article::class)->findOneById($idArticle);
+            $form = $this->generateEventForm($article);
+            $form->handleRequest($request);
 
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $article->getId(), ArticleType::class, $article);
-        $formBuilder->setAction($this->generateUrl('blog_actu_editValide', array(
-            'id' => $article->getId()
-        )));
-
-        $form = $formBuilder->getForm();
-        $form->handleRequest($request);
-
-        return $this->render('@Blog/editActu.html.twig', array(
-            'article_selected' => $article,
-            'form'  => $form->createView()
-        ));
+            return $this->render('@Commerce/user/editEvent.html.twig', array(
+                'article_selected' => $article,
+                'form' => $form->createView()
+            ));
+        }
     }
 
     /**
