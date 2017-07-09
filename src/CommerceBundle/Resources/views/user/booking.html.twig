@@ -12,6 +12,7 @@
 			<div class="row">
 				{{ form_start(formUser) }}
 				
+
 				<div class="info_content">
 					<h4 class="text_perso center-align place">{{ evenement.lieu.nom }}</h4><br>
 					<span class="p_center">{{ evenement.lieu.adresse }}</span><br>
@@ -35,7 +36,7 @@
 					</tr>
 					</thead>
 					<tbody>
-					{% for key, marchandise in evenement.marchandises %}
+					{% for key, marchandise in marchandise %}
 						<tr>
 							<td class="col m6 col_table">{{ marchandise.product.name }}</td>
 							<td class="col m2 col_table">{{ marchandise.prix }}</td>
