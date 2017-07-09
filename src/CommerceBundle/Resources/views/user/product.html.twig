@@ -122,8 +122,7 @@
 				{% if is_granted('ROLE_ADMIN') %}
 					<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 					<!-- Modal Trigger -->
-					<a href="#modal{{ products.id }}" class="waves-effect teal z-depth-5 btn index_btn col s6 formEditProduct">Modifier</a>
-					
+					<a class="waves-effect teal z-depth-5 btn index_btn col s6 formEditProduct" data-id="{{ products.id }}" href="#modal{{ products.id }}">Modifier</a>
 					<!-- Modal Structure -->
 					<div id="modal{{ products.id }}" class="modal">
 					
@@ -147,7 +146,7 @@
 	</div>
     {% include '@Core/pages/footer.html.twig' %}
 </div>
-{#	{% block javascripts %}
+	{% block javascripts %}
 	<script>
         $( document ).ready(function() {
             $('.formEditProduct').click(function (e) {
@@ -157,7 +156,7 @@
                 var modalContent = $('#modal' + idProduct);
                 console.log(idProduct);
                 $.ajax({
-                    url: "{{ path('edit_valid_product') }}",
+                    url: "{{ path('product_edit') }}",
                     data: {'idProduct': idProduct },
                     method: 'post',
                     success: function (response) {
@@ -170,6 +169,6 @@
             })
         });
 	</script>
-	{% endblock %}#}
+	{% endblock %}
 
-{% endblock %}i
+{% endblock %}

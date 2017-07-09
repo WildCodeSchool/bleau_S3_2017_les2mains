@@ -14,8 +14,8 @@ class EventController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function addEventAction(Request $request)
-    {
+    public function addEventAction(Request $request){
+
         $i = 0;
 
         $em = $this->getDoctrine()->getManager();
@@ -43,19 +43,7 @@ class EventController extends Controller
     }
 
     /**
-     * @param $id
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function deleteEventAction($id){
-        $em = $this->getDoctrine()->getManager();
-        $event = $em->getRepository('CommerceBundle:Event')->findOneById($id);
-        $em->remove($event);
-        $em->flush();
-
-        return $this->redirectToRoute('event_add');
-    }
-
-    /**
+     * @param Event $event
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -76,6 +64,24 @@ class EventController extends Controller
     }
 
     /**
+     * @param Event $event
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function validEditAction(Event $event, Request $request)
+    {
+        $form = $this->generateEventForm($event);
+        $form->handleRequest($request);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($event);
+        $em->flush();
+
+        return $this->redirectToRoute('event_add');
+
+    }
+
+    /**
      * @param $object
      * @return \Symfony\Component\Form\FormInterface
      */
@@ -90,16 +96,13 @@ class EventController extends Controller
     }
 
     /**
-     * @param Event $event
-     * @param Request $request
+     * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function validEditAction(Event $event, Request $request){
-        $form = $this->generateEventForm($event);
-        $form->handleRequest($request);
-
+    public function deleteEventAction($id){
         $em = $this->getDoctrine()->getManager();
-        $em->persist($event);
+        $event = $em->getRepository('CommerceBundle:Event')->findOneById($id);
+        $em->remove($event);
         $em->flush();
 
         return $this->redirectToRoute('event_add');

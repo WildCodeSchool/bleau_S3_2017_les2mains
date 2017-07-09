@@ -77,17 +77,18 @@ class ActiviteController extends Controller
      * @param Activite $activite
      * @return Response
      */
-    public function editActiviteAction(Request $request, Activite $activite){
+    public function editActiviteAction(Request $request)
+    {
         if ($request->isXmlHttpRequest())
         {
             $em = $this->getDoctrine()->getManager();
             $idActivite = $request->request->get('idActivite');
-            $activite = $em->getRepository(ActiviteType::class)->findOneById($idActivite);
-            $form = $this->generateEventForm($activite);
+            $activite = $em->getRepository(Activite::class)->findOneById($idActivite);
+            $form = $this->generateActivityForm($activite);
             $form->handleRequest($request);
 
             return $this->render('@Core/pages/activite/editActivite.html.twig', array(
-                'event_selected' => $activite,
+                'activite_selected' => $activite,
                 'form' => $form->createView()
             ));
         }
@@ -99,10 +100,9 @@ class ActiviteController extends Controller
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function valideEditAction(Activite $activite, Request $request){
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $activite->getId(),\CoreBundle\Form\ActiviteType::class, $activite);
-        $form = $formBuilder->getForm();
-
+    public function valideEditAction(Activite $activite, Request $request)
+    {
+        $form = $this->generateActivityForm($activite);
         $form->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
@@ -111,6 +111,17 @@ class ActiviteController extends Controller
 
         return $this->redirectToRoute('core_activite_add');
     }
+
+    private function generateActivityForm($object){
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $object->getId(), ActiviteType::class, $object);
+        $formBuilder->setAction($this->generateUrl('core_activite_editValide', array(
+            'id' => $object->getId()
+        )));
+
+        $form = $formBuilder->getForm();
+        return $form;
+    }
+
 
     /**
      * Delete one activity

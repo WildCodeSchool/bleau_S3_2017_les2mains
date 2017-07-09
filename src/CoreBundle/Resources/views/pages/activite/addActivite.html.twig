@@ -163,7 +163,7 @@
 	                    {% if is_granted('ROLE_ADMIN') %}
                             <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                             <!-- Modal Trigger -->
-                            <a class="waves-effect waves-light center-align btn index_btn formEditEvent" data-id="{{ activite.id }}" href="#modal{{ activite.id }}">Modifier</a>
+                            <a class="waves-effect waves-light center-align btn index_btn formEditActivite" data-id="{{ activite.id }}" href="#modal{{ activite.id }}">Modifier</a>
         
                             <!-- Modal Structure -->
                             <div id="modal{{ activite.id }}" class="modal">
@@ -189,27 +189,32 @@
 </div>
     
     {% include '@Core/pages/footer.html.twig' %}
-{% endblock %}
+
 
 {% block javascripts %}
     <script>
         $( document ).ready(function() {
-            $('.deleteThemeAction').click(function (e) {
+           
+            $('.formEditActivite').click(function (e) {
+                $('.formEditActivite').modal();
                 e.preventDefault();
-                var idTheme = $(this).attr( "id" );
-                var element = $(this).parent().parent();
-
+                var idActivite = $(this).data('id');
+                var modalContent = $('#modal' + idActivite);
+                console.log(idActivite);
                 $.ajax({
-                    method: "post",
-                    data: {'idTheme': idTheme },
-                    url: "{{ path('core_activite_theme_delete') }}",
-
-                    success: function(response){
-                        alert(response);
-                        element.fadeOut();
+                    url: "{{ path('core_activite_edit') }}",
+                    data: {'idActivite': idActivite },
+                    method: 'post',
+                    success: function (response) {
+                        console.log(response);
+                        console.log(modalContent);
+                        modalContent.html(response)
                     }
-                });
+
+                })
             })
         });
     </script>
+{% endblock %}
+
 {% endblock %}

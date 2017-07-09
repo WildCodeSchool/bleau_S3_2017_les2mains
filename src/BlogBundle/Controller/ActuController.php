@@ -45,19 +45,19 @@ class ActuController extends Controller
 
     /**
      * @param Request $request
-     * @param Article $article
      * @return Response
      */
-    public function editArticleAction(Request $request, Article $article){
+    public function editArticleAction(Request $request)
+    {
         if ($request->isXmlHttpRequest())
         {
             $em = $this->getDoctrine()->getManager();
-            $idArticle = $request->request->get('idArticle');
-            $event = $em->getRepository(Article::class)->findOneById($idArticle);
-            $form = $this->generateEventForm($article);
+            $idActu = $request->request->get('idActu');
+            $article = $em->getRepository(Article::class)->findOneById($idActu);
+            $form = $this->generateArticleForm($article);
             $form->handleRequest($request);
 
-            return $this->render('@Commerce/user/editEvent.html.twig', array(
+            return $this->render('@Blog/editActu.html.twig', array(
                 'article_selected' => $article,
                 'form' => $form->createView()
             ));
@@ -67,12 +67,11 @@ class ActuController extends Controller
     /**
      * @param Article $article
      * @param Request $request
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function valideEditAction(Article $article, Request $request){
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $article->getId(), ArticleType::class, $article);
-        $form = $formBuilder->getForm();
-
+    public function validEditAction(Article $article, Request $request)
+    {
+        $form = $this->generateArticleForm($article);
         $form->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
@@ -80,6 +79,20 @@ class ActuController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('blog_actu');
+    }
+
+    /**
+     * @param $object
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    private function generateArticleForm($object){
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $object->getId(), ArticleType::class, $object);
+        $formBuilder->setAction($this->generateUrl('edit_valid_product', array(
+            'id' => $object->getId()
+        )));
+
+        $form = $formBuilder->getForm();
+        return $form;
     }
 
     /**
