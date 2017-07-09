@@ -56,20 +56,6 @@ class EventController extends Controller
     }
 
     /**
-     * @param $object
-     * @return \Symfony\Component\Form\FormInterface
-     */
-    private function generateEventForm($object){
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $object->getId(), EventType::class, $object);
-        $formBuilder->setAction($this->generateUrl('event_edit_valid', array(
-            'id' => $object->getId()
-        )));
-
-        $form = $formBuilder->getForm();
-        return $form;
-    }
-
-    /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -87,6 +73,20 @@ class EventController extends Controller
                 'form' => $form->createView()
             ));
         }
+    }
+
+    /**
+     * @param $object
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    private function generateEventForm($object){
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $object->getId(), EventType::class, $object);
+        $formBuilder->setAction($this->generateUrl('event_edit_valid', array(
+            'id' => $object->getId()
+        )));
+
+        $form = $formBuilder->getForm();
+        return $form;
     }
 
     /**
