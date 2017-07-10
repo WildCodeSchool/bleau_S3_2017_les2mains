@@ -2,13 +2,13 @@
     {{ form_start(form) }}
     <div class="row">
         <div class="input-field col s12">
-            {{ form_widget (form.name) }}
+            {{ form_widget (form.name, {'attr': {'placeholder': 'Votre Titre' }}) }}
             {{ form_errors (form.name) }}
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            {{ form_widget (form.content, {'attr': {'class': 'materialize-textarea' }}) }}
+            {{ form_widget (form.content, {'attr': {'class': 'materialize-textarea', 'placeholder': 'Le Contenu'}}) }}
             {{ form_errors (form.content) }}
         </div>
     </div>

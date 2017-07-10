@@ -2,19 +2,19 @@
 	{{ form_start(form) }}
 	
 	<div class="input-field col s12">
-		{{ form_widget(form.title) }}
+		{{ form_widget(form.title, {'attr': {'placeholder': 'Votre Titre' }}) }}
 		{{ form_errors(form.title) }}
 	</div>
 	<div class="input-field col s12">
-		{{ form_widget(form.description, {'attr': {'class': 'materialize-textarea' }}) }}
+		{{ form_widget(form.description, {'attr': {'class': 'materialize-textarea', 'placeholder':'Votre Description' }}) }}
 		{{ form_errors(form.description) }}
 	</div>
 	<div class="form_add col s6">
-		{{ form_row(form.dateStart,{'attr':{'class':'datepicker','placeholder': 'Clicker pour Ouvrir'}}) }}
+		{{ form_row(form.dateStart,{'attr':{'class':'datepicker','placeholder': 'Cliquez pour Ouvrir'}}) }}
 		{{ form_errors(form.dateStart) }}
 	</div>
 	<div class="form_add col s6">
-		{{ form_row(form.dateEnd,{'attr':{'class':'datepicker','placeholder': 'Clicker pour Ouvrir'}}) }}
+		{{ form_row(form.dateEnd,{'attr':{'class':'datepicker','placeholder': 'Cliquez pour Ouvrir'}}) }}
 		{{ form_errors(form.dateEnd) }}
 	</div>
 	<div class="form_add col s12">
@@ -22,15 +22,15 @@
 		{{ form_errors(form.activite) }}
 	</div>
 	<div class="form_add col s12">
-		{{ form_widget(form.price, {'attr': {'class': 'materialize-textarea' }}) }}
+		{{ form_widget(form.price, {'attr': {'class': 'materialize-textarea', 'placeholder':'Prix'}}) }}
 		{{ form_errors(form.price) }}
 	</div>
 	<div class="input-field col s12">
-		{{ form_widget(form.lien, {'attr': {'class': 'materialize-textarea' }}) }}
+		{{ form_widget(form.lien, {'attr': {'class': 'materialize-textarea', 'placeholder':'Lien' }}) }}
 		{{ form_errors(form.lien) }}
 	</div>
 	<div class="input-field col s12">
-		{{ form_widget(form.location) }}
+		{{ form_widget(form.location, {'attr': {'class': 'materialize-textarea', 'placeholder':'Lieu' }}) }}
 		{{ form_errors(form.location) }}
 	</div>
 	<div class="input-field col s12">

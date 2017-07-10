@@ -8,17 +8,15 @@
     </div>
     <div class="input-field">
         
-        {{ form_widget(form.titre) }}
+        {{ form_widget(form.titre, {'attr': {'placeholder': 'Votre Titre' }}) }}
         {{ form_errors(form.titre) }}
     </div>
     <div class="input-field">
-     
-	    {{ form_widget (form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
+	    {{ form_widget (form.contenu, {'attr': {'class': 'materialize-textarea','placeholder': 'Le Contenu' }}) }}
         {{ form_errors(form.contenu) }}
     </div>
     <div class="input-field">
-     
-	    {{ form_widget (form.lien, {'attr': {'class': 'materialize-textarea' }}) }}
+	    {{ form_widget (form.lien, {'attr': {'class': 'materialize-textarea','placeholder': 'Lien' }}) }}
         {{ form_errors(form.lien) }}
     </div>
     <div class="input-field">
