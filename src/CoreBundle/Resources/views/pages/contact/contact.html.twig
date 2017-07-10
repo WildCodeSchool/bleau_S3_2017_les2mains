@@ -16,20 +16,18 @@
 				<h3 class="title form center-align">Prendre Contact avec Nous</h3>
                 {{ form_start(form) }}
 				<div class="input-field">
-                    {#<i class="material-icons prefix">account_circle</i>#}
                     {{ form_row(form.nom) }}
 				</div>
 				<div class="input-field">
-                    {#<i class="material-icons prefix">account_circle</i>#}
                     {{ form_row(form.prenom) }}
 				</div>
 				<div id="div_mail" class="input-field">
-                    {#<i class="material-icons prefix">mail</i>#}
                     {{ form_row(form.email) }}
 				</div>
 				<div id="div_message" class="input-field">
-                    {#<i class="material-icons prefix">mode_edit</i>#}
-                    {{ form_row(form.contenu) }}
+					{{ form_label (form.contenu) }}
+					{{ form_widget(form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
+					{{ form_errors(form.contenu) }}
 				</div>
 				<div class="input-field center align">
                     {{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
