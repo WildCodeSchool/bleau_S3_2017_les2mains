@@ -31,5 +31,10 @@
     font-weight: 500;
     top: 31%;
   }
-
+  .card{
+    z-index: 0;
+  }
+  .index_btn{
+    z-index: 1;
+  }
 }

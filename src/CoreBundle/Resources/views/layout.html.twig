@@ -23,6 +23,7 @@
 				</li>
 				<li>
 					<a href="{{ path('product') }}">Nos produits</a>
+					<a href="{{ path('list_evenementAction') }}">Nos Ventes</a>
 					{% if is_granted('ROLE_ADMIN') %}
 						<a href="{{ path('add_booking') }}">Booking</a>
 					{% endif %}

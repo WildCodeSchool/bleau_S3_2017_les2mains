@@ -1,4 +1,14 @@
-{{ dump(recaps) }}
+{% extends '@Core/layout.html.twig' %}
+
+{% block body %}
+<div id="booking">
+    <div class="parallax-container">
+        <div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
+        <div class="section header">
+            <h3 class="header center title">Les commandes</h3>
+        </div>
+    </div>
+    <div class="container big_container_custom">
 {#{% for test in recap %}#}
 
     {#{{ test.nom }}#}
@@ -30,32 +40,44 @@
     </tbody>
 </table>#}
 
-<table>
-    <caption>
-        event
-    </caption>
-    
-    <thead>
-    <tr>
-        <th></th>
-		{% for name, value in recaps|first %}
-            <th>{{ name }}</th>
-		{% endfor %}
-    </tr>
-    </thead>
-    
-    <tbody>
-	
-	{% for productName, products in recaps %}
-        <tr>
-            <th>{{ productName }}</th>
-			{% for qt in products %}
-                <td>{{ qt.quantiteCommande|default('0') }}</td>
-			{% endfor %}
-        </tr>
-	
-	{% endfor %}
-    </tbody>
+       <div class="row">
+           <table class="striped responsive-table">
+               <!-- <caption>
+                   event
+               </caption> -->
+
+               <thead>
+               <tr>
+                   <th></th>
+                   {% for name, value in recaps|first %}
+                       <th class="col_table">{{ name }}</th>
+                   {% endfor %}
+               </tr>
+               </thead>
+
+               <tbody>
+
+               {% for productName, products in recaps %}
+                   <tr>
+                       <th class="col_table">{{ productName }}</th>
+                       {% for qt in products %}
+                           <td class="col_table">{{ qt.quantiteCommande|default('0') }}</td>
+                       {% endfor %}
+                   </tr>
+
+               {% endfor %}
+               </tbody>
 
 
-</table>
+           </table>
+       </div>
+    </div>
+    <div class="parallax-container parallax_booking">
+        <div class="parallax">
+            <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
+        </div>
+    </div>
+    {% include '@Core/pages/footer.html.twig' %}
+</div>
+
+{% endblock %}
