@@ -201,20 +201,17 @@
                             element.fadeOut();
                         }
                     });
-                })
+                });
                 $('.formEditActivite').click(function (e) {
                     $('.formEditActivite').modal();
                     e.preventDefault();
                     var idActivite = $(this).data('id');
                     var modalContent = $('#modal' + idActivite);
-                    console.log(idActivite);
                     $.ajax({
                         url: "{{ path('core_activite_edit') }}",
                         data: {'idActivite': idActivite },
                         method: 'post',
                         success: function (response) {
-                            console.log(response);
-                            console.log(modalContent);
                             modalContent.html(response)
                         }
     

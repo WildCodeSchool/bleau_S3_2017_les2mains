@@ -148,11 +148,9 @@
 
             </div>
         </div>
-        </div>
         {% include '@Core/pages/footer.html.twig' %}
 
     </div>
-   
 {% endblock %}
 {% block javascripts %}
     <script>$('.datepicker').pickadate({
@@ -167,14 +165,11 @@
                 e.preventDefault();
                 var idEvent = $(this).data('id');
                 var modalContent = $('#modal' + idEvent);
-                console.log(idEvent);
                 $.ajax({
                     url: "{{ path('event_edit') }}",
                     data: {'idEvent': idEvent },
                     method: 'post',
                     success: function (response) {
-                        console.log(response);
-                        console.log(modalContent);
                         modalContent.html(response)
                     }
 
