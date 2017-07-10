@@ -12,11 +12,11 @@
 			<div class="row">
 				{{ form_start(formUser) }}
 				
-
+				
 				<div class="info_content">
-					<h4 class="text_perso center-align place">{{ evenement.lieu.nom }}</h4><br>
+					{#<h4 class="text_perso center-align place">{{ evenement.lieu.nom }}</h4><br>
 					<span class="p_center">{{ evenement.lieu.adresse }}</span><br>
-					<span class="p_center">{{ evenement.lieu.indication }}</span>
+					<span class="p_center">{{ evenement.lieu.indication }}</span>#}
 				</div>
 				<table class="striped col m10 offset-m1">
 					<thead>
@@ -31,7 +31,7 @@
 							Quantité*
 						</th>
 						<th class="col m2 col_table">
-
+						
 						</th>
 					</tr>
 					</thead>
@@ -45,7 +45,7 @@
 								{{ form_widget(formUser.selectProduits[key].quantiteCommande) }}
 							</td>
 						</tr>
-
+					
 					{% endfor %}
 					</tbody>
 				</table>
@@ -59,7 +59,7 @@
 					</div>
 					<div>
 						<span class="center-align col m12">{{ form_row(formUser.submit, {'attr': {'class': 'btn btn-primary'}}) }}</span>
-
+					
 					</div>
 				</div>
 				<div class="row">
@@ -75,7 +75,7 @@
 				<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
 			</div>
 		</div>
-        {% include '@Core/pages/footer.html.twig' %}
+		{% include '@Core/pages/footer.html.twig' %}
 	</div>
 
 {% endblock %}

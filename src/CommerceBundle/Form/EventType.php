@@ -24,15 +24,11 @@ class EventType extends AbstractType
         $builder
             ->add('title', TextType::class,array('label' => 'Titre'))
             ->add('description', TextareaType::class)
-            ->add('dateStart',DateType::class,array(
+            ->add('dateStart',TextType::class,array(
                 'label' => "Date de Début",
-                'widget'=>'single_text',
-
             ))
-            ->add('dateEnd', DateType::class,array(
+            ->add('dateEnd', TextType::class,array(
                 'label' => "Date de Fin",
-                'widget'=>'single_text',
-
             ))
             ->add('location', TextType::class, array('label' => "Lieu de l'évenement"))
             ->add('price', TextareaType::class, array('label' => 'Prix'))

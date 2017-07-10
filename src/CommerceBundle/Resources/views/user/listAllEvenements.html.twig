@@ -7,31 +7,31 @@
 				<h3 class="header center title">Nos ventes</h3>
 			</div>
 		</div>
-			<div class="evenement_container container">
-				<div class="row">
-                    {% for evenement in evenements %}
-						<div class="evenement_content col s5 push-s1">
-							<div class="e_content_child">
-								<h4 class="date text_perso">{{ evenement.date|date("d/m/Y") }}</h4>
-								<br>
-								<span class="place">{{ evenement.lieu.nom }}</span>
-								<br>
-								<span class="adress">{{ evenement.lieu.adresse }}</span>
-								<br>
-								<span class="indication">{{ evenement.lieu.indication }}</span>
-								<br>
-							</div>
-							<a href="{{ path('booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">voir</a>
+		<div class="evenement_container container">
+			<div class="row">
+				{% for evenement in evenements %}
+					<div class="evenement_content col s5 push-s1">
+						<div class="e_content_child">
+							<h4 class="date text_perso">{{ evenement.date|date("d/m/Y") }}</h4>
+							<br>
+							<span class="place">{{ evenement.lieu.nom }}</span>
+							<br>
+							<span class="adress">{{ evenement.lieu.adresse }}</span>
+							<br>
+							<span class="indication">{{ evenement.lieu.indication }}</span>
 							<br>
 						</div>
-                    {% endfor %}
-				</div>
+						<a href="{{ path('booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">voir</a>
+						<a href="{{ path('delete_evenement', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Delete</a>
+					</div>
+				{% endfor %}
 			</div>
-			<div class="parallax-container parallax_evenement">
-				<div class="parallax">
-					<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
-				</div>
+		</div>
+		<div class="parallax-container parallax_evenement">
+			<div class="parallax">
+				<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
 			</div>
-        {% include '@Core/pages/footer.html.twig' %}
+		</div>
+		{% include '@Core/pages/footer.html.twig' %}
 	</div>
 {% endblock %}

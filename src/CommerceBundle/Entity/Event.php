@@ -7,7 +7,6 @@ namespace CommerceBundle\Entity;
  */
 class Event
 {
-   
 
     /**
      * @var integer

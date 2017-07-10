@@ -112,7 +112,7 @@
                                 <h4 class="text_perso_events">Lien Utile :</h4>
                                 <a target="_blank" href="{{ event.lien }}">{{ event.lien|nl2br }}</a>
                                 <h4 class="text_perso_events">Informations :</h4>
-                                <p><b class="text_perso_events">Date :</b> {{ event.dateStart|date("d/m/Y H:i") }} à {{ event.dateEnd|date("d/m/Y H:i")  }}</p>
+                                <p><b class="text_perso_events">Date :</b> {{ event.dateStart }} à {{ event.dateEnd  }}</p>
                                 <p><b class="text_perso_events">Lieu :</b> {{ event.location }}</p>
                                 <p><b class="text_perso_events">Prix :</b> {{ event.price }}</p>
                                 <a class="waves-effect waves-light btn add_stage_btn" href="{{ 'contact' }}">Besoin de plus d'info ?</a>
@@ -155,10 +155,34 @@
    
 {% endblock %}
 {% block javascripts %}
-    <script>$('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15 // Creates a dropdown of 15 years to control year
+    <script>
+        $( document ).ready(function() {
+            $('.datepicker').pickadate({
+                selectMonths: true,//Creates a dropdown to control month
+                selectYears: 15,//Creates a dropdown of 15 years to control year
+    //The title label to use for the month nav buttons
+                labelMonthNext: 'Next Month',
+                labelMonthPrev: 'Last Month',
+    //The title label to use for the dropdown selectors
+                labelMonthSelect: 'Select Month',
+                labelYearSelect: 'Select Year',
+    //Months and weekdays
+                monthsFull: [ 'January', 'February', 'March', 'April', 'March', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
+                monthsShort: [ 'Jan', 'Feb', 'Mar', 'Apr', 'Mar', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
+                weekdaysFull: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
+                weekdaysShort: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
+    //Materialize modified
+                weekdaysLetter: [ 'S', 'M', 'T', 'W', 'T', 'F', 'S' ],
+    //Today and clear
+                today: 'Today',
+                clear: 'Clear',
+                close: 'Close',
+    //The format to show on the `input` element
+                format: 'dd/mm/yyyy'
+             })
         });
+        //Copy settings and initialization tooltipped
+
     </script>
     <script>
         $( document ).ready(function() {
