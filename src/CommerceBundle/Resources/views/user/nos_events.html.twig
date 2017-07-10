@@ -119,22 +119,19 @@
                             </div>
                         </div>
                     </div>
-                    {% if is_granted('ROLE_ADMIN') %}
+	                {% if is_granted('ROLE_ADMIN') %}
                         <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                         <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light center-align btn index_btn" href="#modal{{ event.id }}">Modifier</a>
-
+                        <a class="waves-effect waves-light center-align btn index_btn formEditEvent" data-id="{{ event.id }}" href="#modal{{ event.id }}">Modifier</a>
+        
                         <!-- Modal Structure -->
                         <div id="modal{{ event.id }}" class="modal">
-                            {{ render(controller('CommerceBundle:Event:editEvent', { 'id': event.id})) }}
+        
                         </div>
                         <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                         <a class="waves-effect waves-light center-align btn index_btn" href=" {{ path('event_delete', {'id': event.id}) }}">Effacer</a>
-                    {% endif %}
-
-
+	                {% endif %}
                 </div>
-
                 {% endfor %}
             </div>
         </div>
@@ -155,11 +152,34 @@
         {% include '@Core/pages/footer.html.twig' %}
 
     </div>
-    {% block javascripts %}
-        <script>$('.datepicker').pickadate({
-                selectMonths: true, // Creates a dropdown to control month
-                selectYears: 15 // Creates a dropdown of 15 years to control year
-            });
-        </script>
-        {% endblock %}
+   
+{% endblock %}
+{% block javascripts %}
+    <script>$('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+    </script>
+    <script>
+        $( document ).ready(function() {
+            $('.formEditEvent').click(function (e) {
+                $('.formEditEvent').modal();
+                e.preventDefault();
+                var idEvent = $(this).data('id');
+                var modalContent = $('#modal' + idEvent);
+                console.log(idEvent);
+                $.ajax({
+                    url: "{{ path('event_edit') }}",
+                    data: {'idEvent': idEvent },
+                    method: 'post',
+                    success: function (response) {
+                        console.log(response);
+                        console.log(modalContent);
+                        modalContent.html(response)
+                    }
+
+                })
+            })
+        });
+    </script>
 {% endblock %}

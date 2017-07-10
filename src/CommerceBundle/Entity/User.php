@@ -8,6 +8,7 @@ namespace CommerceBundle\Entity;
 class User
 {
 
+
     /**
      * @var integer
      */

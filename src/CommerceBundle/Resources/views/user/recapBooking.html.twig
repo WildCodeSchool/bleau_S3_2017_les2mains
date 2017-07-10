@@ -1,0 +1,61 @@
+{{ dump(recaps) }}
+{#{% for test in recap %}#}
+
+    {#{{ test.nom }}#}
+    {#{{ test.prenom }}#}
+
+    {#{% for produit in test %}#}
+        {#{{ produit.selectProduits }}#}
+    {#{% endfor %}#}
+
+{#{% endfor %}#}
+{#<table>
+    <thead>
+    <tr>
+        <th></th>
+        {% for produit, user in recaps %}
+        <th>{{ recap.nom }}, {{ recap.prenom }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+        #}{#{% for produit in recap.product %}#}{#
+            <tr>
+                <td></td>
+                #}{#{% for qtte in recap %}#}{#
+                    <td></td>
+                #}{#{% endfor %}#}{#
+            </tr>
+        #}{#{% endfor %}#}{#
+    </tbody>
+</table>#}
+
+<table>
+    <caption>
+        event
+    </caption>
+    
+    <thead>
+    <tr>
+        <th></th>
+		{% for name, value in recaps|first %}
+            <th>{{ name }}</th>
+		{% endfor %}
+    </tr>
+    </thead>
+    
+    <tbody>
+	
+	{% for productName, products in recaps %}
+        <tr>
+            <th>{{ productName }}</th>
+			{% for qt in products %}
+                <td>{{ qt.quantiteCommande|default('0') }}</td>
+			{% endfor %}
+        </tr>
+	
+	{% endfor %}
+    </tbody>
+
+
+</table>

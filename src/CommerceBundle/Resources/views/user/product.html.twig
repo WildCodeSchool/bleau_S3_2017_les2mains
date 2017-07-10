@@ -18,13 +18,11 @@
 		</div>
 	</div>
 
-		<div class="container product">
+	<div class="container product">
 		{% if is_granted('ROLE_ADMIN')%}
 			<div class="row">
 				<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modalcategorie">Ajouter une categorie</a>
 			</div>
-
-
 		<div id="modalcategorie" class="modal">
 			<div class="modal-content">
 				{{ form_start(forms) }}
@@ -41,53 +39,49 @@
 		</div>
 	{% endif %}
 	</div>
-
-	
 	<div class="container product">
 	{% if is_granted('ROLE_ADMIN')%}
 		<div class="row">
 			<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modal1">Ajouter un produit</a>
 		</div>
-		
-	<div id="modal1" class="modal">
-		<div class="modal-content">
-			{{ form_start(form) }}
-			<div class="row">
-				<div class="input-field col s12">
-					{{ form_label (form.name) }}
-					{{ form_widget (form.name) }}
-					{{ form_errors (form.name) }}
+		<div id="modal1" class="modal">
+			<div class="modal-content">
+				{{ form_start(form) }}
+				<div class="row">
+					<div class="input-field col s12">
+						{{ form_label (form.name) }}
+						{{ form_widget (form.name) }}
+						{{ form_errors (form.name) }}
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					{{ form_label (form.content) }}
-					{{ form_widget (form.content, {'attr': {'class': 'materialize-textarea' }}) }}
-					{{ form_errors (form.content) }}
+				<div class="row">
+					<div class="input-field col s12">
+						{{ form_label (form.content) }}
+						{{ form_widget (form.content, {'attr': {'class': 'materialize-textarea' }}) }}
+						{{ form_errors (form.content) }}
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					{{ form_label (form.categories) }}
-					{{ form_widget (form.categories) }}
-					{{ form_errors (form.categories) }}
+				<div class="row">
+					<div class="input-field col s12">
+						{{ form_label (form.categories) }}
+						{{ form_widget (form.categories) }}
+						{{ form_errors (form.categories) }}
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					{{ form_label (form.picture) }}
-					{{ form_widget (form.picture) }}
-					{{ form_errors (form.picture) }}
+				<div class="row">
+					<div class="input-field col s12">
+						{{ form_label (form.picture) }}
+						{{ form_widget (form.picture) }}
+						{{ form_errors (form.picture) }}
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-				{{ form_end(form) }}
+				<div class="row">
+					{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+					{{ form_end(form) }}
+				</div>
 			</div>
 		</div>
-	</div>
 	{% endif %}
-	
 	</div>
 	<div class="container">
 		<div class="row">
@@ -114,18 +108,17 @@
 						<p>{{ products.content|nl2br }}</p>
 					</div>
 				</div>
-
-			{% if is_granted('ROLE_ADMIN')%}
-				<!-- button delete-->
-				<a href="{{ path('product_delete', {'id' : products.id}) }}" class="waves-effect teal z-depth-5 btn index_btn col s6">Effacer</a>
-				<!-- button edit-->
-				<a href="#modal{{ products.id }}" class="waves-effect teal z-depth-5 btn index_btn col s6">Modifier</a>
-				<!-- Modal Structure -->
-				<div id="modal{{ products.id }}" class="modal">
-					<!-- On rend la vue editActivite a la vue de la modal -->
-                {{ render(controller('CommerceBundle:Product:editProduct',{ 'id': products.id })) }}
-				</div>
-			{% endif %}
+				{% if is_granted('ROLE_ADMIN') %}
+					<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+					<!-- Modal Trigger -->
+					<a class="waves-effect teal z-depth-5 btn index_btn col s6 formEditProduct" data-id="{{ products.id }}" href="#modal{{ products.id }}">Modifier</a>
+					<!-- Modal Structure -->
+					<div id="modal{{ products.id }}" class="modal">
+					
+					</div>
+					<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+					<a href="{{ path('product_delete', {'id' : products.id}) }}" class="waves-effect teal z-depth-5 btn index_btn col s6">Effacer</a>
+				{% endif %}
 			</div>
 		{% endfor %}
 		</div>
@@ -138,10 +131,32 @@
 	<div class="container">
 		<div class="row">
 	{% endfor %}
-	
 		</div>
 	</div>
-		
     {% include '@Core/pages/footer.html.twig' %}
 </div>
+	{% block javascripts %}
+	<script>
+        $( document ).ready(function() {
+            $('.formEditProduct').click(function (e) {
+                $('.formEditProduct').modal();
+                e.preventDefault();
+                var idProduct = $(this).data('id');
+                var modalContent = $('#modal' + idProduct);
+                console.log(idProduct);
+                $.ajax({
+                    url: "{{ path('product_edit') }}",
+                    data: {'idProduct': idProduct },
+                    method: 'post',
+                    success: function (response) {
+                        console.log(response);
+                        console.log(modalContent);
+                        modalContent.html(response)
+                    }
+
+                })
+            })
+        });
+	</script>
 	{% endblock %}
+{% endblock %}

@@ -11,6 +11,12 @@ event_edit_valid:
     path: /{id}/event/edit
     defaults: {_controller: CommerceBundle:Event:validEdit}
 
+event_edit:
+    path: /editEvent
+    defaults: { _controller: CommerceBundle:Event:editEvent }
+
+
+
 product:
     path: /product
     defaults: {_controller: CommerceBundle:Product:addProduct}
@@ -21,7 +27,13 @@ product_delete:
 
 edit_valid_product:
     path: /{id}/product/edit
-    defaults: {_controller: CommerceBundle:Product:editValidProduct}
+    defaults: {_controller: CommerceBundle:Product:validEditProduct}
+
+product_edit:
+    path: /editProduct
+    defaults: { _controller: CommerceBundle:Product:editProduct}
+
+
 
 list_evenementAction:
     path: /evenement
@@ -41,3 +53,6 @@ add_booking:
     path: /admin/booking
     defaults: {_controller: CommerceBundle:Booking:addBooking}
 
+recap_booking:
+    path: /{id}/recap/booking
+    defaults: {_controller: CommerceBundle:Booking:RecapBooking}

@@ -14,8 +14,11 @@ core_activite_delete:
 core_activite_editValide:
     path:     /{id}/activite/edit
     defaults: { _controller: CoreBundle:Activite:valideEdit }
-    requirements:
-        id: '\d+'
+
+core_activite_edit:
+    path: /editActivite
+    defaults: { _controller: CoreBundle:Activite:editActivite}
+
 
 # Delete one theme
 core_activite_theme_delete:

@@ -17,8 +17,6 @@
             <h3 class="col s12 center title">Nos activités</h3>
         </div>
     </div>
-
-
     <div class="container themes">
         {% if is_granted('ROLE_ADMIN')%}
             <div class="row">
@@ -53,11 +51,7 @@
             </div>
         </div>
     {% endif %}
-
-
-
-
-
+    
     <div class="container">
         <!--CONDITION FOR ADMIN-->
         {% if is_granted('ROLE_ADMIN')%}
@@ -160,16 +154,20 @@
                                 </div>
                             </div>
                         </div>
-                            {% if is_granted('ROLE_ADMIN')%}
-                                    <a href="{{ path('core_activite_delete', {'id' :activite.id}) }}" class="waves-effect teal z-depth-5 index_btn btn activite">Effacer</a>
-                                    <a href="#modal{{ activite.id }}" class="waves-effect teal z-depth-5 index_btn btn activite">Modifier</a>
+	                    {% if is_granted('ROLE_ADMIN') %}
+                            <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light center-align btn index_btn formEditActivite" data-id="{{ activite.id }}" href="#modal{{ activite.id }}">Modifier</a>
+        
+                            <!-- Modal Structure -->
                             <div id="modal{{ activite.id }}" class="modal">
-                                {{ render(controller('CoreBundle:Activite:editActivite',{ 'id': activite.id })) }}
                             </div>
-                            {% endif %}
+                            <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <a class="waves-effect waves-light center-align btn index_btn" href=" {{ path('core_activite_delete', {'id': activite.id}) }}">Effacer</a>
+	                    {% endif %}
                     </div>
             {% endfor %}
-            </div>
+        </div>
     </div>
         <div class="parallax-container parallax_mid_activite">
             <div class="parallax">
@@ -183,31 +181,46 @@
         </div>
     </div>
 </div>
-    
     {% include '@Core/pages/footer.html.twig' %}
-{% endblock %}
-
-{% block javascripts %}
-
-    <script>
-        $( document ).ready(function() {
-            $('.deleteThemeAction').click(function (e) {
-                e.preventDefault();
-                var idTheme = $(this).attr( "id" );
-                var element = $(this).parent().parent();
-
-                $.ajax({
-                    method: "post",
-                    data: {'idTheme': idTheme },
-                    url: "{{ path('core_activite_theme_delete') }}",
-
-                    success: function(response){
-                        alert(response);
-                        element.fadeOut();
-                    }
-                });
-            })
-        });
-    </script>
-
+    
+    {% block javascripts %}
+        <script>
+            $( document ).ready(function() {
+                $('.deleteThemeAction').click(function (e) {
+                    e.preventDefault();
+                    var idTheme = $(this).attr( "id" );
+                    var element = $(this).parent().parent();
+    
+                    $.ajax({
+                        method: "post",
+                        data: {'idTheme': idTheme },
+                        url: "{{ path('core_activite_theme_delete') }}",
+    
+                        success: function(response){
+                            alert(response);
+                            element.fadeOut();
+                        }
+                    });
+                })
+                $('.formEditActivite').click(function (e) {
+                    $('.formEditActivite').modal();
+                    e.preventDefault();
+                    var idActivite = $(this).data('id');
+                    var modalContent = $('#modal' + idActivite);
+                    console.log(idActivite);
+                    $.ajax({
+                        url: "{{ path('core_activite_edit') }}",
+                        data: {'idActivite': idActivite },
+                        method: 'post',
+                        success: function (response) {
+                            console.log(response);
+                            console.log(modalContent);
+                            modalContent.html(response)
+                        }
+    
+                    })
+                })
+            });
+        </script>
+    {% endblock %}
 {% endblock %}

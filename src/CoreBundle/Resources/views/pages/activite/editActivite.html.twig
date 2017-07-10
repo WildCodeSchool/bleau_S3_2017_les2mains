@@ -7,24 +7,24 @@
         {{ form_errors (form.activiteType) }}
     </div>
     <div class="input-field">
-        {{ form_label(form.titre) }}
+        
         {{ form_widget(form.titre) }}
         {{ form_errors(form.titre) }}
     </div>
     <div class="input-field">
-        {{ form_label(form.contenu) }}
-        {{ form_widget(form.contenu) }}
+     
+	    {{ form_widget (form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
         {{ form_errors(form.contenu) }}
     </div>
     <div class="input-field">
-        {{ form_label(form.picture) }}
-        {{ form_widget(form.picture) }}
-        {{ form_errors(form.picture) }}
+     
+	    {{ form_widget (form.lien, {'attr': {'class': 'materialize-textarea' }}) }}
+        {{ form_errors(form.lien) }}
     </div>
     <div class="input-field">
-        {{ form_label(form.lien) }}
-        {{ form_widget(form.lien) }}
-        {{ form_errors(form.lien) }}
+		{{ form_label(form.picture) }}
+		{{ form_widget(form.picture) }}
+		{{ form_errors(form.picture) }}
     </div>
     <div class="input-field">
         <div class="input-field col s12">

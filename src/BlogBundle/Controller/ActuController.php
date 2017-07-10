@@ -44,36 +44,34 @@ class ActuController extends Controller
     }
 
     /**
-     * Render form for edit article
-     * @param Article $article
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
+     * @param Request $request
+     * @return Response
      */
-    public function editArticleAction(Article $article, Request $request){
+    public function editArticleAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $idActu = $request->request->get('idActu');
+            $article = $em->getRepository(Article::class)->findOneById($idActu);
+            $form = $this->generateArticleForm($article);
+            $form->handleRequest($request);
 
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $article->getId(), ArticleType::class, $article);
-        $formBuilder->setAction($this->generateUrl('blog_actu_editValide', array(
-            'id' => $article->getId()
-        )));
-
-        $form = $formBuilder->getForm();
-        $form->handleRequest($request);
-
-        return $this->render('@Blog/editActu.html.twig', array(
-            'article_selected' => $article,
-            'form'  => $form->createView()
-        ));
+            return $this->render('@Blog/editActu.html.twig', array(
+                'article_selected' => $article,
+                'form' => $form->createView()
+            ));
+        }
     }
 
     /**
      * @param Article $article
      * @param Request $request
-     * @return Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function valideEditAction(Article $article, Request $request){
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $article->getId(), ArticleType::class, $article);
-        $form = $formBuilder->getForm();
-
+    public function validEditAction(Article $article, Request $request)
+    {
+        $form = $this->generateArticleForm($article);
         $form->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
@@ -81,6 +79,20 @@ class ActuController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('blog_actu');
+    }
+
+    /**
+     * @param $object
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    private function generateArticleForm($object){
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $object->getId(), ArticleType::class, $object);
+        $formBuilder->setAction($this->generateUrl('edit_valid_product', array(
+            'id' => $object->getId()
+        )));
+
+        $form = $formBuilder->getForm();
+        return $form;
     }
 
     /**

@@ -99,7 +99,7 @@ p {
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-  background-image: url("http://image.noelshack.com/fichiers/2017/24/1/1497270075-les2mainspicture.png");
+  background-image: url("http://nsa37.casimages.com/img/2017/07/07/170707100439661691.png");
   background-color: transparent;
   background-size: cover;
   height: 50px;
@@ -307,16 +307,6 @@ footer.page-footer {
 .nav_word:hover {
   transition: .3s;
   background-color: rgba(0, 0, 0, 0.7);
-}
-
-/* line 303, ../scss/_global.scss */
-.card {
-  z-index: 0;
-}
-
-/* line 306, ../scss/_global.scss */
-.index_btn {
-  z-index: 1;
 }
 
 /*----------------------------------------*\
@@ -800,6 +790,9 @@ Responsive Menu Nav
   /*----------------------------------------
    Size Img
   ----------------------------------------*/
+  /*----------------------------------------
+   remove z-idex
+  ----------------------------------------*/
 }
 /* line 6, ../scss/_nous.scss */
 #nous .header_nous {
@@ -994,6 +987,14 @@ Responsive Menu Nav
   font-size: 15px;
   font-weight: 500;
   top: 31%;
+}
+/* line 34, ../scss/_products.scss */
+#products .card {
+  z-index: 0;
+}
+/* line 37, ../scss/_products.scss */
+#products .index_btn {
+  z-index: 1;
 }
 
 /*----------------------------------------*\
