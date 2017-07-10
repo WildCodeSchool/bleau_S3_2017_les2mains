@@ -87,7 +87,7 @@ class ActuController extends Controller
      */
     private function generateArticleForm($object){
         $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $object->getId(), ArticleType::class, $object);
-        $formBuilder->setAction($this->generateUrl('edit_valid_product', array(
+        $formBuilder->setAction($this->generateUrl('blog_actu_editValide', array(
             'id' => $object->getId()
         )));
 

@@ -18,7 +18,6 @@ class ArticleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
         if ($options['data']->getId() == null){
             $builder
                 ->add('picture', PictureType::class, array(
