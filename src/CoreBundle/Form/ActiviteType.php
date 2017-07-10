@@ -18,19 +18,38 @@ class ActiviteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        if ($options['data']->getId() == null){
+            $builder
+                ->add('picture', PictureType::class, array(
+                    'label' => false,
+                    'required' => true
+                ));
+
+        }
+
+        else {
+           $builder
+               ->add('picture', PictureType::class, array(
+                   'label' => false,
+                   'required' => false
+               ));
+
+        }
         $builder
             ->add('activiteType', EntityType::class, array(
                 'class' => 'CoreBundle\Entity\ActiviteType',
                 'choice_label' => 'nom',
-                'label' => ' '))
-                ->add('titre', TextType::class)
-                ->add('contenu', TextareaType::class)
-                ->add('picture', PictureType::class, array(
-                'label' => ' '))
-                ->add('lien',TextareaType::class, array(
-                    'required' => false
-                ))
-                ->add('submit', SubmitType::class, array('label'=>'Valider'));
+                'label' => false
+            ))
+            ->add('titre', TextType::class)
+            ->add('contenu', TextareaType::class)
+            ->add('lien',TextareaType::class, array(
+                'required' => false
+            ))
+            ->add('submit', SubmitType::class, array(
+                'label'=>'Valider'
+            ));
+
         
 
 

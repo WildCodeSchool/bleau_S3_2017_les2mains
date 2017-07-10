@@ -18,11 +18,28 @@ class ArticleType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+        if ($options['data']->getId() == null){
+            $builder
+                ->add('picture', PictureType::class, array(
+                    'label' => false,
+                    'required' => true
+                ));
+
+        }
+
+        else {
+            $builder
+                ->add('picture', PictureType::class, array(
+                    'label' => false,
+                    'required' => false
+                ));
+
+        }
         $builder
             ->add('titre', TextType::class)
             ->add('contenu', TextareaType::class)
             ->add('lien', TextareaType::class, array('required' => false))
-            ->add('picture', PictureType::class)
             ->add('submit', SubmitType::class, array('label'=>'Valider'));
     }
     

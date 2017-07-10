@@ -21,6 +21,23 @@ class EventType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        if ($options['data']->getId() == null){
+            $builder
+                ->add('picture', PictureType::class, array(
+                    'label' => false,
+                    'required' => true
+                ));
+
+        }
+
+        else {
+            $builder
+                ->add('picture', PictureType::class, array(
+                    'label' => false,
+                    'required' => false
+                ));
+
+        }
         $builder
             ->add('title', TextType::class,array('label' => 'Titre'))
             ->add('description', TextareaType::class)
@@ -43,7 +60,6 @@ class EventType extends AbstractType
             ->add('lien',TextareaType::class, array(
                 'required' => false
             ))
-            ->add('picture', PictureType::class)
             ->add('submit', SubmitType::class, array('label'=>'Valider'));
     }
     

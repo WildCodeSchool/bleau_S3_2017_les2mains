@@ -5,7 +5,7 @@
 	<div class="products_navigation">
         {% for categories in categories %}
 			<div class="nav_word_block">
-				<a href="#{{ categories.id }}" class="nav_word">{{ categories.type }}</a>
+				<a href="#{{ categories.type }}" class="nav_word">{{ categories.type }}</a>
 			</div>
         {% endfor %}
 	</div>
@@ -85,14 +85,14 @@
 	</div>
 	<div class="container">
 		<div class="row">
-	{%  for categories in categories %}
-		<h4 id="{{ categories.id }}" class="title_categories">{{ categories.type }}</h4>
-		{% for products in categories.products %}
+	{% for categories in categories %}
+		<h4 id="{{ categories.type }}" class="title_categories">{{ categories.type }}</h4>
+		{% for product in categories.products %}
 			<div class="col m3">
 				<div class="card">
-					<div class="card-image waves-effect waves-block waves-light">
+					<div class="card-image waves-effect waves-block waves-light" id="{{ product.id }}">
 						<div class="card-image waves-effect waves-block waves-light">
-							<div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ products.picture.src ) }}'); background-size:cover; background-position:center">
+							<div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ product.picture.src ) }}'); background-size:cover; background-position:center">
 								<div class="block_text_card_picture activator btn waves-effect waves-light">
 									<span class="text_card_picture activator big_text_card_picture_product">Cliquez</span>
 									<span class="text_card_picture activator medium_text_card_picture_product">Pour plus d'infos</span>
@@ -101,23 +101,23 @@
 						</div>
 					</div>
 					<div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">{{ products.name }}<i class="material-icons right">more_vert</i></span>
+						<span class="card-title activator grey-text text-darken-4">{{ product.name }}<i class="material-icons right">more_vert</i></span>
 					</div>
 					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">{{ products.name }}<i class="material-icons right">close</i></span>
-						<p>{{ products.content|nl2br }}</p>
+						<span class="card-title grey-text text-darken-4">{{ product.name }}<i class="material-icons right">close</i></span>
+						<p>{{ product.content|nl2br }}</p>
 					</div>
 				</div>
 				{% if is_granted('ROLE_ADMIN') %}
 					<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 					<!-- Modal Trigger -->
-					<a class="waves-effect teal z-depth-5 btn index_btn col s6 formEditProduct" data-id="{{ products.id }}" href="#modal{{ products.id }}">Modifier</a>
+					<a class="waves-effect teal z-depth-5 btn index_btn col s6 formEditProduct" data-id="{{ product.id }}" href="#modal{{ product.id }}">Modifier</a>
 					<!-- Modal Structure -->
-					<div id="modal{{ products.id }}" class="modal">
+					<div id="modal{{ product.id }}" class="modal">
 					
 					</div>
 					<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-					<a href="{{ path('product_delete', {'id' : products.id}) }}" class="waves-effect teal z-depth-5 btn index_btn col s6">Effacer</a>
+					<a href="{{ path('product_delete', {'id' : product.id}) }}" class="waves-effect teal z-depth-5 btn index_btn col s6">Effacer</a>
 				{% endif %}
 			</div>
 		{% endfor %}

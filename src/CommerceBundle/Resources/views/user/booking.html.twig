@@ -14,9 +14,9 @@
 				
 
 				<div class="info_content">
-					<h4 class="text_perso center-align place">{{ evenement.lieu.nom }}</h4><br>
-					<span class="p_center">{{ evenement.lieu.adresse }}</span><br>
-					<span class="p_center">{{ evenement.lieu.indication }}</span>
+					<h4 class="text_perso center-align place">{{ evenement.nom }}</h4><br>
+					<span class="p_center">{{ evenement.adresse }}</span><br>
+					<span class="p_center">{{ evenement.indication }}</span>
 				</div>
 				<table class="striped col m10 offset-m1">
 					<thead>
@@ -38,7 +38,7 @@
 					<tbody>
 					{% for key, marchandise in marchandise %}
 						<tr>
-							<td class="col m6 col_table">{{ marchandise.product.name }}</td>
+							<td class="col m6 col_table"><a href="{{ path('product') }}#{{ marchandise.product.id }}">{{ marchandise.product.name }}</a> </td>
 							<td class="col m2 col_table">{{ marchandise.prix }}</td>
 							<td class="col m2 col_table">{{ marchandise.quantite }}</td>
 							<td class="col m2 col_table">
