@@ -21,3 +21,6 @@ CommerceBundle\Entity\Evenement:
             targetEntity: CommerceBundle\Entity\Marchandise
             mappedBy: evenement
             cascade: ['all']
+        user:
+            targetEntity: CommerceBundle\Entity\User
+            mappedBy: evenement

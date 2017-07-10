@@ -2,21 +2,18 @@
     {{ form_start(form) }}
     <div class="row">
         <div class="input-field col s12">
-            {{ form_label (form.name) }}
             {{ form_widget (form.name) }}
             {{ form_errors (form.name) }}
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            {{ form_label (form.content) }}
             {{ form_widget (form.content, {'attr': {'class': 'materialize-textarea' }}) }}
             {{ form_errors (form.content) }}
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-			{{ form_label (form.categories) }}
 			{{ form_widget (form.categories) }}
 			{{ form_errors (form.categories) }}
         </div>

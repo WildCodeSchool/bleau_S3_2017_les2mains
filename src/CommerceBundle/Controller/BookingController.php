@@ -11,6 +11,7 @@ use CommerceBundle\Entity\User;
 use CommerceBundle\Form\EvenementType;
 use CommerceBundle\Form\LieuType;
 use CommerceBundle\Form\UserType;
+use CommerceBundle\Repository\EvenementRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,7 +40,7 @@ class BookingController extends Controller
      * @param Evenement $evenement
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function bookingAction(Request $request, Evenement $evenement)
+    public function bookingAction(Request $request, $id)
     {
         //************************************************************//
 
@@ -56,12 +57,16 @@ class BookingController extends Controller
         $user = new User();
 
         // On récupère toutes les marchandises misent à disposition par l'évènement et on les stock dans une variable $marchandises
-        $marchandises = $em->getRepository(Marchandise::class)->getMarchandiseById($evenement->getId());
+        $evenement = $em->getRepository(Evenement::class)->getEvenementById($id);
+        $marchandises = $em->getRepository(Marchandise::class)->getMarchandiseById($evenement['id']);
+
+
+//        $e = $em->getRepository(Evenement::class)->findOneById($id);
+//        $marchandises = $e->getMarchandises();
 
         // Pour chaque marchandie à l'intérieur du tableau de marchandise (le tableau de marchandise correspond à toutes les marchandises disponible dans l'evenement)
         // La boucle permet de générer autant de formulaire qu'il y a de produit disponible lors de l'évènement afin de pouvoir les reserver (collectionType)
         foreach ($marchandises as $marchandise){
-
             // Création d'un new objet de la table SelectProduit
             $selectProduit = new SelectProduit();
             // Associer un produit à un produit selectionné
@@ -69,7 +74,6 @@ class BookingController extends Controller
             // ajout de ts les produits crées dans la Var User
             $user->addSelectProduit($selectProduit);
         }
-
         // Création d'un formulaire User(Panier)
         $formUser = $this->createForm(UserType::class, $user);
         $formUser->handleRequest($request);
@@ -118,11 +122,18 @@ class BookingController extends Controller
         }
         // Sinon retour à la vue de notre formulaire
         return $this->render('@Commerce/user/booking.html.twig', array(
+            'marchandise' => $marchandises,
             'evenement' => $evenement,
             'formUser' => $formUser->createView()
         ));
 
     }
+
+    /**
+     * @param Request $request
+     * @param Evenement $evenement
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function validBookingAction(Request $request, Evenement $evenement)
     {
         $em = $this->getDoctrine()->getManager();
@@ -153,7 +164,9 @@ class BookingController extends Controller
 
         $em->flush();
 
-        return new Response('ok');
+        return $this->redirectToRoute('recap_booking', array(
+            'id' => $evenement->getId()
+        ));
     }
 
 
@@ -197,6 +210,20 @@ class BookingController extends Controller
            'formevent'=>$formEvent->createView(),
            'formlieu'=>$formLieu->createView(),
        ));
+    }
+
+    /**
+     * @param Evenement $evenement
+     * @return Response
+     */
+    public function RecapBookingAction(Evenement $evenement)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $recaps = $em->getRepository(Evenement::class)->getEvenement($evenement->getId());
+
+        return $this-> render('@Commerce/user/recapBooking.html.twig', array(
+            'recaps' => $recaps,
+        ));
     }
 
 }

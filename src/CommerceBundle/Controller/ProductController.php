@@ -12,6 +12,10 @@ use Symfony\Component\HttpFoundation\Request;
 class ProductController extends Controller
 {
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function addProductAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
@@ -52,27 +56,35 @@ class ProductController extends Controller
         ));
     }
 
-    public function editProductAction (Product $product, Request $request)
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function editProductAction(Request $request)
     {
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form' . $product->getId(), ProductType::class, $product);
-        $formBuilder->setAction($this->generateUrl('edit_valid_product', array(
-            'id' => $product->getId()
-        )));
+        if ($request->isXmlHttpRequest())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $idProduct = $request->request->get('idProduct');
+            $product = $em->getRepository(Product::class)->findOneById($idProduct);
+            $form = $this->generateProductForm($product);
+            $form->handleRequest($request);
 
-        $form = $formBuilder->getForm();
-        $form->handleRequest($request);
-
-        return $this->render('@Commerce/user/editProduct.html.twig', array(
-            'product_selected' => $product,
-            'form' => $form->createView()
-        ));
+            return $this->render('@Commerce/user/editProduct.html.twig', array(
+                'product_selected' => $product,
+                'form' => $form->createView()
+            ));
+        }
     }
 
-    public function editValidProductAction(Product $product, Request $request)
+    /**
+     * @param Product $product
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function validEditProductAction(Product $product, Request $request)
     {
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form' . $product->getId(), ProductType::class, $product);
-        $form = $formBuilder->getForm();
-
+        $form = $this->generateProductForm($product);
         $form->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
@@ -82,6 +94,24 @@ class ProductController extends Controller
         return $this->redirectToRoute('product');
     }
 
+    /**
+     * @param $object
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    private function generateProductForm($object){
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $object->getId(), ProductType::class, $object);
+        $formBuilder->setAction($this->generateUrl('edit_valid_product', array(
+            'id' => $object->getId()
+        )));
+
+        $form = $formBuilder->getForm();
+        return $form;
+    }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -91,5 +121,4 @@ class ProductController extends Controller
 
         return $this->redirectToRoute('product');
     }
-
 }

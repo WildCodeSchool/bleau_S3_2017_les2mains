@@ -62,6 +62,9 @@ class DefaultController extends Controller
         $this->get('mailer')->send($message);
     }
 
+    /**
+     * @return Response
+     */
     public function redirectAction()
     {
         return $this->render('@Core/pages/contact/redirectionSendContact.html.twig');

@@ -21,7 +21,7 @@ class ContactType extends AbstractType
                 ->add('prenom', TextType::class)
                 ->add('email', EmailType::class)
                 ->add('contenu', TextType::class)
-                ->add('save', SubmitType::class, array('label' => 'Validation'));
+                ->add('save', SubmitType::class, array('label' => 'Valider'));
     }
     
     /**

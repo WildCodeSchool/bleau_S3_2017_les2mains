@@ -12,7 +12,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ActiviteController extends Controller
 {
-
+    /**
+     * Listing All Themes of ActivityType
+     * @return Response
+     */
     public function listAllThemesAction(){
         $em = $this->getDoctrine()->getManager();
 
@@ -22,21 +25,19 @@ class ActiviteController extends Controller
             'listthemes' => $listthemes,
         ));
     }
+
     /**
-     * Render page for sho allActivities and add new Activity
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function addAction(Request $request)
     {
         // Init i for parallax in view activity
         $i = 0;
 
-
         $em = $this->getDoctrine()->getManager();
 
         $themes = $em->getRepository(\CoreBundle\Entity\ActiviteType::class)->getActivitiesType();
-
 
         $activite = new Activite();
         $form = $this->createForm(\CoreBundle\Form\ActiviteType::class, $activite);
@@ -69,42 +70,37 @@ class ActiviteController extends Controller
             'forms' => $forms->createView(),
 
         ));
-
     }
 
     /**
-     * Render form for EditActivity
-     * Call directly in template with renderController method
      * @param Request $request
-     * @param Activite $activite
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function editActiviteAction(Request $request, Activite $activite)
+    public function editActiviteAction(Request $request)
     {
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $activite->getId(), \CoreBundle\Form\ActiviteType::class, $activite);
-        $formBuilder->setAction($this->generateUrl('core_activite_editValide', array(
-            'id' => $activite->getId()
-        )));
+        if ($request->isXmlHttpRequest())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $idActivite = $request->request->get('idActivite');
+            $activite = $em->getRepository(Activite::class)->findOneById($idActivite);
+            $form = $this->generateActivityForm($activite);
+            $form->handleRequest($request);
 
-        $form = $formBuilder->getForm();
-        $form->handleRequest($request);
-        
-        return $this->render('@Core/pages/activite/editActivite.html.twig', array(
-            'form'  => $form->createView()
-        ));
-
+            return $this->render('@Core/pages/activite/editActivite.html.twig', array(
+                'activite_selected' => $activite,
+                'form' => $form->createView()
+            ));
+        }
     }
 
     /**
-     * Validat form edit Activity
      * @param Activite $activite
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function valideEditAction(Activite $activite, Request $request){
-        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $activite->getId(),\CoreBundle\Form\ActiviteType::class, $activite);
-        $form = $formBuilder->getForm();
-
+    public function valideEditAction(Activite $activite, Request $request)
+    {
+        $form = $this->generateActivityForm($activite);
         $form->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
@@ -112,6 +108,20 @@ class ActiviteController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('core_activite_add');
+    }
+
+    /**
+     * @param $object
+     * @return \Symfony\Component\Form\FormInterface
+     */
+    private function generateActivityForm($object){
+        $formBuilder = $this->get('form.factory')->createNamedBuilder('form_' . $object->getId(), \CoreBundle\Form\ActiviteType::class, $object);
+        $formBuilder->setAction($this->generateUrl('core_activite_editValide', array(
+            'id' => $object->getId()
+        )));
+
+        $form = $formBuilder->getForm();
+        return $form;
     }
 
     /**
