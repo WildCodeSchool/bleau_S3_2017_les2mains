@@ -10,7 +10,7 @@ CommerceBundle\Entity\Evenement:
                 strategy: AUTO
     fields:
         date:
-            type: date
+            type: text
 
     manyToOne:
         lieu:

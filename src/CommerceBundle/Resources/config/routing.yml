@@ -39,6 +39,13 @@ list_evenementAction:
     path: /evenement
     defaults: {_controller: CommerceBundle:Booking:listEvenenement}
 
+delete_evenement:
+    path: /{id}/delete/evenement
+    defaults: {_controller: CommerceBundle:Booking:deleteEvenement}
+    requirements:
+            id: '\d+'
+
+
 booking:
     path: /{id}/booking
     defaults: {_controller: CommerceBundle:Booking:booking}
@@ -56,3 +63,5 @@ add_booking:
 recap_booking:
     path: /{id}/recap/booking
     defaults: {_controller: CommerceBundle:Booking:RecapBooking}
+
+

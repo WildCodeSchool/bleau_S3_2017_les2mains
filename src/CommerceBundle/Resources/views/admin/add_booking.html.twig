@@ -50,8 +50,8 @@
 						{{ form_errors(formevent.lieu) }}
 					</div>
 					<div>
-						{{ form_label(formevent.date) }}
-						{{ form_widget(formevent.date) }}
+						
+						{{ form_row(formevent.date,{'attr':{'class':'datepicker','placeholder': 'Clicker pour Ouvrir'}}) }}
 						{{ form_errors(formevent.date) }}
 					</div>
 					<div class="row">

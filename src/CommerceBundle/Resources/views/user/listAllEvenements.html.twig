@@ -2,7 +2,8 @@
 {% block body %}
 	<div id="list_all_evenements">
 		<div class="parallax-container">
-			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
+			</div>
 			<div class="section header">
 				<h3 class="header center title">Nos ventes</h3>
 			</div>
@@ -23,16 +24,16 @@
 							</div>
 							<a href="{{ path('booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">voir</a>
 							<a href="{{ path('recap_booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Recapitulatif Commande</a>
-							<br>
+							<a href="{{ path('delete_evenement', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Delete</a>
 						</div>
-                    {% endfor %}
+					{% endfor %}
 				</div>
 			</div>
-			<div class="parallax-container parallax_evenement">
-				<div class="parallax">
-					<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
-				</div>
+		<div class="parallax-container parallax_evenement">
+			<div class="parallax">
+				<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
 			</div>
-        {% include '@Core/pages/footer.html.twig' %}
+		</div>
+		{% include '@Core/pages/footer.html.twig' %}
 	</div>
 {% endblock %}
