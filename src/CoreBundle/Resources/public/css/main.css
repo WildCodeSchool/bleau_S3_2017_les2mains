@@ -1201,7 +1201,7 @@ Responsive Menu Nav
 \*----------------------------------------*/
 /* line 2, ../scss/_booking.scss */
 #booking .parallax_booking {
-  min-height: 100px;
+  min-height: 250px;
 }
 /* line 5, ../scss/_booking.scss */
 #booking .text_perso {
