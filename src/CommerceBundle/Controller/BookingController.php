@@ -171,7 +171,15 @@ class BookingController extends Controller
         ));
     }
 
+    public function deleteEvenementAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $evenement = $em->getRepository('CommerceBundle:Evenement')->findOneById($id);
+        $em->remove($evenement);
+        $em->flush();
 
+        return $this->redirectToRoute('list_evenementAction');
+    }
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response

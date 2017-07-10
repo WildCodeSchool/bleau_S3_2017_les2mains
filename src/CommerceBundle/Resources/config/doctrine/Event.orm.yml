@@ -15,10 +15,10 @@ CommerceBundle\Entity\Event:
         description:
             type: text
         dateStart:
-            type: datetime
+            type: text
             column: date_start
         dateEnd:
-            type: datetime
+            type: text
             column: date_end
         location:
             type: string
