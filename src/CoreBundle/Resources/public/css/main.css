@@ -99,7 +99,7 @@ p {
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-  background-image: url("http://nsa37.casimages.com/img/2017/07/07/170707100439661691.png");
+  background-image: url("http://image.noelshack.com/fichiers/2017/28/1/1499678536-image-2mains-petite.png");
   background-color: transparent;
   background-size: cover;
   height: 50px;
@@ -892,6 +892,14 @@ Responsive Menu Nav
 #activite .para_activite {
   height: 300px;
 }
+/* line 25, ../scss/_activite.scss */
+#activite .card {
+  z-index: 0;
+}
+/* line 28, ../scss/_activite.scss */
+#activite .index_btn {
+  z-index: 1;
+}
 
 /*----------------------------------------*\
     6.EVENTS
@@ -947,6 +955,14 @@ Responsive Menu Nav
 #events .card_picture:hover .text_card_picture {
   opacity: 1;
   transition: .5s;
+}
+/* line 48, ../scss/_events.scss */
+#events .card {
+  z-index: 0;
+}
+/* line 51, ../scss/_events.scss */
+#events .index_btn {
+  z-index: 1;
 }
 
 /*----------------------------------------*\
@@ -1192,32 +1208,35 @@ Responsive Menu Nav
   color: #80cbc4;
 }
 /* line 8, ../scss/_booking.scss */
-#booking td {
+#booking .col_table {
   padding: 0px 10px !important;
+  float: none !important;
 }
-/* line 11, ../scss/_booking.scss */
+/* line 12, ../scss/_booking.scss */
 #booking table {
   margin-top: 20px;
   margin-bottom: 20px;
 }
-/* line 15, ../scss/_booking.scss */
+/* line 16, ../scss/_booking.scss */
 #booking .info_content {
   text-align: center;
 }
-/* line 18, ../scss/_booking.scss */
+/* line 19, ../scss/_booking.scss */
 #booking .place {
   font-weight: 900;
   text-transform: uppercase;
 }
-/* line 22, ../scss/_booking.scss */
+/* line 23, ../scss/_booking.scss */
 #booking .btn_modal {
   margin: 15px auto;
   display: block;
   width: 300px;
 }
-/* line 27, ../scss/_booking.scss */
-#booking .col_table {
-  float: none !important;
+/* line 28, ../scss/_booking.scss */
+#booking .big_container_custom {
+  margin: 10px;
+  width: auto;
+  max-width: 98%;
 }
 
 /*----------------------------------------*\

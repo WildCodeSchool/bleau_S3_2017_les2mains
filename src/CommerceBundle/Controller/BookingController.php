@@ -103,7 +103,8 @@ class BookingController extends Controller
                     $panier['selectProduit'][$key] = array(
                         'prixTotal' => $prixTotal,
                         'quantiteCommande' => $quantity,
-                        'idProduit' => $selectProduit->getProduct()->getId()
+                        'idProduit' => $selectProduit->getProduct()->getId(),
+                        'name' => $selectProduit->getProduct()->getName()
                     );
                 }
             }
@@ -145,6 +146,7 @@ class BookingController extends Controller
         $user->setNom($panier['nom']);
         $user->setPrenom($panier['prenom']);
         $user->setEvenement($evenement);
+
 
         foreach ($panier['selectProduit'] as $value)
         {

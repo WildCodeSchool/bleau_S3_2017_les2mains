@@ -1,12 +1,45 @@
+{% extends "@Core/layout.html.twig" %}
 
-{{ panier.nom }}
-{{ panier.prenom }}
-
-{% for prod in panier.selectProduit %}
-
-	{{ prod.quantiteCommande }}
-	{{ prod.prixTotal }}
-
-{% endfor %}
-<a href="{{ path('valid_booking', { 'id': evenement.id }) }}">Validation</a>
-
+{% block body %}
+	<div id="booking">
+		<div class="parallax-container">
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}"></div>
+			<div class="section header">
+				<h3 class="header center title">{{ panier.nom }} {{ panier.prenom }}</h3>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<table class="col m10 offset-m1 striped">
+					<thead>
+					<tr>
+						<th>Produits</th>
+						<th>Quantité</th>
+						<th>Prix</th>
+					</tr>
+					</thead>
+					<tbody>
+                    {% for prod in panier.selectProduit %}
+						<tr>
+							<td>{{ prod.name }}</td>
+							<td>{{ prod.quantiteCommande }}</td>
+							<td>{{ prod.prixTotal }} €</td>
+						</tr>
+                    {% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div class="row">
+				<div class="col m2 offset-m5">
+					<a href="{{ path('valid_booking', { 'id': evenement.id }) }}" class="btn">Validation</a>
+				</div>
+			</div>
+		</div>
+		<div class="parallax-container parallax_booking">
+			<div class="parallax">
+				<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
+			</div>
+		</div>
+        {% include '@Core/pages/footer.html.twig' %}
+	</div>
+{% endblock %}
