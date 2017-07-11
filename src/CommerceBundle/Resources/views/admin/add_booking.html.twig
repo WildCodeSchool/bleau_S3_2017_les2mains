@@ -107,12 +107,14 @@
 			e.preventDefault();
 			var idEvenement = $('#divFormMarchandise').data('idevenement');
 
-			console.log(idEvenement);
             var form = $(this);
-            var formData = new FormData(form[0]);
+            var data = new FormData(form[0]);
+
+            data.append('idEvenement', idEvenement);
+
             $.ajax({
                 url: "{{ path('add_marchandises') }}",
-                data: formData,
+                data: data,
                 method: 'post',
                 processData: false,
                 contentType: false,

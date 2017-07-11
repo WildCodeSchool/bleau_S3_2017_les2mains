@@ -11,6 +11,7 @@ use CommerceBundle\Form\MarchandiseType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class BookingAdminController extends Controller
@@ -75,9 +76,22 @@ class BookingAdminController extends Controller
 	 */
 	public function addMarchandiseAction(Request $request)
 	{
-		if ($request->isXmlHttpRequest()){
+        $marchandise = new Marchandise();
+        $formMarchandise = $this->createForm(MarchandiseType::class, $marchandise);
 
+        $formMarchandise->handleRequest($request);
+        if ($request->isXmlHttpRequest())
+        {
+            
+            $a = 1;
+
+            $response = array(
+                'msg' => 'ajax'
+            );
+            return new JsonResponse($response);
 		}
+
+		return new Response('ok');
 	}
 
 	/**
