@@ -21,7 +21,8 @@ CommerceBundle\Entity\User:
             targetEntity: CommerceBundle\Entity\SelectProduit
             mappedBy: user
             cascade: ['all']
+
     manyToOne:
         evenement:
             targetEntity: CommerceBundle\Entity\Evenement
-            inversedBy: evenement
+            inversedBy: user

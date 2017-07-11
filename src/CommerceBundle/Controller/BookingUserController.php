@@ -11,15 +11,15 @@ use CommerceBundle\Entity\User;
 use CommerceBundle\Form\EvenementType;
 use CommerceBundle\Form\LieuType;
 use CommerceBundle\Form\UserType;
-use CommerceBundle\Repository\EvenementRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class BookingController extends Controller
+class BookingUserController extends Controller
 {
 
     /**
+     * Show all evenements (ventes)
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function listEvenenementAction()
@@ -37,7 +37,7 @@ class BookingController extends Controller
     /**
      * Create basket
      * @param Request $request
-     * @param Evenement $evenement
+     * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function bookingAction(Request $request, $id)
@@ -74,6 +74,7 @@ class BookingController extends Controller
             // ajout de ts les produits crées dans la Var User
             $user->addSelectProduit($selectProduit);
         }
+
         // Création d'un formulaire User(Panier)
         $formUser = $this->createForm(UserType::class, $user);
         $formUser->handleRequest($request);
@@ -130,6 +131,20 @@ class BookingController extends Controller
 
     }
 
+	/**
+	 * @param Evenement $evenement
+	 * @return Response
+	 */
+	public function RecapBookingAction(Evenement $evenement)
+	{
+		$em = $this->getDoctrine()->getManager();
+		$recaps = $em->getRepository(Evenement::class)->getEvenement($evenement->getId());
+
+		return $this-> render('@Commerce/user/recapBooking.html.twig', array(
+			'recaps' => $recaps,
+		));
+	}
+
     /**
      * @param Request $request
      * @param Evenement $evenement
@@ -137,104 +152,37 @@ class BookingController extends Controller
      */
     public function validBookingAction(Request $request, Evenement $evenement)
     {
-        $em = $this->getDoctrine()->getManager();
-        $session = $request->getSession();
-        $panier = $session->get('panier');
+	    $em = $this->getDoctrine()->getManager();
+	    $session = $request->getSession();
+	    $panier = $session->get('panier');
 
-        $user = new User();
+	    $user = new User();
 
-        $user->setNom($panier['nom']);
-        $user->setPrenom($panier['prenom']);
-        $user->setEvenement($evenement);
-
-
-        foreach ($panier['selectProduit'] as $value)
-        {
-            $produit = $em->getRepository(Product::class)->findOneById($value['idProduit']);
-            $selectProduit = new SelectProduit();
-            $selectProduit->setPrixTotal($value['prixTotal']);
-            $selectProduit->setQuantiteCommande($value['quantiteCommande']);
-            $selectProduit->setProduct($produit);
-            $selectProduit->setUser($user);
-            $user->addSelectProduit($selectProduit);
-        }
+	    $user->setNom($panier['nom']);
+	    $user->setPrenom($panier['prenom']);
+	    $user->setEvenement($evenement);
 
 
-        $em = $this ->getDoctrine()->getManager();
-        $em->persist($user);
-        $session->remove('panier');
+	    foreach ($panier['selectProduit'] as $value) {
+		    $produit = $em->getRepository(Product::class)->findOneById($value['idProduit']);
+		    $selectProduit = new SelectProduit();
+		    $selectProduit->setPrixTotal($value['prixTotal']);
+		    $selectProduit->setQuantiteCommande($value['quantiteCommande']);
+		    $selectProduit->setProduct($produit);
+		    $selectProduit->setUser($user);
+		    $user->addSelectProduit($selectProduit);
+	    }
 
-        $em->flush();
 
-        return $this->redirectToRoute('recap_booking', array(
-            'id' => $evenement->getId()
-        ));
+	    $em = $this->getDoctrine()->getManager();
+	    $em->persist($user);
+	    $session->remove('panier');
+
+	    $em->flush();
+
+	    return $this->redirectToRoute('recap_booking', array(
+		    'id' => $evenement->getId()
+	    ));
     }
-
-    public function deleteEvenementAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $evenement = $em->getRepository('CommerceBundle:Evenement')->findOneById($id);
-        $em->remove($evenement);
-        $em->flush();
-
-        return $this->redirectToRoute('list_evenementAction');
-    }
-    /**
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function addBookingAction(Request $request)
-    {
-        //Création des formulaires dans la vue Admin add_Booking
-        $evenement = new Evenement();
-
-        for ($i = 0; $i < 3; $i++){
-            $marchandise = new Marchandise();
-            $evenement->addMarchandise($marchandise);
-        }
-
-        $formEvent = $this->createForm(EvenementType::class, $evenement);
-        $formEvent->handleRequest($request);
-        $em = $this ->getDoctrine()->getManager();
-
-        if($formEvent->isSubmitted() && $formEvent->isValid())
-        {
-            foreach ($evenement->getMarchandises() as $marchandise){
-                $marchandise->setEvenement($evenement);
-            }
-            $em->persist($evenement);
-        }
-
-        $lieu = new Lieu();
-        $formLieu = $this->createForm(LieuType::class, $lieu);
-        $formLieu->handleRequest($request);
-
-        if($formLieu->isSubmitted() && $formLieu->isValid())
-        {
-            $em->persist($lieu);
-        }
-
-        $em->flush();
-       return $this->render('@Commerce/admin/add_booking.html.twig', array(
-           'formevent'=>$formEvent->createView(),
-           'formlieu'=>$formLieu->createView(),
-       ));
-    }
-
-    /**
-     * @param Evenement $evenement
-     * @return Response
-     */
-    public function RecapBookingAction(Evenement $evenement)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $recaps = $em->getRepository(Evenement::class)->getEvenement($evenement->getId());
-
-        return $this-> render('@Commerce/user/recapBooking.html.twig', array(
-            'recaps' => $recaps,
-        ));
-    }
-
 }
 

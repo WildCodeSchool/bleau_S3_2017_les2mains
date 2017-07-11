@@ -26,9 +26,6 @@ class EvenementType extends AbstractType
                 'class' => 'CommerceBundle\Entity\Lieu',
                 'choice_label' => 'nom'
             ))
-            ->add('marchandises', CollectionType::class, array(
-                'entry_type' => MarchandiseType::class
-            ))
             ->add('submit', SubmitType::class, array('label' => 'Valider'));
     }
     
