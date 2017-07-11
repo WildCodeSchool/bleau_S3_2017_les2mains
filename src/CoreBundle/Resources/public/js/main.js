@@ -113,7 +113,7 @@ function init(){
         //Months and weekdays
         monthsFull: [ 'January', 'February', 'March', 'April', 'March', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
         monthsShort: [ 'Jan', 'Feb', 'Mar', 'Apr', 'Mar', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
-        weekdaysFull: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
+        weekdaysFull: [ 'Lundi', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
         weekdaysShort: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
         //Materialize modified
         weekdaysLetter: [ 'S', 'M', 'T', 'W', 'T', 'F', 'S' ],
@@ -122,7 +122,8 @@ function init(){
         clear: 'Clear',
         close: 'Close',
         //The format to show on the `input` element
-        format: 'dd/mm/yyyy'
+        format: 'dd/mm/yyyy',
+        closeOnSelect: false,
     });
 }
 

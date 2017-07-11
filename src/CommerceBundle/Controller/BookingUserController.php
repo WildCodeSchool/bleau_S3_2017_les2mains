@@ -26,7 +26,7 @@ class BookingUserController extends Controller
     {
         // La liste des Evenements Crées en BDD
         $em = $this->getDoctrine()->getManager();
-        $evenements = $em->getRepository(Evenement::class)->findAll();
+        $evenements = $em->getRepository(Evenement::class)->findBy(array(), array('date' => 'DESC'));
 
         // On retourne à la vue tous les évenements
         return $this->render('@Commerce/user/listAllEvenements.html.twig', array(

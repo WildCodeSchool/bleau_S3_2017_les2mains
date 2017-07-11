@@ -17,25 +17,25 @@ use Symfony\Component\HttpFoundation\Response;
 class BookingAdminController extends Controller
 {
 
-	public function addLieuAction(Request $request)
-	{
-		$lieu = new Lieu();
-		$formLieu = $this->createForm(LieuType::class, $lieu);
-		$formLieu->handleRequest($request);
-
-		if($formLieu->isSubmitted() && $formLieu->isValid())
-		{
-			$em = $this ->getDoctrine()->getManager();
-			$em->persist($lieu);
-			$em->flush();
-
-			return $this->redirectToRoute('add_booking');
-		}
-
-		return $this->render('@Commerce/admin/add_lieu.html.twig', array(
-			'formlieu'=>$formLieu->createView(),
-		));
-	}
+//	public function addLieuAction(Request $request)
+//	{
+//		$lieu = new Lieu();
+//		$formLieu = $this->createForm(LieuType::class, $lieu);
+//		$formLieu->handleRequest($request);
+//
+//		if($formLieu->isSubmitted() && $formLieu->isValid())
+//		{
+//			$em = $this ->getDoctrine()->getManager();
+//			$em->persist($lieu);
+//			$em->flush();
+//
+//			return $this->redirectToRoute('add_booking');
+//		}
+//
+//		return $this->render('@Commerce/admin/add_lieu.html.twig', array(
+//			'formlieu'=>$formLieu->createView(),
+//		));
+//	}
 
 	/**
 	 * Créer un évènement
@@ -49,6 +49,20 @@ class BookingAdminController extends Controller
 		$marchandise = new Marchandise();
 		$formEvent = $this->createForm(EvenementType::class, $evenement);
 		$formMarchandise = $this->createForm(MarchandiseType::class, $marchandise);
+
+
+		$lieu = new Lieu();
+		$formLieu = $this->createForm(LieuType::class, $lieu);
+		$formLieu->handleRequest($request);
+
+		if($formLieu->isSubmitted() && $formLieu->isValid())
+		{
+			$em = $this ->getDoctrine()->getManager();
+			$em->persist($lieu);
+			$em->flush();
+
+			return $this->redirectToRoute('add_booking');
+		}
 
 		$formEvent->handleRequest($request);
 		if ($request->isXmlHttpRequest())
@@ -66,28 +80,46 @@ class BookingAdminController extends Controller
 
 		return $this->render('@Commerce/admin/add_booking.html.twig', array(
 			'formEvent'=> $formEvent->createView(),
-			'formMarchandise' => $formMarchandise->createView()
+			'formMarchandise' => $formMarchandise->createView(),
+			'formLieu' => $formLieu->createView()
 		));
 	}
 
 	/**
 	 * Ajouter une/des marchandise(s) à un évènement
 	 * @param Request $request
+	 * @return mixed
 	 */
 	public function addMarchandiseAction(Request $request)
 	{
         $marchandise = new Marchandise();
         $formMarchandise = $this->createForm(MarchandiseType::class, $marchandise);
-
         $formMarchandise->handleRequest($request);
+
         if ($request->isXmlHttpRequest())
         {
-            
-            $a = 1;
+			$em = $this->getDoctrine()->getManager();
+        	$idEvenement = $request->request->get('idEvenement');
+        	$evenement = $em->getRepository(Evenement::class)->findOneById($idEvenement);
+
+        	$evenement->addMarchandise($marchandise);
+        	$marchandise->setEvenement($evenement);
+
+			$em->flush();
 
             $response = array(
-                'msg' => 'ajax'
+            	'marchandise' => array(
+            		'nom' => $marchandise->getProduct()->getName(),
+		            'prix' => $marchandise->getPrix(),
+		            'quantite' => $marchandise->getQuantite(),
+		            'id' => $marchandise->getId()
+	            ),
+                'evenement' => array(
+                	'id' => $evenement->getId()
+                ),
+                'msg' => 'ok'
             );
+
             return new JsonResponse($response);
 		}
 

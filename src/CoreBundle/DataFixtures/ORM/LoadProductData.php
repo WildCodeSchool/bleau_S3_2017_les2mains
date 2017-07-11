@@ -13,7 +13,6 @@ class LoadProductData extends AbstractFixture implements FixtureInterface
     /**
      * Load Product
      */
-
     public function load(ObjectManager $manager)
     {
         $product = array(
@@ -25,7 +24,6 @@ class LoadProductData extends AbstractFixture implements FixtureInterface
             "pain aux céréales",
             "pain au chocolat",
             "sablé",
-
         );
 
         foreach ($product as $products)

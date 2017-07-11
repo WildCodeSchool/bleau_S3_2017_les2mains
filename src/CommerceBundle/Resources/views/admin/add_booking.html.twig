@@ -17,7 +17,27 @@
 				<!-- Modal Structure -->
 				<div id="modaladdbooking" class="modal">
 					<div class="modal-content">
-                        {{ render(controller('CommerceBundle:BookingAdmin:addLieu')) }}
+						<h5 class="text_perso center-align">Ajout d'un lieu</h5>
+                        {{ form_start(formLieu) }}
+						<div>
+                            {{ form_label(formLieu.nom) }}
+                            {{ form_widget(formLieu.nom) }}
+                            {{ form_errors(formLieu.nom) }}
+						</div>
+						<div>
+                            {{ form_label(formLieu.adresse) }}
+                            {{ form_widget(formLieu.adresse) }}
+                            {{ form_errors(formLieu.adresse) }}
+						</div>
+						<div>
+                            {{ form_label(formLieu.indication) }}
+                            {{ form_widget(formLieu.indication) }}
+                            {{ form_errors(formLieu.indication) }}
+						</div>
+						<div>
+                            {{ form_widget(formLieu.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+						</div>
+                        {{ form_end(formLieu) }}
 					</div>
 				</div>
 			</div>
@@ -41,28 +61,47 @@
 			</div>
 
 			<div id="divFormMarchandise" class="row">
-				<div class="col s12">
-					<h4>Marchandise</h4>
-					{{ form_start(formMarchandise, {'attr': {'id': 'formaddMarchandise'}}) }}
-					<div>
-						{{ form_label(formMarchandise.prix) }}
-						{{ form_widget(formMarchandise.prix) }}
-						{{ form_errors(formMarchandise.prix) }}
+				<h4 class="center-align">Marchandise(s)</h4>
+				<div class="col m4 s12">
+                    {{ form_start(formMarchandise, {'attr': {'id': 'formaddMarchandise'}}) }}
+					<div class="row">
+						<div class="col m6 s12">
+                            {{ form_label(formMarchandise.prix) }}
+                            {{ form_widget(formMarchandise.prix) }}
+                            {{ form_errors(formMarchandise.prix) }}
+						</div>
+						<div class="col m6 s12">
+                            {{ form_label(formMarchandise.quantite) }}
+                            {{ form_widget(formMarchandise.quantite) }}
+                            {{ form_errors(formMarchandise.quantite) }}
+						</div>
 					</div>
-					<div>
-						{{ form_label(formMarchandise.quantite) }}
-						{{ form_widget(formMarchandise.quantite) }}
-						{{ form_errors(formMarchandise.quantite) }}
+					<div class="row">
+						<div class="col s12">
+                            {{ form_label(formMarchandise.product) }}
+                            {{ form_widget(formMarchandise.product) }}
+                            {{ form_errors(formMarchandise.product) }}
+						</div>
 					</div>
-					<div>
-						{{ form_label(formMarchandise.product) }}
-						{{ form_widget(formMarchandise.product) }}
-						{{ form_errors(formMarchandise.product) }}
+					<div class="row center-align">
+                        {{ form_widget(formMarchandise.submit) }}
 					</div>
-					<div>
-						{{ form_widget(formMarchandise.submit) }}
-					</div>
-					{{ form_end(formMarchandise) }}
+                    {{ form_end(formMarchandise) }}
+				</div>
+				<div class="col m7 offset-m1 s12">
+					<table>
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Quantité</th>
+								<th>Prix</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody id="currentsMarchandises">
+
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -107,8 +146,8 @@
 			e.preventDefault();
 			var idEvenement = $('#divFormMarchandise').data('idevenement');
 
-            var form = $(this);
-            var data = new FormData(form[0]);
+            var form = $(this)[0];
+            var data = new FormData(form);
 
             data.append('idEvenement', idEvenement);
 
@@ -119,8 +158,20 @@
                 processData: false,
                 contentType: false,
                 success: function (response) {
-                    console.log(response.msg);
-					alert(response.msg);
+
+                    form.reset();
+
+                    var tr = $(document.createElement('tr'));
+
+                    var tdName = '<td>' + response.marchandise.nom + '</td>';
+                    var tdQuantite = '<td>' + response.marchandise.quantite + '</td>';
+                    var tdPrix = '<td>' + response.marchandise.prix + '</td>';
+                    var tdAction = '<td>' + 'action' + '</td>';
+                    var content = tdName + tdQuantite + tdPrix + tdAction;
+
+                    tr.html(content);
+
+                    $('#currentsMarchandises').append(tr);
                 }
             })
         })
