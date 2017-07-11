@@ -65,7 +65,7 @@ class ProductController extends Controller
         if ($request->isXmlHttpRequest())
         {
             $em = $this->getDoctrine()->getManager();
-            $idProduct = $request->request->get('idProduct');
+            $idProduct = $request->request->get('idElem');
             $product = $em->getRepository(Product::class)->findOneById($idProduct);
             $form = $this->generateProductForm($product);
             $form->handleRequest($request);
