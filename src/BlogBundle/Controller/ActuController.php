@@ -52,7 +52,7 @@ class ActuController extends Controller
         if ($request->isXmlHttpRequest())
         {
             $em = $this->getDoctrine()->getManager();
-            $idActu = $request->request->get('idActu');
+            $idActu = $request->request->get('idElem');
             $article = $em->getRepository(Article::class)->findOneById($idActu);
             $form = $this->generateArticleForm($article);
             $form->handleRequest($request);

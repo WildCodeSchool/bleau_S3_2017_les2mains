@@ -18,76 +18,163 @@
 				<div id="modaladdbooking" class="modal">
 					<div class="modal-content">
 						<h5 class="text_perso center-align">Ajout d'un lieu</h5>
-                        {{ form_start(formlieu) }}
+                        {{ form_start(formLieu) }}
 						<div>
-                            {{ form_label(formlieu.nom) }}
-                            {{ form_widget(formlieu.nom) }}
-                            {{ form_errors(formlieu.nom) }}
+                            {{ form_label(formLieu.nom) }}
+                            {{ form_widget(formLieu.nom) }}
+                            {{ form_errors(formLieu.nom) }}
 						</div>
 						<div>
-                            {{ form_label(formlieu.adresse) }}
-                            {{ form_widget(formlieu.adresse) }}
-                            {{ form_errors(formlieu.adresse) }}
+                            {{ form_label(formLieu.adresse) }}
+                            {{ form_widget(formLieu.adresse) }}
+                            {{ form_errors(formLieu.adresse) }}
 						</div>
 						<div>
-                            {{ form_label(formlieu.indication) }}
-                            {{ form_widget(formlieu.indication) }}
-                            {{ form_errors(formlieu.indication) }}
+                            {{ form_label(formLieu.indication) }}
+                            {{ form_widget(formLieu.indication) }}
+                            {{ form_errors(formLieu.indication) }}
 						</div>
-                        {{ form_widget(formlieu.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-						{{ form_end(formlieu) }}
+						<div>
+                            {{ form_widget(formLieu.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+						</div>
+                        {{ form_end(formLieu) }}
 					</div>
 				</div>
 			</div>
+
 			<div class="row">
+				<h4 class="center-align text_perso">Lieu et date de la vente</h4>
+				{{ form_start(formEvent, {'attr': {'id': 'formCreateEvent'}}) }}
 				<div>
-					<h4 class="center-align text_perso">Lieu et date de la vente</h4>
-					{{ form_start(formevent) }}
-					
-					<div>
-						{{ form_label(formevent.lieu) }}
-						{{ form_widget(formevent.lieu) }}
-						{{ form_errors(formevent.lieu) }}
-					</div>
-					<div>
-						
-						{{ form_row(formevent.date,{'attr':{'class':'datepicker','placeholder': 'Cliquez pour Ouvrir'}}) }}
-						{{ form_errors(formevent.date) }}
+					{{ form_label(formEvent.lieu) }}
+					{{ form_widget(formEvent.lieu) }}
+					{{ form_errors(formEvent.lieu) }}
+				</div>
+				<div>
+					{{ form_widget(formEvent.date,{'attr': {'class':'datepicker','placeholder': 'Cliquez pour Ouvrir'}} ) }}
+					{{ form_errors(formEvent.date) }}
+				</div>
+				<div id="formCreateEventValidButton">
+					{{ form_widget(formEvent.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+				</div>
+				{{ form_end(formEvent) }}
+			</div>
+
+			<div id="divFormMarchandise" class="row">
+				<h4 class="center-align">Marchandise(s)</h4>
+				<div class="col m4 s12">
+                    {{ form_start(formMarchandise, {'attr': {'id': 'formaddMarchandise'}}) }}
+					<div class="row">
+						<div class="col m6 s12">
+                            {{ form_label(formMarchandise.prix) }}
+                            {{ form_widget(formMarchandise.prix) }}
+                            {{ form_errors(formMarchandise.prix) }}
+						</div>
+						<div class="col m6 s12">
+                            {{ form_label(formMarchandise.quantite) }}
+                            {{ form_widget(formMarchandise.quantite) }}
+                            {{ form_errors(formMarchandise.quantite) }}
+						</div>
 					</div>
 					<div class="row">
-						{% for key,form in formevent.marchandises %}
-							<div class="col s4">
-								<h4>Marchandise {{ loop.index }}</h4>
-								<div>
-									{{ form_label(form.prix) }}
-									{{ form_widget(form.prix) }}
-									{{ form_errors(form.prix) }}
-								</div>
-								<div>
-									{{ form_label(form.quantite) }}
-									{{ form_widget(form.quantite) }}
-									{{ form_errors(form.quantite) }}
-								</div>
-								<div>
-									{{ form_label(form.product) }}
-									{{ form_widget(form.product) }}
-									{{ form_errors(form.product) }}
-								</div>
-							</div>
-						
-						{% endfor %}
+						<div class="col s12">
+                            {{ form_label(formMarchandise.product) }}
+                            {{ form_widget(formMarchandise.product) }}
+                            {{ form_errors(formMarchandise.product) }}
+						</div>
 					</div>
-					
-					<div>
-						{{ form_widget(formevent.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+					<div class="row center-align">
+                        {{ form_widget(formMarchandise.submit) }}
 					</div>
-					
-					{{ form_end(formevent) }}
-					
-					
+                    {{ form_end(formMarchandise) }}
+				</div>
+				<div class="col m7 offset-m1 s12">
+					<table>
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Quantité</th>
+								<th>Prix</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody id="currentsMarchandises">
+
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
 	</div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+	<script>
+		$('#divFormMarchandise').hide();
+
+		$('#formCreateEvent').submit(function (e) {
+			e.preventDefault();
+			var form = $(this);
+			var formData = new FormData(form[0]);
+
+			$.ajax({
+				url: "{{ path('add_booking') }}",
+				data: formData,
+				method: 'post',
+                processData: false,
+                contentType: false,
+				success: function (response) {
+					if (response.msg === 'ok'){
+						$('#formCreateEventValidButton').remove();
+						$('#commercebundle_evenement_date').prop('disabled', true);
+
+//						TODO: Disable select
+						$('#commercebundle_evenement_lieu').prop('disabled', true);
+
+                        // Add id Evenement in div data
+                        $('#divFormMarchandise').attr('data-idevenement', response.idEvenement);
+                        // Show form marchandise
+                        $('#divFormMarchandise').fadeIn();
+					}
+                }
+			})
+        });
+
+		$('#formaddMarchandise').submit(function (e) {
+			e.preventDefault();
+			var idEvenement = $('#divFormMarchandise').data('idevenement');
+
+            var form = $(this)[0];
+            var data = new FormData(form);
+
+            data.append('idEvenement', idEvenement);
+
+            $.ajax({
+                url: "{{ path('add_marchandises') }}",
+                data: data,
+                method: 'post',
+                processData: false,
+                contentType: false,
+                success: function (response) {
+
+                    form.reset();
+
+                    var tr = $(document.createElement('tr'));
+
+                    var tdName = '<td>' + response.marchandise.nom + '</td>';
+                    var tdQuantite = '<td>' + response.marchandise.quantite + '</td>';
+                    var tdPrix = '<td>' + response.marchandise.prix + '</td>';
+                    var tdAction = '<td>' + 'action' + '</td>';
+                    var content = tdName + tdQuantite + tdPrix + tdAction;
+
+                    tr.html(content);
+
+                    $('#currentsMarchandises').append(tr);
+                }
+            })
+        })
+	</script>
 
 {% endblock %}

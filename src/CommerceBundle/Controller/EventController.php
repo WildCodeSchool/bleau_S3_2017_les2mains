@@ -51,7 +51,7 @@ class EventController extends Controller
         if ($request->isXmlHttpRequest())
         {
             $em = $this->getDoctrine()->getManager();
-            $idEvent = $request->request->get('idEvent');
+            $idEvent = $request->request->get('idElem');
             $event = $em->getRepository(Event::class)->findOneById($idEvent);
             $form = $this->generateEventForm($event);
             $form->handleRequest($request);

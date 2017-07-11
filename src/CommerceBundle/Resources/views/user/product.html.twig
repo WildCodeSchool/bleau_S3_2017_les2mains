@@ -137,23 +137,7 @@
 </div>
 	{% block javascripts %}
 	<script>
-        $( document ).ready(function() {
-            $('.formEditProduct').click(function (e) {
-                $('.formEditProduct').modal();
-                e.preventDefault();
-                var idProduct = $(this).data('id');
-                var modalContent = $('#modal' + idProduct);
-                $.ajax({
-                    url: "{{ path('product_edit') }}",
-                    data: {'idProduct': idProduct },
-                    method: 'post',
-                    success: function (response) {
-                        modalContent.html(response)
-                    }
-
-                })
-            })
-        });
+        showEditFormAjax(".formEditProduct", "{{ path('product_edit') }}")
 	</script>
 	{% endblock %}
 {% endblock %}
