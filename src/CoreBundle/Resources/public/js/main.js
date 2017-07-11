@@ -125,6 +125,10 @@ function init(){
         format: 'dd/mm/yyyy',
         closeOnSelect: false,
     });
+    
+    $('.datepicker').on('change', function(){
+        $(this).next().find('.picker__close').click();
+    });
 }
 
 function showEditFormAjax(targetListen, targetPath){
