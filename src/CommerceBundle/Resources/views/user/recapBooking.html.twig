@@ -21,25 +21,22 @@
                    event
                </caption> -->
                <thead>
-               <tr>
-                   <th class="col_table"></th>
-                   {% for name, value in recaps|first %}
-                       <th class="col_table">{{ name }}</th>
-                   {% endfor %}
-               </tr>
-               </thead>
-
-               <tbody>
-
-               {% for productName, products in recaps %}
                    <tr>
-                       <th class="col_table">{{ productName }}</th>
-                       {% for qt in products %}
-                           <td class="col_table">{{ qt.quantiteCommande|default('0') }}</td>
+                       <th class="col_table"></th>
+                       {% for name, value in recaps|first %}
+                           <th class="col_table">{{ name }}</th>
                        {% endfor %}
                    </tr>
-
-               {% endfor %}
+               </thead>
+               <tbody>
+                   {% for productName, products in recaps %}
+                       <tr>
+                           <th class="col_table">{{ productName }}</th>
+                           {% for qt in products %}
+                               <td class="col_table">{{ qt.quantiteCommande|default('0') }}</td>
+                           {% endfor %}
+                       </tr>
+                   {% endfor %}
                </tbody>
            </table>
        </div>
@@ -51,5 +48,4 @@
         </div>
 		{% include '@Core/pages/footer.html.twig' %}
     </div>
-
 {% endblock %}

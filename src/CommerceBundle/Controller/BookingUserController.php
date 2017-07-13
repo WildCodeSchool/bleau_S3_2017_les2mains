@@ -61,14 +61,18 @@ class BookingUserController extends Controller
         // La boucle permet de générer autant de formulaire qu'il y a de produit disponible lors de l'évènement afin de pouvoir les reserver (collectionType)
         foreach ($marchandises as $marchandise){
             $categories[$marchandise->getProduct()->getCategories()->getType()][$i] = $marchandise;
+            if($marchandise->getQuantite()>0 )
+            {
+                // Création d'un new objet de la table SelectProduit
+                $selectProduit = new SelectProduit();
+                // Associer un produit à un produit selectionné
+                $selectProduit->setProduct($marchandise->getProduct());
+                // ajout de ts les produits crées dans la Var User
+                $user->addSelectProduit($selectProduit);
 
-            // Création d'un new objet de la table SelectProduit
-            $selectProduit = new SelectProduit();
-            // Associer un produit à un produit selectionné
-            $selectProduit->setProduct($marchandise->getProduct());
-            // ajout de ts les produits crées dans la Var User
-            $user->addSelectProduit($selectProduit);
+            }
             $i ++ ;
+
         }
         // Création d'un formulaire User(Panier)
         $formUser = $this->createForm(UserType::class, $user);

@@ -56,9 +56,7 @@
 								{% endif %}
 							</td>
 						</tr>
-					
 					{% endfor %}
-					
 			{% endfor %}
 					</tbody>
 				
@@ -74,8 +72,7 @@
 						<span class="center-align col m12">{{ form_row(formUser.submit, {'attr': {'class': 'btn btn-primary waves-effect waves-light'}}) }}</span>
 					</div>
 				</div>
-				
-				{{ form_end(formUser, {'render_rest': false}) }}
+				{{ form_end(formUser) }}
 			</div>
 		</div>
 		<div class="parallax-container parallax_booking">
