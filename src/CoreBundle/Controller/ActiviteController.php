@@ -81,7 +81,7 @@ class ActiviteController extends Controller
         if ($request->isXmlHttpRequest())
         {
             $em = $this->getDoctrine()->getManager();
-            $idActivite = $request->request->get('idActivite');
+            $idActivite = $request->request->get('idElem');
             $activite = $em->getRepository(Activite::class)->findOneById($idActivite);
             $form = $this->generateActivityForm($activite);
             $form->handleRequest($request);

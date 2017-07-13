@@ -13,7 +13,7 @@
                     {% for evenement in evenements %}
 						<div class="evenement_content col m5 push-m1 s12">
 							<div class="e_content_child">
-								<h4 class="date text_perso">{{ evenement.date|date("d/m/Y") }}</h4>
+								<h4 class="date text_perso">{{ evenement.date }}</h4>
 								<br>
 								<span class="place">{{ evenement.lieu.nom }}</span>
 								<br>
@@ -24,7 +24,9 @@
 							</div>
 							<a href="{{ path('booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">voir</a>
 							<a href="{{ path('recap_booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Recapitulatif Commande</a>
-							<a href="{{ path('delete_evenement', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Delete</a>
+                        	{% if is_granted('ROLE_ADMIN') %}
+								<a href="{{ path('delete_evenement', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Delete</a>
+							{% endif %}
 						</div>
 					{% endfor %}
 				</div>

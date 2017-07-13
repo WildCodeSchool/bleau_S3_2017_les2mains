@@ -1,3 +1,4 @@
+# Route stage
 event_add:
     path: /events
     defaults: {_controller: CommerceBundle:Event:addEvent}
@@ -16,7 +17,7 @@ event_edit:
     defaults: { _controller: CommerceBundle:Event:editEvent }
 
 
-
+# Route gestion des produits
 product:
     path: /product
     defaults: {_controller: CommerceBundle:Product:addProduct}
@@ -34,34 +35,38 @@ product_edit:
     defaults: { _controller: CommerceBundle:Product:editProduct}
 
 
-
+# Route booking user
 list_evenementAction:
     path: /evenement
-    defaults: {_controller: CommerceBundle:Booking:listEvenenement}
-
-delete_evenement:
-    path: /{id}/delete/evenement
-    defaults: {_controller: CommerceBundle:Booking:deleteEvenement}
-    requirements:
-            id: '\d+'
-
+    defaults: {_controller: CommerceBundle:BookingUser:listEvenenement}
 
 booking:
     path: /{id}/booking
-    defaults: {_controller: CommerceBundle:Booking:booking}
+    defaults: {_controller: CommerceBundle:BookingUser:booking}
     requirements:
         id: '\d+'
 
-valid_booking:
-    path: /{id}/valid
-    defaults: {_controller: CommerceBundle:Booking:validBooking}
-
-add_booking:
-    path: /admin/booking
-    defaults: {_controller: CommerceBundle:Booking:addBooking}
-
 recap_booking:
     path: /{id}/recap/booking
-    defaults: {_controller: CommerceBundle:Booking:RecapBooking}
+    defaults: {_controller: CommerceBundle:BookingUser:RecapBooking}
+
+valid_booking:
+    path: /{id}/valid
+    defaults: {_controller: CommerceBundle:BookingUser:validBooking}
 
 
+
+# Route booking admin
+add_booking:
+    path: /admin/booking
+    defaults: {_controller: CommerceBundle:BookingAdmin:addBooking}
+
+add_marchandises:
+    path: /admin/booking/marchandise
+    defaults: {_controller: CommerceBundle:BookingAdmin:addMarchandise}
+
+delete_evenement:
+    path: /{id}/delete/evenement
+    defaults: {_controller: CommerceBundle:BookingAdmin:deleteEvenement}
+    requirements:
+            id: '\d+'

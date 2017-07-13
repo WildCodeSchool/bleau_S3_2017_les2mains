@@ -202,22 +202,8 @@
                         }
                     });
                 });
-                $('.formEditActivite').click(function (e) {
-                    $('.formEditActivite').modal();
-                    e.preventDefault();
-                    var idActivite = $(this).data('id');
-                    var modalContent = $('#modal' + idActivite);
-                    $.ajax({
-                        url: "{{ path('core_activite_edit') }}",
-                        data: {'idActivite': idActivite },
-                        method: 'post',
-                        success: function (response) {
-                            modalContent.html(response)
-                        }
-    
-                    })
-                })
             });
+            showEditFormAjax('.formEditActivite', "{{ path('core_activite_edit') }}")
         </script>
     {% endblock %}
 {% endblock %}
