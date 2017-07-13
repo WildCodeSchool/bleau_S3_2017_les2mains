@@ -16,7 +16,7 @@
 					<span class="p_center">{{ evenement.adresse }}</span><br>
 					<span class="p_center">{{ evenement.indication }}</span>
 				</div>
-				<table class="striped col m10 offset-m1">
+				<table class="col m10 offset-m1 centered responsive-table">
 					<thead>
 					<tr>
 						<th class="col m4 col_table">
@@ -37,8 +37,8 @@
 					</thead>
 					<tbody>
 			{% for name, categorie in categories %}
-					
-						<tr>
+				
+						<tr class="grey">
 							<td colspan="5">{{ name }}</td>
 						</tr>
 				
@@ -49,7 +49,11 @@
 							<td class="col m2 col_table">{{ marchandise.quantite }}</td>
 							<td class="col m2 col_table">{{ marchandise.unite }}</td>
 							<td class="col m2 col_table">
-								{{ form_widget(formUser.selectProduits[key].quantiteCommande) }}
+								{% if marchandise.quantite > 0 %}
+									{{ form_widget(formUser.selectProduits[key].quantiteCommande, {'attr': {'max': marchandise.quantite, 'min': 0 }}) }}
+								{% else %}
+									Epuisé
+								{% endif %}
 							</td>
 						</tr>
 					
@@ -70,7 +74,8 @@
 						<span class="center-align col m12">{{ form_row(formUser.submit, {'attr': {'class': 'btn btn-primary waves-effect waves-light'}}) }}</span>
 					</div>
 				</div>
-				{{ form_end(formUser) }}
+				
+				{{ form_end(formUser, {'render_rest': false}) }}
 			</div>
 		</div>
 		<div class="parallax-container parallax_booking">

@@ -28,9 +28,8 @@ class MarchandiseRepository extends \Doctrine\ORM\EntityRepository
             ->join('m.product', 'p')
             ->andWhere('p.id = :product')
             ->setParameters(array(
-
-            'event' =>$evenement,
-            'product'=>$product
+                'event' =>$evenement,
+                'product'=>$product
             ))
         ;
         return $qb->getQuery()->getOneOrNullResult();

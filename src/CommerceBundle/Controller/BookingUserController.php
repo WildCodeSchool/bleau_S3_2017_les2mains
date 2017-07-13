@@ -61,6 +61,7 @@ class BookingUserController extends Controller
         // La boucle permet de générer autant de formulaire qu'il y a de produit disponible lors de l'évènement afin de pouvoir les reserver (collectionType)
         foreach ($marchandises as $marchandise){
             $categories[$marchandise->getProduct()->getCategories()->getType()][$i] = $marchandise;
+
             // Création d'un new objet de la table SelectProduit
             $selectProduit = new SelectProduit();
             // Associer un produit à un produit selectionné
@@ -158,6 +159,13 @@ class BookingUserController extends Controller
 
 	    foreach ($panier['selectProduit'] as $value) {
 		    $produit = $em->getRepository(Product::class)->findOneById($value['idProduit']);
+
+		    // Décrémentation de la quantité initial en fonction de la quantité commandé
+            $marchandise = $em->getRepository(Marchandise::class)->getCheckMarchandiseById($evenement, $produit->getId());
+            $currentQuantite = $marchandise->getQuantite();
+            $requestQuantite = $value['quantiteCommande'];
+            $marchandise->setQuantite($currentQuantite - $requestQuantite);
+
 		    $selectProduit = new SelectProduit();
 		    $selectProduit->setPrixTotal($value['prixTotal']);
 		    $selectProduit->setQuantiteCommande($value['quantiteCommande']);
