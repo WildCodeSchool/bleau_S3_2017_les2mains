@@ -7,7 +7,7 @@
 				<li>
 					<a href="{{ path('core_nous') }}">Nous</a>
 					<div class="onglet">
-					
+						<a href="#"></a>
 					</div>
 				</li>
 				<li>
@@ -23,9 +23,9 @@
 				</li>
 				<li>
 					<a href="{{ path('product') }}">Nos produits</a>
-					<a href="{{ path('list_evenementAction') }}">Nos Ventes</a>
+					<a href="{{ path('list_evenementAction') }}">Commander</a>
 					{% if is_granted('ROLE_ADMIN') %}
-						<a href="{{ path('add_booking') }}">Booking</a>
+						<a href="{{ path('add_booking') }}">Nouvelles Ventes</a>
 					{% endif %}
 				</li>
 				<li>

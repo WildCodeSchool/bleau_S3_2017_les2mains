@@ -25,7 +25,9 @@ class MarchandiseType extends AbstractType
                     'class' => 'CommerceBundle\Entity\Product',
                     'choice_label' => 'name'
                 ))
-	            ->add('submit', SubmitType::class)
+	            ->add('submit', SubmitType::class, array(
+                    'label' => 'Valider'
+                ))
         ;
 
     }
