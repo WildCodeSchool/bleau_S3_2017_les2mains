@@ -2,6 +2,7 @@
 
 namespace CommerceBundle\Controller;
 
+use CommerceBundle\Entity\Category;
 use CommerceBundle\Entity\Evenement;
 use CommerceBundle\Entity\Lieu;
 use CommerceBundle\Entity\Marchandise;
@@ -42,15 +43,6 @@ class BookingUserController extends Controller
      */
     public function bookingAction(Request $request, $id)
     {
-        //************************************************************//
-
-            // Méthode qui remplace le typage strict Evenement,$evenement
-            /*$em = $this->getDoctrine()->getManager();
-              $evenement = $em->getRepository(Evenement::Class)->findOneById($id);*/
-
-
-        //************************************************************//
-
         // TODO: Request by event for order by
         $em = $this->getDoctrine()->getManager();
 
@@ -63,18 +55,20 @@ class BookingUserController extends Controller
 
 //        $e = $em->getRepository(Evenement::class)->findOneById($id);
 //        $marchandises = $e->getMarchandises();
-
-        // Pour chaque marchandie à l'intérieur du tableau de marchandise (le tableau de marchandise correspond à toutes les marchandises disponible dans l'evenement)
+        $categories = array();
+        $i = 0;
+        // Pour chaque marchandise à l'intérieur du tableau de marchandise (le tableau de marchandise correspond à toutes les marchandises disponible dans l'evenement)
         // La boucle permet de générer autant de formulaire qu'il y a de produit disponible lors de l'évènement afin de pouvoir les reserver (collectionType)
         foreach ($marchandises as $marchandise){
+            $categories[$marchandise->getProduct()->getCategories()->getType()][$i] = $marchandise;
             // Création d'un new objet de la table SelectProduit
             $selectProduit = new SelectProduit();
             // Associer un produit à un produit selectionné
             $selectProduit->setProduct($marchandise->getProduct());
             // ajout de ts les produits crées dans la Var User
             $user->addSelectProduit($selectProduit);
+            $i ++ ;
         }
-
         // Création d'un formulaire User(Panier)
         $formUser = $this->createForm(UserType::class, $user);
         $formUser->handleRequest($request);
@@ -87,7 +81,6 @@ class BookingUserController extends Controller
                 'prenom' => $user->getPrenom(),
                 'selectProduit' => array()
             );
-
             // Pour chaque produit selectionner par le user, je récupère les informations (prix, quantités, idProduit) et les stock dans mon panier
             foreach ($user->getSelectProduits() as $key => $selectProduit)
             {
@@ -96,6 +89,7 @@ class BookingUserController extends Controller
 
                 // Si le produit à été selectionné (la quantitée est supérieur à 0), je calcul le prix total lié au produit
                 if ($quantity > 0){
+
                     // Prix unitaire du produit selectionné
                     $prixUnitaire = $marchandises[$key]->getPrix();
 
@@ -126,11 +120,11 @@ class BookingUserController extends Controller
         return $this->render('@Commerce/user/booking.html.twig', array(
             'marchandise' => $marchandises,
             'evenement' => $evenement,
+            'categories'=> $categories,
             'formUser' => $formUser->createView()
         ));
 
     }
-
 	/**
 	 * @param Evenement $evenement
 	 * @return Response
@@ -152,7 +146,7 @@ class BookingUserController extends Controller
      */
     public function validBookingAction(Request $request, Evenement $evenement)
     {
-	    $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 	    $session = $request->getSession();
 	    $panier = $session->get('panier');
 
@@ -161,7 +155,6 @@ class BookingUserController extends Controller
 	    $user->setNom($panier['nom']);
 	    $user->setPrenom($panier['prenom']);
 	    $user->setEvenement($evenement);
-
 
 	    foreach ($panier['selectProduit'] as $value) {
 		    $produit = $em->getRepository(Product::class)->findOneById($value['idProduit']);
@@ -172,8 +165,6 @@ class BookingUserController extends Controller
 		    $selectProduit->setUser($user);
 		    $user->addSelectProduit($selectProduit);
 	    }
-
-
 	    $em = $this->getDoctrine()->getManager();
 	    $em->persist($user);
 	    $session->remove('panier');

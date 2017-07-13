@@ -20,4 +20,20 @@ class MarchandiseRepository extends \Doctrine\ORM\EntityRepository
         ;
         return $qb->getQuery()->getResult();
     }
+
+    public function getCheckMarchandiseById($evenement, $product)
+    {
+        $qb = $this->createQueryBuilder('m');
+        $qb->where('m.evenement = :event')
+            ->join('m.product', 'p')
+            ->andWhere('p.id = :product')
+            ->setParameters(array(
+
+            'event' =>$evenement,
+            'product'=>$product
+            ))
+        ;
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
 }

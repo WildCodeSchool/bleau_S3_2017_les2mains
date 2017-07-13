@@ -168,54 +168,62 @@
                 processData: false,
                 contentType: false,
                 success: function (response) {
+                    
+                    if(response.msg === 'ok')
+                    {
+                        form.reset();
 
-                    form.reset();
-
-                    var $tr = $(document.createElement('tr'));
-                    $deleteButtonElt = $('<td><a  class="waves-effect teal z-depth-5 btn activite deleteMarchandiseAction">Supprimer</a>');
+                        var $tr = $(document.createElement('tr'));
+                        $deleteButtonElt = $('<td><a  class="waves-effect teal z-depth-5 btn activite deleteMarchandiseAction">Supprimer</a>');
 
 
-                    var $id = response.marchandise.id;
+                        var $id = response.marchandise.id;
 
-                    if (tdUnite != "") {
-                        tdUnite = '<td>' + response.marchandise.unite + '</td>';
+                        if (tdUnite != "") {
+                            tdUnite = '<td>' + response.marchandise.unite + '</td>';
+                        }
+                        else {
+                            tdUnite = '<td>Non Défini</td>'
+                        }
+
+                        var tdAction = '<td>' + 'action' + '</td>';
+                        var tdName = $('<td>' + response.marchandise.nom + '</td>');
+                        var tdQuantite = $('<td>' + response.marchandise.quantite + '</td>');
+                        var tdPrix = $('<td>' + response.marchandise.prix + '</td>');
+	                    /*var content = tdName + tdQuantite + tdUnite + tdPrix + tdAction;*/
+
+                        $tr.append(tdName, tdQuantite, tdUnite, tdPrix, $deleteButtonElt);
+
+                        $('#currentsMarchandises').append($tr);
+
+                        $deleteButtonElt.on("click", function(e){
+                            e.preventDefault();
+                            var id = $(this).attr("id");
+
+                            var cancel = confirm("Vous allez supprimer un produit. Etes-vous sûr?");
+
+                            if(cancel){
+                                var $button = $(this);
+
+                                $.ajax({
+                                    method: "post",
+                                    url : "{{ path('delete_marchandises') }}",
+                                    data: {'id' : $id},
+                                    success: function(response){
+                                        alert(response);
+                                        $button.parent().remove();
+                                    },
+                                    error: function(){
+                                        alert("Erreur lors de la suppression. Veuillez recharger la page.")
+                                    }
+                                });}
+                        });
+                        
                     }
-                    else {
-                        tdUnite = '<td>Non Défini</td>'
+                    else if(response.msg === 'error')
+                    {
+                        alert ('Le produit a déjà été crée ');
                     }
-
-                    var tdAction = '<td>' + 'action' + '</td>';
-                    var tdName = $('<td>' + response.marchandise.nom + '</td>');
-                    var tdQuantite = $('<td>' + response.marchandise.quantite + '</td>');
-                    var tdPrix = $('<td>' + response.marchandise.prix + '</td>');
-					/*var content = tdName + tdQuantite + tdUnite + tdPrix + tdAction;*/
-
-                    $tr.append(tdName, tdQuantite, tdUnite, tdPrix, $deleteButtonElt);
-
-                    $('#currentsMarchandises').append($tr);
-
-                    $deleteButtonElt.on("click", function(e){
-                        e.preventDefault();
-                        var id = $(this).attr("id");
-
-                        var cancel = confirm("Vous allez supprimer un produit. Etes-vous sur?");
-
-                        if(cancel){
-                            var $button = $(this);
-
-                            $.ajax({
-                                method: "post",
-                                url : "{{ path('delete_marchandises') }}",
-                                data: {'id' : $id},
-                                success: function(response){
-                                    alert(response);
-                                    $button.parent().remove();
-                                },
-                                error: function(){
-                                    alert("Erreur lors de la suppression. Veuillez recharger la page.")
-                                }
-                            });}
-                    });
                 }
             })
         })

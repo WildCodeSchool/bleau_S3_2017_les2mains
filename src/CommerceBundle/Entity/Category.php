@@ -7,50 +7,17 @@ namespace CommerceBundle\Entity;
  */
 class Category
 {
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
     /**
      * @var string
      */
-    private $name;
+    private $type;
 
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Category
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -62,6 +29,40 @@ class Category
     public function __construct()
     {
         $this->products = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Category
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**
@@ -96,34 +97,5 @@ class Category
     public function getProducts()
     {
         return $this->products;
-    }
-    /**
-     * @var string
-     */
-    private $type;
-
-
-    /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return Category
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 }

@@ -32,12 +32,17 @@
 							Unité
 						</th>
 						<th class="col m2 col_table">
-						
 						</th>
 					</tr>
 					</thead>
 					<tbody>
-					{% for key, marchandise in marchandise %}
+			{% for name, categorie in categories %}
+					
+						<tr>
+							<td colspan="5">{{ name }}</td>
+						</tr>
+				
+				{% for key, marchandise in categorie %}
 						<tr>
 							<td class="col m4 col_table"><a href="{{ path('product') }}#{{ marchandise.product.id }}">{{ marchandise.product.name }}</a> </td>
 							<td class="col m2 col_table">{{ marchandise.prix }}</td>
@@ -49,7 +54,10 @@
 						</tr>
 					
 					{% endfor %}
+					
+			{% endfor %}
 					</tbody>
+				
 				</table>
 				<div class="row">
 					<div class="col m6">
@@ -61,11 +69,6 @@
 					<div>
 						<span class="center-align col m12">{{ form_row(formUser.submit, {'attr': {'class': 'btn btn-primary waves-effect waves-light'}}) }}</span>
 					</div>
-				</div>
-				<div class="row">
-					<p>
-						* Merci de renseigner la quantité en kilo
-					</p>
 				</div>
 				{{ form_end(formUser) }}
 			</div>

@@ -101,30 +101,40 @@ class BookingAdminController extends Controller
 			$em = $this->getDoctrine()->getManager();
         	$idEvenement = $request->request->get('idEvenement');
         	$evenement = $em->getRepository(Evenement::class)->findOneById($idEvenement);
+        	$existingMarchandise = $em->getRepository(Marchandise::class)->getCheckMarchandiseById($idEvenement, $marchandise->getProduct()->getId());
 
-        	$evenement->addMarchandise($marchandise);
-        	$marchandise->setEvenement($evenement);
+        	if ($existingMarchandise == null)
+            {
 
-			$em->flush();
+                $evenement->addMarchandise($marchandise);
+                $marchandise->setEvenement($evenement);
 
-            $response = array(
-            	'marchandise' => array(
-            		'nom' => $marchandise->getProduct()->getName(),
-		            'prix' => $marchandise->getPrix(),
-		            'quantite' => $marchandise->getQuantite(),
-		            'unite' => $marchandise->getUnite(),
-		            'id' => $marchandise->getId()
-	            ),
-                'evenement' => array(
-                	'id' => $evenement->getId()
-                ),
-                'msg' => 'ok'
-            );
+                $em->flush();
 
-            return new JsonResponse($response);
-		}
+                $response = array(
+                    'marchandise' => array(
+                        'nom' => $marchandise->getProduct()->getName(),
+                        'prix' => $marchandise->getPrix(),
+                        'quantite' => $marchandise->getQuantite(),
+                        'unite' => $marchandise->getUnite(),
+                        'id' => $marchandise->getId()
+                    ),
+                    'evenement' => array(
+                        'id' => $evenement->getId()
+                    ),
+                    'msg' => 'ok'
+                );
 
-		return new Response('ok');
+            }
+            else
+            {
+        	    $response = array(
+        	        'msg'=> 'error'
+                );
+            }
+        }
+
+        return new JsonResponse($response);
 	}
 
 	/**
