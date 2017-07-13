@@ -11,8 +11,6 @@
 		<div class="container">
 			<div class="row">
 				{{ form_start(formUser) }}
-				
-				
 				<div class="info_content">
 					<h4 class="text_perso center-align place">{{ evenement.nom }}</h4><br>
 					<span class="p_center">{{ evenement.adresse }}</span><br>
@@ -21,14 +19,17 @@
 				<table class="striped col m10 offset-m1">
 					<thead>
 					<tr>
-						<th class="col m6 col_table">
+						<th class="col m4 col_table">
 							Produits
 						</th>
 						<th class="col m2 col_table">
-							Prix/kg
+							Prix
 						</th>
 						<th class="col m2 col_table">
 							Quantité*
+						</th>
+						<th class="col m2 col_table">
+							Unité
 						</th>
 						<th class="col m2 col_table">
 						
@@ -38,9 +39,10 @@
 					<tbody>
 					{% for key, marchandise in marchandise %}
 						<tr>
-							<td class="col m6 col_table"><a href="{{ path('product') }}#{{ marchandise.product.id }}">{{ marchandise.product.name }}</a> </td>
+							<td class="col m4 col_table"><a href="{{ path('product') }}#{{ marchandise.product.id }}">{{ marchandise.product.name }}</a> </td>
 							<td class="col m2 col_table">{{ marchandise.prix }}</td>
 							<td class="col m2 col_table">{{ marchandise.quantite }}</td>
+							<td class="col m2 col_table">{{ marchandise.unite }}</td>
 							<td class="col m2 col_table">
 								{{ form_widget(formUser.selectProduits[key].quantiteCommande) }}
 							</td>
@@ -49,7 +51,6 @@
 					{% endfor %}
 					</tbody>
 				</table>
-				
 				<div class="row">
 					<div class="col m6">
 						{{ form_row(formUser.nom) }}

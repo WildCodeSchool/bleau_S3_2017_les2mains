@@ -9,37 +9,12 @@
         </div>
     </div>
     <div class="container big_container_custom">
-{#{% for test in recap %}#}
-
-    {#{{ test.nom }}#}
-    {#{{ test.prenom }}#}
-
-    {#{% for produit in test %}#}
-        {#{{ produit.selectProduits }}#}
-    {#{% endfor %}#}
-
-{#{% endfor %}#}
-{#<table>
-    <thead>
-    <tr>
-        <th></th>
-        {% for produit, user in recaps %}
-        <th>{{ recap.nom }}, {{ recap.prenom }}</th>
-        {% endfor %}
-    </tr>
-    </thead>
-    <tbody>
-        #}{#{% for produit in recap.product %}#}{#
-            <tr>
-                <td></td>
-                #}{#{% for qtte in recap %}#}{#
-                    <td></td>
-                #}{#{% endfor %}#}{#
-            </tr>
-        #}{#{% endfor %}#}{#
-    </tbody>
-</table>#}
-
+        <div class="row">
+            <p class="col s12 center">Merci de prendre Contact avec nous si vous souhaitez Annuler/Modifier votre commande</p>
+        </div>
+        <div class="row">
+            <a href="{{ path('core_contact') }}" target="_blank" class="waves-effect waves-light center-align btn index_btn formEditEvent col s4 offset-s4">Nous contacter</a>
+        </div>
        <div class="row">
            <table class="striped table_recap_booking">
                <!-- <caption>
@@ -54,8 +29,7 @@
                        {% endfor %}
                    </tr>
                    </thead>
-
-                   <tbody>
+                    <tbody>
 
                    {% for productName, products in recaps %}
                        <tr>
@@ -78,6 +52,5 @@
         </div>
     </div>
     {% include '@Core/pages/footer.html.twig' %}
-</div>
 
 {% endblock %}
