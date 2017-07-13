@@ -13,6 +13,9 @@ CommerceBundle\Entity\Marchandise:
             type: integer
         quantite:
             type: integer
+        unite:
+            type: string
+            nullable: true
 
     manyToOne:
         evenement:

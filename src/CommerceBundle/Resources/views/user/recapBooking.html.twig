@@ -9,37 +9,12 @@
         </div>
     </div>
     <div class="container big_container_custom">
-{#{% for test in recap %}#}
-
-    {#{{ test.nom }}#}
-    {#{{ test.prenom }}#}
-
-    {#{% for produit in test %}#}
-        {#{{ produit.selectProduits }}#}
-    {#{% endfor %}#}
-
-{#{% endfor %}#}
-{#<table>
-    <thead>
-    <tr>
-        <th></th>
-        {% for produit, user in recaps %}
-        <th>{{ recap.nom }}, {{ recap.prenom }}</th>
-        {% endfor %}
-    </tr>
-    </thead>
-    <tbody>
-        #}{#{% for produit in recap.product %}#}{#
-            <tr>
-                <td></td>
-                #}{#{% for qtte in recap %}#}{#
-                    <td></td>
-                #}{#{% endfor %}#}{#
-            </tr>
-        #}{#{% endfor %}#}{#
-    </tbody>
-</table>#}
-
+        <div class="row">
+            <p class="col s12 center">Merci de prendre Contact avec nous si vous souhaitez Annuler/Modifier votre commande</p>
+        </div>
+        <div class="row">
+            <a href="{{ path('core_contact') }}" target="_blank" class="waves-effect waves-light center-align btn index_btn formEditEvent col s4 offset-s4">Nous contacter</a>
+        </div>
        <div class="row">
            <table class="striped responsive-table">
                <!-- <caption>
@@ -67,17 +42,15 @@
 
                {% endfor %}
                </tbody>
-
-
            </table>
        </div>
     </div>
     <div class="parallax-container parallax_booking">
         <div class="parallax">
             <img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499937827-dscf5112.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+            </div>
         </div>
+		{% include '@Core/pages/footer.html.twig' %}
     </div>
-    {% include '@Core/pages/footer.html.twig' %}
-</div>
 
 {% endblock %}

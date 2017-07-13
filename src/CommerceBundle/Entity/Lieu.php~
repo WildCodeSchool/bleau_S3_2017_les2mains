@@ -109,33 +109,4 @@ class Lieu
     {
         return $this->indication;
     }
-    /**
-     * @var \CommerceBundle\Entity\Evenement
-     */
-    private $evenements;
-
-
-    /**
-     * Set evenements
-     *
-     * @param \CommerceBundle\Entity\Evenement $evenements
-     *
-     * @return Lieu
-     */
-    public function setEvenements(\CommerceBundle\Entity\Evenement $evenements = null)
-    {
-        $this->evenements = $evenements;
-
-        return $this;
-    }
-
-    /**
-     * Get evenements
-     *
-     * @return \CommerceBundle\Entity\Evenement
-     */
-    public function getEvenements()
-    {
-        return $this->evenements;
-    }
 }

@@ -112,6 +112,7 @@ class BookingAdminController extends Controller
             		'nom' => $marchandise->getProduct()->getName(),
 		            'prix' => $marchandise->getPrix(),
 		            'quantite' => $marchandise->getQuantite(),
+		            'unite' => $marchandise->getUnite(),
 		            'id' => $marchandise->getId()
 	            ),
                 'evenement' => array(
