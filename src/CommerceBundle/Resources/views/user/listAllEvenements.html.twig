@@ -2,7 +2,7 @@
 {% block body %}
 	<div id="list_all_evenements">
 		<div class="parallax-container">
-			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/pic1.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
 			</div>
 			<div class="section header">
 				<h3 class="header center title">Nos ventes</h3>
@@ -33,7 +33,7 @@
 			</div>
 		<div class="parallax-container parallax_evenement">
 			<div class="parallax">
-				<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
+				<img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
 			</div>
 		</div>
 		{% include '@Core/pages/footer.html.twig' %}
