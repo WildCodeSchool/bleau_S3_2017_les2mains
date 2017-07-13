@@ -141,4 +141,24 @@ class BookingAdminController extends Controller
 		return $this->redirectToRoute('list_evenementAction');
 	}
 
+	public function deleteMarchandiseAction(Request $request){
+
+	    if($request->isXmlHttpRequest())
+	    {
+	        $em = $this->getDoctrine()->getManager();
+	        $id = $request->request->get('id');
+
+	        $marchandise = $em->getRepository(Marchandise::class)->findOneById($id);
+
+            $em->remove($marchandise);
+            $em->flush();
+
+            $response = new JsonResponse("Le produit a bien été supprimé");
+
+	        return $response;
+
+        }
+
+    }
+
 }

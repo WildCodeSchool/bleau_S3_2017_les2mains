@@ -70,3 +70,7 @@ delete_evenement:
     defaults: {_controller: CommerceBundle:BookingAdmin:deleteEvenement}
     requirements:
             id: '\d+'
+
+delete_marchandises:
+    path: /admin/delete/marchandise
+    defaults: {_controller: CommerceBundle:BookingAdmin:deleteMarchandise}

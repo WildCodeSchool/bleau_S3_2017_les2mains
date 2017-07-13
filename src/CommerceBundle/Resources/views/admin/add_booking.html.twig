@@ -88,7 +88,7 @@
 					</div>
                     {{ form_end(formMarchandise) }}
 				</div>
-				<div class="col m7 offset-m1 s12">
+				<div class="col m5 offset-m1 s12">
 					<table>
 						<thead>
 							<tr>
@@ -161,17 +161,42 @@
 
                     form.reset();
 
-                    var tr = $(document.createElement('tr'));
+                    var $tr = $(document.createElement('tr'));
+                    $deleteButtonElt = $('<td><a  class="waves-effect teal z-depth-5 btn activite deleteThemeAction">Supprimer</a>');
 
-                    var tdName = '<td>' + response.marchandise.nom + '</td>';
-                    var tdQuantite = '<td>' + response.marchandise.quantite + '</td>';
-                    var tdPrix = '<td>' + response.marchandise.prix + '</td>';
-                    var tdAction = '<td>' + 'action' + '</td>';
-                    var content = tdName + tdQuantite + tdPrix + tdAction;
+                    var $id = response.marchandise.id;
 
-                    tr.html(content);
+                    var tdName = $('<td>' + response.marchandise.nom + '</td>');
+                    var tdQuantite = $('<td>' + response.marchandise.quantite + '</td>');
+                    var tdPrix = $('<td>' + response.marchandise.prix + '</td>');
 
-                    $('#currentsMarchandises').append(tr);
+                    $tr.append(tdName, tdPrix, tdQuantite, $deleteButtonElt);
+
+                    $('#currentsMarchandises').append($tr);
+
+                    $deleteButtonElt.on("click", function(e){
+                        e.preventDefault();
+                        var id = $(this).attr("id");
+
+
+						var cancel = confirm("Vous allez supprimer un produit. Etes-vous sur?");
+
+						if(cancel){
+                            var $button = $(this);
+
+						    $.ajax({
+                            method: "post",
+                            url : "{{ path('delete_marchandises') }}",
+                            data: {'id' : $id},
+                            success: function(response){
+                                alert(response);
+                                $button.parent().remove();
+                            },
+                            error: function(){
+                                alert("Erreur lors de la suppression. Veuillez recharger la page.")
+							}
+                        });}
+					});
                 }
             })
         })
