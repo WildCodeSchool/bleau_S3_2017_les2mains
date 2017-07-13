@@ -5,7 +5,7 @@
         <div class="products_navigation">
             {% for activite in activities %}
                 <div class="nav_word_block">
-                    <a href="#{{ activite.id }}" class="nav_word">{{ activite.titre }}</a>
+                    <a href="#{{ activite.titre }}" class="nav_word">{{ activite.titre }}</a>
                 </div>
             {% endfor %}
         </div>
@@ -14,7 +14,7 @@
                 <h3 class="header center title">Nos Cours et Stages</h3>
             </div>
             <div class="parallax">
-                <img src="{{ asset('bundles/core/img/background/pic1.jpg') }}">
+                <img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
             </div>
         </div>
         <div class="container">
@@ -83,7 +83,7 @@
             
                 <div class="row">
                 {% for activite in activities  %}
-                <h4 id="{{  activite.id }}" class="title_categories">{{ activite.titre }}</h4>
+                <h4 id="{{  activite.titre }}" class="title_categories">{{ activite.titre }}</h4>
                 {% for event in activite.event %}
                 {% set i = i + 1 %}
                 <div class="col m6">
@@ -137,7 +137,7 @@
         </div>
         <div class="parallax-container parallax_mid_event">
             <div class="parallax">
-                <img src="{{ asset('bundles/core/img/background/pic2.jpg') }}" alt="Unsplashed background img 2">
+                <img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
             </div>
         </div>
         <div class="container container_custom">
