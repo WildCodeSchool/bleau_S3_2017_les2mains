@@ -2,16 +2,20 @@
   .container_copyright{
     text-align: center;
   }
+  .brown-text.text-lighten-3{
+    color: black!important;
+  }
   .footer_title{
     text-align: center;
     font-weight: 100;
     letter-spacing: 5px;
+    color: black!important
   }
   .p_center{
     text-align: center;
   }
   .contact_us{
-    background-color: rgba(255,255,255, .6);
+    background-color: rgba(0,0,0, .6);
     padding: 1px;
     width: 130px;
     border-radius: 7px;
@@ -21,7 +25,7 @@
     font-weight: 500;
   }
   .contact_us:hover{
-    background-color: rgba(255,255,255, .8);
+    background-color: rgba(0,0,0, .8);
     transition: all .3s;
   }
   .logo_container{
@@ -38,4 +42,8 @@
     opacity: .6;
     transition: all .3s;
   }
+  .teal{
+    background-color: #94ba38!important;
+  }
+
 }

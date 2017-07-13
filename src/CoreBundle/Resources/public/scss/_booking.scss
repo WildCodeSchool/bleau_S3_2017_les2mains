@@ -30,4 +30,10 @@
     width: auto;
     max-width: 98%;
   }
+  .table_recap_booking{
+    max-width:100%;
+    display: block;
+    overflow-x: scroll;
+    overflow : -moz-scrollbars-horizontal;
+  }
 }

@@ -99,7 +99,7 @@ p {
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-  background-image: url("http://image.noelshack.com/fichiers/2017/28/1/1499678536-image-2mains-petite.png");
+  background-image: url("../img/background/logo_picture.png");
   background-color: transparent;
   background-size: cover;
   height: 50px;
@@ -764,7 +764,7 @@ Responsive Menu Nav
   width: 100%;
   height: 100vh;
   position: relative;
-  background-image: url("https://image.noelshack.com/fichiers/2017/28/4/1499938455-dscf7914.jpg");
+  background-image: url("../img/background/sky_leaf.jpg");
   background-size: cover;
   background-position: center center;
 }
@@ -1139,18 +1139,23 @@ Responsive Menu Nav
   text-align: center;
 }
 /* line 5, ../scss/_footer.scss */
+#footer .brown-text.text-lighten-3 {
+  color: black !important;
+}
+/* line 8, ../scss/_footer.scss */
 #footer .footer_title {
   text-align: center;
   font-weight: 100;
   letter-spacing: 5px;
+  color: black !important;
 }
-/* line 10, ../scss/_footer.scss */
+/* line 14, ../scss/_footer.scss */
 #footer .p_center {
   text-align: center;
 }
-/* line 13, ../scss/_footer.scss */
+/* line 17, ../scss/_footer.scss */
 #footer .contact_us {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 1px;
   width: 130px;
   border-radius: 7px;
@@ -1159,27 +1164,31 @@ Responsive Menu Nav
   margin: auto;
   font-weight: 500;
 }
-/* line 23, ../scss/_footer.scss */
+/* line 27, ../scss/_footer.scss */
 #footer .contact_us:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   transition: all .3s;
 }
-/* line 27, ../scss/_footer.scss */
+/* line 31, ../scss/_footer.scss */
 #footer .logo_container {
   display: flex;
   justify-content: center;
 }
-/* line 31, ../scss/_footer.scss */
+/* line 35, ../scss/_footer.scss */
 #footer .logo {
   margin-left: 5px;
   margin-right: 5px;
   width: 50px;
   transition: all .3s;
 }
-/* line 37, ../scss/_footer.scss */
+/* line 41, ../scss/_footer.scss */
 #footer .logo:hover {
   opacity: .6;
   transition: all .3s;
+}
+/* line 45, ../scss/_footer.scss */
+#footer .teal {
+  background-color: #94ba38 !important;
 }
 
 /*----------------------------------------*\
@@ -1237,6 +1246,13 @@ Responsive Menu Nav
   margin: 10px;
   width: auto;
   max-width: 98%;
+}
+/* line 33, ../scss/_booking.scss */
+#booking .table_recap_booking {
+  max-width: 100%;
+  display: block;
+  overflow-x: scroll;
+  overflow: -moz-scrollbars-horizontal;
 }
 
 /*----------------------------------------*\
