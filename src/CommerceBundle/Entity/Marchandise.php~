@@ -139,4 +139,33 @@ class Marchandise
     {
         return $this->product;
     }
+    /**
+     * @var string
+     */
+    private $unite;
+
+
+    /**
+     * Set unite
+     *
+     * @param string $unite
+     *
+     * @return Marchandise
+     */
+    public function setUnite($unite)
+    {
+        $this->unite = $unite;
+
+        return $this;
+    }
+
+    /**
+     * Get unite
+     *
+     * @return string
+     */
+    public function getUnite()
+    {
+        return $this->unite;
+    }
 }

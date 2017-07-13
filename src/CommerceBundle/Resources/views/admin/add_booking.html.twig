@@ -65,15 +65,20 @@
 				<div class="col m4 s12">
                     {{ form_start(formMarchandise, {'attr': {'id': 'formaddMarchandise'}}) }}
 					<div class="row">
-						<div class="col m6 s12">
+						<div class="col m4 s12">
                             {{ form_label(formMarchandise.prix) }}
                             {{ form_widget(formMarchandise.prix) }}
                             {{ form_errors(formMarchandise.prix) }}
 						</div>
-						<div class="col m6 s12">
+						<div class="col m4 s12">
                             {{ form_label(formMarchandise.quantite) }}
                             {{ form_widget(formMarchandise.quantite) }}
                             {{ form_errors(formMarchandise.quantite) }}
+						</div>
+						<div class="col m4 s12">
+							{{ form_label(formMarchandise.unite) }}
+							{{ form_widget(formMarchandise.unite) }}
+							{{ form_errors(formMarchandise.unite) }}
 						</div>
 					</div>
 					<div class="row">
@@ -94,12 +99,12 @@
 							<tr>
 								<th>Nom</th>
 								<th>Quantité</th>
+								<th>Unité</th>
 								<th>Prix</th>
 								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody id="currentsMarchandises">
-
 						</tbody>
 					</table>
 				</div>
@@ -143,12 +148,17 @@
         });
 
 		$('#formaddMarchandise').submit(function (e) {
+
+		    /* Targets the unit value input */
+            var tdUnite = e.target.elements.commercebundle_marchandise_unite.value;
+			
 			e.preventDefault();
 			var idEvenement = $('#divFormMarchandise').data('idevenement');
-
+			
+            
             var form = $(this)[0];
             var data = new FormData(form);
-
+            
             data.append('idEvenement', idEvenement);
 
             $.ajax({
@@ -165,9 +175,18 @@
 
                     var tdName = '<td>' + response.marchandise.nom + '</td>';
                     var tdQuantite = '<td>' + response.marchandise.quantite + '</td>';
+	                
+                    
+                    if (tdUnite != "") {
+                        tdUnite = '<td>' + response.marchandise.unite + '</td>';
+                    }
+                    else {
+                        tdUnite = '<td>Non Défini</td>'
+                    }
+                    
                     var tdPrix = '<td>' + response.marchandise.prix + '</td>';
                     var tdAction = '<td>' + 'action' + '</td>';
-                    var content = tdName + tdQuantite + tdPrix + tdAction;
+                    var content = tdName + tdQuantite + tdUnite + tdPrix + tdAction;
 
                     tr.html(content);
 
