@@ -69,9 +69,9 @@ class BookingUserController extends Controller
                 $selectProduit->setProduct($marchandise->getProduct());
                 // ajout de ts les produits crées dans la Var User
                 $user->addSelectProduit($selectProduit);
+                $i ++ ;
 
             }
-            $i ++ ;
 
         }
         // Création d'un formulaire User(Panier)
