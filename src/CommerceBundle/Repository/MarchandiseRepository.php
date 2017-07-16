@@ -10,6 +10,10 @@ namespace CommerceBundle\Repository;
  */
 class MarchandiseRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $evenement
+     * @return array
+     */
     public function getMarchandiseById($evenement)
     {
         $qb = $this->createQueryBuilder('m');
@@ -21,6 +25,11 @@ class MarchandiseRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    /**
+     * @param $evenement
+     * @param $product
+     * @return mixed
+     */
     public function getCheckMarchandiseById($evenement, $product)
     {
         $qb = $this->createQueryBuilder('m');

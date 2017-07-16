@@ -3,11 +3,11 @@
 {% block body %}
     <div id="events">
         <div class="products_navigation">
-            {% for activite in activities %}
+			{% for activite in activities %}
                 <div class="nav_word_block">
                     <a href="#{{ activite.titre }}" class="nav_word">{{ activite.titre }}</a>
                 </div>
-            {% endfor %}
+			{% endfor %}
         </div>
         <div class="parallax-container header_event">
             <div class="section header">
@@ -18,121 +18,121 @@
             </div>
         </div>
         <div class="container">
-               <div class="row">
-                   {% if is_granted('ROLE_ADMIN') %}
-                       <!-- Modal Trigger -->
-                       <a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#addevent">Ajouter un stage</a>
-                       <!-- Modal Structure -->
-                       <div id="addevent" class="modal">
-                           <div class="modal-content">
-                               <h4>Ajouter un stage</h4>
-                               {{ form_start(form) }}
-
-                               <div class="input-field col s12">
-                                   {{ form_label(form.title) }}
-                                   {{ form_widget(form.title) }}
-                                   {{ form_errors(form.title) }}
-                               </div>
-                               <div class="input-field col s12">
-                                   {{ form_label(form.description) }}
-                                   {{ form_widget(form.description, {'attr': {'class': 'materialize-textarea' }}) }}
-                                   {{ form_errors(form.description) }}
-                               </div>
-                               <div class="form_add col s6">
-	                               {{ form_row(form.dateStart,{'attr':{'class':'datepicker','placeholder': 'Cliquez pour Ouvrir'}}) }}
-                                   {{ form_errors(form.dateStart) }}
-                               </div>
-                               <div class="form_add col s6">
-	                               {{ form_row(form.dateEnd,{'attr':{'class':'datepicker','placeholder': 'Cliquez pour Ouvrir'}}) }}
-                                   {{ form_errors(form.dateEnd) }}
-                               </div>
-                               <div class="form_add col s12">
-                                   {{ form_label(form.activite) }}
-                                   {{ form_widget(form.activite) }}
-                                   {{ form_errors(form.activite) }}
-                               </div>
-                               <div class="form_add col s12">
-                                   {{ form_label(form.price) }}
-	                               {{ form_widget(form.price, {'attr': {'class': 'materialize-textarea' }}) }}
-                                   {{ form_errors(form.price) }}
-                               </div>
-                               <div class="input-field col s12">
-                                   {{ form_label(form.lien) }}
-	                               {{ form_widget(form.lien, {'attr': {'class': 'materialize-textarea' }}) }}
-                                   {{ form_errors(form.lien) }}
-                               </div>
-                               <div class="input-field col s12">
-                                   {{ form_label(form.location) }}
-                                   {{ form_widget(form.location) }}
-                                   {{ form_errors(form.location) }}
-                               </div>
-                               <div class="input-field col s12">
-                                   {{ form_widget(form.picture.file, {'attr': {'required': 'true' }}) }}
-                                   {{ form_errors(form.picture.file) }}
-                               </div>
-                               <div class="row">
-                                   <div class="input-field col s12">
-                                       {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-                                   </div>
-                               {{ form_end((form))}}
-                               </div>
-                           </div>
-                       </div>
-                   {% endif %}
-               </div>
-            
-                <div class="row">
-                {% for activite in activities  %}
-                <h4 id="{{  activite.titre }}" class="title_categories">{{ activite.titre }}</h4>
-                {% for event in activite.event %}
-                {% set i = i + 1 %}
-                <div class="col m6">
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ event.picture.src ) }}'); background-size:cover; background-position:center">
-                                <div class="block_text_card_picture activator btn waves-effect waves-light">
-                                    <span class="text_card_picture big_text_card_picture activator">Cliquez</span>
-                                    <span class="text_card_picture medium_text_card_picture activator">Pour plus d'infos</span>
-                                </div>
+            <div class="row">
+				{% if is_granted('ROLE_ADMIN') %}
+                    <!-- Modal Trigger -->
+                    <a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#addevent">Ajouter un stage</a>
+                    <!-- Modal Structure -->
+                    <div id="addevent" class="modal">
+                        <div class="modal-content">
+                            <h4>Ajouter un stage</h4>
+							{{ form_start(form) }}
+                            
+                            <div class="input-field col s12">
+								{{ form_label(form.title) }}
+								{{ form_widget(form.title) }}
+								{{ form_errors(form.title) }}
                             </div>
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">{{ event.title }} <i class="material-icons right">more_vert</i></span>
-                            {# TODO A mettre en place avec un Form #}
-                           {# <button class="btn waves-effect waves-light" type="submit" name="action">Je participe
-                                <i class="medium material-icons right">done</i>
-                            </button>
-#}
-                        </div>
-                        <div class="card-reveal">
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-                                <h4 class="text_perso_events">Description</h4>
-                                <p class="p_justify">{{ event.description|nl2br }}</p>
-                                <h4 class="text_perso_events">Lien Utile :</h4>
-                                <a target="_blank" href="{{ event.lien }}">{{ event.lien|nl2br }}</a>
-                                <h4 class="text_perso_events">Informations :</h4>
-                                <p><b class="text_perso_events">Date :</b> {{ event.dateStart }} à {{ event.dateEnd  }}</p>
-                                <p><b class="text_perso_events">Lieu :</b> {{ event.location }}</p>
-                                <p><b class="text_perso_events">Prix :</b> {{ event.price }}</p>
-                                <a class="waves-effect waves-light btn add_stage_btn" href="{{ 'contact' }}">Besoin de plus d'info ?</a>
+                            <div class="input-field col s12">
+								{{ form_label(form.description) }}
+								{{ form_widget(form.description, {'attr': {'class': 'materialize-textarea' }}) }}
+								{{ form_errors(form.description) }}
+                            </div>
+                            <div class="form_add col s6">
+								{{ form_row(form.dateStart,{'attr':{'class':'datepicker','placeholder': 'Cliquez pour Ouvrir'}}) }}
+								{{ form_errors(form.dateStart) }}
+                            </div>
+                            <div class="form_add col s6">
+								{{ form_row(form.dateEnd,{'attr':{'class':'datepicker','placeholder': 'Cliquez pour Ouvrir'}}) }}
+								{{ form_errors(form.dateEnd) }}
+                            </div>
+                            <div class="form_add col s12">
+								{{ form_label(form.activite) }}
+								{{ form_widget(form.activite) }}
+								{{ form_errors(form.activite) }}
+                            </div>
+                            <div class="form_add col s12">
+								{{ form_label(form.price) }}
+								{{ form_widget(form.price, {'attr': {'class': 'materialize-textarea' }}) }}
+								{{ form_errors(form.price) }}
+                            </div>
+                            <div class="input-field col s12">
+								{{ form_label(form.lien) }}
+								{{ form_widget(form.lien, {'attr': {'class': 'materialize-textarea' }}) }}
+								{{ form_errors(form.lien) }}
+                            </div>
+                            <div class="input-field col s12">
+								{{ form_label(form.location) }}
+								{{ form_widget(form.location) }}
+								{{ form_errors(form.location) }}
+                            </div>
+                            <div class="input-field col s12">
+								{{ form_widget(form.picture.file, {'attr': {'required': 'true' }}) }}
+								{{ form_errors(form.picture.file) }}
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+									{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                                </div>
+								{{ form_end((form))}}
                             </div>
                         </div>
                     </div>
-	                {% if is_granted('ROLE_ADMIN') %}
-                        <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light center-align btn index_btn formEditEvent" data-id="{{ event.id }}" href="#modal{{ event.id }}">Modifier</a>
-        
-                        <!-- Modal Structure -->
-                        <div id="modal{{ event.id }}" class="modal">
-        
+				{% endif %}
+            </div>
+            
+            <div class="row">
+				{% for activite in activities  %}
+                <h4 id="{{  activite.titre }}" class="title_categories">{{ activite.titre }}</h4>
+				{% for event in activite.event %}
+					{% set i = i + 1 %}
+                    <div class="col m6">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ event.picture.src ) }}'); background-size:cover; background-position:center">
+                                    <div class="block_text_card_picture activator btn waves-effect waves-light">
+                                        <span class="text_card_picture big_text_card_picture activator">Cliquez</span>
+                                        <span class="text_card_picture medium_text_card_picture activator">Pour plus d'infos</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">{{ event.title }} <i class="material-icons right">more_vert</i></span>
+								{# TODO A mettre en place avec un Form #}
+								{# <button class="btn waves-effect waves-light" type="submit" name="action">Je participe
+								<i class="medium material-icons right">done</i>
+								</button>
+								#}
+                            </div>
+                            <div class="card-reveal">
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+                                    <h4 class="text_perso_events">Description</h4>
+                                    <p class="p_justify">{{ event.description|nl2br }}</p>
+                                    <h4 class="text_perso_events">Lien Utile :</h4>
+                                    <a target="_blank" href="{{ event.lien }}">{{ event.lien|nl2br }}</a>
+                                    <h4 class="text_perso_events">Informations :</h4>
+                                    <p><b class="text_perso_events">Date :</b> {{ event.dateStart }} à {{ event.dateEnd  }}</p>
+                                    <p><b class="text_perso_events">Lieu :</b> {{ event.location }}</p>
+                                    <p><b class="text_perso_events">Prix :</b> {{ event.price }}</p>
+                                    <a class="waves-effect waves-light btn add_stage_btn" href="{{ 'contact' }}">Besoin de plus d'info ?</a>
+                                </div>
+                            </div>
                         </div>
-                        <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-                        <a class="waves-effect waves-light center-align btn index_btn" href=" {{ path('event_delete', {'id': event.id}) }}">Effacer</a>
-	                {% endif %}
-                </div>
-                {% endfor %}
+						{% if is_granted('ROLE_ADMIN') %}
+                            <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light center-align btn index_btn formEditEvent" data-id="{{ event.id }}" href="#modal{{ event.id }}">Modifier</a>
+                            
+                            <!-- Modal Structure -->
+                            <div id="modal{{ event.id }}" class="modal">
+                            
+                            </div>
+                            <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <a class="waves-effect waves-light center-align btn index_btn" href=" {{ path('event_delete', {'id': event.id}) }}">Effacer</a>
+						{% endif %}
+                    </div>
+				{% endfor %}
             </div>
         </div>
         <div class="parallax-container parallax_mid_event">
@@ -142,14 +142,11 @@
         </div>
         <div class="container container_custom">
             <div class="row row_cards_events">
-                
-                
-                {% endfor %}
-
+				{% endfor %}
             </div>
         </div>
-        {% include '@Core/pages/footer.html.twig' %}
-
+		{% include '@Core/pages/footer.html.twig' %}
+    
     </div>
 {% endblock %}
 {% block javascripts %}

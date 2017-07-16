@@ -1,125 +1,124 @@
 {% extends '@Core/layout.html.twig' %}
 
 {% block body %}
-<div id="activite">
-    <div class="products_navigation">
-        {% for theme in themes %}
-            <div class="nav_word_block">
-                <a href="#{{ theme.nom }}" class="nav_word">{{ theme.nom }}</a>
-            </div>
-        {% endfor %}
-    </div>
-    <div class="parallax-container header_activite">
-        <div class="parallax">
-            <img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933394-dscf7911.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
-        </div>
-        <div class="row page">
-            <h3 class="col s12 center title">Nos activités</h3>
-        </div>
-    </div>
-    <div class="container themes">
-        {% if is_granted('ROLE_ADMIN')%}
-            <div class="row">
-                <a class = "offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center " href="#modalthemes">Ajouter un theme</a>
-            </div>
-        <div id="modalthemes" class="modal">
-            <div class="modal-content">
-                {{ form_start(forms) }}
-                <div class="row">
-                    <div class="input-field col s12">
-                        {{ form_label (forms.nom) }}
-                        {{ form_widget (forms.nom) }}
-                        {{ form_errors (forms.nom) }}
-                    </div>
-                    {{ form_widget(forms.submit, {'attr' : {'class': 'btn btn-primary'}}) }}
-                    {{ form_end(forms) }}
+    <div id="activite">
+        <div class="products_navigation">
+			{% for theme in themes %}
+                <div class="nav_word_block">
+                    <a href="#{{ theme.nom }}" class="nav_word">{{ theme.nom }}</a>
                 </div>
+			{% endfor %}
+        </div>
+        <div class="parallax-container header_activite">
+            <div class="parallax">
+                <img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933394-dscf7911.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+            </div>
+            <div class="row page">
+                <h3 class="col s12 center title">Nos activités</h3>
             </div>
         </div>
-        {% endif %}
-    </div>
-
-    {% if is_granted('ROLE_ADMIN')%}
         <div class="container themes">
-            <div class="row">
-                <a class = "offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center " href="#modalthemeslist">Liste des Thèmes</a>
-            </div>
-            <div id="modalthemeslist" class="modal">
-                <div class="modal-content">
-                    {{ render(controller('CoreBundle:Activite:listAllThemes')) }}
+			{% if is_granted('ROLE_ADMIN')%}
+                <div class="row">
+                    <a class = "offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center " href="#modalthemes">Ajouter un theme</a>
                 </div>
-            </div>
+                <div id="modalthemes" class="modal">
+                    <div class="modal-content">
+						{{ form_start(forms) }}
+                        <div class="row">
+                            <div class="input-field col s12">
+								{{ form_label (forms.nom) }}
+								{{ form_widget (forms.nom) }}
+								{{ form_errors (forms.nom) }}
+                            </div>
+							{{ form_widget(forms.submit, {'attr' : {'class': 'btn btn-primary'}}) }}
+							{{ form_end(forms) }}
+                        </div>
+                    </div>
+                </div>
+			{% endif %}
         </div>
-    {% endif %}
-    
-    <div class="container">
-        <!--CONDITION FOR ADMIN-->
-        {% if is_granted('ROLE_ADMIN')%}
-            <div class="row">
-                <a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modalAdd">Ajouter une activité</a>
-            </div>
-            <div id="modalAdd" class="modal">
-                <div class="modal-content">
-                            {{ form_start(form) }}
-                            <h4>l'activité est ...</h4>
-                    <div class='row'>
-                        <div class="input-field col s12">
-                            {{ form_label (form.activiteType) }}
-                            {{ form_widget (form.activiteType) }}
-                            {{ form_errors (form.activiteType) }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            {{ form_label (form.titre) }}
-                            {{ form_widget (form.titre) }}
-                            {{ form_errors (form.titre) }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            {{ form_label (form.contenu) }}
-                            {{ form_widget (form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
-                            {{ form_errors (form.contenu) }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            {{ form_label (form.lien) }}
-                            {{ form_widget (form.lien, {'attr': {'class': 'materialize-textarea' }}) }}
-                            {{ form_errors (form.lien) }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            {{ form_label (form.picture) }}
-                            {{ form_widget (form.picture) }}
-                            {{ form_errors (form.picture) }}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-                        </div>
-                        {{ form_end(form) }}
+		
+		{% if is_granted('ROLE_ADMIN')%}
+            <div class="container themes">
+                <div class="row">
+                    <a class = "offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center " href="#modalthemeslist">Liste des Thèmes</a>
+                </div>
+                <div id="modalthemeslist" class="modal">
+                    <div class="modal-content">
+						{{ render(controller('CoreBundle:Activite:listAllThemes')) }}
                     </div>
                 </div>
             </div>
-        {% endif %}
-    </div>
-    
-    <!--BOUCLE QUI AFFICHE LES ACTIVITES PAR THEMES-->
-    <div class="container activite">
-        <div class="row">
-    {% for theme in themes %}
-            <div class="col s12">
-                <h4 id="{{ theme.nom }}" class="title_categories">{{ theme.nom }}</h4>
-            </div>
-
-    <!--MODAL D'ACTIVITE-->
-
-            {% for activite in theme.activites %}
-                    {% set i = i + 1 %}
+		{% endif %}
+        
+        <div class="container">
+            <!--CONDITION FOR ADMIN-->
+			{% if is_granted('ROLE_ADMIN')%}
+                <div class="row">
+                    <a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modalAdd">Ajouter une activité</a>
+                </div>
+                <div id="modalAdd" class="modal">
+                    <div class="modal-content">
+						{{ form_start(form) }}
+                        <h4>l'activité est ...</h4>
+                        <div class='row'>
+                            <div class="input-field col s12">
+								{{ form_label (form.activiteType) }}
+								{{ form_widget (form.activiteType) }}
+								{{ form_errors (form.activiteType) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+								{{ form_label (form.titre) }}
+								{{ form_widget (form.titre) }}
+								{{ form_errors (form.titre) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+								{{ form_label (form.contenu) }}
+								{{ form_widget (form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
+								{{ form_errors (form.contenu) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+								{{ form_label (form.lien) }}
+								{{ form_widget (form.lien, {'attr': {'class': 'materialize-textarea' }}) }}
+								{{ form_errors (form.lien) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+								{{ form_label (form.picture) }}
+								{{ form_widget (form.picture) }}
+								{{ form_errors (form.picture) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+								{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                            </div>
+							{{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+			{% endif %}
+        </div>
+        
+        <!--BOUCLE QUI AFFICHE LES ACTIVITES PAR THEMES-->
+        <div class="container activite">
+            <div class="row">
+				{% for theme in themes %}
+                <div class="col s12">
+                    <h4 id="{{ theme.nom }}" class="title_categories">{{ theme.nom }}</h4>
+                </div>
+                
+                <!--MODAL D'ACTIVITE-->
+				{% for activite in theme.activites %}
+					{% set i = i + 1 %}
                     <div class="col s12 m6 l6">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
@@ -134,7 +133,7 @@
                             </div>
                             <div class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">
-                                    {{ activite.titre }}
+                                {{ activite.titre }}
                                     <i class="material-icons right">more_vert</i>
                                 </span>
                                 <p>
@@ -143,10 +142,10 @@
                             </div>
                             <div class="card-reveal">
                                 <span class="card-title grey-text text-darken-4">
-                                    {{ activite.titre }}<i class="material-icons right">close</i>
+                                {{ activite.titre }}<i class="material-icons right">close</i>
                                 </span>
                                 <p>{{ activite.contenu|nl2br }}</p>
-
+                                
                                 <div class="row">
                                     <div class="col s6 m6">
                                         <a target="_blank" href="{{ activite.lien }}">{{ activite.lien|nl2br }}</a>
@@ -154,48 +153,49 @@
                                 </div>
                             </div>
                         </div>
-	                    {% if is_granted('ROLE_ADMIN') %}
+						{% if is_granted('ROLE_ADMIN') %}
                             <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                             <!-- Modal Trigger -->
                             <a class="waves-effect waves-light center-align btn index_btn formEditActivite" data-id="{{ activite.id }}" href="#modal{{ activite.id }}">Modifier</a>
-        
+                            
                             <!-- Modal Structure -->
                             <div id="modal{{ activite.id }}" class="modal">
                             </div>
                             <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                             <a class="waves-effect waves-light center-align btn index_btn" href=" {{ path('core_activite_delete', {'id': activite.id}) }}">Effacer</a>
-	                    {% endif %}
+						{% endif %}
                     </div>
-            {% endfor %}
+				{% endfor %}
+            </div>
         </div>
-    </div>
         <div class="parallax-container parallax_mid_activite">
             <div class="parallax">
                 <img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933394-dscf7911.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
             </div>
         </div>
-
+        
         <div class="container activite">
             <div class="row">
-        {% endfor %}
+				{% endfor %}
+            </div>
         </div>
     </div>
-</div>
-    {% include '@Core/pages/footer.html.twig' %}
-    
-    {% block javascripts %}
+	{% include '@Core/pages/footer.html.twig' %}
+	
+	{% block javascripts %}
+        {#Function Ajax for Delete Theme in page Activity#}
         <script>
             $( document ).ready(function() {
                 $('.deleteThemeAction').click(function (e) {
                     e.preventDefault();
                     var idTheme = $(this).attr( "id" );
                     var element = $(this).parent().parent();
-    
+
                     $.ajax({
                         method: "post",
                         data: {'idTheme': idTheme },
                         url: "{{ path('core_activite_theme_delete') }}",
-    
+
                         success: function(response){
                             alert(response);
                             element.fadeOut();
@@ -205,5 +205,5 @@
             });
             showEditFormAjax('.formEditActivite', "{{ path('core_activite_edit') }}")
         </script>
-    {% endblock %}
+	{% endblock %}
 {% endblock %}

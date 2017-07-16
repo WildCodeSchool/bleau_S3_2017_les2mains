@@ -1,21 +1,21 @@
 <h5 class="text_perso center-align">Ajout d'un lieu</h5>
 {{ form_start(formlieu) }}
-    <div>
-        {{ form_label(formlieu.nom) }}
-        {{ form_widget(formlieu.nom) }}
-        {{ form_errors(formlieu.nom) }}
-    </div>
-    <div>
-        {{ form_label(formlieu.adresse) }}
-        {{ form_widget(formlieu.adresse) }}
-        {{ form_errors(formlieu.adresse) }}
-    </div>
-    <div>
-        {{ form_label(formlieu.indication) }}
-        {{ form_widget(formlieu.indication) }}
-        {{ form_errors(formlieu.indication) }}
-    </div>
-    <div>
-        {{ form_widget(formlieu.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-    </div>
+<div>
+	{{ form_label(formlieu.nom) }}
+	{{ form_widget(formlieu.nom) }}
+	{{ form_errors(formlieu.nom) }}
+</div>
+<div>
+	{{ form_label(formlieu.adresse) }}
+	{{ form_widget(formlieu.adresse) }}
+	{{ form_errors(formlieu.adresse) }}
+</div>
+<div>
+	{{ form_label(formlieu.indication) }}
+	{{ form_widget(formlieu.indication) }}
+	{{ form_errors(formlieu.indication) }}
+</div>
+<div>
+	{{ form_widget(formlieu.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+</div>
 {{ form_end(formlieu) }}

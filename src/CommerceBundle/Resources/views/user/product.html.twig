@@ -1,143 +1,143 @@
 {% extends '@Core/layout.html.twig' %}
 
 {% block body %}
-<div id="products">
-	<div class="products_navigation">
-        {% for categories in categories %}
-			<div class="nav_word_block">
-				<a href="#{{ categories.type }}" class="nav_word">{{ categories.type }}</a>
-			</div>
-        {% endfor %}
-	</div>
-	<div class="parallax-container">
-		<div class="section header">
-			<h3 class="header center title">Nos produits</h3>
-		</div>
-		<div class="parallax header_product">
-			<img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
-		</div>
-	</div>
-
-	<div class="container product">
-		{% if is_granted('ROLE_ADMIN')%}
-			<div class="row">
-				<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modalcategorie">Ajouter une categorie</a>
-			</div>
-		<div id="modalcategorie" class="modal">
-			<div class="modal-content">
-				{{ form_start(forms) }}
-				<div class="row">
-					<div class="input-field col s12">
-						{{ form_label (forms.type) }}
-						{{ form_widget (forms.type) }}
-						{{ form_errors (forms.type) }}
-					</div>
-					{{ form_widget(forms.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-					{{ form_end(forms) }}
+	<div id="products">
+		<div class="products_navigation">
+			{% for categories in categories %}
+				<div class="nav_word_block">
+					<a href="#{{ categories.type }}" class="nav_word">{{ categories.type }}</a>
 				</div>
+			{% endfor %}
+		</div>
+		<div class="parallax-container">
+			<div class="section header">
+				<h3 class="header center title">Nos produits</h3>
+			</div>
+			<div class="parallax header_product">
+				<img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
 			</div>
 		</div>
-	{% endif %}
-	</div>
-	<div class="container product">
-	{% if is_granted('ROLE_ADMIN')%}
-		<div class="row">
-			<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modal1">Ajouter un produit</a>
-		</div>
-		<div id="modal1" class="modal">
-			<div class="modal-content">
-				{{ form_start(form) }}
+		
+		<div class="container product">
+			{% if is_granted('ROLE_ADMIN')%}
 				<div class="row">
-					<div class="input-field col s12">
-						{{ form_label (form.name) }}
-						{{ form_widget (form.name) }}
-						{{ form_errors (form.name) }}
-					</div>
+					<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modalcategorie">Ajouter une categorie</a>
 				</div>
-				<div class="row">
-					<div class="input-field col s12">
-						{{ form_label (form.content) }}
-						{{ form_widget (form.content, {'attr': {'class': 'materialize-textarea' }}) }}
-						{{ form_errors (form.content) }}
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s12">
-						{{ form_label (form.categories) }}
-						{{ form_widget (form.categories) }}
-						{{ form_errors (form.categories) }}
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s12">
-						{{ form_label (form.picture) }}
-						{{ form_widget (form.picture) }}
-						{{ form_errors (form.picture) }}
-					</div>
-				</div>
-				<div class="row">
-					{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-					{{ form_end(form) }}
-				</div>
-			</div>
-		</div>
-	{% endif %}
-	</div>
-	<div class="container">
-		<div class="row">
-	{% for categories in categories %}
-		<h4 id="{{ categories.type }}" class="title_categories">{{ categories.type }}</h4>
-		{% for product in categories.products %}
-			<div class="col m3 s12">
-				<div class="card">
-					<div class="card-image waves-effect waves-block waves-light" id="{{ product.id }}">
-						<div class="card-image waves-effect waves-block waves-light">
-							<div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ product.picture.src ) }}'); background-size:cover; background-position:center">
-								<div class="block_text_card_picture activator btn waves-effect waves-light">
-									<span class="text_card_picture activator big_text_card_picture_product">Cliquez</span>
-									<span class="text_card_picture activator medium_text_card_picture_product">Pour plus d'infos</span>
-								</div>
+				<div id="modalcategorie" class="modal">
+					<div class="modal-content">
+						{{ form_start(forms) }}
+						<div class="row">
+							<div class="input-field col s12">
+								{{ form_label (forms.type) }}
+								{{ form_widget (forms.type) }}
+								{{ form_errors (forms.type) }}
 							</div>
+							{{ form_widget(forms.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+							{{ form_end(forms) }}
 						</div>
 					</div>
-					<div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">{{ product.name }}<i class="material-icons right">more_vert</i></span>
-					</div>
-					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">{{ product.name }}<i class="material-icons right">close</i></span>
-						<p>{{ product.content|nl2br }}</p>
+				</div>
+			{% endif %}
+		</div>
+		<div class="container product">
+			{% if is_granted('ROLE_ADMIN')%}
+				<div class="row">
+					<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modal1">Ajouter un produit</a>
+				</div>
+				<div id="modal1" class="modal">
+					<div class="modal-content">
+						{{ form_start(form) }}
+						<div class="row">
+							<div class="input-field col s12">
+								{{ form_label (form.name) }}
+								{{ form_widget (form.name) }}
+								{{ form_errors (form.name) }}
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								{{ form_label (form.content) }}
+								{{ form_widget (form.content, {'attr': {'class': 'materialize-textarea' }}) }}
+								{{ form_errors (form.content) }}
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								{{ form_label (form.categories) }}
+								{{ form_widget (form.categories) }}
+								{{ form_errors (form.categories) }}
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								{{ form_label (form.picture) }}
+								{{ form_widget (form.picture) }}
+								{{ form_errors (form.picture) }}
+							</div>
+						</div>
+						<div class="row">
+							{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+							{{ form_end(form) }}
+						</div>
 					</div>
 				</div>
-				{% if is_granted('ROLE_ADMIN') %}
-					<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-					<!-- Modal Trigger -->
-					<a class="waves-effect teal z-depth-5 btn index_btn col s6 formEditProduct" data-id="{{ product.id }}" href="#modal{{ product.id }}">Modifier</a>
-					<!-- Modal Structure -->
-					<div id="modal{{ product.id }}" class="modal">
-					
+			{% endif %}
+		</div>
+		<div class="container">
+			<div class="row">
+				{% for categories in categories %}
+				<h4 id="{{ categories.type }}" class="title_categories">{{ categories.type }}</h4>
+				{% for product in categories.products %}
+					<div class="col m3 s12">
+						<div class="card">
+							<div class="card-image waves-effect waves-block waves-light" id="{{ product.id }}">
+								<div class="card-image waves-effect waves-block waves-light">
+									<div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ product.picture.src ) }}'); background-size:cover; background-position:center">
+										<div class="block_text_card_picture activator btn waves-effect waves-light">
+											<span class="text_card_picture activator big_text_card_picture_product">Cliquez</span>
+											<span class="text_card_picture activator medium_text_card_picture_product">Pour plus d'infos</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-content">
+								<span class="card-title activator grey-text text-darken-4">{{ product.name }}<i class="material-icons right">more_vert</i></span>
+							</div>
+							<div class="card-reveal">
+								<span class="card-title grey-text text-darken-4">{{ product.name }}<i class="material-icons right">close</i></span>
+								<p>{{ product.content|nl2br }}</p>
+							</div>
+						</div>
+						{% if is_granted('ROLE_ADMIN') %}
+							<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+							<!-- Modal Trigger -->
+							<a class="waves-effect teal z-depth-5 btn index_btn col s6 formEditProduct" data-id="{{ product.id }}" href="#modal{{ product.id }}">Modifier</a>
+							<!-- Modal Structure -->
+							<div id="modal{{ product.id }}" class="modal">
+							
+							</div>
+							<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+							<a href="{{ path('product_delete', {'id' : product.id}) }}" class="waves-effect teal z-depth-5 btn index_btn col s6">Effacer</a>
+						{% endif %}
 					</div>
-					<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-					<a href="{{ path('product_delete', {'id' : product.id}) }}" class="waves-effect teal z-depth-5 btn index_btn col s6">Effacer</a>
-				{% endif %}
+				{% endfor %}
 			</div>
-		{% endfor %}
 		</div>
-	</div>
-	<div class="parallax-container parallax_mid_product">
-		<div class="parallax">
-			<img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+		<div class="parallax-container parallax_mid_product">
+			<div class="parallax">
+				<img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+			</div>
 		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-	{% endfor %}
+		<div class="container">
+			<div class="row">
+				{% endfor %}
+			</div>
 		</div>
+		{% include '@Core/pages/footer.html.twig' %}
 	</div>
-    {% include '@Core/pages/footer.html.twig' %}
-</div>
 	{% block javascripts %}
-	<script>
-        showEditFormAjax(".formEditProduct", "{{ path('product_edit') }}")
-	</script>
+		<script>
+            showEditFormAjax(".formEditProduct", "{{ path('product_edit') }}")
+		</script>
 	{% endblock %}
 {% endblock %}

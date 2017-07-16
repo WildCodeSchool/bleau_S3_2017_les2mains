@@ -18,8 +18,8 @@ class ActiviteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
-        if ($options['data']->getId() == null){
+        if ($options['data']->getId() == null)
+        {
             $builder
                 ->add('picture', PictureType::class, array(
                     'label' => false,
@@ -50,10 +50,6 @@ class ActiviteType extends AbstractType
             ->add('submit', SubmitType::class, array(
                 'label'=>'Valider'
             ));
-
-        
-
-
     }
 
     /**

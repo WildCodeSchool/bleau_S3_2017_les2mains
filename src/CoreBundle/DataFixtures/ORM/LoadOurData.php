@@ -7,8 +7,7 @@ use CoreBundle\Entity\Picture;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 
 class LoadOurData extends AbstractFixture implements FixtureInterface

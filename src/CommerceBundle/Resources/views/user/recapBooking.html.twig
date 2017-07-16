@@ -1,49 +1,49 @@
 {% extends '@Core/layout.html.twig' %}
 
 {% block body %}
-<div id="booking">
-    <div class="parallax-container">
-        <div class="parallax"><img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;"></div>
-        <div class="section header">
-            <h3 class="header center title">Les commandes</h3>
+    <div id="booking">
+        <div class="parallax-container">
+            <div class="parallax"><img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;"></div>
+            <div class="section header">
+                <h3 class="header center title">Les commandes</h3>
+            </div>
         </div>
-    </div>
-    <div class="container big_container_custom">
-        <div class="row">
-            <p class="col s12 center">Merci de prendre Contact avec nous si vous souhaitez Annuler/Modifier votre commande</p>
+        <div class="container big_container_custom">
+            <div class="row">
+                <p class="col s12 center">Merci de prendre Contact avec nous si vous souhaitez Annuler/Modifier votre commande</p>
+            </div>
+            <div class="row">
+                <a href="{{ path('core_contact') }}" target="_blank" class="waves-effect waves-light center-align btn index_btn formEditEvent col s4 offset-s4">Nous contacter</a>
+            </div>
+            <div class="row">
+                <table class="striped responsive-table">
+                    <!-- <caption>
+					event
+					</caption> -->
+                    <thead>
+                    <tr>
+                        <th class="col_table"></th>
+						{% for name, value in recaps|first %}
+                            <th class="col_table">{{ name }}</th>
+						{% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+					{% for productName, products in recaps %}
+                        <tr>
+                            <th class="col_table">{{ productName }}</th>
+							{% for qt in products %}
+                                <td class="col_table">{{ qt.quantiteCommande|default('0') }}</td>
+							{% endfor %}
+                        </tr>
+					{% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="row">
-            <a href="{{ path('core_contact') }}" target="_blank" class="waves-effect waves-light center-align btn index_btn formEditEvent col s4 offset-s4">Nous contacter</a>
-        </div>
-       <div class="row">
-           <table class="striped responsive-table">
-               <!-- <caption>
-                   event
-               </caption> -->
-               <thead>
-                   <tr>
-                       <th class="col_table"></th>
-                       {% for name, value in recaps|first %}
-                           <th class="col_table">{{ name }}</th>
-                       {% endfor %}
-                   </tr>
-               </thead>
-               <tbody>
-                   {% for productName, products in recaps %}
-                       <tr>
-                           <th class="col_table">{{ productName }}</th>
-                           {% for qt in products %}
-                               <td class="col_table">{{ qt.quantiteCommande|default('0') }}</td>
-                           {% endfor %}
-                       </tr>
-                   {% endfor %}
-               </tbody>
-           </table>
-       </div>
-    </div>
-    <div class="parallax-container parallax_booking">
-        <div class="parallax">
-            <img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499937827-dscf5112.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+        <div class="parallax-container parallax_booking">
+            <div class="parallax">
+                <img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499937827-dscf5112.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
             </div>
         </div>
 		{% include '@Core/pages/footer.html.twig' %}

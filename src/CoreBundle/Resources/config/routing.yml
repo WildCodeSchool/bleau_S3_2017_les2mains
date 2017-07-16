@@ -1,17 +1,21 @@
+# Homepage route
 core_homepage:
     path:     /
     defaults: { _controller: CoreBundle:Default:index }
 
+# Nous route
 core_nous:
     path:     /nous
     defaults: { _controller: CoreBundle:Our:ourForm }
     requirements:
         method: GET|POST
 
+# Contact route
 core_contact:
     path:   /contact
     defaults: { _controller: CoreBundle:Default:contact}
 
+# Redirection route after send e-mail
 core_contact_redirection:
     path:     /redirect
     defaults: { _controller: CoreBundle:Default:redirect }

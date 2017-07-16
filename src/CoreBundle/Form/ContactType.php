@@ -44,5 +44,4 @@ class ContactType extends AbstractType
         return 'corebundle_contact';
     }
 
-
 }

@@ -36,28 +36,28 @@
 					</tr>
 					</thead>
 					<tbody>
-			{% for name, categorie in categories %}
-				
+					{% for name, categorie in categories %}
+						
 						<tr class="grey">
 							<td colspan="5">{{ name }}</td>
 						</tr>
-				
-				{% for key, marchandise in categorie %}
-						<tr>
-							<td class="col m4 col_table"><a href="{{ path('product') }}#{{ marchandise.product.id }}">{{ marchandise.product.name }}</a> </td>
-							<td class="col m2 col_table">{{ marchandise.prix }}</td>
-							<td class="col m2 col_table">{{ marchandise.quantite }}</td>
-							<td class="col m2 col_table">{{ marchandise.unite }}</td>
-							<td class="col m2 col_table">
-								{% if marchandise.quantite > 0 %}
-									{{ form_widget(formUser.selectProduits[key].quantiteCommande, {'attr': {'max': marchandise.quantite, 'min': 0 }}) }}
-								{% else %}
-									Epuisé
-								{% endif %}
-							</td>
-						</tr>
+						
+						{% for key, marchandise in categorie %}
+							<tr>
+								<td class="col m4 col_table"><a href="{{ path('product') }}#{{ marchandise.product.id }}">{{ marchandise.product.name }}</a> </td>
+								<td class="col m2 col_table">{{ marchandise.prix }}</td>
+								<td class="col m2 col_table">{{ marchandise.quantite }}</td>
+								<td class="col m2 col_table">{{ marchandise.unite }}</td>
+								<td class="col m2 col_table">
+									{% if marchandise.quantite > 0 %}
+										{{ form_widget(formUser.selectProduits[key].quantiteCommande, {'attr': {'max': marchandise.quantite, 'min': 0 }}) }}
+									{% else %}
+										Epuisé
+									{% endif %}
+								</td>
+							</tr>
+						{% endfor %}
 					{% endfor %}
-			{% endfor %}
 					</tbody>
 				
 				</table>

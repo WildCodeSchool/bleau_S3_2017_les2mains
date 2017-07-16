@@ -24,9 +24,7 @@ class ProductType extends AbstractType
                     'label' => false,
                     'required' => true
                 ));
-
         }
-
         else {
             $builder
                 ->add('picture', PictureType::class, array(

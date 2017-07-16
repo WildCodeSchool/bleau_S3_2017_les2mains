@@ -10,6 +10,9 @@ namespace CoreBundle\Repository;
  */
 class ActiviteRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @return array
+     */
     public function getActivities()
     {
         $qb = $this->createQueryBuilder('a');

@@ -11,31 +11,10 @@ use CommerceBundle\Form\MarchandiseType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 
 class BookingAdminController extends Controller
 {
-
-//	public function addLieuAction(Request $request)
-//	{
-//		$lieu = new Lieu();
-//		$formLieu = $this->createForm(LieuType::class, $lieu);
-//		$formLieu->handleRequest($request);
-//
-//		if($formLieu->isSubmitted() && $formLieu->isValid())
-//		{
-//			$em = $this ->getDoctrine()->getManager();
-//			$em->persist($lieu);
-//			$em->flush();
-//
-//			return $this->redirectToRoute('add_booking');
-//		}
-//
-//		return $this->render('@Commerce/admin/add_lieu.html.twig', array(
-//			'formlieu'=>$formLieu->createView(),
-//		));
-//	}
 
 	/**
 	 * Créer un évènement
@@ -152,6 +131,10 @@ class BookingAdminController extends Controller
 		return $this->redirectToRoute('list_evenementAction');
 	}
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
 	public function deleteMarchandiseAction(Request $request){
 
 	    if($request->isXmlHttpRequest())

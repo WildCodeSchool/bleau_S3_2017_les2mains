@@ -2,15 +2,12 @@
 
 namespace CommerceBundle\Controller;
 
-use CommerceBundle\Entity\Category;
+
 use CommerceBundle\Entity\Evenement;
-use CommerceBundle\Entity\Lieu;
 use CommerceBundle\Entity\Marchandise;
 use CommerceBundle\Entity\Product;
 use CommerceBundle\Entity\SelectProduit;
 use CommerceBundle\Entity\User;
-use CommerceBundle\Form\EvenementType;
-use CommerceBundle\Form\LieuType;
 use CommerceBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;

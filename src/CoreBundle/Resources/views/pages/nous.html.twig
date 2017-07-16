@@ -1,12 +1,12 @@
 {% extends '@Core/layout.html.twig'%}
-	
+
 {% block title %}Page_Nous!{% endblock %}
-	
+
 {% block body %}
 	<div id="nous">
 		<div class="parallax-container header_nous">
 			{#<div class="section header">
-				<h3 class="header center teal-text text-lighten-2">Nous</h3>
+			<h3 class="header center teal-text text-lighten-2">Nous</h3>
 			</div>#}
 			<div class="parallax">
 				<img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" alt="Unsplashed background img 1" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
@@ -22,34 +22,34 @@
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
 						{{ form_start(form) }}
-					<!-- Modal Trigger -->
-					<a class="modal-trigger waves-effect teal z-depth-5 waves-light btn" href="#modal1">Edition</a>
-					
-					<!-- Modal Structure -->
-					<div id="modal1" class="modal modal-fixed-footer">
-						<div class="modal-content">
-							<div class="row">
-								<div class="input-field col s12">
-								{{ form_row(form.titre1) }}
+						<!-- Modal Trigger -->
+						<a class="modal-trigger waves-effect teal z-depth-5 waves-light btn" href="#modal1">Edition</a>
+						
+						<!-- Modal Structure -->
+						<div id="modal1" class="modal modal-fixed-footer">
+							<div class="modal-content">
+								<div class="row">
+									<div class="input-field col s12">
+										{{ form_row(form.titre1) }}
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										{{ form_label (form.contenu1) }}
+										{{ form_widget (form.contenu1, {'attr': {'class': 'materialize-textarea' }}) }}
+										{{ form_errors (form.contenu1) }}
+									</div>
+								</div>
+								<div class="row col s12">
+									{{ form_row(form.picture1) }}
+									{{ form_row(form.picture2) }}
+									{{ form_row(form.picture3) }}
 								</div>
 							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									{{ form_label (form.contenu1) }}
-									{{ form_widget (form.contenu1, {'attr': {'class': 'materialize-textarea' }}) }}
-									{{ form_errors (form.contenu1) }}
-								</div>
-							</div>
-							<div class="row col s12">
-								{{ form_row(form.picture1) }}
-								{{ form_row(form.picture2) }}
-								{{ form_row(form.picture3) }}
+							<div class="modal-footer">
+								{{ form_row(form.save_1, {'attr': {'class': 'btn btn-primary'}}) }}
 							</div>
 						</div>
-						<div class="modal-footer">
-							{{ form_row(form.save_1, {'attr': {'class': 'btn btn-primary'}}) }}
-						</div>
-					</div>
 					{% endif %}
 				</div>
 			</div>
@@ -82,32 +82,32 @@
 					
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
-					<!-- Modal Trigger -->
-					<a class="modal-trigger waves-effect teal z-depth-5 waves-light btn" href="#modal2">Edition</a>
-					
-					<!-- Modal Structure -->
-					<div id="modal2" class="modal modal-fixed-footer">
-						<div class="modal-content">
-							<div class="row col s12">
-								{{ form_row(form.titre2) }}
-							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									{{ form_label (form.contenu2) }}
-									{{ form_widget (form.contenu2, {'attr': {'class': 'materialize-textarea' }}) }}
-									{{ form_errors (form.contenu2) }}
+						<!-- Modal Trigger -->
+						<a class="modal-trigger waves-effect teal z-depth-5 waves-light btn" href="#modal2">Edition</a>
+						
+						<!-- Modal Structure -->
+						<div id="modal2" class="modal modal-fixed-footer">
+							<div class="modal-content">
+								<div class="row col s12">
+									{{ form_row(form.titre2) }}
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										{{ form_label (form.contenu2) }}
+										{{ form_widget (form.contenu2, {'attr': {'class': 'materialize-textarea' }}) }}
+										{{ form_errors (form.contenu2) }}
+									</div>
+								</div>
+								<div class="row col s12">
+									{{ form_row(form.picture4) }}
+									{{ form_row(form.picture5) }}
+									{{ form_row(form.picture6) }}
 								</div>
 							</div>
-							<div class="row col s12">
-								{{ form_row(form.picture4) }}
-								{{ form_row(form.picture5) }}
-								{{ form_row(form.picture6) }}
+							<div class="modal-footer">
+								{{ form_row(form.save_2, {'attr': {'class': 'btn btn-primary'}}) }}
 							</div>
 						</div>
-						<div class="modal-footer">
-							{{ form_row(form.save_2, {'attr': {'class': 'btn btn-primary'}}) }}
-						</div>
-					</div>
 					{% endif %}
 				
 				</div>
@@ -140,30 +140,30 @@
 					<p class="grey-text text-darken-3 lighten-3">{{ our.contenu3|nl2br }}</p>
 					<!-- Template Admin -->
 					{% if is_granted('ROLE_ADMIN') %}
-					<!-- Modal Trigger -->
-					<a class="modal-trigger waves-effect teal z-depth-5 waves-light btn" href="#modal3">Edition</a>
-					
-					<!-- Modal Structure -->
-					<div id="modal3" class="modal modal-fixed-footer">
-						<div class="modal-content">
-							<div class="row col s12">
-								{{ form_row(form.titre3) }}
+						<!-- Modal Trigger -->
+						<a class="modal-trigger waves-effect teal z-depth-5 waves-light btn" href="#modal3">Edition</a>
+						
+						<!-- Modal Structure -->
+						<div id="modal3" class="modal modal-fixed-footer">
+							<div class="modal-content">
+								<div class="row col s12">
+									{{ form_row(form.titre3) }}
+								</div>
+								<div class="row col s12 ">
+									{{ form_label (form.contenu3) }}
+									{{ form_widget (form.contenu3, {'attr': {'class': 'materialize-textarea' }}) }}
+									{{ form_errors (form.contenu3) }}
+								</div>
+								<div class="row col s12">
+									{{ form_row(form.picture7) }}
+									{{ form_row(form.picture8) }}
+									{{ form_row(form.picture9) }}
+								</div>
 							</div>
-							<div class="row col s12 ">
-								{{ form_label (form.contenu3) }}
-								{{ form_widget (form.contenu3, {'attr': {'class': 'materialize-textarea' }}) }}
-								{{ form_errors (form.contenu3) }}
-							</div>
-							<div class="row col s12">
-								{{ form_row(form.picture7) }}
-								{{ form_row(form.picture8) }}
-								{{ form_row(form.picture9) }}
+							<div class="modal-footer">
+								{{ form_row(form.save_3, {'attr': {'class': 'btn btn-primary'}}) }}
 							</div>
 						</div>
-						<div class="modal-footer">
-						{{ form_row(form.save_3, {'attr': {'class': 'btn btn-primary'}}) }}
-						</div>
-					</div>
 						{{ form_end(form) }}
 					{% endif %}
 				</div>
@@ -188,5 +188,5 @@
 			</div>
 		</div>
 	</div>
-    {% include '@Core/pages/footer.html.twig' %}
+	{% include '@Core/pages/footer.html.twig' %}
 {% endblock %}

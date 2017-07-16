@@ -10,6 +10,10 @@ namespace CommerceBundle\Repository;
  */
 class EvenementRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getEvenementById($id)
     {
         $qb = $this->createQueryBuilder('e');
@@ -20,6 +24,10 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getSingleResult();
     }
 
+    /**
+     * @param $idEvent
+     * @return array
+     */
     public function getEvenement($idEvent)
     {
         $marchandises = $this->getMarchandisesByEvent($idEvent);
@@ -40,6 +48,10 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
         return $event;
     }
 
+    /**
+     * @param $idEvent
+     * @return array
+     */
     public function getMarchandisesByEvent($idEvent)
     {
         $qb = $this->getEntityManager()->createQueryBuilder()
@@ -55,6 +67,10 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    /**
+     * @param $idEvent
+     * @return array
+     */
     public function getUserByEvent($idEvent)
     {
         $qb = $this->getEntityManager()->createQueryBuilder()
@@ -67,6 +83,11 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    /**
+     * @param $idUser
+     * @param $product
+     * @return mixed
+     */
     public function getQuantitySelectByProductAndByUser($idUser, $product)
     {
         $qb = $this->getEntityManager()->createQueryBuilder()

@@ -10,6 +10,9 @@ namespace CoreBundle\Repository;
  */
 class OurRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @return mixed
+     */
     public function myFindSingleOurPage()
     {
         $qb=$this->createQueryBuilder('o');
