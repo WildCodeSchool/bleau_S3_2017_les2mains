@@ -24,6 +24,9 @@
 				<div id="div_mail" class="input-field">
                     {{ form_row(form.email) }}
 				</div>
+				<div class="input-field">
+					{{ form_row(form.sujet) }}
+				</div>
 				<div id="div_message" class="input-field">
 					{{ form_label (form.contenu) }}
 					{{ form_widget(form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
