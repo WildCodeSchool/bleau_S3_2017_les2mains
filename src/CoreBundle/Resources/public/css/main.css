@@ -1,5 +1,15 @@
 @charset "UTF-8";
 /*----------------------------------------*\
+   Font Title HomePage
+\*----------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Marmelad");
+@font-face {
+  font-family: "SegoePrint";
+  font-style: italic;
+  src: url("../font/SegoePrint.ttf");
+}
+/*----------------------------------------*\
     1.GLOBAL
 \*----------------------------------------*/
 /*----------------------------------------*\
@@ -30,8 +40,6 @@
     9.FOOTER
 \*----------------------------------------*/
 /* FONT */
-@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
-@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Marmelad");
 /* line 52, ../scss/_global.scss */
 .title_categories {
   text-align: left;
@@ -769,9 +777,9 @@ Responsive Menu Nav
   background-position: center center;
 }
 
-/* line 12, ../scss/_homepage.scss */
+/* line 11, ../scss/_homepage.scss */
 .titre {
-  font-family: Parisienne;
+  font-family: SegoePrint;
   position: relative;
   top: 150px;
   left: 0;
