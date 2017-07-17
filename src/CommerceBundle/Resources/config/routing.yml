@@ -61,6 +61,12 @@ add_booking:
     path: /admin/booking
     defaults: {_controller: CommerceBundle:BookingAdmin:addBooking}
 
+edit_booking:
+    path: /admin/{id}/booking
+    defaults: {_controller: CommerceBundle:BookingAdmin:editBooking}
+    requirements:
+      id: '\d+'
+
 add_marchandises:
     path: /admin/booking/marchandise
     defaults: {_controller: CommerceBundle:BookingAdmin:addMarchandise}
@@ -69,7 +75,7 @@ delete_evenement:
     path: /{id}/delete/evenement
     defaults: {_controller: CommerceBundle:BookingAdmin:deleteEvenement}
     requirements:
-            id: '\d+'
+        id: '\d+'
 
 delete_marchandises:
     path: /admin/delete/marchandise

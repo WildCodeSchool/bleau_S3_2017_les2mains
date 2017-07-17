@@ -1246,6 +1246,10 @@ Responsive Menu Nav
   width: auto;
   max-width: 98%;
 }
+/* line 33, ../scss/_booking.scss */
+#booking .deleteMarchandiseAction {
+  cursor: pointer;
+}
 
 /*----------------------------------------*\
     12.LIST ALL EVENEMENTS

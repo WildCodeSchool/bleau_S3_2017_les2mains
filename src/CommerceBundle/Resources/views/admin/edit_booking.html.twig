@@ -5,54 +5,22 @@
 			<div class="parallax-container">
 				<div class="parallax"><img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;"></div>
 				<div class="section header">
-					<h3 class="header center title">Ajout d'une vente</h3>
+					<h3 class="header center title">Modification de la vente du {{ evenement.date|date('d/m/Y') }}</h3>
 				</div>
 			</div>
 			<div class="container">
 				<div class="row">
-					
 					<!-- Modal Trigger -->
-                    <div class="col m4 s12">
-                        <a class="waves-effect waves-light btn btn_modal" href="#modaladdbooking">Ajouter un lieu</a>
-                    </div>
-                    <div class="col m4 s12">
+                    <div class="col m6 s12">
                         <a class="waves-effect waves-light btn btn_modal" href="{{ path('add_booking') }}">Créer une nouvelle vente</a>
                     </div>
-                    <div class="col m4 s12">
-                        <a class="waves-effect waves-light btn btn_modal" href="{{ path('list_evenementAction') }}">Voit tous les évènements</a>
+                    <div class="col m6 s12">
+                        <a class="waves-effect waves-light btn btn_modal" href="{{ path('list_evenementAction') }}">Voir tous les évènements</a>
                     </div>
-
-					
-					<!-- Modal Structure -->
-					<div id="modaladdbooking" class="modal">
-						<div class="modal-content">
-							<h5 class="text_perso center-align">Ajout d'un lieu</h5>
-							{{ form_start(formLieu) }}
-							<div>
-								{{ form_label(formLieu.nom) }}
-								{{ form_widget(formLieu.nom) }}
-								{{ form_errors(formLieu.nom) }}
-							</div>
-							<div>
-								{{ form_label(formLieu.adresse) }}
-								{{ form_widget(formLieu.adresse) }}
-								{{ form_errors(formLieu.adresse) }}
-							</div>
-							<div>
-								{{ form_label(formLieu.indication) }}
-								{{ form_widget(formLieu.indication) }}
-								{{ form_errors(formLieu.indication) }}
-							</div>
-							<div>
-								{{ form_widget(formLieu.submit, {'attr': {'class': 'btn btn-primary'}}) }}
-							</div>
-							{{ form_end(formLieu) }}
-						</div>
-					</div>
 				</div>
 				
 				<div class="row">
-					<h4 class="center-align text_perso">Lieu et date de la vente</h4>
+					<h4 class="center-align text_perso">Veuillez modifier (ou non) la date et lieu avant de modifier les produits disponible</h4>
 					{{ form_start(formEvent, {'attr': {'id': 'formCreateEvent'}}) }}
 					<div>
 						{{ form_label(formEvent.lieu) }}
@@ -60,7 +28,7 @@
 						{{ form_errors(formEvent.lieu) }}
 					</div>
 					<div>
-						{{ form_widget(formEvent.date,{'attr': {'class':'datepicker','placeholder': 'Cliquez pour Ouvrir'}} ) }}
+						{{ form_widget(formEvent.date, {'attr': {'class':'datepicker','value': evenement.date|date('d/m/Y') }} ) }}
 						{{ form_errors(formEvent.date) }}
 					</div>
 					<div id="formCreateEventValidButton">
@@ -69,7 +37,7 @@
 					{{ form_end(formEvent) }}
 				</div>
 				
-				<div id="divFormMarchandise" class="row">
+				<div id="divFormMarchandise" data-idevenement="{{ evenement.id }}" class="row">
 					<h4 class="center-align">Marchandise(s)</h4>
 					<div class="col m4 s12">
 						{{ form_start(formMarchandise, {'attr': {'id': 'formaddMarchandise'}}) }}
@@ -102,7 +70,7 @@
 						</div>
 						{{ form_end(formMarchandise) }}
 					</div>
-					<div class="col m5 offset-m1 s12">
+					<div class="col m7 offset-m1 s12">
 						<table>
 							<thead>
 							<tr>
@@ -114,6 +82,17 @@
 							</tr>
 							</thead>
 							<tbody id="currentsMarchandises">
+                            {% for marchandise in evenement.marchandises %}
+                                <tr>
+                                    <td>{{ marchandise.product.name }}</td>
+                                    <td>{{ marchandise.quantite }}</td>
+                                    <td>{{ marchandise.unite }}</td>
+                                    <td>{{ marchandise.prix ~ ' €' }}</td>
+                                    <td>
+                                        <a id="{{ marchandise.id }}" class="deleteMarchandiseAction"><i class="material-icons">delete_forever</i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
 							</tbody>
 						</table>
 					</div>
@@ -135,7 +114,7 @@
                 var formData = new FormData(form[0]);
 
                 $.ajax({
-                    url: "{{ path('add_booking') }}",
+                    url: "{{ path('edit_booking', { id: evenement.id }) }}",
                     data: formData,
                     method: 'post',
                     processData: false,
@@ -145,11 +124,6 @@
                             $('#formCreateEventValidButton').remove();
                             $('#commercebundle_evenement_date').prop('disabled', true);
 
-                            //						TODO: Disable select
-                            $('#commercebundle_evenement_lieu').prop('disabled', true);
-
-                            // Add id Evenement in div data
-                            $('#divFormMarchandise').attr('data-idevenement', response.idEvenement);
                             // Show form marchandise
                             $('#divFormMarchandise').fadeIn();
                         }
@@ -184,8 +158,7 @@
                             form.reset();
 
                             var $tr = $(document.createElement('tr'));
-                            $deleteButtonElt = $('<td><a  class="waves-effect teal z-depth-5 btn activite deleteMarchandiseAction">Supprimer</a>');
-
+                            $deleteButtonElt = $('<td><a class="waves-effect teal z-depth-5 btn activite deleteMarchandiseAction">Supprimer</a>');
 
                             var $id = response.marchandise.id;
 
@@ -196,7 +169,6 @@
                                 tdUnite = '<td>Non Défini</td>'
                             }
 
-                            var tdAction = '<td>' + 'action' + '</td>';
                             var tdName = $('<td>' + response.marchandise.nom + '</td>');
                             var tdQuantite = $('<td>' + response.marchandise.quantite + '</td>');
                             var tdPrix = $('<td>' + response.marchandise.prix + ' €</td>');
@@ -208,8 +180,6 @@
 
                             $deleteButtonElt.on("click", function(e){
                                 e.preventDefault();
-                                var id = $(this).attr("id");
-
                                 var cancel = confirm("Vous allez supprimer un produit. Etes-vous sûr?");
 
                                 if(cancel){
@@ -236,7 +206,29 @@
                         }
                     }
                 })
-            })
+            });
+
+            $('.deleteMarchandiseAction').on("click", function(e){
+                e.preventDefault();
+                var cancel = confirm("Vous allez supprimer un produit. Etes-vous sûr?");
+                var $id = $(this).attr('id');
+
+                if(cancel){
+                    var $button = $(this);
+
+                    $.ajax({
+                        method: "post",
+                        url : "{{ path('delete_marchandises') }}",
+                        data: {'id' : $id},
+                        success: function(response){
+                            alert(response);
+                            $button.parent().parent().remove();
+                        },
+                        error: function(){
+                            alert("Erreur lors de la suppression. Veuillez recharger la page.")
+                        }
+                    });}
+            });
 		</script>
 	
 	{% endblock %}

@@ -124,6 +124,8 @@ function init(){
         //The format to show on the `input` element
         format: 'dd/mm/yyyy',
         closeOnSelect: false,
+        formatSubmit: 'yyyy-mm-dd',
+        hiddenName: true
     });
     
     $('.datepicker').on('change', function(){

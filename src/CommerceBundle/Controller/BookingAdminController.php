@@ -29,7 +29,6 @@ class BookingAdminController extends Controller
 		$formEvent = $this->createForm(EvenementType::class, $evenement);
 		$formMarchandise = $this->createForm(MarchandiseType::class, $marchandise);
 
-
 		$lieu = new Lieu();
 		$formLieu = $this->createForm(LieuType::class, $lieu);
 		$formLieu->handleRequest($request);
@@ -61,6 +60,39 @@ class BookingAdminController extends Controller
 			'formEvent'=> $formEvent->createView(),
 			'formMarchandise' => $formMarchandise->createView(),
 			'formLieu' => $formLieu->createView()
+		));
+	}
+
+	/**
+	 * Créer un évènement
+	 * @param Request $request
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function editBookingAction(Request $request, Evenement $evenement)
+	{
+		//Création des formulaires dans la vue Admin add_Booking
+		$marchandise = new Marchandise();
+		$formEvent = $this->createForm(EvenementType::class, $evenement);
+		$formMarchandise = $this->createForm(MarchandiseType::class, $marchandise);
+
+		$formEvent->handleRequest($request);
+		if ($request->isXmlHttpRequest())
+		{
+			$em = $this ->getDoctrine()->getManager();
+			$em->persist($evenement);
+			$em->flush();
+
+			$response = array(
+				'msg' => 'ok',
+				'idEvenement' => $evenement->getId()
+			);
+			return new JsonResponse($response);
+		}
+
+		return $this->render('@Commerce/admin/edit_booking.html.twig', array(
+			'evenement' => $evenement,
+			'formEvent'=> $formEvent->createView(),
+			'formMarchandise' => $formMarchandise->createView(),
 		));
 	}
 
