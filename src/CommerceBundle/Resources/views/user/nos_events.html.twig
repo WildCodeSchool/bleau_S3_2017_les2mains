@@ -86,7 +86,7 @@
                 <h4 id="{{  activite.titre }}" class="title_categories">{{ activite.titre }}</h4>
 				{% for event in activite.event %}
 					{% set i = i + 1 %}
-                    <div class="col m6">
+                    <div class="col m6 s12">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ event.picture.src ) }}'); background-size:cover; background-position:center">
