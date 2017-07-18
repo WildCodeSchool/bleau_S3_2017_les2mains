@@ -1057,7 +1057,11 @@ Responsive Menu Nav
 #contact p {
   text-align: center;
 }
-/* line 32, ../scss/_contact.scss */
+/* line 29, ../scss/_contact.scss */
+#contact .contact {
+  color: black;
+}
+/* line 35, ../scss/_contact.scss */
 #contact .google-maps {
   position: relative;
   padding-bottom: 50%;
@@ -1068,7 +1072,7 @@ Responsive Menu Nav
   margin-left: 1%;
   margin-bottom: -20%;
 }
-/* line 42, ../scss/_contact.scss */
+/* line 45, ../scss/_contact.scss */
 #contact .google-maps iframe {
   position: absolute;
   top: 0;
@@ -1077,7 +1081,7 @@ Responsive Menu Nav
   height: 50% !important;
 }
 @media screen and (min-width: 350px) and (max-width: 500px) {
-  /* line 54, ../scss/_contact.scss */
+  /* line 57, ../scss/_contact.scss */
   #contact .google-maps {
     position: relative;
     padding-bottom: 50%;
@@ -1088,7 +1092,7 @@ Responsive Menu Nav
     margin-left: 1%;
     margin-bottom: -20%;
   }
-  /* line 64, ../scss/_contact.scss */
+  /* line 67, ../scss/_contact.scss */
   #contact .google-maps iframe {
     position: absolute;
     top: 0;
@@ -1096,19 +1100,19 @@ Responsive Menu Nav
     width: 100% !important;
     height: 100% !important;
   }
-  /* line 71, ../scss/_contact.scss */
+  /* line 74, ../scss/_contact.scss */
   #contact .adress {
     font-size: smaller;
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 77, ../scss/_contact.scss */
+  /* line 80, ../scss/_contact.scss */
   #contact .adress h4 {
     font-size: 25px;
   }
 }
 @media screen and (max-width: 349px) {
-  /* line 85, ../scss/_contact.scss */
+  /* line 88, ../scss/_contact.scss */
   #contact .google-maps {
     position: relative;
     padding-bottom: 50%;
@@ -1119,7 +1123,7 @@ Responsive Menu Nav
     margin-left: 1%;
     margin-bottom: -20%;
   }
-  /* line 95, ../scss/_contact.scss */
+  /* line 98, ../scss/_contact.scss */
   #contact .google-maps iframe {
     position: absolute;
     top: 0;
@@ -1127,13 +1131,13 @@ Responsive Menu Nav
     width: 100% !important;
     height: 100% !important;
   }
-  /* line 102, ../scss/_contact.scss */
+  /* line 105, ../scss/_contact.scss */
   #contact .adress {
     font-size: x-small;
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 108, ../scss/_contact.scss */
+  /* line 111, ../scss/_contact.scss */
   #contact .adress h4 {
     font-size: 20px;
   }
