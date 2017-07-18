@@ -67,6 +67,12 @@ edit_booking:
     requirements:
       id: '\d+'
 
+download_csv:
+    path: /admin/{id}/csv
+    defaults: {_controller: CommerceBundle:BookingAdmin:getCSV}
+    requirements:
+      id: '\d+'
+
 add_marchandises:
     path: /admin/booking/marchandise
     defaults: {_controller: CommerceBundle:BookingAdmin:addMarchandise}

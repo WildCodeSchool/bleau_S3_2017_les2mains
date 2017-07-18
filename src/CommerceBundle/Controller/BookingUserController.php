@@ -12,6 +12,9 @@ use CommerceBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Encoder\CsvEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class BookingUserController extends Controller
 {
@@ -59,7 +62,6 @@ class BookingUserController extends Controller
         $evenement = $em->getRepository(Evenement::class)->getEvenementById($id);
         $marchandises = $em->getRepository(Marchandise::class)->getMarchandiseById($evenement['id']);
 
-
 //        $e = $em->getRepository(Evenement::class)->findOneById($id);
 //        $marchandises = $e->getMarchandises();
         $categories = array();
@@ -67,21 +69,21 @@ class BookingUserController extends Controller
         // Pour chaque marchandise à l'intérieur du tableau de marchandise (le tableau de marchandise correspond à toutes les marchandises disponible dans l'evenement)
         // La boucle permet de générer autant de formulaire qu'il y a de produit disponible lors de l'évènement afin de pouvoir les reserver (collectionType)
         foreach ($marchandises as $marchandise){
-            $categories[$marchandise->getProduct()->getCategories()->getType()][$i] = $marchandise;
-            if($marchandise->getQuantite()>0 )
-            {
-                // Création d'un new objet de la table SelectProduit
-                $selectProduit = new SelectProduit();
-                // Associer un produit à un produit selectionné
-                $selectProduit->setProduct($marchandise->getProduct());
-                // ajout de ts les produits crées dans la Var User
-                $user->addSelectProduit($selectProduit);
-                $i ++ ;
+        	$categorieName = $marchandise->getProduct()->getCategories()->getType();
+	        $categorieNameWithoutSpecialChar = str_replace(str_split(" 'áàâäãåçéèêëíìîïñóòôöõúùûüýÿ"), '_', strtolower($categorieName));
+            $categories[$categorieNameWithoutSpecialChar][$i] = $marchandise;
 
-            }
+            // Création d'un new objet de la table SelectProduit
+            $selectProduit = new SelectProduit();
+            // Associer un produit à un produit selectionné
+            $selectProduit->setProduct($marchandise->getProduct());
+            // ajout de ts les produits crées dans la Var User
+            $user->addSelectProduit($selectProduit);
+            $i ++ ;
 
         }
-        // Création d'un formulaire User(Panier)
+
+	    // Création d'un formulaire User(Panier)
         $formUser = $this->createForm(UserType::class, $user);
         $formUser->handleRequest($request);
 
@@ -148,6 +150,7 @@ class BookingUserController extends Controller
 
 		return $this-> render('@Commerce/user/recapBooking.html.twig', array(
 			'recaps' => $recaps,
+			'evenement' => $evenement
 		));
 	}
 

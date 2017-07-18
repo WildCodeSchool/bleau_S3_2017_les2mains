@@ -5,12 +5,17 @@ namespace CommerceBundle\Controller;
 use CommerceBundle\Entity\Evenement;
 use CommerceBundle\Entity\Lieu;
 use CommerceBundle\Entity\Marchandise;
+use CommerceBundle\Entity\User;
 use CommerceBundle\Form\EvenementType;
 use CommerceBundle\Form\LieuType;
 use CommerceBundle\Form\MarchandiseType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Encoder\CsvEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 
 class BookingAdminController extends Controller
@@ -185,6 +190,65 @@ class BookingAdminController extends Controller
 
         }
 
+    }
+
+	/**
+	 * Export on csv format recap commande
+	 * @param Evenement $evenement
+	 * @return Response
+	 */
+    public function getCSVAction(Evenement $evenement)
+    {
+	    $em = $this->getDoctrine()->getManager();
+	    $recaps = $em->getRepository(Evenement::class)->getEvenement($evenement->getId());
+	    $serializer = new Serializer([new ObjectNormalizer()], [new CsvEncoder()]);
+
+	    $i = 0;
+	    $datas[$i][] = ' ';
+
+	    foreach ($recaps as $productName => $users)
+	    {
+			foreach ($users as $name => $qt)
+			{
+				$datas[$i][] = $name;
+			}
+			break;
+	    }
+	    $datas[$i][] = 'Total produit';
+	    $datas[$i][] = 'Total prix';
+
+	    $i = 1;
+	    foreach ($recaps as $productName => $users)
+	    {
+		    $datas[$i][] = $productName;
+		    foreach ($users as $qt)
+		    {
+		    	if (isset($qt['quantiteCommande']))
+			    {
+				    $datas[$i][] = $qt['quantiteCommande'];
+			    }
+			    else
+			    {
+				    $datas[$i][] = 0;
+			    }
+		    }
+
+
+		    $datas[$i][] = $em->getRepository(User::class)->getTotalByProduct($evenement, $productName)['qt'];
+		    $datas[$i][] = $em->getRepository(User::class)->getTotalByProduct($evenement, $productName)['price'];
+
+		    $i++;
+	    }
+
+	    $data = $serializer->encode($datas, 'csv');
+
+	    $response = new Response();
+
+	    $response->setStatusCode(200);
+	    $response->setContent($data);
+	    $response->headers->set('Content-Type', 'text/csv; charset=utf-8');
+
+	    return $response;
     }
 
 }
