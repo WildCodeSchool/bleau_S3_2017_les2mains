@@ -19,11 +19,11 @@
 				</li>
 				<li>
 					<a href="{{ path('core_activite_add') }}">Nos Activités</a>
-					<a href="{{ path('event_add') }}">Nos Cours/Stages</a>
+					<a class="padding" href="{{ path('event_add') }}">Nos Cours/Stages</a>
 				</li>
 				<li>
 					<a href="{{ path('product') }}">Nos produits</a>
-					<a href="{{ path('list_evenementAction') }}">Commander</a>
+					<a class="padding" href="{{ path('list_evenementAction') }}">Commander</a>
 					{% if is_granted('ROLE_ADMIN') %}
 						<a href="{{ path('add_booking') }}">Nouvelle Vente</a>
 					{% endif %}

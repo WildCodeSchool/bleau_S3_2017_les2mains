@@ -753,7 +753,7 @@ Responsive Menu Nav
   /* line 423, ../scss/_nav_style.scss */
   nav li a {
     position: relative;
-    top: 36%;
+    top: 0%;
     color: #fff;
     text-transform: uppercase;
     font-family: 'Work sans', sans-serif;
