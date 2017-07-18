@@ -8,6 +8,10 @@ namespace CommerceBundle\Entity;
 class Marchandise
 {
 
+	public $categorie;
+
+	// Genrated code
+
     /**
      * @var integer
      */
