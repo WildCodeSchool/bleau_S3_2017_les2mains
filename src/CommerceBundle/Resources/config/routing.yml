@@ -67,15 +67,17 @@ edit_booking:
     requirements:
       id: '\d+'
 
-download_csv:
-    path: /admin/{id}/csv
-    defaults: {_controller: CommerceBundle:BookingAdmin:getCSV}
-    requirements:
-      id: '\d+'
+get_product_by_categ:
+    path: /admin/getProductByCateg
+    defaults: {_controller: CommerceBundle:BookingAdmin:getProductByCateg}
 
 add_marchandises:
     path: /admin/booking/marchandise
     defaults: {_controller: CommerceBundle:BookingAdmin:addMarchandise}
+
+modify_qt_marchandise:
+    path: /admin/booking/modifyQt
+    defaults: {_controller: CommerceBundle:BookingAdmin:modifyQtMarchandise}
 
 delete_evenement:
     path: /{id}/delete/evenement
@@ -86,3 +88,9 @@ delete_evenement:
 delete_marchandises:
     path: /admin/delete/marchandise
     defaults: {_controller: CommerceBundle:BookingAdmin:deleteMarchandise}
+
+download_csv:
+    path: /admin/{id}/csv
+    defaults: {_controller: CommerceBundle:BookingAdmin:getCSV}
+    requirements:
+      id: '\d+'

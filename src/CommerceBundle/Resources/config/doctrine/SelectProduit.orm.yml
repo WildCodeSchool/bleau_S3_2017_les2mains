@@ -12,9 +12,8 @@ CommerceBundle\Entity\SelectProduit:
         quantiteCommande:
             type: integer
         prixTotal:
-            type: integer
+            type: float
             column: PrixTotal
-
 
     manyToOne:
         user:

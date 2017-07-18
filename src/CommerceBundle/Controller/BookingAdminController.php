@@ -5,6 +5,7 @@ namespace CommerceBundle\Controller;
 use CommerceBundle\Entity\Evenement;
 use CommerceBundle\Entity\Lieu;
 use CommerceBundle\Entity\Marchandise;
+use CommerceBundle\Entity\Product;
 use CommerceBundle\Entity\User;
 use CommerceBundle\Form\EvenementType;
 use CommerceBundle\Form\LieuType;
@@ -117,6 +118,7 @@ class BookingAdminController extends Controller
 			$em = $this->getDoctrine()->getManager();
         	$idEvenement = $request->request->get('idEvenement');
         	$evenement = $em->getRepository(Evenement::class)->findOneById($idEvenement);
+
         	$existingMarchandise = $em->getRepository(Marchandise::class)->getCheckMarchandiseById($idEvenement, $marchandise->getProduct()->getId());
 
         	if ($existingMarchandise == null)
@@ -129,6 +131,7 @@ class BookingAdminController extends Controller
 
                 $response = array(
                     'marchandise' => array(
+                    	'categorie' => $marchandise->getProduct()->getCategories()->getType(),
                         'nom' => $marchandise->getProduct()->getName(),
                         'prix' => $marchandise->getPrix(),
                         'quantite' => $marchandise->getQuantite(),
@@ -151,6 +154,43 @@ class BookingAdminController extends Controller
         }
 
         return new JsonResponse($response);
+	}
+
+	/**
+	 * Get all product for one marchandise, for select field
+	 * @param Request $request
+	 * @return JsonResponse
+	 */
+	public function getProductByCategAction(Request $request)
+	{
+		if ($request->isXmlHttpRequest())
+		{
+			$em = $this->getDoctrine()->getManager();
+			$idCateg = $request->request->get('idCateg');
+			$products = $em->getRepository(Product::class)->getProductByCateg($idCateg);
+
+			return new JsonResponse($products);
+		}
+	}
+
+
+	public function modifyQtMarchandiseAction(Request $request)
+	{
+		if ($request->isXmlHttpRequest())
+		{
+			$idMarchandise = $request->request->get('idMarchandise');
+			$newQt = $request->request->get('qt');
+
+			$em = $this->getDoctrine()->getManager();
+			$marchandise = $em->getRepository(Marchandise::class)->findOneById($idMarchandise);
+
+			$marchandise->setQuantite($newQt);
+
+			$em->flush();
+
+			$response = ['msg' => 'ok'];
+			return new JsonResponse($response);
+		}
 	}
 
 	/**
@@ -240,6 +280,11 @@ class BookingAdminController extends Controller
 		    $i++;
 	    }
 
+	    // Create custom name for csv file
+	    $lieu = str_replace(str_split(" '"), '_', strtolower($evenement->getLieu()->getNom()));
+		$date = $evenement->getDate()->format('d-m-Y');
+	    $nameCSV = $date . '_' . $lieu . '.csv';
+
 	    $data = $serializer->encode($datas, 'csv');
 
 	    $response = new Response();
@@ -247,6 +292,7 @@ class BookingAdminController extends Controller
 	    $response->setStatusCode(200);
 	    $response->setContent($data);
 	    $response->headers->set('Content-Type', 'text/csv; charset=utf-8');
+	    $response->headers->set('Content-Disposition','filename="' . $nameCSV . '"');
 
 	    return $response;
     }

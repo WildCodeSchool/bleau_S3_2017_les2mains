@@ -16,6 +16,7 @@ class SelectProduitType extends AbstractType
     {
         $builder->add('quantiteCommande', IntegerType::class, array(
             'required' => false,
+	        'label' => false
 
         ));
     }
