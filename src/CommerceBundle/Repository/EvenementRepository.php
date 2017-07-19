@@ -10,6 +10,32 @@ namespace CommerceBundle\Repository;
  */
 class EvenementRepository extends \Doctrine\ORM\EntityRepository
 {
+	/**
+	 * Get all evenement where date event > now
+	 * @return array
+	 */
+	public function getEvenementMoreThanNow()
+	{
+		$qb = $this->createQueryBuilder('e');
+		$qb->where('e.date >= :date')
+			->orderBy('e.date', 'DESC')
+			->setParameter('date', new \DateTime('now'));
+		return $qb->getQuery()->getResult();
+	}
+
+	/**
+	 * Get all evenement where date event < now ==> for admin user
+	 * @return array
+	 */
+	public function getEvenementLessThanNow()
+	{
+		$qb = $this->createQueryBuilder('e');
+		$qb->where('e.date < :date')
+			->orderBy('e.date', 'DESC')
+			->setParameter('date', new \DateTime('now'));
+		return $qb->getQuery()->getResult();
+	}
+
     /**
      * @param $id
      * @return mixed

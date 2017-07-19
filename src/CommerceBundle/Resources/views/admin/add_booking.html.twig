@@ -1,9 +1,13 @@
 {% extends '@Core/layout.html.twig' %}
-	
+
+	{% block stylesheets %}
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    {% endblock %}
+
 	{% block body %}
 		<div id="booking">
 			<div class="parallax-container">
-				<div class="parallax"><img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;"></div>
+				<div class="parallax"><img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;"></div>
 				<div class="section header">
 					<h3 class="header center title">Ajout d'une vente</h3>
 				</div>
@@ -12,7 +16,16 @@
 				<div class="row">
 					
 					<!-- Modal Trigger -->
-					<a class="waves-effect waves-light btn btn_modal" href="#modaladdbooking">Ajouter un lieu</a>
+                    <div class="col m4 s12">
+                        <a class="waves-effect waves-light btn btn_modal" href="#modaladdbooking">Ajouter un lieu</a>
+                    </div>
+                    <div class="col m4 s12">
+                        <a class="waves-effect waves-light btn btn_modal" href="{{ path('add_booking') }}">Créer une nouvelle vente</a>
+                    </div>
+                    <div class="col m4 s12">
+                        <a class="waves-effect waves-light btn btn_modal" href="{{ path('list_evenementAction') }}">Voir tous les évènements</a>
+                    </div>
+
 					
 					<!-- Modal Structure -->
 					<div id="modaladdbooking" class="modal">
@@ -62,46 +75,48 @@
 				
 				<div id="divFormMarchandise" class="row">
 					<h4 class="center-align">Marchandise(s)</h4>
-					<div class="col m4 s12">
-						{{ form_start(formMarchandise, {'attr': {'id': 'formaddMarchandise'}}) }}
-						<div class="row">
-							<div class="col m4 s12">
-								{{ form_label(formMarchandise.prix) }}
-								{{ form_widget(formMarchandise.prix) }}
-								{{ form_errors(formMarchandise.prix) }}
-							</div>
-							<div class="col m4 s12">
-								{{ form_label(formMarchandise.quantite) }}
-								{{ form_widget(formMarchandise.quantite) }}
-								{{ form_errors(formMarchandise.quantite) }}
-							</div>
-							<div class="col m4 s12">
-								{{ form_label(formMarchandise.unite) }}
-								{{ form_widget(formMarchandise.unite) }}
-								{{ form_errors(formMarchandise.unite) }}
-							</div>
-						</div>
-						<div class="row">
-							<div class="col s12">
-								{{ form_label(formMarchandise.product) }}
-								{{ form_widget(formMarchandise.product) }}
-								{{ form_errors(formMarchandise.product) }}
-							</div>
-						</div>
+					<div class="row">
+						{{ form_start(formMarchandise, {'attr': {'id': 'formaddMarchandise'}} ) }}
+                        <div class="col m3 s6">
+                            {{ form_label(formMarchandise.categorie) }}
+                            {{ form_widget(formMarchandise.categorie) }}
+                            {{ form_errors(formMarchandise.categorie) }}
+                        </div>
+                        <div class="col m3 s6">
+                            {{ form_label(formMarchandise.product) }}
+                            {{ form_widget(formMarchandise.product, { 'attr': {'id': 'commercebundle_marchandise_product'}} ) }}
+                            {{ form_errors(formMarchandise.product) }}
+                        </div>
+                        <div class="col m2 s4">
+                            {{ form_label(formMarchandise.prix) }}
+                            {{ form_widget(formMarchandise.prix) }}
+                            {{ form_errors(formMarchandise.prix) }}
+                        </div>
+                        <div class="col m2 s4">
+                            {{ form_label(formMarchandise.quantite) }}
+                            {{ form_widget(formMarchandise.quantite) }}
+                            {{ form_errors(formMarchandise.quantite) }}
+                        </div>
+                        <div class="col m2 s4">
+                            {{ form_label(formMarchandise.unite) }}
+                            {{ form_widget(formMarchandise.unite) }}
+                            {{ form_errors(formMarchandise.unite) }}
+                        </div>
 						<div class="row center-align">
 							{{ form_widget(formMarchandise.submit, {'attr': {'class': 'btn btn-primary'}}) }}
 						</div>
 						{{ form_end(formMarchandise) }}
 					</div>
-					<div class="col m5 offset-m1 s12">
-						<table>
+					<div class="row">
+                        <table id="tableMarchandise" class="display" cellspacing="0" width="100%">
 							<thead>
 							<tr>
-								<th>Nom</th>
-								<th>Quantité</th>
-								<th>Unité</th>
-								<th>Prix</th>
-								<th>Action</th>
+                                <th>Categorie</th>
+                                <th>Nom</th>
+                                <th>Quantité</th>
+                                <th>Unité</th>
+                                <th>Prix</th>
+                                <th>Action</th>
 							</tr>
 							</thead>
 							<tbody id="currentsMarchandises">
@@ -110,13 +125,19 @@
 					</div>
 				</div>
 			</div>
+            {% include '@Core/pages/footer.html.twig' %}
 		</div>
 	
 	{% endblock %}
 	
 	{% block javascripts %}
-		
-		<script>
+
+        <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#tableMarchandise').DataTable();
+            });
+
             $('#divFormMarchandise').hide();
 
             $('#formCreateEvent').submit(function (e) {
@@ -147,6 +168,24 @@
                 })
             });
 
+
+            $('#commercebundle_marchandise_categorie').on('change', function () {
+                var idCateg = $(this).val();
+
+                $.ajax({
+                    url : '{{ path('get_product_by_categ') }}',
+                    data: {'idCateg' : idCateg },
+                    method: 'post',
+                    success: function (response){
+                        $('#commercebundle_marchandise_product').find('option').remove();
+                        for (i = 0; i < response.length; i++) {
+                            $('#commercebundle_marchandise_product').append('<option value="'+ response[i].id +'">'+ response[i].name +'</option>');
+                        }
+                        $('select').material_select();
+                    }
+                });
+            });
+
             $('#formaddMarchandise').submit(function (e) {
 				
 				/* Targets the unit value input */
@@ -174,8 +213,7 @@
                             form.reset();
 
                             var $tr = $(document.createElement('tr'));
-                            $deleteButtonElt = $('<td><a  class="waves-effect teal z-depth-5 btn activite deleteMarchandiseAction">Supprimer</a>');
-
+                            $deleteButtonElt = $('<td><a class="deleteMarchandiseAction"><i class="material-icons">delete_forever</i></a></td>');
 
                             var $id = response.marchandise.id;
 
@@ -186,14 +224,14 @@
                                 tdUnite = '<td>Non Défini</td>'
                             }
 
-                            var tdAction = '<td>' + 'action' + '</td>';
+                            var tdCategorie = $('<td>' + response.marchandise.categorie + '</td>');
                             var tdName = $('<td>' + response.marchandise.nom + '</td>');
                             var tdQuantite = $('<td>' + response.marchandise.quantite + '</td>');
-                            var tdPrix = $('<td>' + response.marchandise.prix + '</td>');
-							/*var content = tdName + tdQuantite + tdUnite + tdPrix + tdAction;*/
+                            var tdPrix = $('<td>' + response.marchandise.prix + ' €</td>');
 
-                            $tr.append(tdName, tdQuantite, tdUnite, tdPrix, $deleteButtonElt);
+                            $tr.append(tdCategorie, tdName, tdQuantite, tdUnite, tdPrix, $deleteButtonElt);
 
+                            $('#tableMarchandise').DataTable().row.add($tr);
                             $('#currentsMarchandises').append($tr);
 
                             $deleteButtonElt.on("click", function(e){
@@ -218,7 +256,6 @@
                                         }
                                     });}
                             });
-
                         }
                         else if(response.msg === 'error')
                         {

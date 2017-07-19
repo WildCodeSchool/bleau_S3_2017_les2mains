@@ -5,12 +5,18 @@ namespace CommerceBundle\Controller;
 use CommerceBundle\Entity\Evenement;
 use CommerceBundle\Entity\Lieu;
 use CommerceBundle\Entity\Marchandise;
+use CommerceBundle\Entity\Product;
+use CommerceBundle\Entity\User;
 use CommerceBundle\Form\EvenementType;
 use CommerceBundle\Form\LieuType;
 use CommerceBundle\Form\MarchandiseType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Encoder\CsvEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 
 class BookingAdminController extends Controller
@@ -28,7 +34,6 @@ class BookingAdminController extends Controller
 		$marchandise = new Marchandise();
 		$formEvent = $this->createForm(EvenementType::class, $evenement);
 		$formMarchandise = $this->createForm(MarchandiseType::class, $marchandise);
-
 
 		$lieu = new Lieu();
 		$formLieu = $this->createForm(LieuType::class, $lieu);
@@ -65,6 +70,39 @@ class BookingAdminController extends Controller
 	}
 
 	/**
+	 * Créer un évènement
+	 * @param Request $request
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
+	public function editBookingAction(Request $request, Evenement $evenement)
+	{
+		//Création des formulaires dans la vue Admin add_Booking
+		$marchandise = new Marchandise();
+		$formEvent = $this->createForm(EvenementType::class, $evenement);
+		$formMarchandise = $this->createForm(MarchandiseType::class, $marchandise);
+
+		$formEvent->handleRequest($request);
+		if ($request->isXmlHttpRequest())
+		{
+			$em = $this ->getDoctrine()->getManager();
+			$em->persist($evenement);
+			$em->flush();
+
+			$response = array(
+				'msg' => 'ok',
+				'idEvenement' => $evenement->getId()
+			);
+			return new JsonResponse($response);
+		}
+
+		return $this->render('@Commerce/admin/edit_booking.html.twig', array(
+			'evenement' => $evenement,
+			'formEvent'=> $formEvent->createView(),
+			'formMarchandise' => $formMarchandise->createView(),
+		));
+	}
+
+	/**
 	 * Ajouter une/des marchandise(s) à un évènement
 	 * @param Request $request
 	 * @return mixed
@@ -80,6 +118,7 @@ class BookingAdminController extends Controller
 			$em = $this->getDoctrine()->getManager();
         	$idEvenement = $request->request->get('idEvenement');
         	$evenement = $em->getRepository(Evenement::class)->findOneById($idEvenement);
+
         	$existingMarchandise = $em->getRepository(Marchandise::class)->getCheckMarchandiseById($idEvenement, $marchandise->getProduct()->getId());
 
         	if ($existingMarchandise == null)
@@ -92,6 +131,7 @@ class BookingAdminController extends Controller
 
                 $response = array(
                     'marchandise' => array(
+                    	'categorie' => $marchandise->getProduct()->getCategories()->getType(),
                         'nom' => $marchandise->getProduct()->getName(),
                         'prix' => $marchandise->getPrix(),
                         'quantite' => $marchandise->getQuantite(),
@@ -114,6 +154,43 @@ class BookingAdminController extends Controller
         }
 
         return new JsonResponse($response);
+	}
+
+	/**
+	 * Get all product for one marchandise, for select field
+	 * @param Request $request
+	 * @return JsonResponse
+	 */
+	public function getProductByCategAction(Request $request)
+	{
+		if ($request->isXmlHttpRequest())
+		{
+			$em = $this->getDoctrine()->getManager();
+			$idCateg = $request->request->get('idCateg');
+			$products = $em->getRepository(Product::class)->getProductByCateg($idCateg);
+
+			return new JsonResponse($products);
+		}
+	}
+
+
+	public function modifyQtMarchandiseAction(Request $request)
+	{
+		if ($request->isXmlHttpRequest())
+		{
+			$idMarchandise = $request->request->get('idMarchandise');
+			$newQt = $request->request->get('qt');
+
+			$em = $this->getDoctrine()->getManager();
+			$marchandise = $em->getRepository(Marchandise::class)->findOneById($idMarchandise);
+
+			$marchandise->setQuantite($newQt);
+
+			$em->flush();
+
+			$response = ['msg' => 'ok'];
+			return new JsonResponse($response);
+		}
 	}
 
 	/**
@@ -153,6 +230,71 @@ class BookingAdminController extends Controller
 
         }
 
+    }
+
+	/**
+	 * Export on csv format recap commande
+	 * @param Evenement $evenement
+	 * @return Response
+	 */
+    public function getCSVAction(Evenement $evenement)
+    {
+	    $em = $this->getDoctrine()->getManager();
+	    $recaps = $em->getRepository(Evenement::class)->getEvenement($evenement->getId());
+	    $serializer = new Serializer([new ObjectNormalizer()], [new CsvEncoder()]);
+
+	    $i = 0;
+	    $datas[$i][] = ' ';
+
+	    foreach ($recaps as $productName => $users)
+	    {
+			foreach ($users as $name => $qt)
+			{
+				$datas[$i][] = $name;
+			}
+			break;
+	    }
+	    $datas[$i][] = 'Total produit';
+	    $datas[$i][] = 'Total prix';
+
+	    $i = 1;
+	    foreach ($recaps as $productName => $users)
+	    {
+		    $datas[$i][] = $productName;
+		    foreach ($users as $qt)
+		    {
+		    	if (isset($qt['quantiteCommande']))
+			    {
+				    $datas[$i][] = $qt['quantiteCommande'];
+			    }
+			    else
+			    {
+				    $datas[$i][] = 0;
+			    }
+		    }
+
+
+		    $datas[$i][] = $em->getRepository(User::class)->getTotalByProduct($evenement, $productName)['qt'];
+		    $datas[$i][] = $em->getRepository(User::class)->getTotalByProduct($evenement, $productName)['price'];
+
+		    $i++;
+	    }
+
+	    // Create custom name for csv file
+	    $lieu = str_replace(str_split(" '"), '_', strtolower($evenement->getLieu()->getNom()));
+		$date = $evenement->getDate()->format('d-m-Y');
+	    $nameCSV = $date . '_' . $lieu . '.csv';
+
+	    $data = $serializer->encode($datas, 'csv');
+
+	    $response = new Response();
+
+	    $response->setStatusCode(200);
+	    $response->setContent($data);
+	    $response->headers->set('Content-Type', 'text/csv; charset=utf-8');
+	    $response->headers->set('Content-Disposition','filename="' . $nameCSV . '"');
+
+	    return $response;
     }
 
 }

@@ -2,7 +2,7 @@
 {% block body %}
 	<div id="list_all_evenements">
 		<div class="parallax-container">
-			<div class="parallax"><img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+			<div class="parallax"><img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
 			</div>
 			<div class="section header">
 				<h3 class="header center title">Nos ventes</h3>
@@ -10,30 +10,67 @@
 		</div>
 		<div class="evenement_container container">
 			<div class="row">
-				{% for evenement in evenements %}
-					<div class="evenement_content col m5 push-m1 s12">
-						<div class="e_content_child">
-							<h4 class="date text_perso">{{ evenement.date }}</h4>
-							<br>
-							<span class="place">{{ evenement.lieu.nom }}</span>
-							<br>
-							<span class="adress">{{ evenement.lieu.adresse }}</span>
-							<br>
-							<span class="indication">{{ evenement.lieu.indication }}</span>
-							<br>
+				{% if evenements is not empty %}
+					{% for evenement in evenements %}
+						<div class="evenement_content col m5 push-m1 s12">
+							<div class="e_content_child">
+								<h4 class="date text_perso">{{ evenement.date|date("d/m/Y") }}</h4>
+								<br>
+								<span class="place">{{ evenement.lieu.nom }}</span>
+								<br>
+								<span class="adress">{{ evenement.lieu.adresse }}</span>
+								<br>
+								<span class="indication">{{ evenement.lieu.indication }}</span>
+								<br>
+							</div>
+							<a href="{{ path('booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Commander</a>
+							<a href="{{ path('recap_booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Recapitulatif Commande</a>
+							{% if is_granted('ROLE_ADMIN') %}
+								<a href="{{ path('delete_evenement', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Delete</a>
+								<a href="{{ path('edit_booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Editer</a>
+                            {% endif %}
 						</div>
-						<a href="{{ path('booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">voir</a>
-						<a href="{{ path('recap_booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Recapitulatif Commande</a>
-						{% if is_granted('ROLE_ADMIN') %}
-							<a href="{{ path('delete_evenement', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Delete</a>
-						{% endif %}
-					</div>
-				{% endfor %}
+					{% endfor %}
+				{% else %}
+					Il n'y a pas encore d'évènement programmé
+				{% endif %}
 			</div>
 		</div>
+
+    	{% if is_granted('ROLE_ADMIN') %}
+			<div class="evenement_container container">
+				<div class="row">
+					{% if lastEvenements is not empty %}
+						<p>Evènement(s) passés</p>
+						{% for evenement in lastEvenements %}
+							<div class="evenement_content col m5 push-m1 s12">
+								<div class="e_content_child">
+									<h4 class="date text_perso">{{ evenement.date|date("d/m/Y") }}</h4>
+									<br>
+									<span class="place">{{ evenement.lieu.nom }}</span>
+									<br>
+									<span class="adress">{{ evenement.lieu.adresse }}</span>
+									<br>
+									<span class="indication">{{ evenement.lieu.indication }}</span>
+									<br>
+								</div>
+								<a href="{{ path('booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">voir</a>
+								<a href="{{ path('recap_booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Recapitulatif Commande</a>
+								{% if is_granted('ROLE_ADMIN') %}
+									<a href="{{ path('delete_evenement', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Delete</a>
+									<a href="{{ path('edit_booking', { 'id': evenement.id }) }}" class="btn evenement_btn waves-effect waves-light">Editer</a>
+								{% endif %}
+							</div>
+						{% endfor %}
+					{% else %}
+						Il n'y a pas encore d'évènement passé
+					{% endif %}
+				</div>
+			</div>
+		{% endif %}
 		<div class="parallax-container parallax_evenement">
 			<div class="parallax">
-				<img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499937827-dscf5112.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+				<img src="{{ asset('bundles/core/img/background/paralaxevenementbottom.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
 			</div>
 		</div>
 		{% include '@Core/pages/footer.html.twig' %}

@@ -8,11 +8,11 @@ namespace CommerceBundle\Entity;
 class Evenement
 {
 
-    public function __toString()
-    {
-        $date = $this->date->format('Y-m-d');
-        return $date;
-    }
+//    public function __toString()
+//    {
+//        $date = $this->date->format('Y-m-d');
+//        return $date;
+//    }
 
     //
 
@@ -32,6 +32,11 @@ class Evenement
     private $marchandises;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $user;
+
+    /**
      * @var \CommerceBundle\Entity\Lieu
      */
     private $lieu;
@@ -42,6 +47,7 @@ class Evenement
     public function __construct()
     {
         $this->marchandises = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -113,35 +119,6 @@ class Evenement
     }
 
     /**
-     * Set lieu
-     *
-     * @param \CommerceBundle\Entity\Lieu $lieu
-     *
-     * @return Evenement
-     */
-    public function setLieu(\CommerceBundle\Entity\Lieu $lieu = null)
-    {
-        $this->lieu = $lieu;
-
-        return $this;
-    }
-
-    /**
-     * Get lieu
-     *
-     * @return \CommerceBundle\Entity\Lieu
-     */
-    public function getLieu()
-    {
-        return $this->lieu;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $user;
-
-
-    /**
      * Add user
      *
      * @param \CommerceBundle\Entity\User $user
@@ -173,5 +150,29 @@ class Evenement
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set lieu
+     *
+     * @param \CommerceBundle\Entity\Lieu $lieu
+     *
+     * @return Evenement
+     */
+    public function setLieu(\CommerceBundle\Entity\Lieu $lieu = null)
+    {
+        $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    /**
+     * Get lieu
+     *
+     * @return \CommerceBundle\Entity\Lieu
+     */
+    public function getLieu()
+    {
+        return $this->lieu;
     }
 }

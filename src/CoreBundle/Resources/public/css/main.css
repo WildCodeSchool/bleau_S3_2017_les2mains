@@ -1,5 +1,15 @@
 @charset "UTF-8";
 /*----------------------------------------*\
+   Font Title HomePage
+\*----------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Marmelad");
+@font-face {
+  font-family: "SegoePrint";
+  font-style: italic;
+  src: url("../font/SegoePrint.ttf");
+}
+/*----------------------------------------*\
     1.GLOBAL
 \*----------------------------------------*/
 /*----------------------------------------*\
@@ -30,8 +40,6 @@
     9.FOOTER
 \*----------------------------------------*/
 /* FONT */
-@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
-@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Marmelad");
 /* line 52, ../scss/_global.scss */
 .title_categories {
   text-align: left;
@@ -745,7 +753,7 @@ Responsive Menu Nav
   /* line 423, ../scss/_nav_style.scss */
   nav li a {
     position: relative;
-    top: 36%;
+    top: 0%;
     color: #fff;
     text-transform: uppercase;
     font-family: 'Work sans', sans-serif;
@@ -764,14 +772,14 @@ Responsive Menu Nav
   width: 100%;
   height: 100vh;
   position: relative;
-  background-image: url("https://image.noelshack.com/fichiers/2017/28/4/1499938455-dscf7914.jpg");
+  background-image: url("../img/background/homepage.jpg");
   background-size: cover;
   background-position: center center;
 }
 
-/* line 12, ../scss/_homepage.scss */
+/* line 11, ../scss/_homepage.scss */
 .titre {
-  font-family: Parisienne;
+  font-family: SegoePrint;
   position: relative;
   top: 150px;
   left: 0;
@@ -1049,7 +1057,11 @@ Responsive Menu Nav
 #contact p {
   text-align: center;
 }
-/* line 32, ../scss/_contact.scss */
+/* line 29, ../scss/_contact.scss */
+#contact .contact {
+  color: black;
+}
+/* line 35, ../scss/_contact.scss */
 #contact .google-maps {
   position: relative;
   padding-bottom: 50%;
@@ -1060,7 +1072,7 @@ Responsive Menu Nav
   margin-left: 1%;
   margin-bottom: -20%;
 }
-/* line 42, ../scss/_contact.scss */
+/* line 45, ../scss/_contact.scss */
 #contact .google-maps iframe {
   position: absolute;
   top: 0;
@@ -1069,7 +1081,7 @@ Responsive Menu Nav
   height: 50% !important;
 }
 @media screen and (min-width: 350px) and (max-width: 500px) {
-  /* line 54, ../scss/_contact.scss */
+  /* line 57, ../scss/_contact.scss */
   #contact .google-maps {
     position: relative;
     padding-bottom: 50%;
@@ -1080,7 +1092,7 @@ Responsive Menu Nav
     margin-left: 1%;
     margin-bottom: -20%;
   }
-  /* line 64, ../scss/_contact.scss */
+  /* line 67, ../scss/_contact.scss */
   #contact .google-maps iframe {
     position: absolute;
     top: 0;
@@ -1088,19 +1100,19 @@ Responsive Menu Nav
     width: 100% !important;
     height: 100% !important;
   }
-  /* line 71, ../scss/_contact.scss */
+  /* line 74, ../scss/_contact.scss */
   #contact .adress {
     font-size: smaller;
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 77, ../scss/_contact.scss */
+  /* line 80, ../scss/_contact.scss */
   #contact .adress h4 {
     font-size: 25px;
   }
 }
 @media screen and (max-width: 349px) {
-  /* line 85, ../scss/_contact.scss */
+  /* line 88, ../scss/_contact.scss */
   #contact .google-maps {
     position: relative;
     padding-bottom: 50%;
@@ -1111,7 +1123,7 @@ Responsive Menu Nav
     margin-left: 1%;
     margin-bottom: -20%;
   }
-  /* line 95, ../scss/_contact.scss */
+  /* line 98, ../scss/_contact.scss */
   #contact .google-maps iframe {
     position: absolute;
     top: 0;
@@ -1119,13 +1131,13 @@ Responsive Menu Nav
     width: 100% !important;
     height: 100% !important;
   }
-  /* line 102, ../scss/_contact.scss */
+  /* line 105, ../scss/_contact.scss */
   #contact .adress {
     font-size: x-small;
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 108, ../scss/_contact.scss */
+  /* line 111, ../scss/_contact.scss */
   #contact .adress h4 {
     font-size: 20px;
   }
@@ -1143,14 +1155,15 @@ Responsive Menu Nav
   text-align: center;
   font-weight: 100;
   letter-spacing: 5px;
+  color: black !important;
 }
-/* line 10, ../scss/_footer.scss */
+/* line 11, ../scss/_footer.scss */
 #footer .p_center {
   text-align: center;
 }
-/* line 13, ../scss/_footer.scss */
+/* line 14, ../scss/_footer.scss */
 #footer .contact_us {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 1px;
   width: 130px;
   border-radius: 7px;
@@ -1159,27 +1172,35 @@ Responsive Menu Nav
   margin: auto;
   font-weight: 500;
 }
-/* line 23, ../scss/_footer.scss */
+/* line 24, ../scss/_footer.scss */
 #footer .contact_us:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   transition: all .3s;
 }
-/* line 27, ../scss/_footer.scss */
+/* line 28, ../scss/_footer.scss */
 #footer .logo_container {
   display: flex;
   justify-content: center;
 }
-/* line 31, ../scss/_footer.scss */
+/* line 32, ../scss/_footer.scss */
 #footer .logo {
   margin-left: 5px;
   margin-right: 5px;
   width: 50px;
   transition: all .3s;
 }
-/* line 37, ../scss/_footer.scss */
+/* line 38, ../scss/_footer.scss */
 #footer .logo:hover {
   opacity: .6;
   transition: all .3s;
+}
+/* line 42, ../scss/_footer.scss */
+#footer .page-footer {
+  background-color: #9dbd38 !important;
+}
+/* line 45, ../scss/_footer.scss */
+#footer .copyright {
+  color: black !important;
 }
 
 /*----------------------------------------*\
@@ -1237,6 +1258,10 @@ Responsive Menu Nav
   margin: 10px;
   width: auto;
   max-width: 98%;
+}
+/* line 33, ../scss/_booking.scss */
+#booking .deleteMarchandiseAction {
+  cursor: pointer;
 }
 
 /*----------------------------------------*\
