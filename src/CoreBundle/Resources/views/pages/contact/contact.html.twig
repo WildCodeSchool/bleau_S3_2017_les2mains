@@ -6,14 +6,14 @@
 <div id="contact">
 	<div class="parallax-container">
 		<div class="parallax">
-			<img src="https://image.noelshack.com/fichiers/2017/28/4/1499938229-img-3437.jpg" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+			<img src="{{ asset('bundles/core/img/background/paralaxcontact.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
 		</div>
 	</div>
 	
 	<div class="section contact container">
 		<div class="row form">
 			<div class="col m10 offset-m1 s12">
-				<h3 class="title form center-align">Prendre Contact avec Nous</h3>
+				<h3 class="title form center-align contact">Prendre Contact avec Nous</h3>
                 {{ form_start(form) }}
 				<div class="input-field">
                     {{ form_row(form.nom) }}
@@ -23,6 +23,9 @@
 				</div>
 				<div id="div_mail" class="input-field">
                     {{ form_row(form.email) }}
+				</div>
+				<div class="input-field">
+					{{ form_row(form.sujet) }}
 				</div>
 				<div id="div_message" class="input-field">
 					{{ form_label (form.contenu) }}
@@ -52,7 +55,7 @@
 	
 	<div class="parallax-container">
 		<div class="parallax">
-			<img src="https://image.noelshack.com/fichiers/2017/28/4/1499938229-img-3437.jpg" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+			<img src="{{ asset('bundles/core/img/background/paralaxcontact.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
 		</div>
 	</div>
 </div>

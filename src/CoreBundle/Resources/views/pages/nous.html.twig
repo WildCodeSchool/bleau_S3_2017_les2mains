@@ -1,7 +1,5 @@
 {% extends '@Core/layout.html.twig'%}
 
-{% block title %}Page_Nous!{% endblock %}
-
 {% block body %}
 	<div id="nous">
 		<div class="parallax-container header_nous">
@@ -9,7 +7,7 @@
 			<h3 class="header center teal-text text-lighten-2">Nous</h3>
 			</div>#}
 			<div class="parallax">
-				<img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" alt="Unsplashed background img 1" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+				<img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" alt="Unsplashed background img 1" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
 			</div>
 		</div>
 		<!--   Section "La Permaculture"   -->
@@ -56,20 +54,20 @@
 			
 			<div class="row pics">
 				<div class="center-align col s12 m6 l4 img_box">
-					<img class=" center-align responsive-img z-depth-9" alt="picture1" src="{{ asset('uploads/images/' ~ our.picture1.src ) }}">
+					<img class=" center-align responsive-img z-depth-9" alt="picture1" src="{{ our.picture1.src | imagine_filter('xLarge') }}">
 				</div>
 				<div class="center-align col s12 m6 l4 img_box">
-					<img class="center-align responsive-img" alt="picture2" src="{{ asset('uploads/images/' ~ our.picture2.src ) }}">
+					<img class="center-align responsive-img" alt="picture2" src="{{ our.picture2.src | imagine_filter('xLarge') }}">
 				</div>
 				<div class="center-align col s12 m6 l4 img_box">
-					<img class="center-align responsive-img" alt="picture3" src="{{ asset('uploads/images/' ~ our.picture3.src ) }}">
+					<img class="center-align responsive-img" alt="picture3" src="{{ our.picture3.src | imagine_filter('xLarge') }}">
 				</div>
 			</div>
 		</div>
 		<!--Parallax-container-->
 		<div class="parallax-container parallax_mid">
 			<div class="parallax">
-				<img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933339-poppies.jpg') }}" alt="Unsplashed background img 2"  style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+				<img src="{{ asset('bundles/core/img/background/paralaxhome1.jpg') }}" alt="Unsplashed background img 2"  style="min-width: 100vh;min-height: 100%;max-width: 100%;">
 			</div>
 		</div>
 		
@@ -116,20 +114,20 @@
 			<div class="row pics">
 				<div class="center-align col s12 m6 l4 img_box">
 					
-					<img class="center-align responsive-img" alt="picture4" src="{{ asset('uploads/images/' ~ our.picture4.src ) }}">
+					<img class="center-align responsive-img" alt="picture4" src="{{ our.picture4.src | imagine_filter('xLarge') }}">
 				</div>
 				<div class="center-align col s12 m6 l4 img_box">
-					<img class="center-align responsive-img" alt="picture5" src="{{ asset('uploads/images/' ~ our.picture5.src ) }}">
+					<img class="center-align responsive-img" alt="picture5" src="{{ our.picture5.src | imagine_filter('xLarge') }}">
 				</div>
 				<div class="center-align col s12 m6 l4 img_box">
-					<img class="center-align responsive-img" alt="picture6" src="{{ asset('uploads/images/' ~ our.picture6.src ) }}">
+					<img class="center-align responsive-img" alt="picture6" src="{{ our.picture6.src | imagine_filter('xLarge') }}">
 				</div>
 			</div>
 		</div>
 		<!--Parallax-container-->
 		<div class="parallax-container parallax_mid">
 			<div class="parallax">
-				<img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933298-dscf8003.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;" class="parallax-img">
+				<img src="{{ asset('bundles/core/img/background/paralaxhome2.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;" class="parallax-img">
 			</div>
 		</div>
 		<!--   Section "Association"   -->
@@ -171,20 +169,20 @@
 			
 			<div class="row pics">
 				<div class="center-align col s12 m6 l4 img_box">
-					<img class="center-align responsive-img" alt="picture7" src="{{ asset('uploads/images/' ~ our.picture7.src ) }}">
+					<img class="center-align responsive-img" alt="picture7" src="{{ our.picture7.src | imagine_filter('xLarge') }}">
 				</div>
 				<div class="center-align col s12 m6 l4 img_box">
-					<img class="center-align responsive-img" alt="picture8" src="{{ asset('uploads/images/' ~ our.picture8.src ) }}">
+					<img class="center-align responsive-img" alt="picture8" src="{{ our.picture8.src | imagine_filter('xLarge') }}">
 				</div>
 				<div class="center-align col s12 m6 l4 img_box">
-					<img class="center-align responsive-img" alt="picture9" src="{{ asset('uploads/images/' ~ our.picture9.src ) }}">
+					<img class="center-align responsive-img" alt="picture9" src="{{ our.picture9.src | imagine_filter('xLarge') }}">
 				</div>
 			</div>
 		</div>
 		<!--Parallax-container-->
 		<div class="parallax-container valign-wrapper footer">
 			<div class="parallax">
-				<img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933642-img-5880.jpg') }}" alt="Unsplashed background img 1"  style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+				<img src="{{ asset('bundles/core/img/background/paralaxhome3.jpg') }}" alt="Unsplashed background img 1"  style="min-width: 100vh;min-height: 100%;max-width: 100%;">
 			</div>
 		</div>
 	</div>

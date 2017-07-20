@@ -1,5 +1,8 @@
 #products {
-
+  .parallax-container
+  {
+    min-height: 170px;
+  }
   .header_product
   {
     min-height: 170px;
@@ -36,5 +39,8 @@
   }
   .index_btn{
     z-index: 1;
+  }
+  .card-title{
+    font-size: 17px!important;
   }
 }

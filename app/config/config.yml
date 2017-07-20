@@ -11,6 +11,7 @@ imports:
 parameters:
     locale: fr
     upload_directory: '%kernel.root_dir%/../web/uploads/images'
+    sender_name: '%mailer_sender_name%'
 
 framework:
     translator: ~
@@ -85,5 +86,26 @@ fos_user:
     firewall_name: main
     user_class: CoreBundle\Entity\User
     from_email:
-        address: "phle2022@gmail.com"
-        sender_name: "Jim"
+        address: '%mailer_user%'
+        sender_name: '%mailer_sender_name%'
+
+liip_imagine:
+    resolvers:
+        default:
+            web_path:
+                web_root: "%kernel.root_dir%/../web/"
+                cache_prefix: media/cache
+    loaders:
+        default:
+            filesystem:
+                data_root: "%kernel.root_dir%/../web/uploads/images/"
+    filter_sets:
+        cache: ~
+        # the name of the "filter set"
+
+        xLarge:
+            # adjust the image quality to 75%
+            quality: 70
+            # list of transformations to apply (the "filters")
+            filters:
+                 relative_resize: { widen: 1400 }

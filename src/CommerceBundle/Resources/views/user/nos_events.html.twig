@@ -14,7 +14,7 @@
                 <h3 class="header center title">Nos Cours et Stages</h3>
             </div>
             <div class="parallax">
-                <img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+                <img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
             </div>
         </div>
         <div class="container">
@@ -86,7 +86,7 @@
                 <h4 id="{{  activite.titre }}" class="title_categories">{{ activite.titre }}</h4>
 				{% for event in activite.event %}
 					{% set i = i + 1 %}
-                    <div class="col m6">
+                    <div class="col m6 s12">
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ event.picture.src ) }}'); background-size:cover; background-position:center">
@@ -114,7 +114,7 @@
                                     <h4 class="text_perso_events">Informations :</h4>
                                     <p><b class="text_perso_events">Date :</b> {{ event.dateStart }} à {{ event.dateEnd  }}</p>
                                     <p><b class="text_perso_events">Lieu :</b> {{ event.location }}</p>
-                                    <p><b class="text_perso_events">Prix :</b> {{ event.price }}</p>
+                                    <p><b class="text_perso_events">Prix :</b> {{ event.price|nl2br }}</p>
                                     <a class="waves-effect waves-light btn add_stage_btn" href="{{ 'contact' }}">Besoin de plus d'info ?</a>
                                 </div>
                             </div>
@@ -137,7 +137,7 @@
         </div>
         <div class="parallax-container parallax_mid_event">
             <div class="parallax">
-                <img src="{{ asset('https://image.noelshack.com/fichiers/2017/28/4/1499933291-dscf7911.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+                <img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" alt="Unsplashed background img 2" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
             </div>
         </div>
         <div class="container container_custom">
@@ -149,6 +149,7 @@
     
     </div>
 {% endblock %}
+
 {% block javascripts %}
     <script>
         showEditFormAjax(".formEditEvent", "{{ path('event_edit') }}");

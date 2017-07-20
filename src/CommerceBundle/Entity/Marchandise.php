@@ -8,13 +8,17 @@ namespace CommerceBundle\Entity;
 class Marchandise
 {
 
+	public $categorie;
+
+	// Genrated code
+
     /**
      * @var integer
      */
     private $id;
 
     /**
-     * @var integer
+     * @var float
      */
     private $prix;
 
@@ -22,6 +26,11 @@ class Marchandise
      * @var integer
      */
     private $quantite;
+
+    /**
+     * @var string
+     */
+    private $unite;
 
     /**
      * @var \CommerceBundle\Entity\Evenement
@@ -47,7 +56,7 @@ class Marchandise
     /**
      * Set prix
      *
-     * @param integer $prix
+     * @param float $prix
      *
      * @return Marchandise
      */
@@ -61,7 +70,7 @@ class Marchandise
     /**
      * Get prix
      *
-     * @return integer
+     * @return float
      */
     public function getPrix()
     {
@@ -90,6 +99,30 @@ class Marchandise
     public function getQuantite()
     {
         return $this->quantite;
+    }
+
+    /**
+     * Set unite
+     *
+     * @param string $unite
+     *
+     * @return Marchandise
+     */
+    public function setUnite($unite)
+    {
+        $this->unite = $unite;
+
+        return $this;
+    }
+
+    /**
+     * Get unite
+     *
+     * @return string
+     */
+    public function getUnite()
+    {
+        return $this->unite;
     }
 
     /**
@@ -138,34 +171,5 @@ class Marchandise
     public function getProduct()
     {
         return $this->product;
-    }
-    /**
-     * @var string
-     */
-    private $unite;
-
-
-    /**
-     * Set unite
-     *
-     * @param string $unite
-     *
-     * @return Marchandise
-     */
-    public function setUnite($unite)
-    {
-        $this->unite = $unite;
-
-        return $this;
-    }
-
-    /**
-     * Get unite
-     *
-     * @return string
-     */
-    public function getUnite()
-    {
-        return $this->unite;
     }
 }

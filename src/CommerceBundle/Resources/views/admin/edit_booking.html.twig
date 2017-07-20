@@ -1,0 +1,310 @@
+{% extends '@Core/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+{% endblock %}
+
+{% block body %}
+    <div id="booking">
+        <div class="parallax-container">
+            <div class="parallax"><img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;"></div>
+            <div class="section header">
+                <h3 class="header center title">Modification de la vente du {{ evenement.date|date('d/m/Y') }}</h3>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <!-- Modal Trigger -->
+                <div class="col m6 s12">
+                    <a class="waves-effect waves-light btn btn_modal" href="{{ path('add_booking') }}">Créer une nouvelle vente</a>
+                </div>
+                <div class="col m6 s12">
+                    <a class="waves-effect waves-light btn btn_modal" href="{{ path('list_evenementAction') }}">Voir tous les évènements</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <h4 class="center-align text_perso">Veuillez modifier (ou non) la date et lieu avant de modifier les produits disponible</h4>
+                {{ form_start(formEvent, {'attr': {'id': 'formCreateEvent'}}) }}
+                <div>
+                    {{ form_label(formEvent.lieu) }}
+                    {{ form_widget(formEvent.lieu) }}
+                    {{ form_errors(formEvent.lieu) }}
+                </div>
+                <div>
+                    {{ form_widget(formEvent.date, {'attr': {'class':'datepicker','value': evenement.date|date('d/m/Y') }} ) }}
+                    {{ form_errors(formEvent.date) }}
+                </div>
+                <div id="formCreateEventValidButton">
+                    {{ form_widget(formEvent.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                </div>
+                {{ form_end(formEvent) }}
+            </div>
+
+            <div id="divFormMarchandise" data-idevenement="{{ evenement.id }}" class="row">
+                <h4 class="center-align">Marchandise(s)</h4>
+                <div class="row">
+                    {{ form_start(formMarchandise, {'attr': {'id': 'formaddMarchandise'}}) }}
+                    <div class="col m3 s6">
+                        {{ form_label(formMarchandise.categorie) }}
+                        {{ form_widget(formMarchandise.categorie) }}
+                        {{ form_errors(formMarchandise.categorie) }}
+                    </div>
+                    <div class="col m3 s6">
+                        {{ form_label(formMarchandise.product) }}
+                        {{ form_widget(formMarchandise.product, { 'attr': {'id': 'commercebundle_marchandise_product'}} ) }}
+                        {{ form_errors(formMarchandise.product) }}
+                    </div>
+                    <div class="col m2 s4">
+                        {{ form_label(formMarchandise.prix) }}
+                        {{ form_widget(formMarchandise.prix) }}
+                        {{ form_errors(formMarchandise.prix) }}
+                    </div>
+                    <div class="col m2 s4">
+                        {{ form_label(formMarchandise.quantite) }}
+                        {{ form_widget(formMarchandise.quantite) }}
+                        {{ form_errors(formMarchandise.quantite) }}
+                    </div>
+                    <div class="col m2 s4">
+                        {{ form_label(formMarchandise.unite) }}
+                        {{ form_widget(formMarchandise.unite) }}
+                        {{ form_errors(formMarchandise.unite) }}
+                    </div>
+                    <div class="row center-align">
+                        {{ form_widget(formMarchandise.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                    </div>
+                    {{ form_end(formMarchandise) }}
+                </div>
+                <div class="row">
+                    <table id="tableMarchandise" class="display" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th>Categorie</th>
+                            <th>Nom</th>
+                            <th>Quantité</th>
+                            <th>Unité</th>
+                            <th>Prix</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody id="currentsMarchandises">
+                        {% for marchandise in evenement.marchandises %}
+                            <tr>
+                                <td>{{ marchandise.product.categories.type }}</td>
+                                <td>{{ marchandise.product.name }}</td>
+                                <td>
+                                    <div class="col s6">
+                                        <input class="qtMarchandise" id="{{ marchandise.id }}" type="number" value="{{ marchandise.quantite }}">
+                                    </div>
+                                    <div class="col s6">
+                                        <button class="qtMarchandiseButton" id="buttonMarchandiseQt_{{ marchandise.id }}">Modifier</button>
+                                    </div>
+                                </td>
+                                <td>{{ marchandise.unite }}</td>
+                                <td>{{ marchandise.prix ~ ' €' }}</td>
+                                <td>
+                                    <a id="{{ marchandise.id }}" class="deleteMarchandiseAction"><i class="material-icons">delete_forever</i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% include '@Core/pages/footer.html.twig' %}
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#tableMarchandise').DataTable();
+        });
+
+        function modifyQt()
+        {
+            $(".qtMarchandise").bind('keyup change click', function () {
+                var idMarchandise = $(this).attr('id');
+                $('#buttonMarchandiseQt_' + idMarchandise).fadeIn();
+
+                if (! $(this).data("previousValue") || $(this).data("previousValue") != $(this).val())
+                {
+                    $(this).data("previousValue", $(this).val());
+                    var newQt = $(this).val();
+                    $('#buttonMarchandiseQt_' + idMarchandise).on('click', function (e) {
+                        e.preventDefault();
+                        $.ajax({
+                            url: '{{ path('modify_qt_marchandise') }}',
+                            data: { 'qt': newQt, 'idMarchandise': idMarchandise },
+                            method: 'post',
+                            success: function (){
+                                $('#buttonMarchandiseQt_' + idMarchandise).fadeOut();
+                            }
+                        })
+                    });
+                }
+            });
+        }
+
+        $('#divFormMarchandise').hide();
+        $('.qtMarchandiseButton').hide();
+        modifyQt();
+
+
+        $('#formCreateEvent').submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+            var formData = new FormData(form[0]);
+
+            $.ajax({
+                url: "{{ path('edit_booking', { id: evenement.id }) }}",
+                data: formData,
+                method: 'post',
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    if (response.msg === 'ok'){
+                        $('#formCreateEventValidButton').remove();
+                        $('#commercebundle_evenement_date').prop('disabled', true);
+
+                        // Show form marchandise
+                        $('#divFormMarchandise').fadeIn();
+                    }
+                }
+            })
+        });
+
+        $('#commercebundle_marchandise_categorie').on('change', function () {
+            var idCateg = $(this).val();
+
+            $.ajax({
+                url : '{{ path('get_product_by_categ') }}',
+                data: {'idCateg' : idCateg },
+                method: 'post',
+                success: function (response){
+                    $('#commercebundle_marchandise_product').find('option').remove();
+                    for (i = 0; i < response.length; i++) {
+                        $('#commercebundle_marchandise_product').append('<option value="'+ response[i].id +'">'+ response[i].name +'</option>');
+                    }
+                    $('select').material_select();
+                }
+            });
+        });
+
+        $('#formaddMarchandise').submit(function (e) {
+
+            /* Targets the unit value input */
+            var tdUnite = e.target.elements.commercebundle_marchandise_unite.value;
+
+            e.preventDefault();
+            var idEvenement = $('#divFormMarchandise').data('idevenement');
+
+
+            var form = $(this)[0];
+            var data = new FormData(form);
+
+            data.append('idEvenement', idEvenement);
+
+            $.ajax({
+                url: "{{ path('add_marchandises') }}",
+                data: data,
+                method: 'post',
+                processData: false,
+                contentType: false,
+                success: function (response) {
+
+                    if(response.msg === 'ok')
+                    {
+                        form.reset();
+
+                        var $tr = $(document.createElement('tr'));
+                        $deleteButtonElt = $('<td><a class="deleteMarchandiseAction"><i class="material-icons">delete_forever</i></a></td>');
+
+                        var $id = response.marchandise.id;
+
+                        if (tdUnite != "") {
+                            tdUnite = '<td>' + response.marchandise.unite + '</td>';
+                        }
+                        else {
+                            tdUnite = '<td>Non Défini</td>'
+                        }
+
+                        var tdCategorie = $('<td>' + response.marchandise.categorie + '</td>');
+                        var tdName = $('<td>' + response.marchandise.nom + '</td>');
+
+                        var tdQuantite = $('<td>' +
+                            '<div class="col s6">' +
+                            '<input class="qtMarchandise" id="' + $id + '" type="number" value="' + response.marchandise.quantite + '">' +
+                            '</div>' +
+                            '<div class="col s6">' +
+                            '<button class="qtMarchandiseButton" id="buttonMarchandiseQt_' + $id + '">Modifier</button>' +
+                            '</div>' +
+                            '</td>');
+
+                        var tdPrix = $('<td>' + response.marchandise.prix + ' €</td>');
+
+                        $tr.append(tdCategorie, tdName, tdQuantite, tdUnite, tdPrix, $deleteButtonElt);
+
+                        $('#tableMarchandise').DataTable().row.add($tr);
+                        $('#currentsMarchandises').append($tr);
+
+                        $('#buttonMarchandiseQt_' + $id).hide();
+                        modifyQt();
+
+                        $deleteButtonElt.on("click", function(e){
+                            e.preventDefault();
+                            var cancel = confirm("Vous allez supprimer un produit. Etes-vous sûr?");
+
+                            if(cancel){
+                                var $button = $(this);
+
+                                $.ajax({
+                                    method: "post",
+                                    url : "{{ path('delete_marchandises') }}",
+                                    data: {'id' : $id},
+                                    success: function(response){
+                                        alert(response);
+                                        $button.parent().remove();
+                                    },
+                                    error: function(){
+                                        alert("Erreur lors de la suppression. Veuillez recharger la page.")
+                                    }
+                                });}
+                        });
+
+                    }
+                    else if(response.msg === 'error')
+                    {
+                        alert ('Le produit a déjà été crée ');
+                    }
+                }
+            })
+        });
+
+        $('.deleteMarchandiseAction').on("click", function(e){
+            e.preventDefault();
+            var cancel = confirm("Vous allez supprimer un produit. Etes-vous sûr?");
+            var $id = $(this).attr('id');
+
+            if(cancel){
+                var $button = $(this);
+
+                $.ajax({
+                    method: "post",
+                    url : "{{ path('delete_marchandises') }}",
+                    data: {'id' : $id},
+                    success: function(response){
+                        alert(response);
+                        $button.parent().parent().remove();
+                    },
+                    error: function(){
+                        alert("Erreur lors de la suppression. Veuillez recharger la page.")
+                    }
+                });}
+        });
+    </script>
+
+{% endblock %}

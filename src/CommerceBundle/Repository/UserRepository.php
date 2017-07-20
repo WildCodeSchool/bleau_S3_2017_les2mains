@@ -10,4 +10,25 @@ namespace CommerceBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+	/**
+	 * Get total quantité by product and evenement
+	 * @param $evenement
+	 * @return array
+	 */
+	public function getTotalByProduct($evenement, $productName)
+	{
+		$qb = $this->createQueryBuilder('u');
+		$qb->where('u.evenement = :evenement')
+			->join('u.selectProduits', 's')
+			->join('s.product', 'p')
+			->andWhere('p.name = :productName')
+			->select('SUM(s.quantiteCommande) as qt', 'SUM(s.prixTotal) as price')
+			->setParameters(array(
+				'evenement' => $evenement,
+				'productName' => $productName
+				))
+		;
+
+		return $qb->getQuery()->getSingleResult();
+	}
 }

@@ -1,5 +1,15 @@
 @charset "UTF-8";
 /*----------------------------------------*\
+   Font Title HomePage
+\*----------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Marmelad");
+@font-face {
+  font-family: "SegoePrint";
+  font-style: italic;
+  src: url("../font/SegoePrint.ttf");
+}
+/*----------------------------------------*\
     1.GLOBAL
 \*----------------------------------------*/
 /*----------------------------------------*\
@@ -30,8 +40,6 @@
     9.FOOTER
 \*----------------------------------------*/
 /* FONT */
-@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300,700|Open+Sans:400italic,300italic);
-@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Marmelad");
 /* line 52, ../scss/_global.scss */
 .title_categories {
   text-align: left;
@@ -120,7 +128,7 @@ p {
 /* line 137, ../scss/_global.scss */
 .menu_text {
   margin: 50px auto 0px -13px;
-  color: #69c546;
+  color: black;
   position: fixed;
   font-weight: bold;
   text-transform: uppercase;
@@ -745,7 +753,7 @@ Responsive Menu Nav
   /* line 423, ../scss/_nav_style.scss */
   nav li a {
     position: relative;
-    top: 36%;
+    top: 0%;
     color: #fff;
     text-transform: uppercase;
     font-family: 'Work sans', sans-serif;
@@ -764,14 +772,14 @@ Responsive Menu Nav
   width: 100%;
   height: 100vh;
   position: relative;
-  background-image: url("https://image.noelshack.com/fichiers/2017/28/4/1499938455-dscf7914.jpg");
+  background-image: url("../img/background/homepage.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: top;
 }
 
-/* line 12, ../scss/_homepage.scss */
+/* line 11, ../scss/_homepage.scss */
 .titre {
-  font-family: Parisienne;
+  font-family: SegoePrint;
   position: relative;
   top: 150px;
   left: 0;
@@ -968,15 +976,19 @@ Responsive Menu Nav
 /*----------------------------------------*\
     7.PRODUITS
 \*----------------------------------------*/
-/* line 3, ../scss/_products.scss */
+/* line 2, ../scss/_products.scss */
+#products .parallax-container {
+  min-height: 170px;
+}
+/* line 6, ../scss/_products.scss */
 #products .header_product {
   min-height: 170px;
 }
-/* line 7, ../scss/_products.scss */
+/* line 10, ../scss/_products.scss */
 #products .parallax_mid_product {
   min-height: 30px;
 }
-/* line 11, ../scss/_products.scss */
+/* line 14, ../scss/_products.scss */
 #products .card_picture {
   height: 200px;
   width: auto;
@@ -984,33 +996,37 @@ Responsive Menu Nav
   margin: auto;
   transition: .5s all;
 }
-/* line 18, ../scss/_products.scss */
+/* line 21, ../scss/_products.scss */
 #products .products_parallax {
   min-height: 200px;
 }
-/* line 21, ../scss/_products.scss */
+/* line 24, ../scss/_products.scss */
 #products .text_perso_products {
   color: #80cbc4;
 }
-/* line 24, ../scss/_products.scss */
+/* line 27, ../scss/_products.scss */
 #products .big_text_card_picture_product {
   top: 33%;
   font-size: 24px;
   font-weight: 300;
 }
-/* line 29, ../scss/_products.scss */
+/* line 32, ../scss/_products.scss */
 #products .medium_text_card_picture_product {
   font-size: 15px;
   font-weight: 500;
   top: 31%;
 }
-/* line 34, ../scss/_products.scss */
+/* line 37, ../scss/_products.scss */
 #products .card {
   z-index: 0;
 }
-/* line 37, ../scss/_products.scss */
+/* line 40, ../scss/_products.scss */
 #products .index_btn {
   z-index: 1;
+}
+/* line 40, ../scss/_products.scss */
+#products .card-title {
+  font-size: 17px !important;
 }
 
 /*----------------------------------------*\
@@ -1049,7 +1065,11 @@ Responsive Menu Nav
 #contact p {
   text-align: center;
 }
-/* line 32, ../scss/_contact.scss */
+/* line 29, ../scss/_contact.scss */
+#contact .contact {
+  color: black;
+}
+/* line 35, ../scss/_contact.scss */
 #contact .google-maps {
   position: relative;
   padding-bottom: 50%;
@@ -1060,7 +1080,7 @@ Responsive Menu Nav
   margin-left: 1%;
   margin-bottom: -20%;
 }
-/* line 42, ../scss/_contact.scss */
+/* line 45, ../scss/_contact.scss */
 #contact .google-maps iframe {
   position: absolute;
   top: 0;
@@ -1069,7 +1089,7 @@ Responsive Menu Nav
   height: 50% !important;
 }
 @media screen and (min-width: 350px) and (max-width: 500px) {
-  /* line 54, ../scss/_contact.scss */
+  /* line 57, ../scss/_contact.scss */
   #contact .google-maps {
     position: relative;
     padding-bottom: 50%;
@@ -1080,7 +1100,7 @@ Responsive Menu Nav
     margin-left: 1%;
     margin-bottom: -20%;
   }
-  /* line 64, ../scss/_contact.scss */
+  /* line 67, ../scss/_contact.scss */
   #contact .google-maps iframe {
     position: absolute;
     top: 0;
@@ -1088,19 +1108,19 @@ Responsive Menu Nav
     width: 100% !important;
     height: 100% !important;
   }
-  /* line 71, ../scss/_contact.scss */
+  /* line 74, ../scss/_contact.scss */
   #contact .adress {
     font-size: smaller;
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 77, ../scss/_contact.scss */
+  /* line 80, ../scss/_contact.scss */
   #contact .adress h4 {
     font-size: 25px;
   }
 }
 @media screen and (max-width: 349px) {
-  /* line 85, ../scss/_contact.scss */
+  /* line 88, ../scss/_contact.scss */
   #contact .google-maps {
     position: relative;
     padding-bottom: 50%;
@@ -1111,7 +1131,7 @@ Responsive Menu Nav
     margin-left: 1%;
     margin-bottom: -20%;
   }
-  /* line 95, ../scss/_contact.scss */
+  /* line 98, ../scss/_contact.scss */
   #contact .google-maps iframe {
     position: absolute;
     top: 0;
@@ -1119,13 +1139,13 @@ Responsive Menu Nav
     width: 100% !important;
     height: 100% !important;
   }
-  /* line 102, ../scss/_contact.scss */
+  /* line 105, ../scss/_contact.scss */
   #contact .adress {
     font-size: x-small;
     margin-left: auto;
     margin-right: auto;
   }
-  /* line 108, ../scss/_contact.scss */
+  /* line 111, ../scss/_contact.scss */
   #contact .adress h4 {
     font-size: 20px;
   }
@@ -1143,14 +1163,15 @@ Responsive Menu Nav
   text-align: center;
   font-weight: 100;
   letter-spacing: 5px;
+  color: black !important;
 }
-/* line 10, ../scss/_footer.scss */
+/* line 11, ../scss/_footer.scss */
 #footer .p_center {
   text-align: center;
 }
-/* line 13, ../scss/_footer.scss */
+/* line 14, ../scss/_footer.scss */
 #footer .contact_us {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 1px;
   width: 130px;
   border-radius: 7px;
@@ -1159,27 +1180,35 @@ Responsive Menu Nav
   margin: auto;
   font-weight: 500;
 }
-/* line 23, ../scss/_footer.scss */
+/* line 24, ../scss/_footer.scss */
 #footer .contact_us:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   transition: all .3s;
 }
-/* line 27, ../scss/_footer.scss */
+/* line 28, ../scss/_footer.scss */
 #footer .logo_container {
   display: flex;
   justify-content: center;
 }
-/* line 31, ../scss/_footer.scss */
+/* line 32, ../scss/_footer.scss */
 #footer .logo {
   margin-left: 5px;
   margin-right: 5px;
   width: 50px;
   transition: all .3s;
 }
-/* line 37, ../scss/_footer.scss */
+/* line 38, ../scss/_footer.scss */
 #footer .logo:hover {
   opacity: .6;
   transition: all .3s;
+}
+/* line 42, ../scss/_footer.scss */
+#footer .page-footer {
+  background-color: #9dbd38 !important;
+}
+/* line 45, ../scss/_footer.scss */
+#footer .copyright {
+  color: black !important;
 }
 
 /*----------------------------------------*\
@@ -1238,20 +1267,28 @@ Responsive Menu Nav
   width: auto;
   max-width: 98%;
 }
+/* line 33, ../scss/_booking.scss */
+#booking .deleteMarchandiseAction {
+  cursor: pointer;
+}
 
 /*----------------------------------------*\
     12.LIST ALL EVENEMENTS
 \*----------------------------------------*/
-/* line 2, ../scss/_list_all_evenements.scss */
+/* line 3, ../scss/_list_all_evenements.scss */
+#list_all_evenements .parallax-container {
+  min-height: 170px;
+}
+/* line 8, ../scss/_list_all_evenements.scss */
 #list_all_evenements .parallax_evenement {
   min-height: 200px;
 }
-/* line 5, ../scss/_list_all_evenements.scss */
+/* line 12, ../scss/_list_all_evenements.scss */
 #list_all_evenements .evenement_container {
   text-align: center;
   margin: auto;
 }
-/* line 9, ../scss/_list_all_evenements.scss */
+/* line 17, ../scss/_list_all_evenements.scss */
 #list_all_evenements .evenement_content {
   border-top: 2px solid teal;
   border-bottom: 2px solid teal;
@@ -1261,24 +1298,43 @@ Responsive Menu Nav
   transition: 1s;
   box-shadow: 3px 3px 7px gray;
 }
-/* line 18, ../scss/_list_all_evenements.scss */
+/* line 27, ../scss/_list_all_evenements.scss */
 #list_all_evenements .place {
   font-weight: 900;
   font-size: 18px;
   text-transform: uppercase;
 }
-/* line 23, ../scss/_list_all_evenements.scss */
+/* line 33, ../scss/_list_all_evenements.scss */
 #list_all_evenements .adress, #list_all_evenements .indication {
   font-size: 16px;
 }
-/* line 26, ../scss/_list_all_evenements.scss */
+/* line 37, ../scss/_list_all_evenements.scss */
 #list_all_evenements .evenement_btn {
   margin: 10px;
 }
-/* line 29, ../scss/_list_all_evenements.scss */
+/* line 41, ../scss/_list_all_evenements.scss */
 #list_all_evenements .e_content_child {
   overflow: auto;
   height: 220px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+/*----------------------------------------*\
+    13.Errors
+\*----------------------------------------*/
+/* line 1, ../scss/_errors.scss */
+#errors {
+  /*----------------------------------------
+   PARALAX
+  ----------------------------------------*/
+}
+/* line 5, ../scss/_errors.scss */
+#errors .parallax-container {
+  min-height: 500px;
+}
+/* line 10, ../scss/_errors.scss */
+#errors p {
+  text-align: center;
+  font-size: large;
 }

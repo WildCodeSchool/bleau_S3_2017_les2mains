@@ -20,7 +20,7 @@ class SelectProduit
     private $quantiteCommande;
 
     /**
-     * @var integer
+     * @var float
      */
     private $prixTotal;
 
@@ -72,7 +72,7 @@ class SelectProduit
     /**
      * Set prixTotal
      *
-     * @param integer $prixTotal
+     * @param float $prixTotal
      *
      * @return SelectProduit
      */
@@ -86,7 +86,7 @@ class SelectProduit
     /**
      * Get prixTotal
      *
-     * @return integer
+     * @return float
      */
     public function getPrixTotal()
     {

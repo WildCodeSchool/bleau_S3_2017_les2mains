@@ -21,7 +21,9 @@ class EvenementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', TextType::class)
+            ->add('date', DateTimeType::class, array(
+	            'widget'=>'single_text',
+            ))
             ->add('lieu', EntityType::class, array(
                 'class' => 'CommerceBundle\Entity\Lieu',
                 'choice_label' => 'nom'

@@ -10,7 +10,7 @@ CommerceBundle\Entity\Marchandise:
                 strategy: AUTO
     fields:
         prix:
-            type: integer
+            type: float
         quantite:
             type: integer
         unite:

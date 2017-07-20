@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             new CommerceBundle\CommerceBundle(),
             new BlogBundle\BlogBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-
+	        new Liip\ImagineBundle\LiipImagineBundle(),
 
         ];
 

@@ -18,3 +18,4 @@
 .sass-cache
 !/composer.lock
 /web/uploads
+/web/media
