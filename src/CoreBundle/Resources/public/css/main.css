@@ -1307,3 +1307,22 @@ Responsive Menu Nav
   padding-left: 10px;
   padding-right: 10px;
 }
+
+/*----------------------------------------*\
+    13.Errors
+\*----------------------------------------*/
+/* line 1, ../scss/_errors.scss */
+#errors {
+  /*----------------------------------------
+   PARALAX
+  ----------------------------------------*/
+}
+/* line 5, ../scss/_errors.scss */
+#errors .parallax-container {
+  min-height: 500px;
+}
+/* line 10, ../scss/_errors.scss */
+#errors p {
+  text-align: center;
+  font-size: large;
+}
