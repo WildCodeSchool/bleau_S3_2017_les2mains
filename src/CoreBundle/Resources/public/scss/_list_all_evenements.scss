@@ -1,12 +1,21 @@
-#list_all_evenements{
-  .parallax_evenement {
+#list_all_evenements
+{
+  .parallax-container
+  {
+    min-height: 170px;
+  }
+
+  .parallax_evenement
+  {
     min-height: 200px;
   }
-  .evenement_container{
+  .evenement_container
+  {
     text-align: center;
     margin: auto;
   }
-  .evenement_content{
+  .evenement_content
+  {
     border-top: 2px solid teal;
     border-bottom: 2px solid teal;
     height: auto;
@@ -15,18 +24,22 @@
     transition: 1s;
     box-shadow: 3px 3px 7px gray;
   }
-  .place{
+  .place
+  {
     font-weight: 900;
     font-size: 18px;
     text-transform: uppercase;
   }
-  .adress, .indication{
+  .adress, .indication
+  {
     font-size: 16px;
   }
-  .evenement_btn{
+  .evenement_btn
+  {
     margin: 10px;
   }
-  .e_content_child{
+  .e_content_child
+  {
     overflow: auto;
     height: 220px;
     padding-left: 10px;

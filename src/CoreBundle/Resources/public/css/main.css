@@ -976,15 +976,19 @@ Responsive Menu Nav
 /*----------------------------------------*\
     7.PRODUITS
 \*----------------------------------------*/
-/* line 3, ../scss/_products.scss */
+/* line 2, ../scss/_products.scss */
+#products .parallax-container {
+  min-height: 170px;
+}
+/* line 6, ../scss/_products.scss */
 #products .header_product {
   min-height: 170px;
 }
-/* line 7, ../scss/_products.scss */
+/* line 10, ../scss/_products.scss */
 #products .parallax_mid_product {
   min-height: 30px;
 }
-/* line 11, ../scss/_products.scss */
+/* line 14, ../scss/_products.scss */
 #products .card_picture {
   height: 200px;
   width: auto;
@@ -992,31 +996,31 @@ Responsive Menu Nav
   margin: auto;
   transition: .5s all;
 }
-/* line 18, ../scss/_products.scss */
+/* line 21, ../scss/_products.scss */
 #products .products_parallax {
   min-height: 200px;
 }
-/* line 21, ../scss/_products.scss */
+/* line 24, ../scss/_products.scss */
 #products .text_perso_products {
   color: #80cbc4;
 }
-/* line 24, ../scss/_products.scss */
+/* line 27, ../scss/_products.scss */
 #products .big_text_card_picture_product {
   top: 33%;
   font-size: 24px;
   font-weight: 300;
 }
-/* line 29, ../scss/_products.scss */
+/* line 32, ../scss/_products.scss */
 #products .medium_text_card_picture_product {
   font-size: 15px;
   font-weight: 500;
   top: 31%;
 }
-/* line 34, ../scss/_products.scss */
+/* line 37, ../scss/_products.scss */
 #products .card {
   z-index: 0;
 }
-/* line 37, ../scss/_products.scss */
+/* line 40, ../scss/_products.scss */
 #products .index_btn {
   z-index: 1;
 }
@@ -1267,16 +1271,20 @@ Responsive Menu Nav
 /*----------------------------------------*\
     12.LIST ALL EVENEMENTS
 \*----------------------------------------*/
-/* line 2, ../scss/_list_all_evenements.scss */
+/* line 3, ../scss/_list_all_evenements.scss */
+#list_all_evenements .parallax-container {
+  min-height: 170px;
+}
+/* line 8, ../scss/_list_all_evenements.scss */
 #list_all_evenements .parallax_evenement {
   min-height: 200px;
 }
-/* line 5, ../scss/_list_all_evenements.scss */
+/* line 12, ../scss/_list_all_evenements.scss */
 #list_all_evenements .evenement_container {
   text-align: center;
   margin: auto;
 }
-/* line 9, ../scss/_list_all_evenements.scss */
+/* line 17, ../scss/_list_all_evenements.scss */
 #list_all_evenements .evenement_content {
   border-top: 2px solid teal;
   border-bottom: 2px solid teal;
@@ -1286,21 +1294,21 @@ Responsive Menu Nav
   transition: 1s;
   box-shadow: 3px 3px 7px gray;
 }
-/* line 18, ../scss/_list_all_evenements.scss */
+/* line 27, ../scss/_list_all_evenements.scss */
 #list_all_evenements .place {
   font-weight: 900;
   font-size: 18px;
   text-transform: uppercase;
 }
-/* line 23, ../scss/_list_all_evenements.scss */
+/* line 33, ../scss/_list_all_evenements.scss */
 #list_all_evenements .adress, #list_all_evenements .indication {
   font-size: 16px;
 }
-/* line 26, ../scss/_list_all_evenements.scss */
+/* line 37, ../scss/_list_all_evenements.scss */
 #list_all_evenements .evenement_btn {
   margin: 10px;
 }
-/* line 29, ../scss/_list_all_evenements.scss */
+/* line 41, ../scss/_list_all_evenements.scss */
 #list_all_evenements .e_content_child {
   overflow: auto;
   height: 220px;
