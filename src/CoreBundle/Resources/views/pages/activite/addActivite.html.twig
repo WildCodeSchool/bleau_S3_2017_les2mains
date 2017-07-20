@@ -123,7 +123,7 @@
                         <div class="card">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <div class="card-image waves-effect waves-block waves-light">
-                                    <div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ activite.picture.src ) }}'); background-size:cover; background-position:center">
+                                    <div class="card_picture" style="background-image: url('{{ activite.picture.src | imagine_filter('xLarge') }}'); background-size:cover; background-position:center">
                                         <div class="block_text_card_picture activator btn waves-effect waves-light">
                                             <span class="text_card_picture big_text_card_picture activator">Cliquez</span>
                                             <span class="text_card_picture medium_text_card_picture activator">Pour plus d'infos</span>
@@ -181,29 +181,30 @@
         </div>
     </div>
 	{% include '@Core/pages/footer.html.twig' %}
-	
-	{% block javascripts %}
-        {#Function Ajax for Delete Theme in page Activity#}
-        <script>
-            $( document ).ready(function() {
-                $('.deleteThemeAction').click(function (e) {
-                    e.preventDefault();
-                    var idTheme = $(this).attr( "id" );
-                    var element = $(this).parent().parent();
 
-                    $.ajax({
-                        method: "post",
-                        data: {'idTheme': idTheme },
-                        url: "{{ path('core_activite_theme_delete') }}",
+{% endblock %}
 
-                        success: function(response){
-                            alert(response);
-                            element.fadeOut();
-                        }
-                    });
+{% block javascripts %}
+    {#Function Ajax for Delete Theme in page Activity#}
+    <script>
+        $( document ).ready(function() {
+            $('.deleteThemeAction').click(function (e) {
+                e.preventDefault();
+                var idTheme = $(this).attr( "id" );
+                var element = $(this).parent().parent();
+
+                $.ajax({
+                    method: "post",
+                    data: {'idTheme': idTheme },
+                    url: "{{ path('core_activite_theme_delete') }}",
+
+                    success: function(response){
+                        alert(response);
+                        element.fadeOut();
+                    }
                 });
             });
-            showEditFormAjax('.formEditActivite', "{{ path('core_activite_edit') }}")
-        </script>
-	{% endblock %}
+        });
+        showEditFormAjax('.formEditActivite', "{{ path('core_activite_edit') }}")
+    </script>
 {% endblock %}
