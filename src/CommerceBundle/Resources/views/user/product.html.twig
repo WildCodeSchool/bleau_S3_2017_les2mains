@@ -92,7 +92,7 @@
 						<div class="card">
 							<div class="card-image waves-effect waves-block waves-light" id="{{ product.id }}">
 								<div class="card-image waves-effect waves-block waves-light">
-									<div class="card_picture" style="background-image: url('{{ asset('uploads/images/' ~ product.picture.src ) }}'); background-size:cover; background-position:center">
+									<div class="card_picture" style="background-image: url('{{ product.picture.src | imagine_filter('xLarge') }}'); background-size:cover; background-position:center">
 										<div class="block_text_card_picture activator btn waves-effect waves-light">
 											<span class="text_card_picture activator big_text_card_picture_product">Cliquez</span>
 											<span class="text_card_picture activator medium_text_card_picture_product">Pour plus d'infos</span>
@@ -135,9 +135,10 @@
 		</div>
 		{% include '@Core/pages/footer.html.twig' %}
 	</div>
-	{% block javascripts %}
-		<script>
-            showEditFormAjax(".formEditProduct", "{{ path('product_edit') }}")
-		</script>
-	{% endblock %}
+{% endblock %}
+
+{% block javascripts %}
+	<script>
+		showEditFormAjax(".formEditProduct", "{{ path('product_edit') }}")
+	</script>
 {% endblock %}

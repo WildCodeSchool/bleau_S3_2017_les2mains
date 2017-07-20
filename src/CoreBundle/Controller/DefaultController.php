@@ -51,7 +51,7 @@ class DefaultController extends Controller
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Some Subject')
-            ->setFrom(array($contact->getEmail() => 'Le Jardin dans la Vallée'))
+            ->setFrom(array($contact->getEmail() => $this->getParameter('mailer_sender_name')))
             ->setTo($this->getParameter('mailer_user'))
             ->setContentType("text/html")
             ->setBody($this->renderView(':Email:contactMail.html.twig', array(
