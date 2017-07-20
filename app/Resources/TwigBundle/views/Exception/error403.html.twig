@@ -1,0 +1,22 @@
+{% extends '@Core/layout.html.twig'%}
+
+{% block body %}
+	<div id="errors">
+		<div class="parallax-container">
+			<div class="parallax">
+				<img src="{{ asset('bundles/core/img/pictures/Poule_Errors.jpg') }}">
+			</div>
+		</div>
+		<div class="section container">
+			<div class="row">
+				<div class="col m8 offset-m2 s12 center-align">
+					<h4 class="title form center-align">Erreur 403</h4>
+					<p>Désolé, Autorisation refusée.</p>
+					<div class="col m8 offset-m2 s12 center-align">
+						<a href="{{ path('core_homepage') }}" class="waves-effect waves-light btn-large pulse">Retour Page D'Acceuil</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

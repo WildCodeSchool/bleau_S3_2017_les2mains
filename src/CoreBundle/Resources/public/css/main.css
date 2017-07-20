@@ -128,7 +128,7 @@ p {
 /* line 137, ../scss/_global.scss */
 .menu_text {
   margin: 50px auto 0px -13px;
-  color: #69c546;
+  color: black;
   position: fixed;
   font-weight: bold;
   text-transform: uppercase;
@@ -774,7 +774,7 @@ Responsive Menu Nav
   position: relative;
   background-image: url("../img/background/homepage.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: top;
 }
 
 /* line 11, ../scss/_homepage.scss */
@@ -1019,6 +1019,10 @@ Responsive Menu Nav
 /* line 37, ../scss/_products.scss */
 #products .index_btn {
   z-index: 1;
+}
+/* line 40, ../scss/_products.scss */
+#products .card-title {
+  font-size: 17px !important;
 }
 
 /*----------------------------------------*\
@@ -1306,4 +1310,23 @@ Responsive Menu Nav
   height: 220px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+/*----------------------------------------*\
+    13.Errors
+\*----------------------------------------*/
+/* line 1, ../scss/_errors.scss */
+#errors {
+  /*----------------------------------------
+   PARALAX
+  ----------------------------------------*/
+}
+/* line 5, ../scss/_errors.scss */
+#errors .parallax-container {
+  min-height: 500px;
+}
+/* line 10, ../scss/_errors.scss */
+#errors p {
+  text-align: center;
+  font-size: large;
 }
