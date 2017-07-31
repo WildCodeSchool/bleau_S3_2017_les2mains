@@ -205,7 +205,7 @@
             $.ajax({
                 method: "post",
                 data: {'idPlace': idPlace },
-                url: "{{ path('core_activite_theme_delete') }}",
+                url: "{{ path('booking_place_delete') }}",
 
                 success: function(response){
                     alert(response);
