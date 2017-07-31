@@ -39,6 +39,18 @@
 				</div>
 			{% endif %}
 		</div>
+		{% if is_granted('ROLE_ADMIN')%}
+			<div class="container themes">
+				<div class="row">
+					<a class = "offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center " href="#modalthemeslist">Liste des Catégories</a>
+				</div>
+				<div id="modalthemeslist" class="modal">
+					<div class="modal-content">
+						{{ render(controller('CommerceBundle:Product:listAllCategories')) }}
+					</div>
+				</div>
+			</div>
+		{% endif %}
 		<div class="container product">
 			{% if is_granted('ROLE_ADMIN')%}
 				<div class="row">
@@ -101,11 +113,16 @@
 								</div>
 							</div>
 							<div class="card-content">
+				{#<span class="new badge red">1</span>#}
+				{#<span class="new badge blue">2</span>#}
 								<span class="card-title activator grey-text text-darken-4">{{ product.name }}<i class="material-icons right">more_vert</i></span>
 							</div>
 							<div class="card-reveal">
 								<span class="card-title grey-text text-darken-4">{{ product.name }}<i class="material-icons right">close</i></span>
 								<p>{{ product.content|nl2br }}</p>
+								
+				{#<span class="new badge red">Non Disponible à la Vente</span>
+				<span class="new badge blue">Disponible à la Vente</span>#}
 							</div>
 						</div>
 						{% if is_granted('ROLE_ADMIN') %}

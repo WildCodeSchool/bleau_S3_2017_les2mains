@@ -12,6 +12,18 @@ use Symfony\Component\HttpFoundation\Request;
 class ProductController extends Controller
 {
 
+
+    public function listAllCategoriesAction(){
+        $em = $this->getDoctrine()->getManager();
+
+        $listcategories = $em->getRepository(\CommerceBundle\Entity\Category::class)->findAll();
+
+        return $this->render('@Commerce/user/listAllCategories.html.twig', array(
+            'listcategories' => $listcategories,
+        ));
+    }
+
+
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
