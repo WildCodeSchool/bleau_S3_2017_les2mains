@@ -7,7 +7,9 @@
 {% block body %}
     <div id="booking">
         <div class="parallax-container">
-            <div class="parallax"><img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;"></div>
+            <div class="parallax">
+                <img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+            </div>
             <div class="section header">
                 <h3 class="header center title">Ajout d'une vente</h3>
             </div>
@@ -16,16 +18,25 @@
             <div class="row">
 
                 <!-- Modal Trigger -->
-                <div class="col m4 s12">
+                <div class="col m6 s12">
                     <a class="waves-effect waves-light btn btn_modal" href="#modaladdbooking">Ajouter un lieu</a>
                 </div>
-                <div class="col m4 s12">
+                 <div class="col m6 s12">
+                    <a class = "waves-effect waves-light btn btn_modal " href="#modalLieuxlist">Liste des Lieux</a>
+                </div>
+                <div class="col m6 s12">
                     <a class="waves-effect waves-light btn btn_modal" href="{{ path('add_booking') }}">Créer une nouvelle vente</a>
                 </div>
-                <div class="col m4 s12">
+                <div class="col m6 s12">
                     <a class="waves-effect waves-light btn btn_modal" href="{{ path('list_evenementAction') }}">Voir tous les évènements</a>
                 </div>
-
+    
+                <!-- Modal Structure ListAllLieux -->
+                <div id="modalLieuxlist" class="modal">
+                    <div class="modal-content">
+			            {{ render(controller('CommerceBundle:BookingAdmin:listAllLieux')) }}
+                    </div>
+                </div>
 
                 <!-- Modal Structure -->
                 <div id="modaladdbooking" class="modal">
@@ -182,6 +193,23 @@
                         $('#commercebundle_marchandise_product').append('<option value="'+ response[i].id +'">'+ response[i].name +'</option>');
                     }
                     $('select').material_select();
+                }
+            });
+        });
+        
+        $('.deletePlacesAction').click(function (e) {
+            e.preventDefault();
+            var idPlace = $(this).attr( "id" );
+            var element = $(this).parent().parent();
+
+            $.ajax({
+                method: "post",
+                data: {'idPlace': idPlace },
+                url: "{{ path('core_activite_theme_delete') }}",
+
+                success: function(response){
+                    alert(response);
+                    element.fadeOut();
                 }
             });
         });

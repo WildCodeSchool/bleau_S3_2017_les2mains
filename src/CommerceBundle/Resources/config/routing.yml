@@ -72,6 +72,12 @@ edit_booking:
     requirements:
       id: '\d+'
 
+# Delete one Place
+booking_place_delete:
+    path:     /place/delete
+    defaults: { _controller: CommerceBundle:BookingAdmin:deletePlaces }
+
+
 get_product_by_categ:
     path: /admin/getProductByCateg
     defaults: {_controller: CommerceBundle:BookingAdmin:getProductByCateg}

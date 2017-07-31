@@ -1,0 +1,29 @@
+{% if listplaces is empty %}
+	<p class="center-align">Il n'y a pas de Catégorie référencé</p>
+{% else %}
+	
+	<table class="centered responsive-table highlight">
+		<thead>
+		<tr>
+			<th>
+				Nom :
+			</th>
+			<th>
+				Action :
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		{% for listplaces in listplaces %}
+			<tr>
+				<td>
+					{{ listplaces.nom }}
+				</td>
+				<td>
+					<a href="#" id="{{ listplaces.id }}" class="waves-effect teal z-depth-5 btn activite deletePlacesAction">Supprimer</a>
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+{% endif %}
