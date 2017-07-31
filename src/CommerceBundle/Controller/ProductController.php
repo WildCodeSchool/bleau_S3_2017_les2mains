@@ -7,12 +7,14 @@ use CommerceBundle\Form\CategoryType;
 use CommerceBundle\Form\ProductType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class ProductController extends Controller
 {
-
-
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function listAllCategoriesAction(){
         $em = $this->getDoctrine()->getManager();
 
@@ -132,5 +134,27 @@ class ProductController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('product');
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function deleteCategoriesAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest()) {
+            $em = $this->getDoctrine()->getManager();
+            $id = $request->request->get('idCat');
+
+            $category = $em->getRepository('CommerceBundle:Category')->findOneById($id);
+
+
+            $em->remove($category);
+            $em->flush();
+
+            return new Response('La Categorie ' . $category->getType() . ' ainsi que tous ses produits ont bien été supprimés');
+        }
+
+        return new Response('Une erreur est survenue, veuillez réessayer');
     }
 }

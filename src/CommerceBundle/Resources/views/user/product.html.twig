@@ -40,11 +40,11 @@
 			{% endif %}
 		</div>
 		{% if is_granted('ROLE_ADMIN')%}
-			<div class="container themes">
+			<div class="container categories">
 				<div class="row">
-					<a class = "offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center " href="#modalthemeslist">Liste des Catégories</a>
+					<a class = "offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modalCategoriesList">Liste des Catégories</a>
 				</div>
-				<div id="modalthemeslist" class="modal">
+				<div id="modalCategoriesList" class="modal">
 					<div class="modal-content">
 						{{ render(controller('CommerceBundle:Product:listAllCategories')) }}
 					</div>
@@ -156,6 +156,26 @@
 
 {% block javascripts %}
 	<script>
+		{#Function Ajax for Delete Categories in page Product#}
+        $( document ).ready(function() {
+            $('.deleteCategoriesAction').click(function (e) {
+                e.preventDefault();
+                var idCat = $(this).attr( "id" );
+                var element = $(this).parent().parent();
+
+                $.ajax({
+                    method: "post",
+                    data: {'idCat': idCat },
+                    url: "{{ path('product_category_delete') }}",
+
+                    success: function(response){
+                        alert(response);
+                        element.fadeOut();
+                    }
+                });
+            });
+        });
+        
 		showEditFormAjax(".formEditProduct", "{{ path('product_edit') }}")
 	</script>
 {% endblock %}

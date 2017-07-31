@@ -34,6 +34,11 @@ product_edit:
     path: /editProduct
     defaults: { _controller: CommerceBundle:Product:editProduct}
 
+# Delete one Category
+product_category_delete:
+    path:     /category/delete
+    defaults: { _controller: CommerceBundle:Product:deleteCategories }
+
 
 # Route booking user
 list_evenementAction:
