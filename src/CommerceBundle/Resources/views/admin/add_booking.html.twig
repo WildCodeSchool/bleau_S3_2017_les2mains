@@ -210,6 +210,9 @@
                 success: function(response){
                     alert(response);
                     element.fadeOut();
+                },
+                error: function(){
+                    alert("Attention ce lieu est déjà utilisé par un Evenement.")
                 }
             });
         });
