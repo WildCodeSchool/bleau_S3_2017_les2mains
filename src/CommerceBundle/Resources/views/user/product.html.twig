@@ -1,6 +1,8 @@
 {% extends '@Core/layout.html.twig' %}
 
 {% block body %}
+	
+	
 	<div id="products">
 		<div class="products_navigation">
 			{% for categories in categories %}
@@ -20,6 +22,7 @@
 		
 		<div class="container product">
 			{% if is_granted('ROLE_ADMIN')%}
+
 				<div class="row">
 					<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#modalcategorie">Ajouter une categorie</a>
 				</div>
@@ -152,10 +155,23 @@
 		</div>
 		{% include '@Core/pages/footer.html.twig' %}
 	</div>
+	
 {% endblock %}
 
 {% block javascripts %}
 	<script>
+		
+		
+		function showFlashMsg()
+		{
+		    var msg = {{ app.session.flashBag.get('notice')|json_encode|raw }};
+            for (var i = 0; i < msg.length; i++) {
+                Materialize.toast(msg[i], 4000)
+            }
+		}
+		
+		showFlashMsg();
+		
 		{#Function Ajax for Delete Categories in page Product#}
         $( document ).ready(function() {
             $('.deleteCategoriesAction').click(function (e) {

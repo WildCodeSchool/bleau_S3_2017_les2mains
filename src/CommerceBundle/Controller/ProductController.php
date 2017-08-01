@@ -5,6 +5,7 @@ use CommerceBundle\Entity\Category;
 use CommerceBundle\Entity\Product;
 use CommerceBundle\Form\CategoryType;
 use CommerceBundle\Form\ProductType;
+use Doctrine\DBAL\DBALException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -130,8 +131,22 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $product = $em->getRepository('CommerceBundle:Product')->findOneById($id);
-        $em->remove($product);
-        $em->flush();
+        // Gestion des erreurs
+        try{
+            $em->remove($product);
+            $em->flush();
+
+            $this->addFlash(
+                'notice',
+                'Le produit est bien supprimé'
+            );
+        } catch(DBALException $e) {
+
+            $this->addFlash(
+                'notice',
+                'Le produit est lié à un évenement et ne peut être supprimé'
+            );
+        }
 
         return $this->redirectToRoute('product');
     }
