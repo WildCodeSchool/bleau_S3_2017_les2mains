@@ -97,7 +97,7 @@
                                         <input class="qtMarchandise" id="{{ marchandise.id }}" type="number" value="{{ marchandise.quantite }}">
                                     </div>
                                     <div class="col s6">
-                                        <button class="qtMarchandiseButton" id="buttonMarchandiseQt_{{ marchandise.id }}">Modifier</button>
+                                        <button class="qtMarchandiseButton" data-id="{{ marchandise.id }}" id="buttonMarchandiseQt_{{ marchandise.id }}">Modifier</button>
                                     </div>
                                 </td>
                                 <td>{{ marchandise.unite }}</td>
@@ -120,40 +120,50 @@
 {% block javascripts %}
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script>
+
+        // Hide element before validation
+        $('#divFormMarchandise').hide();
+        $('.qtMarchandiseButton').hide();
+
+        // Init function
+        showButtonModifyQuantity();
+        modifyQt();
+
+        // Datatable init
         $(document).ready(function() {
             $('#tableMarchandise').DataTable();
         });
 
-        function modifyQt()
+        // Show button for validation modify quantity
+        function showButtonModifyQuantity()
         {
             $(".qtMarchandise").bind('keyup change click', function () {
                 var idMarchandise = $(this).attr('id');
                 $('#buttonMarchandiseQt_' + idMarchandise).fadeIn();
-
-                if (! $(this).data("previousValue") || $(this).data("previousValue") != $(this).val())
-                {
-                    $(this).data("previousValue", $(this).val());
-                    var newQt = $(this).val();
-                    $('#buttonMarchandiseQt_' + idMarchandise).on('click', function (e) {
-                        e.preventDefault();
-                        $.ajax({
-                            url: '{{ path('modify_qt_marchandise') }}',
-                            data: { 'qt': newQt, 'idMarchandise': idMarchandise },
-                            method: 'post',
-                            success: function (){
-                                $('#buttonMarchandiseQt_' + idMarchandise).fadeOut();
-                            }
-                        })
-                    });
-                }
             });
         }
 
-        $('#divFormMarchandise').hide();
-        $('.qtMarchandiseButton').hide();
-        modifyQt();
+        // Function for action modify quantity
+        function modifyQt()
+        {
+            $('.qtMarchandiseButton').on('click', function (e) {
+                e.preventDefault();
+                var idMarchandise = $(this).data('id');
+                var newQt = $(".qtMarchandise#" + idMarchandise).val();
 
+                $.ajax({
+                    url: '{{ path('modify_qt_marchandise') }}',
+                    data: { 'qt': newQt, 'idMarchandise': idMarchandise },
+                    method: 'post',
+                    success: function (){
+                        $('#buttonMarchandiseQt_' + idMarchandise).fadeOut();
+                        Materialize.toast('Quantitée modifiée', 4000)
+                    }
+                })
+            });
+        }
 
+        // Validation of create event
         $('#formCreateEvent').submit(function (e) {
             e.preventDefault();
             var form = $(this);
@@ -177,6 +187,7 @@
             })
         });
 
+        // Showing the products according to the selected category
         $('#commercebundle_marchandise_categorie').on('change', function () {
             var idCateg = $(this).val();
 
@@ -194,6 +205,7 @@
             });
         });
 
+        // Validation of a merchandise for the current event
         $('#formaddMarchandise').submit(function (e) {
 
             /* Targets the unit value input */
@@ -240,7 +252,7 @@
                             '<input class="qtMarchandise" id="' + $id + '" type="number" value="' + response.marchandise.quantite + '">' +
                             '</div>' +
                             '<div class="col s6">' +
-                            '<button class="qtMarchandiseButton" id="buttonMarchandiseQt_' + $id + '">Modifier</button>' +
+                            '<button class="qtMarchandiseButton" data-id="' + $id + '" id="buttonMarchandiseQt_' + $id + '">Modifier</button>' +
                             '</div>' +
                             '</td>');
 
@@ -253,6 +265,7 @@
 
                         $('#buttonMarchandiseQt_' + $id).hide();
                         modifyQt();
+                        showButtonModifyQuantity();
 
                         $deleteButtonElt.on("click", function(e){
                             e.preventDefault();
@@ -284,6 +297,7 @@
             })
         });
 
+        // Deleting a merchandise for the current event
         $('.deleteMarchandiseAction').on("click", function(e){
             e.preventDefault();
             var cancel = confirm("Vous allez supprimer un produit. Etes-vous sûr?");
