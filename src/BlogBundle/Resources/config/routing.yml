@@ -21,3 +21,15 @@ blog_actu_editValide:
     defaults: {_controller: BlogBundle:Actu:validEdit }
     requirements:
         id: '\d+'
+
+
+
+
+
+
+# List all speaker
+blog_intervenant:
+    path:     /intervenant
+    defaults: {_controller: BlogBundle:Intervenant:index }
+    methods: ['GET', 'POST']
+

@@ -1,0 +1,27 @@
+BlogBundle\Entity\Intervenant:
+    type: entity
+    table: null
+    repositoryClass: BlogBundle\Repository\IntervenantRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        contenu:
+            type: text
+        date:
+            type: datetime
+        lien:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }
+
+    oneToOne:
+        picture:
+            targetEntity: CoreBundle\Entity\Picture
+            cascade: ['all']
