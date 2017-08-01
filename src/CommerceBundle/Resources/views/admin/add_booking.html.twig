@@ -137,6 +137,16 @@
             </div>
         </div>
         {% include '@Core/pages/footer.html.twig' %}
+        
+        <!-- Modal Structure -->
+        <div id="errorModal" class="modal">
+            <div id="modalContentError" class="modal-content center-align">
+           
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
@@ -208,11 +218,14 @@
                 url: "{{ path('booking_place_delete') }}",
 
                 success: function(response){
-                    alert(response);
+                    $('#modalContentError').append(response);
+                    $('#errorModal').modal('open');
+
                     element.fadeOut();
                 },
                 error: function(){
-                    alert("Attention ce lieu est déjà utilisé par un Evenement.")
+                    $('#modalContentError').append("Le lieu est utilisé par un évènement");
+                    $('#errorModal').modal('open');
                 }
             });
         });

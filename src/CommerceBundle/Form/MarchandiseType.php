@@ -22,7 +22,7 @@ class MarchandiseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('prix', NumberType::class)
-                ->add('quantite', IntegerType::class)
+                ->add('quantite', NumberType::class)
                 ->add('unite', TextType::class, array(
                     'required' => false
                 ))
