@@ -1,0 +1,26 @@
+<div class="modal-content">
+	{{ form_start(form) }}
+	
+	<div class="form_add">
+		{{ form_widget(form.titre, {'attr': {'placeholder': 'Votre Titre' }}) }}
+		{{ form_errors(form.titre) }}
+	</div>
+	<div class="form_add">
+		{{ form_widget(form.contenu, {'attr': {'class': 'materialize-textarea','placeholder':'Votre Contenu'}} ) }}
+		{{ form_errors(form.contenu) }}
+	</div>
+	<div class="input-field form_add">
+		
+		{{ form_widget(form.lien, {'attr': {'class': 'materialize-textarea', 'placeholder': 'Lien' }}) }}
+		{{ form_errors(form.lien) }}
+	</div>
+	<div class="input-field form_add">
+		{{ form_widget(form.picture.file) }}
+		{{ form_errors(form.picture.file) }}
+	</div>
+	<div class="form_add center-align">
+		{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+	</div>
+	
+	{{ form_end(form) }}
+</div>

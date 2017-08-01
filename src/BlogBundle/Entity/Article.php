@@ -12,7 +12,7 @@ class Article
         $this->date = new \DateTime('now');
     }
 
-    //gereate code
+    //generate code
    
     /**
      * @var integer

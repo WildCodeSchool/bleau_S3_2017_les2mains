@@ -33,3 +33,20 @@ blog_intervenant:
     defaults: {_controller: BlogBundle:Intervenant:index }
     methods: ['GET', 'POST']
 
+
+blog_intervenant_delete:
+    path:     /{id}/intervenant/delete
+    defaults: {_controller: BlogBundle:Intervenant:delete }
+    requirements:
+        id: '\d+'
+
+blog_intervenant_edit:
+    path: /editIntervenant
+    defaults: { _controller: BlogBundle:Intervenant:editIntervenant}
+
+
+blog_intervenant_editValide:
+    path:     /{id}/intervenant/edit
+    defaults: {_controller: BlogBundle:Intervenant:validEdit }
+    requirements:
+        id: '\d+'

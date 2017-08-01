@@ -7,6 +7,15 @@ namespace BlogBundle\Entity;
  */
 class Intervenant
 {
+
+    public function __construct()
+    {
+        $this->date = new \DateTime('now');
+    }
+
+    //generate code
+
+
     /**
      * @var int
      */

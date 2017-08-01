@@ -3,9 +3,9 @@
 namespace BlogBundle\Controller;
 
 use BlogBundle\Entity\Article;
+use BlogBundle\Form\ArticleType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use BlogBundle\Form\ArticleType;
 use Symfony\Component\HttpFoundation\Response;
 
 class ActuController extends Controller
