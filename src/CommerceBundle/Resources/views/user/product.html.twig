@@ -193,7 +193,7 @@
                         element.fadeOut();
                     },
                     error: function(){
-                        $('#modalContentError').append("Erreur.");
+                        $('#modalContentError').append("Suppression impossible car cette catégorie contient des produits liés à une vente.");
                         $('#errorModal').modal('open');
                     }
                 });
