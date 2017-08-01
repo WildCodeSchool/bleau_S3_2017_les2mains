@@ -137,7 +137,7 @@
         // Show button for validation modify quantity
         function showButtonModifyQuantity()
         {
-            $(".qtMarchandise").bind('keyup change click', function () {
+            $(".qtMarchandise").bind('keyup', function (e) {
                 var idMarchandise = $(this).attr('id');
                 $('#buttonMarchandiseQt_' + idMarchandise).fadeIn();
             });
@@ -147,6 +147,7 @@
         function modifyQt()
         {
             $('.qtMarchandiseButton').on('click', function (e) {
+                $('.qtMarchandiseButton').off('click');
                 e.preventDefault();
                 var idMarchandise = $(this).data('id');
                 var newQt = $(".qtMarchandise#" + idMarchandise).val();
@@ -158,6 +159,12 @@
                     success: function (){
                         $('#buttonMarchandiseQt_' + idMarchandise).fadeOut();
                         Materialize.toast('Quantitée modifiée', 4000)
+                    },
+                    error: function(){
+                        Materialize.toast('Quantitée incorrect, modification non effectuée', 4000)
+                    },
+                    complete: function(){
+                        $('.qtMarchandiseButton').on('click', modifyQt());
                     }
                 })
             });
