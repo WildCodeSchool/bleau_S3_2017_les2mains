@@ -319,7 +319,7 @@ class BookingAdminController extends Controller
             $em->remove($place);
             $em->flush();
 
-            return new Response('Le Lieu ' . $place->getNom() . ' ainsi que toutes ses ventes ont bien été supprimés');
+            return new Response('Le Lieu ' . $place->getNom() . ' à bien été supprimé');
         }
 
         return new Response('Une erreur est survenue, veuillez réessayer');

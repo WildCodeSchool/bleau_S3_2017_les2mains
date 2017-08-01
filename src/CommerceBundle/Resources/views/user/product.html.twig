@@ -1,8 +1,7 @@
 {% extends '@Core/layout.html.twig' %}
 
 {% block body %}
-	
-	
+
 	<div id="products">
 		<div class="products_navigation">
 			{% for categories in categories %}
@@ -116,16 +115,11 @@
 								</div>
 							</div>
 							<div class="card-content">
-				{#<span class="new badge red">1</span>#}
-				{#<span class="new badge blue">2</span>#}
 								<span class="card-title activator grey-text text-darken-4">{{ product.name }}<i class="material-icons right">more_vert</i></span>
 							</div>
 							<div class="card-reveal">
 								<span class="card-title grey-text text-darken-4">{{ product.name }}<i class="material-icons right">close</i></span>
 								<p>{{ product.content|nl2br }}</p>
-								
-				{#<span class="new badge red">Non Disponible à la Vente</span>
-				<span class="new badge blue">Disponible à la Vente</span>#}
 							</div>
 						</div>
 						{% if is_granted('ROLE_ADMIN') %}
@@ -154,8 +148,16 @@
 			</div>
 		</div>
 		{% include '@Core/pages/footer.html.twig' %}
+		<!-- Modal Structure -->
+		<div id="errorModal" class="modal">
+			<div id="modalContentError" class="modal-content center-align">
+			
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
+			</div>
+		</div>
 	</div>
-	
 {% endblock %}
 
 {% block javascripts %}
@@ -185,13 +187,18 @@
                     url: "{{ path('product_category_delete') }}",
 
                     success: function(response){
-                        alert(response);
+                        $('#modalContentError').append(response);
+                        $('#errorModal').modal('open');
+
                         element.fadeOut();
+                    },
+                    error: function(){
+                        $('#modalContentError').append("Suppression impossible car cette catégorie contient des produits liés à une vente.");
+                        $('#errorModal').modal('open');
                     }
                 });
             });
         });
-        
 		showEditFormAjax(".formEditProduct", "{{ path('product_edit') }}")
 	</script>
 {% endblock %}

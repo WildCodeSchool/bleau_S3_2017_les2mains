@@ -10,7 +10,6 @@ class Marchandise
 
 	public $categorie;
 
-	// Genrated code
 
     /**
      * @var integer
@@ -23,7 +22,7 @@ class Marchandise
     private $prix;
 
     /**
-     * @var integer
+     * @var float
      */
     private $quantite;
 
@@ -80,7 +79,7 @@ class Marchandise
     /**
      * Set quantite
      *
-     * @param integer $quantite
+     * @param float $quantite
      *
      * @return Marchandise
      */
@@ -94,7 +93,7 @@ class Marchandise
     /**
      * Get quantite
      *
-     * @return integer
+     * @return float
      */
     public function getQuantite()
     {
