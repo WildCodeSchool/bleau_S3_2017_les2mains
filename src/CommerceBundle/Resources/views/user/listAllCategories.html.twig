@@ -1,0 +1,29 @@
+{% if listcategories is empty %}
+	<p class="center-align">Il n'y a pas de Catégorie référencé</p>
+{% else %}
+	
+	<table class="centered responsive-table highlight">
+		<thead>
+		<tr>
+			<th>
+				Nom :
+			</th>
+			<th>
+				Action :
+			</th>
+		</tr>
+		</thead>
+		<tbody>
+		{% for listcategories in listcategories %}
+			<tr>
+				<td>
+					{{ listcategories.type }}
+				</td>
+				<td>
+					<a href="#" id="{{ listcategories.id }}" class="waves-effect teal z-depth-5 btn activite deleteCategoriesAction">Supprimer</a>
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+{% endif %}

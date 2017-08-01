@@ -34,6 +34,11 @@ product_edit:
     path: /editProduct
     defaults: { _controller: CommerceBundle:Product:editProduct}
 
+# Delete one Category
+product_category_delete:
+    path:     /category/delete
+    defaults: { _controller: CommerceBundle:Product:deleteCategories }
+
 
 # Route booking user
 list_evenementAction:
@@ -66,6 +71,12 @@ edit_booking:
     defaults: {_controller: CommerceBundle:BookingAdmin:editBooking}
     requirements:
       id: '\d+'
+
+# Delete one Place
+booking_place_delete:
+    path:     /place/delete
+    defaults: { _controller: CommerceBundle:BookingAdmin:deletePlaces }
+
 
 get_product_by_categ:
     path: /admin/getProductByCateg

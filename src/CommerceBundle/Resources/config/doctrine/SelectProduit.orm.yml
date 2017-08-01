@@ -10,7 +10,7 @@ CommerceBundle\Entity\SelectProduit:
                 strategy: AUTO
     fields:
         quantiteCommande:
-            type: integer
+            type: float
         prixTotal:
             type: float
             column: PrixTotal

@@ -9,13 +9,14 @@ class SelectProduit
 {
     // Generated code
 
+
     /**
      * @var integer
      */
     private $id;
 
     /**
-     * @var integer
+     * @var float
      */
     private $quantiteCommande;
 
@@ -48,7 +49,7 @@ class SelectProduit
     /**
      * Set quantiteCommande
      *
-     * @param integer $quantiteCommande
+     * @param float $quantiteCommande
      *
      * @return SelectProduit
      */
@@ -62,7 +63,7 @@ class SelectProduit
     /**
      * Get quantiteCommande
      *
-     * @return integer
+     * @return float
      */
     public function getQuantiteCommande()
     {

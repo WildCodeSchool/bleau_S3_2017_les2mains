@@ -12,7 +12,7 @@ CommerceBundle\Entity\Marchandise:
         prix:
             type: float
         quantite:
-            type: integer
+            type: float
         unite:
             type: string
             nullable: true

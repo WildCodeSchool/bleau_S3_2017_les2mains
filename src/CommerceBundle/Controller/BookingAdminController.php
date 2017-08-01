@@ -22,6 +22,16 @@ use Symfony\Component\Serializer\Serializer;
 class BookingAdminController extends Controller
 {
 
+
+    public function listAllLieuxAction(){
+        $em = $this->getDoctrine()->getManager();
+
+        $listplaces = $em->getRepository(\CommerceBundle\Entity\Lieu::class)->findAll();
+
+        return $this->render('@Commerce/admin/listAllPlaces.html.twig', array(
+            'listplaces' => $listplaces,
+        ));
+    }
 	/**
 	 * Créer un évènement
 	 * @param Request $request
@@ -295,6 +305,24 @@ class BookingAdminController extends Controller
 	    $response->headers->set('Content-Disposition','filename="' . $nameCSV . '"');
 
 	    return $response;
+    }
+
+    public function deletePlacesAction(Request $request)
+    {
+        if ($request->isXmlHttpRequest())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $id = $request->request->get('idPlace');
+
+            $place = $em->getRepository('CommerceBundle:Lieu')->findOneById($id);
+
+            $em->remove($place);
+            $em->flush();
+
+            return new Response('Le Lieu ' . $place->getNom() . ' ainsi que toutes ses ventes ont bien été supprimés');
+        }
+
+        return new Response('Une erreur est survenue, veuillez réessayer');
     }
 
 }

@@ -3,7 +3,9 @@
 {% block body %}
 	<div id="booking">
 		<div class="parallax-container">
-			<div class="parallax"><img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;"></div>
+			<div class="parallax">
+				<img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+			</div>
 			<div class="section header">
 				<h3 class="header center title">Vente du {{ evenement.date|date("d/m/Y") }}</h3>
 			</div>
@@ -36,9 +38,9 @@
 					</tr>
 					</thead>
 					<tbody>
-
-                    {% for name, categorie in categories %}
-
+					
+					{% for name, categorie in categories %}
+						
 						<tr class="grey">
 							<td colspan="5">{{ categorie|first.product.categories.type }}</td>
 						</tr>
@@ -52,7 +54,7 @@
 									{% if marchandise.quantite > 0 %}
 										{{ form_widget(formUser.selectProduits[key].quantiteCommande, {'attr': {'max': marchandise.quantite, 'min': 0 }}) }}
 									{% else %}
-                                        {{ form_widget(formUser.selectProduits[key].quantiteCommande, {'attr': {'disabled': true, 'placeholder': 'Epuisé' }}) }}
+										{{ form_widget(formUser.selectProduits[key].quantiteCommande, {'attr': {'disabled': true, 'placeholder': 'Epuisé' }}) }}
 									{% endif %}
 								</td>
 							</tr>

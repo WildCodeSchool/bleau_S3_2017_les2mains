@@ -22,9 +22,9 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
 
         // Create our user and set details
         $admin = $userManager->createUser();
-        $admin->setUsername('admin');
-        $admin->setEmail('admin@domain.com');
-        $admin->setPlainPassword('admin');
+        $admin->setUsername('jardindelavalee');
+        $admin->setEmail('legumesdelavallee@free.fr');
+        $admin->setPlainPassword('2**jardin77$$brandard620.fr');
         //$user->setPassword('3NCRYPT3D-V3R51ON');
         $admin->setEnabled(true);
         $admin->setRoles(array('ROLE_ADMIN'));
@@ -34,9 +34,9 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
 
         // Create our user and set details
         $admin = $userManager->createUser();
-        $admin->setUsername('jim');
+        $admin->setUsername('superAdmin');
         $admin->setEmail('phle2022@gmail.com');
-        $admin->setPlainPassword('jim');
+        $admin->setPlainPassword('superAdmin');
         //$user->setPassword('3NCRYPT3D-V3R51ON');
         $admin->setEnabled(true);
         $admin->setRoles(array('ROLE_ADMIN'));
