@@ -100,12 +100,12 @@
                     </div>
                     <div class="col m2 s4">
                         {{ form_label(formMarchandise.prix) }}
-                        {{ form_widget(formMarchandise.prix) }}
+                        {{ form_widget(formMarchandise.prix, {'attr': {'min': 0 }}) }}
                         {{ form_errors(formMarchandise.prix) }}
                     </div>
                     <div class="col m2 s4">
                         {{ form_label(formMarchandise.quantite) }}
-                        {{ form_widget(formMarchandise.quantite) }}
+                        {{ form_widget(formMarchandise.quantite, {'attr': {'min': 0 }} ) }}
                         {{ form_errors(formMarchandise.quantite) }}
                     </div>
                     <div class="col m2 s4">
