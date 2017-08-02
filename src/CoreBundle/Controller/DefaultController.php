@@ -50,7 +50,7 @@ class DefaultController extends Controller
     private function sendEmail(Contact $contact){
 
         $message = \Swift_Message::newInstance()
-            ->setSubject('Some Subject')
+            ->setSubject("Vous avez une nouvelle demande")
             ->setFrom(array($contact->getEmail() => $this->getParameter('mailer_sender_name')))
             ->setTo($this->getParameter('mailer_user'))
             ->setContentType("text/html")
