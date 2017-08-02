@@ -4,6 +4,7 @@ namespace CommerceBundle\Form;
 
 use CommerceBundle\Entity\Category;
 use CommerceBundle\Entity\Product;
+use CommerceBundle\Form\CustomType\FloatType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -21,24 +22,25 @@ class MarchandiseType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('prix', NumberType::class)
-                ->add('quantite', NumberType::class)
-                ->add('unite', TextType::class, array(
-                    'required' => false
-                ))
-		        ->add('categorie', EntityType::class, array(
-		            'class' => Category::class,
-			        'choice_label' => 'type',
-			        'placeholder' => 'Selectionnez une catégorie',
-			        'required' => false
-		        ))
-                ->add('product', EntityType::class, array(
-                	'class' => Product::class,
-	                'choice_label' => 'name'
-                ))
-	            ->add('submit', SubmitType::class, array(
-                    'label' => 'Valider'
-                ))
+        $builder
+	        ->add('prix', FloatType::class)
+            ->add('quantite', FloatType::class)
+            ->add('unite', TextType::class, array(
+                'required' => false
+            ))
+	        ->add('categorie', EntityType::class, array(
+	            'class' => Category::class,
+		        'choice_label' => 'type',
+		        'placeholder' => 'Selectionnez une catégorie',
+		        'required' => false
+	        ))
+            ->add('product', EntityType::class, array(
+                'class' => Product::class,
+                'choice_label' => 'name'
+            ))
+            ->add('submit', SubmitType::class, array(
+                'label' => 'Valider'
+            ))
         ;
 
     }

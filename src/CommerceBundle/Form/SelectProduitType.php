@@ -2,9 +2,8 @@
 
 namespace CommerceBundle\Form;
 
+use CommerceBundle\Form\CustomType\FloatType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,11 +14,11 @@ class SelectProduitType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('quantiteCommande', NumberType::class, array(
-            'required' => false,
-	        'label' => false
-
-        ));
+        $builder
+	        ->add('quantiteCommande', FloatType::class, array(
+	            'required' => false,
+		        'label' => false
+            ));
     }
     
     /**
