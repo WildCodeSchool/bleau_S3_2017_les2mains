@@ -1,0 +1,106 @@
+{% extends '@Core/layout.html.twig' %}
+
+{% block body %}
+	<div id="blog">
+		<div class="parallax-container">
+			<div class="row">
+				<h1 class="col s12 center title">Nos Intervenants</h1>
+				{% if is_granted('ROLE_ADMIN') %}
+					<!-- Modal Trigger -->
+					<a class="offset-s4 offset-m4 col s4 m4 waves-effect teal z-depth-5 btn align-center" href="#addintervenant">Ajouter un Intervenant</a>
+					<!-- Modal Structure -->
+					<div id="addintervenant" class="modal">
+						<div class="modal-content">
+							{{ form_start(form) }}
+							
+							<div class="input-field form_add">
+								{{ form_label(form.titre) }}
+								{{ form_widget(form.titre) }}
+								{{ form_errors(form.titre) }}
+							</div>
+							<div class="input-field form_add">
+								{{ form_label(form.contenu) }}
+								{{ form_widget(form.contenu, {'attr': {'class': 'materialize-textarea' }}) }}
+								{{ form_errors(form.contenu) }}
+							</div>
+							<div class="input-field form_add">
+								
+								{{ form_widget(form.lien, {'attr': {'class': 'materialize-textarea','placeholder': 'Lien'}}) }}
+								{{ form_errors(form.lien) }}
+							</div>
+							<div class="input-field form_add">
+								{{ form_widget(form.picture.file) }}
+								{{ form_errors(form.picture.file) }}
+							</div>
+							<div class="input-field form_add">
+								{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+							</div>
+							{{ form_end(form) }}
+						</div>
+					</div>
+				{% endif %}
+			</div>
+			<div class="parallax">
+				<img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" alt="paralax_1" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+			</div>
+		</div>
+		<div class="container container_custom">
+			<div class="row">
+				{% if intervenants is not empty %}
+				{% for intervenant in intervenants %}
+				<div class="col s12 m12 l12 card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<div class="card_picture" style="background-image: url('{{ intervenant.picture.src | imagine_filter('xLarge') }}'); background-size:cover; background-position:center">
+							<div class="block_text_card_picture activator btn waves-effect waves-light">
+								<span class="text_card_picture big_text_card_picture activator">Cliquez</span>
+								<span class="text_card_picture medium_text_card_picture activator">Pour plus d'infos</span>
+							</div>
+						</div>
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4">{{ intervenant.titre }}<i class="material-icons right">more_vert</i></span>
+						<p><a href="#">{{ intervenant.date|date("d/m/Y") }}</a></p>
+						<div class="row">
+							{% if is_granted('ROLE_ADMIN') %}
+								<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+								<!-- Modal Trigger -->
+								<a class="col s4 offset-s1 waves-effect waves-light btn formEditActu" data-id="{{ intervenant.id }}" href="#modal{{ intervenant.id }}">Modifier</a>
+								<!-- Modal Structure -->
+								<div id="modal{{ intervenant.id }}" class="modal">
+								</div>
+								<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+								<a class="col s4 offset-s2 waves-effect waves-light btn" href=" {{ path('blog_intervenant_delete',{'id': intervenant.id}) }}">Effacer</a>
+							{% endif %}
+						</div>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">{{ intervenant.titre }}<i class="material-icons right">close</i></span>
+						<p>{{ intervenant.contenu|nl2br }}</p>
+						<a target="_blank" href="{{ intervenant.lien }}">{{ intervenant.lien|nl2br }}</a>
+					</div>
+				</div>
+			</div> <!-- close row -->
+		</div> <!-- close container -->
+		<div class="parallax-container">
+			<div class="parallax">
+				<img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}"  alt="{{ 'paralax_' ~ i }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;">
+			</div>
+		</div>
+		<div class="container container">
+			<div class="row">
+				{% endfor %}
+					{% else %}
+						<h4 class="title_empty">Il n'y pas d'intervenants pour le moment !</h4>
+				{% endif %}
+			</div>
+		</div>
+	
+	{% include '@Core/pages/footer.html.twig' %}
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script>
+        showEditFormAjax(".formEditActu", "{{ path('blog_intervenant_edit') }}");
+	</script>
+{% endblock %}
