@@ -22,7 +22,9 @@ use Symfony\Component\Serializer\Serializer;
 class BookingAdminController extends Controller
 {
 
-
+    /**
+     * @return Response
+     */
     public function listAllLieuxAction(){
         $em = $this->getDoctrine()->getManager();
 
@@ -307,6 +309,10 @@ class BookingAdminController extends Controller
 	    return $response;
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     */
     public function deletePlacesAction(Request $request)
     {
         if ($request->isXmlHttpRequest())

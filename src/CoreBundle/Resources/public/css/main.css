@@ -25,7 +25,7 @@
     4.NOUS
 \*----------------------------------------*/
 /*----------------------------------------*\
-    5.ACTUALITES
+    5.ACTUALITES & INTERVENANTS
 \*----------------------------------------*/
 /*----------------------------------------*\
     6.EVENTS
@@ -40,14 +40,14 @@
     9.FOOTER
 \*----------------------------------------*/
 /* FONT */
-/* line 52, ../scss/_global.scss */
+/* line 51, ../scss/_global.scss */
 .title_categories {
   text-align: left;
   font-size: 3em;
   color: #80cbc4;
 }
 
-/* line 58, ../scss/_global.scss */
+/* line 57, ../scss/_global.scss */
 h3 {
   color: white;
   font-size: 60px;
@@ -56,13 +56,13 @@ h3 {
 /* VARIABLES */
 /* MIXING */
 /* GLOBAL */
-/* line 74, ../scss/_global.scss */
+/* line 73, ../scss/_global.scss */
 p {
   line-height: 2rem;
   text-align: justify;
 }
 
-/* line 79, ../scss/_global.scss */
+/* line 78, ../scss/_global.scss */
 .home_all {
   width: 100%;
   height: 0;
@@ -75,7 +75,7 @@ p {
   text-align: center;
 }
 
-/* line 92, ../scss/_global.scss */
+/* line 91, ../scss/_global.scss */
 .fleche_img {
   background-color: rgba(0, 0, 0, 0.5);
   width: 50px;
@@ -86,7 +86,7 @@ p {
   border-radius: 25px 0 0 25px;
 }
 
-/* line 102, ../scss/_global.scss */
+/* line 101, ../scss/_global.scss */
 .fleche_img:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
@@ -94,7 +94,7 @@ p {
 /*----------------------------------------*\
     BUTTON MENU
 \*----------------------------------------*/
-/* line 108, ../scss/_global.scss */
+/* line 107, ../scss/_global.scss */
 .row .col.s1 {
   font-weight: bold;
   font-size: large;
@@ -102,7 +102,7 @@ p {
   right: inherit;
 }
 
-/* line 116, ../scss/_global.scss */
+/* line 115, ../scss/_global.scss */
 .menu-btn {
   position: absolute;
   margin-left: auto;
@@ -117,7 +117,7 @@ p {
   border-radius: 50%;
 }
 
-/* line 131, ../scss/_global.scss */
+/* line 130, ../scss/_global.scss */
 .menu-btn:hover {
   background-color: rgba(0, 0, 0, 0.1);
   height: 55px;
@@ -125,7 +125,7 @@ p {
   transition: .5s;
 }
 
-/* line 137, ../scss/_global.scss */
+/* line 136, ../scss/_global.scss */
 .menu_text {
   margin: 50px auto 0px -13px;
   color: black;
@@ -138,7 +138,7 @@ p {
   letter-spacing: 0px;
 }
 
-/* line 149, ../scss/_global.scss */
+/* line 148, ../scss/_global.scss */
 .menu-btn:hover .menu_text {
   transition: .5s;
   color: #00a248;
@@ -146,20 +146,20 @@ p {
   letter-spacing: 2px;
 }
 
-/* line 155, ../scss/_global.scss */
+/* line 154, ../scss/_global.scss */
 .btn_menu_index {
   width: 100px !important;
   height: 100px !important;
 }
 
-/* line 159, ../scss/_global.scss */
+/* line 158, ../scss/_global.scss */
 .btn_menu_index:hover {
   height: 110px !important;
   width: 110px !important;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* line 164, ../scss/_global.scss */
+/* line 163, ../scss/_global.scss */
 .menu-btn:hover .menu_text_index {
   transition: .5s;
   color: #00a248;
@@ -167,14 +167,14 @@ p {
   letter-spacing: 2px;
 }
 
-/* line 170, ../scss/_global.scss */
+/* line 169, ../scss/_global.scss */
 .menu_text_index {
   margin: 100px auto 0px -66px;
   width: 100px;
   font-size: 36px;
 }
 
-/* line 176, ../scss/_global.scss */
+/* line 175, ../scss/_global.scss */
 html > body .menu-btn {
   position: fixed;
 }
@@ -182,51 +182,51 @@ html > body .menu-btn {
 /*----------------------------------------*\
     PARALLAX
 \*----------------------------------------*/
-/* line 195, ../scss/_global.scss */
+/* line 194, ../scss/_global.scss */
 .button-collapse {
   color: #26a69a;
 }
 
-/* line 199, ../scss/_global.scss */
+/* line 198, ../scss/_global.scss */
 .parallax-container {
   height: auto;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* line 204, ../scss/_global.scss */
+/* line 203, ../scss/_global.scss */
 .parallax-container .section {
   width: 100%;
 }
 
 @media only screen and (max-width: 992px) {
-  /* line 209, ../scss/_global.scss */
+  /* line 208, ../scss/_global.scss */
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
 
-  /* line 214, ../scss/_global.scss */
+  /* line 213, ../scss/_global.scss */
   #index-banner .section {
     top: 10%;
   }
 }
 @media only screen and (max-width: 600px) {
-  /* line 221, ../scss/_global.scss */
+  /* line 220, ../scss/_global.scss */
   #index-banner .section {
     top: 0;
   }
 }
-/* line 226, ../scss/_global.scss */
+/* line 225, ../scss/_global.scss */
 .icon-block {
   padding: 0 15px;
 }
 
-/* line 230, ../scss/_global.scss */
+/* line 229, ../scss/_global.scss */
 .icon-block .material-icons {
   font-size: inherit;
 }
 
-/* line 234, ../scss/_global.scss */
+/* line 233, ../scss/_global.scss */
 footer.page-footer {
   margin: 0;
 }
@@ -234,7 +234,7 @@ footer.page-footer {
 /*----------------------------------------*\
      CARDS HOVER
 \*----------------------------------------*/
-/* line 244, ../scss/_global.scss */
+/* line 243, ../scss/_global.scss */
 .block_text_card_picture {
   background-color: rgba(255, 255, 255, 0);
   min-height: 100%;
@@ -242,13 +242,13 @@ footer.page-footer {
   transition: .5s;
 }
 
-/* line 250, ../scss/_global.scss */
+/* line 249, ../scss/_global.scss */
 .card_picture:hover .block_text_card_picture {
   background-color: rgba(255, 255, 255, 0.4);
   transition: .5s;
 }
 
-/* line 254, ../scss/_global.scss */
+/* line 253, ../scss/_global.scss */
 .text_card_picture {
   opacity: 0;
   transition: .5s;
@@ -259,32 +259,32 @@ footer.page-footer {
   color: black !important;
 }
 
-/* line 263, ../scss/_global.scss */
+/* line 262, ../scss/_global.scss */
 .big_text_card_picture {
   top: 38%;
   font-size: 30px;
   font-weight: 300;
 }
 
-/* line 268, ../scss/_global.scss */
+/* line 267, ../scss/_global.scss */
 .medium_text_card_picture {
   font-size: 20px;
   font-weight: 500;
   top: 40%;
 }
 
-/* line 273, ../scss/_global.scss */
+/* line 272, ../scss/_global.scss */
 .card_picture:hover .text_card_picture {
   opacity: 1;
   transition: .5s;
 }
 
-/* line 277, ../scss/_global.scss */
+/* line 276, ../scss/_global.scss */
 .event_parallax {
   min-height: 50px;
 }
 
-/* line 280, ../scss/_global.scss */
+/* line 279, ../scss/_global.scss */
 .h2_events {
   text-align: center;
 }
@@ -292,14 +292,14 @@ footer.page-footer {
 /*----------------------------------------*\
     NAVIGATION PRODUCT, EVENT, ACTIVITE
 \*----------------------------------------*/
-/* line 286, ../scss/_global.scss */
+/* line 285, ../scss/_global.scss */
 .products_navigation {
   position: fixed;
   margin-top: 20vh;
   z-index: 2;
 }
 
-/* line 291, ../scss/_global.scss */
+/* line 290, ../scss/_global.scss */
 .nav_word {
   display: block;
   margin-top: 10px;
@@ -311,7 +311,7 @@ footer.page-footer {
   color: white;
 }
 
-/* line 301, ../scss/_global.scss */
+/* line 300, ../scss/_global.scss */
 .nav_word:hover {
   transition: .3s;
   background-color: rgba(0, 0, 0, 0.7);
@@ -843,30 +843,36 @@ Responsive Menu Nav
    PARALAX
   ----------------------------------------*/
   /*----------------------------------------
-   XXX
+   Css Cards
   ----------------------------------------*/
 }
-/* line 6, ../scss/_blog.scss */
+/* line 7, ../scss/_blog.scss */
 #blog .header_blog {
   min-height: 170px;
 }
-/* line 11, ../scss/_blog.scss */
+/* line 12, ../scss/_blog.scss */
 #blog .parallax-container {
   min-height: 30px;
 }
-/* line 18, ../scss/_blog.scss */
+/* line 20, ../scss/_blog.scss */
 #blog .card_picture {
+  margin-top: 15px;
   height: 350px;
 }
-/* line 22, ../scss/_blog.scss */
+/* line 26, ../scss/_blog.scss */
 #blog .card {
   margin-top: 50px;
   margin-bottom: 30px;
   height: 500px;
 }
-/* line 28, ../scss/_blog.scss */
+/* line 33, ../scss/_blog.scss */
 #blog .form_add {
   color: black;
+}
+/* line 37, ../scss/_blog.scss */
+#blog .title_empty {
+  color: greenyellow;
+  text-align: center;
 }
 
 /*----------------------------------------*\
@@ -1024,7 +1030,7 @@ Responsive Menu Nav
 #products .index_btn {
   z-index: 1;
 }
-/* line 40, ../scss/_products.scss */
+/* line 43, ../scss/_products.scss */
 #products .card-title {
   font-size: 17px !important;
 }

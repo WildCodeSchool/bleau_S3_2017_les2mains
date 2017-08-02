@@ -1,3 +1,5 @@
+# Routing Intervenants Page
+
 # List all actu and add one
 blog_actu:
     path:     /actu
@@ -24,8 +26,7 @@ blog_actu_editValide:
 
 
 
-
-
+# Routing Intervenants Page
 
 # List all speaker
 blog_intervenant:
@@ -33,18 +34,19 @@ blog_intervenant:
     defaults: {_controller: BlogBundle:Intervenant:index }
     methods: ['GET', 'POST']
 
-
+# Delete One speaker
 blog_intervenant_delete:
     path:     /{id}/intervenant/delete
     defaults: {_controller: BlogBundle:Intervenant:delete }
     requirements:
         id: '\d+'
 
+
 blog_intervenant_edit:
     path: /editIntervenant
     defaults: { _controller: BlogBundle:Intervenant:editIntervenant}
 
-
+# Edit One speaker
 blog_intervenant_editValide:
     path:     /{id}/intervenant/edit
     defaults: {_controller: BlogBundle:Intervenant:validEdit }
