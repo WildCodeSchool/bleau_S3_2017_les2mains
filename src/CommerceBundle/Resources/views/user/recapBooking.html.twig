@@ -26,14 +26,14 @@
                     <tr>
                         <th class="col_table"></th>
 						{% for name, value in recaps|first %}
-                            <th class="col_table">{{ name }}</th>
+                            <th class="col_table">{{ name|capitalize }}</th>
 						{% endfor %}
                     </tr>
                     </thead>
                     <tbody>
 					{% for productName, products in recaps %}
                         <tr>
-                            <th class="col_table">{{ productName }}</th>
+                            <th class="col_table">{{ productName|capitalize }}</th>
 							{% for qt in products %}
                                 <td class="col_table">{{ qt.quantiteCommande|default('0') }}</td>
 							{% endfor %}

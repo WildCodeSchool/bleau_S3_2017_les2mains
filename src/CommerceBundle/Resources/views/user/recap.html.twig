@@ -5,7 +5,7 @@
 		<div class="parallax-container">
 			<div class="parallax"><img src="{{ asset('bundles/core/img/background/topparalax.jpg') }}" style="min-width: 100vh;min-height: 100%;max-width: 100%;"></div>
 			<div class="section header">
-				<h3 class="header center title">{{ panier.nom }} {{ panier.prenom }}</h3>
+				<h3 class="header center title">{{ panier.nom|capitalize ~ ' ' ~ panier.prenom|capitalize }}</h3>
 			</div>
 		</div>
 		<div class="container">
@@ -21,7 +21,7 @@
 					<tbody>
 					{% for prod in panier.selectProduit %}
 						<tr>
-							<td>{{ prod.name }}</td>
+							<td>{{ prod.name|capitalize }}</td>
 							<td>{{ prod.quantiteCommande }}</td>
 							<td>{{ prod.prixTotal }} €</td>
 						</tr>

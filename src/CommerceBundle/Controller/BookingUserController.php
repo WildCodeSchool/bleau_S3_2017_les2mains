@@ -12,6 +12,7 @@ use CommerceBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Serializer\Encoder\CsvEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -45,6 +46,39 @@ class BookingUserController extends Controller
         ));
     }
 
+    public function checkIfUserExistForOneEventAction(Request $request)
+    {
+    	if ($request->isXmlHttpRequest()){
+		    // Check if user exist
+		    $prenom = strtolower($request->request->get('prenom'));
+		    $nom = strtolower($request->request->get('nom'));
+		    $id = $request->request->get('idEvent');
+
+		    $em = $this->getDoctrine()->getManager();
+		    $event = $em->getRepository(Evenement::class)->findOneById($id);
+		    $existingUser = $em->getRepository(User::class)->findOneBy(array(
+			    'prenom' => $prenom,
+			    'nom' => $nom,
+			    'evenement' => $event
+	        ));
+
+		    $existing = $existingUser != null ? 1 : 0;
+
+		    $panier = array(
+		    	'nom' => $nom,
+			    'prenom' => $prenom
+		    );
+
+		    $session = $request->getSession();
+		    $session->set('panier', $panier);
+
+		    return new Response($existing);
+
+	    }
+
+	    throw new NotFoundHttpException('Sorry not existing!');
+    }
+
     /**
      * Create basket
      * @param Request $request
@@ -53,7 +87,6 @@ class BookingUserController extends Controller
      */
     public function bookingAction(Request $request, $id)
     {
-        // TODO: Request by event for order by
         $em = $this->getDoctrine()->getManager();
 
         $user = new User();
@@ -89,12 +122,12 @@ class BookingUserController extends Controller
 
         if ($formUser->isSubmitted() && $formUser->isValid())
         {
-            // Création d'un tableau qui correspondant à notre panier, les champs déclarer dans le tableau correspondent aux attributs de la class User et SelectProduit
-            $panier = array(
-                'nom' => $user->getNom(),
-                'prenom' => $user->getPrenom(),
-                'selectProduit' => array()
-            );
+	        // Je récupère la session utilisateur
+	        $session = $request->getSession();
+	        $panier = $session->get('panier');
+
+	        $panier['selectProduit'] = array();
+
             // Pour chaque produit selectionner par le user, je récupère les informations (prix, quantités, idProduit) et les stock dans mon panier
             foreach ($user->getSelectProduits() as $key => $selectProduit)
             {
@@ -124,18 +157,21 @@ class BookingUserController extends Controller
             // Ma session se comporte comme un tableau associatif, donc à l'index panier, je stock ma variable $panier qui représente le contenu de mon panier (produits selectionnés par l'utilisateur)
             $session->set('panier', $panier);
 
+
             // Je retourne à la vue 'Recap' mon panier ($user) afin que le user puisse valider son panier
             return $this->render('@Commerce/user/recap.html.twig', array(
-                'panier' => $session->get('panier'),
+                'panier' => $panier,
                 'evenement' => $evenement,
             ));
         }
+
         // Sinon retour à la vue de notre formulaire
         return $this->render('@Commerce/user/booking.html.twig', array(
             'marchandise' => $marchandises,
             'evenement' => $evenement,
             'categories'=> $categories,
-            'formUser' => $formUser->createView()
+            'formUser' => $formUser->createView(),
+	        'user' => $user
         ));
 
     }

@@ -45,6 +45,10 @@ list_evenementAction:
     path: /evenement
     defaults: {_controller: CommerceBundle:BookingUser:listEvenenement}
 
+check_if-user_exist:
+    path: /checkUser
+    defaults: {_controller: CommerceBundle:BookingUser:checkIfUserExistForOneEvent}
+
 booking:
     path: /{id}/booking
     defaults: {_controller: CommerceBundle:BookingUser:booking}
