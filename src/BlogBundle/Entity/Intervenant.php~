@@ -3,19 +3,12 @@
 namespace BlogBundle\Entity;
 
 /**
- * Article
+ * Intervenant
  */
-class Article
+class Intervenant
 {
-    public function __construct()
-    {
-        $this->date = new \DateTime('now');
-    }
-
-    //generate code
-   
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -39,16 +32,11 @@ class Article
      */
     private $lien;
 
-    /**
-     * @var \CoreBundle\Entity\Picture
-     */
-    private $picture;
-
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -60,7 +48,7 @@ class Article
      *
      * @param string $titre
      *
-     * @return Article
+     * @return Intervenant
      */
     public function setTitre($titre)
     {
@@ -84,7 +72,7 @@ class Article
      *
      * @param string $contenu
      *
-     * @return Article
+     * @return Intervenant
      */
     public function setContenu($contenu)
     {
@@ -108,7 +96,7 @@ class Article
      *
      * @param \DateTime $date
      *
-     * @return Article
+     * @return Intervenant
      */
     public function setDate($date)
     {
@@ -132,7 +120,7 @@ class Article
      *
      * @param string $lien
      *
-     * @return Article
+     * @return Intervenant
      */
     public function setLien($lien)
     {
@@ -150,13 +138,18 @@ class Article
     {
         return $this->lien;
     }
+    /**
+     * @var \CoreBundle\Entity\Picture
+     */
+    private $picture;
+
 
     /**
      * Set picture
      *
      * @param \CoreBundle\Entity\Picture $picture
      *
-     * @return Article
+     * @return Intervenant
      */
     public function setPicture(\CoreBundle\Entity\Picture $picture = null)
     {

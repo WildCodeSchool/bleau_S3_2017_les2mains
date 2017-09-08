@@ -1,4 +1,5 @@
-#blog{
+#blog
+{
 
   /*----------------------------------------
    PARALAX
@@ -8,26 +9,35 @@
     min-height: 170px;
   }
 
-  .parallax-container {
+  .parallax-container
+  {
     min-height: 30px;
   }
 
   /*----------------------------------------
-   XXX
+   Css Cards
   ----------------------------------------*/
-  .card_picture {
+  .card_picture
+  {
+    margin-top: 15px;
     height: 350px;
   }
 
   .card{
+
     margin-top: 50px;
     margin-bottom: 30px;
     height: 500px;
   }
 
-  .form_add {
+  .form_add
+  {
     color: black;
   }
-
+  .title_empty
+  {
+    color:greenyellow;
+    text-align: center;
+  }
 
 }

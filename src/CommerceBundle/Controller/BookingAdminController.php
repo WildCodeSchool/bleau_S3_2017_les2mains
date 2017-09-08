@@ -22,7 +22,9 @@ use Symfony\Component\Serializer\Serializer;
 class BookingAdminController extends Controller
 {
 
-
+    /**
+     * @return Response
+     */
     public function listAllLieuxAction(){
         $em = $this->getDoctrine()->getManager();
 
@@ -307,6 +309,10 @@ class BookingAdminController extends Controller
 	    return $response;
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     */
     public function deletePlacesAction(Request $request)
     {
         if ($request->isXmlHttpRequest())
@@ -319,7 +325,7 @@ class BookingAdminController extends Controller
             $em->remove($place);
             $em->flush();
 
-            return new Response('Le Lieu ' . $place->getNom() . ' ainsi que toutes ses ventes ont bien été supprimés');
+            return new Response('Le Lieu ' . $place->getNom() . ' à bien été supprimé');
         }
 
         return new Response('Une erreur est survenue, veuillez réessayer');
