@@ -88,6 +88,7 @@ class BookingAdminController extends Controller
 	 */
 	public function editBookingAction(Request $request, Evenement $evenement)
 	{
+		$eventDate = $evenement->getDate();
 		//Création des formulaires dans la vue Admin add_Booking
 		$marchandise = new Marchandise();
 		$formEvent = $this->createForm(EvenementType::class, $evenement);
@@ -97,6 +98,14 @@ class BookingAdminController extends Controller
 		if ($request->isXmlHttpRequest())
 		{
 			$em = $this ->getDoctrine()->getManager();
+
+			if ($evenement->getDate() != $eventDate){
+				$users = $em->getRepository(User::class)->findByEvenement($evenement);
+				foreach ($users as $user){
+					$em->remove($user);
+				}
+			}
+
 			$em->persist($evenement);
 			$em->flush();
 

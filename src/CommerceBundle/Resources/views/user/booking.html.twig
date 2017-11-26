@@ -64,9 +64,9 @@
 									<td class="col m2 col_table">{{ marchandise.prix }}</td>
 									<td class="col m2 col_table">{{ marchandise.quantite }}</td>
 									<td class="col m2 col_table">{{ marchandise.unite }}</td>
-									<td class="col m2 col_table">
+									<td class="col m2 col_table selectedProductQuantity">
                                         {% if marchandise.quantite > 0 %}
-                                            {{ form_widget(formUser.selectProduits[key].quantiteCommande, {'attr': {'max': marchandise.quantite, 'min': 0 }}) }}
+                                            {{ form_widget(formUser.selectProduits[key].quantiteCommande, {'attr': {'class': 'max_product', 'max': marchandise.quantite, 'min': 0 }}) }}
                                         {% else %}
                                             {{ form_widget(formUser.selectProduits[key].quantiteCommande, {'attr': {'disabled': true, 'placeholder': 'Epuisé' }}) }}
                                         {% endif %}
@@ -116,7 +116,14 @@
 	<script>
 		$("#productReservation").hide();
 
-		$("#validationUser").click(function (e) {
+        $('.max_product').on('change', function(e){
+            if($(this).val() > $(this).attr('max')){
+                Materialize.toast('Veuillez saisir une quantité valide', 4000)
+                $(this).val("");
+            }
+        });
+
+        $("#validationUser").click(function (e) {
 			e.preventDefault();
 
 			var nom = $("#commercebundle_user_nom").val();
