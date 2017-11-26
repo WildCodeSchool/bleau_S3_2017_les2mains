@@ -141,8 +141,8 @@ p {
 /* line 148, ../scss/_global.scss */
 .menu-btn:hover .menu_text {
   transition: .5s;
-  color: #00a248;
-  margin: 50px auto 0px -11px;
+  color: black;
+  margin: 55px auto 0px -11px;
   letter-spacing: 2px;
 }
 
