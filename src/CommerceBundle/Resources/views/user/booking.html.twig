@@ -117,7 +117,7 @@
 		$("#productReservation").hide();
 
         $('.max_product').on('change', function(e){
-            if($(this).val() > $(this).attr('max')){
+            if(parseInt($(this).val()) > $(this).attr('max')){
                 Materialize.toast('Veuillez saisir une quantité valide', 4000)
                 $(this).val("");
             }
